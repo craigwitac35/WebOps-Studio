@@ -1,0 +1,22 @@
+[
+  {
+    "src": "images/gallery/project1.jpg",
+    "caption": "Guardian 4 Heroes Website Design"
+  },
+  {
+    "src": "images/gallery/project2.jpg",
+    "caption": "Minimalist Landing Page Concept"
+  },
+  {
+    "src": "images/gallery/project3.jpg",
+    "caption": "Responsive E-commerce Product Layout"
+  },
+  {
+    "src": "images/gallery/project_construction.jpg",
+    "caption": "Construction Business Website Mockup"
+  },
+  {
+    "src": "images/gallery/local_cafe.jpg",
+    "caption": "Local Cafe Website Redesign"
+  }
+]
