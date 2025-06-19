@@ -113,6 +113,38 @@ section {
     line-height: 1.7;
 }
 
+/* Specific Brand Elements */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF; /* Makes "WEB" and "STUDIO" white by default */
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.logo .highlight {
+    color: #3B1E6D; /* Overrides the color for text inside the span to Deep Purple */
+}
+
+.logo .tagline {
+    font-size: 0.8rem;
+    color: #c3b9d9;
+    letter-spacing: 0.02em;
+    margin-top: 5px;
+}
+
+/* NEW RULE FOR H1 HIGHLIGHT - PLACE IT HERE */
+.h1-highlight {
+    color: #3B1E6D; /* Deep Purple for the highlighted part of the H1 */
+}
 /* ========================================================================= */
 /* == BUTTONS & CALLS TO ACTION (CTAs) ===================================== */
 /* ========================================================================= */
