@@ -19,7 +19,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald', sans-serif; /* Headings: bold, all-caps, stylized */
-    color: #FFFFFF;
+    color: #FFFFFF; /* Default heading color, overridden where specified */
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: 0;
@@ -167,7 +167,7 @@ section {
     margin-top: 5px;
 }
 
-/* --- Header & Navigation --- */
+/* --- Header & Navigation ---  */
 header {
     background-color: #000000; /* Black background */
     padding: 20px 0;
@@ -332,7 +332,7 @@ header .container {
 }
 
 .mission-section h2 {
-    color: #3B1E6D; /* Deep purple for mission heading */
+    color: #3B1E6D; /* Changed to Deep Purple for accent */
     margin-bottom: 30px;
 }
 
@@ -393,7 +393,7 @@ header .container {
 }
 
 .services-snapshot-section h2 {
-    color: #3B1E6D;
+    color: #3B1E6D; /* Changed to Deep Purple for accent */
     margin-bottom: 50px;
 }
 
@@ -433,7 +433,7 @@ header .container {
 }
 
 .testimonials-section h2 {
-    color: #c3b9d9;
+    color: #3B1E6D; /* Changed to Deep Purple for accent */
     margin-bottom: 40px;
 }
 
@@ -473,7 +473,7 @@ header .container {
 
 .faq-section h2 {
     text-align: center;
-    color: #3B1E6D;
+    color: #3B1E6D; /* Changed to Deep Purple for accent */
     margin-bottom: 50px;
 }
 
@@ -566,7 +566,7 @@ footer {
     margin-bottom: 40px;
 }
 .about-section h2 {
-    color: #3B1E6D; /* Deep purple for subheadings */
+    color: #3B1E6D; /* Changed to Deep Purple for accent */
     margin-top: 40px;
     margin-bottom: 20px;
 }
@@ -707,7 +707,7 @@ footer {
 }
 
 .project-card-detailed h2 {
-    color: #3B1E6D;
+    color: #3B1E6D; /* Already Deep Purple, no change needed for this specific rule */
     font-size: 2.5rem;
     margin-bottom: 15px;
     text-align: left;
