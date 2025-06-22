@@ -334,17 +334,17 @@ header .container {
 .hero-section {
     background-color: #000000; /* Keep a solid background */
     text-align: center;
-    padding: 60px 0; /* Adjust padding, actual content will add height */
+    padding: 60px 0; /* Base padding */
     display: flex;
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 70vh; /* Give it enough space */
+    min-height: 70vh; /* Ensure enough space */
     position: relative;
     overflow: hidden;
 }
 
-/* Removed the background image from ::before, added a subtle gradient overlay */
+/* Optional: Add a subtle background image here if desired, otherwise a solid color */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -352,30 +352,32 @@ header .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)); /* Subtle gradient overlay */
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)); /* Lighter gradient for graphic to stand out */
+    /* If you have a general background image for the hero, put it here: */
+    /* background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../images/subtle_background_pattern.jpg') no-repeat center center/cover; */
     z-index: 0; /* Keep it behind content */
 }
 
-/* Style for the new foreground banner image */
-.hero-banner-image {
-    max-width: 90%; /* Adjust max-width to fit within container */
-    width: 800px; /* Optimal width for the banner itself on larger screens */
-    height: auto;
-    margin-bottom: 40px; /* Space below the banner image */
-    z-index: 1; /* Ensure it's above the ::before pseudo-element */
-    border-radius: 8px; /* Optional: slight rounding */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Optional: add a subtle shadow */
-}
-
-
 .hero-section .container {
     position: relative;
-    z-index: 2; /* Ensure container content is above background and banner */
+    z-index: 1; /* Ensure container content is above the ::before overlay */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+/* Style for the new prominent eagle graphic */
+.hero-graphic-banner {
+    max-width: 800px; /* Max width for desktop to control size */
+    width: 90%; /* Responsive width for smaller screens */
+    height: auto;
+    margin-bottom: 50px; /* Space below the graphic banner */
+    margin-top: 20px; /* Space above the graphic banner */
+    display: block; /* Ensures it acts like a block element for margins */
+    border-radius: 8px; /* Slight rounding for polished look */
+    box-shadow: 0 5px 25px rgba(59, 30, 109, 0.4); /* Subtle glow effect */
 }
 
 .hero-section h1 {
@@ -496,7 +498,6 @@ header .container {
     font-size: 0.95rem;
     color: #FFFFFF;
 }
-
 /* ========================================================================= */
 /* == ABOUT PAGE SECTIONS (about.html) ===================================== */
 /* ========================================================================= */
