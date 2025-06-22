@@ -350,7 +350,7 @@ header .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/hero_background.jpg') no-repeat center center/cover; /* Placeholder background image */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/Hero banner-image_20250622_094324_0000.png') no-repeat center center/cover; /* UPDATED BACKGROUND IMAGE PATH */
     z-index: 1;
 }
 
@@ -375,6 +375,107 @@ header .container {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Mission Statement Section */
+.mission-section {
+    background-color: #1a1a1a; /* Slightly lighter black for contrast */
+    text-align: center;
+}
+
+.mission-section h2 {
+    color: #3B1E6D; /* Deep Purple for accent */
+    margin-bottom: 30px;
+}
+
+/* Featured Projects Section */
+.projects-section {
+    background-color: #000000;
+}
+
+.projects-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #3B1E6D;
+}
+
+.project-card h3 {
+    color: #c3b9d9;
+    margin: 20px 20px 10px;
+}
+
+.project-card p {
+    color: #FFFFFF;
+    padding: 0 20px;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Allows paragraph to take available space */
+}
+
+.project-card .btn {
+    margin: 20px;
+}
+
+/* Services Snapshot Section */
+.services-snapshot-section {
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+.services-snapshot-section h2 {
+    color: #3B1E6D; /* Deep Purple for accent */
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.service-item {
+    background-color: #000000;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h3 {
+    color: #c3b9d9;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 0.95rem;
+    color: #FFFFFF;
 }
 
 /* Mission Statement Section */
