@@ -332,17 +332,19 @@ header .container {
 
 /* Hero Section */
 .hero-section {
-    background-color: #000000;
+    background-color: #000000; /* Keep a solid background */
     text-align: center;
-    padding: 120px 0; /* More padding for hero */
+    padding: 60px 0; /* Adjust padding, actual content will add height */
     display: flex;
+    flex-direction: column; /* Stack children vertically */
     align-items: center;
     justify-content: center;
-    min-height: 60vh; /* Make hero section take up a good portion of viewport height */
+    min-height: 70vh; /* Give it enough space */
     position: relative;
-    overflow: hidden; /* Hide overflow for any potential background effects */
+    overflow: hidden;
 }
 
+/* Removed the background image from ::before, added a subtle gradient overlay */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -350,13 +352,30 @@ header .container {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('../images/Hero banner-image_20250622_094324_0000.png') no-repeat center center/cover; /* UPDATED BACKGROUND IMAGE PATH */
-    z-index: 1;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)); /* Subtle gradient overlay */
+    z-index: 0; /* Keep it behind content */
 }
+
+/* Style for the new foreground banner image */
+.hero-banner-image {
+    max-width: 90%; /* Adjust max-width to fit within container */
+    width: 800px; /* Optimal width for the banner itself on larger screens */
+    height: auto;
+    margin-bottom: 40px; /* Space below the banner image */
+    z-index: 1; /* Ensure it's above the ::before pseudo-element */
+    border-radius: 8px; /* Optional: slight rounding */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Optional: add a subtle shadow */
+}
+
 
 .hero-section .container {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure container content is above background and banner */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .hero-section h1 {
@@ -375,107 +394,6 @@ header .container {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-}
-
-/* Mission Statement Section */
-.mission-section {
-    background-color: #1a1a1a; /* Slightly lighter black for contrast */
-    text-align: center;
-}
-
-.mission-section h2 {
-    color: #3B1E6D; /* Deep Purple for accent */
-    margin-bottom: 30px;
-}
-
-/* Featured Projects Section */
-.projects-section {
-    background-color: #000000;
-}
-
-.projects-section h2 {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.project-card {
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.project-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 1px solid #3B1E6D;
-}
-
-.project-card h3 {
-    color: #c3b9d9;
-    margin: 20px 20px 10px;
-}
-
-.project-card p {
-    color: #FFFFFF;
-    padding: 0 20px;
-    font-size: 0.95rem;
-    flex-grow: 1; /* Allows paragraph to take available space */
-}
-
-.project-card .btn {
-    margin: 20px;
-}
-
-/* Services Snapshot Section */
-.services-snapshot-section {
-    background-color: #1a1a1a;
-    text-align: center;
-}
-
-.services-snapshot-section h2 {
-    color: #3B1E6D; /* Deep Purple for accent */
-    margin-bottom: 50px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.service-item {
-    background-color: #000000;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.service-item:hover {
-    transform: translateY(-5px);
-}
-
-.service-item h3 {
-    color: #c3b9d9;
-    margin-bottom: 10px;
-}
-
-.service-item p {
-    font-size: 0.95rem;
-    color: #FFFFFF;
 }
 
 /* Mission Statement Section */
@@ -1127,8 +1045,14 @@ footer {
 
     /* Hero Section Adjustments */
     .hero-section {
-        padding: 80px 0;
-        min-height: auto;
+        padding: 40px 0; /* Reduced padding */
+        min-height: auto; /* Let content dictate height */
+    }
+
+    .hero-banner-image {
+        max-width: 95%; /* Adjust for smaller screens */
+        width: 100%; /* Take full width on small screens */
+        margin-bottom: 20px; /* Less space on mobile */
     }
 
     .hero-section h1 {
