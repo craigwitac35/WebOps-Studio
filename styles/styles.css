@@ -353,8 +353,6 @@ header .container {
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)); /* Lighter gradient for graphic to stand out */
-    /* If you have a general background image for the hero, put it here: */
-    /* background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('../images/subtle_background_pattern.jpg') no-repeat center center/cover; */
     z-index: 0; /* Keep it behind content */
 }
 
@@ -368,18 +366,19 @@ header .container {
     width: 100%;
 }
 
-/* Style for the new prominent eagle graphic */
+/* Style for the prominent hero graphic (full width) */
 .hero-graphic-banner {
-    max-width: 800px; /* Max width for desktop to control size */
-    width: 90%; /* Responsive width for smaller screens */
+    width: 100vw;
+    max-width: 100vw;
     height: auto;
-    margin-bottom: 50px; /* Space below the graphic banner */
-    margin-top: 20px; /* Space above the graphic banner */
-    display: block; /* Ensures it acts like a block element for margins */
-    border-radius: 8px; /* Slight rounding for polished look */
-    box-shadow: 0 5px 25px rgba(59, 30, 109, 0.4); /* Subtle glow effect */
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 50px;
+    margin-top: 0;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
 }
-
 .hero-section h1 {
     font-size: 3.5rem; /* Larger for hero */
     margin-bottom: 20px;
