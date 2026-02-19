@@ -1738,3 +1738,110 @@ footer {
   .contact-form-container, .direct-contact-info { padding: 28px; }
   .radio-group { flex-direction: column; gap: 12px; }
 }
+
+/* =========================================================================
+   HERO v2 — Background1.png + Header.png title frame
+   ========================================================================= */
+
+/* Full-bleed background image */
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+
+/* Gradient overlay: transparent top, darkens toward bottom
+   so the sections below don't clash with the image */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.10) 50%,
+    rgba(0,0,0,0.75) 85%,
+    rgba(7,7,12,1)   100%
+  );
+  z-index: 1;
+}
+
+/* Title frame container — Header.png is the frame, text sits inside */
+.hero-title-frame {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto 36px;
+  opacity: 0;
+  animation: fade-up 0.65s 0.25s forwards;
+}
+
+/* The frame image fills the container */
+.hero-frame-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Header.png aspect ratio: 1536/1024 = 3:2 */
+}
+
+/* Text overlay — absolutely centered inside the frame image */
+.hero-frame-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Header.png has light bars at ~30% and ~57% height
+     Center the text in the clear band between them */
+  padding: 28% 8% 20%;
+}
+
+.hero-headline {
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 10px;
+  line-height: 1.0;
+  /* Glow so it pops against the frame */
+  text-shadow:
+    0 0 30px rgba(195,185,217,0.6),
+    0 0 80px rgba(59,30,109,0.5);
+}
+
+.headline-ops {
+  color: #a855f7;
+  /* brighter purple to match the frame's light bars */
+  text-shadow:
+    0 0 20px rgba(168,85,247,0.9),
+    0 0 50px rgba(168,85,247,0.5);
+}
+
+.hero-frame-tagline {
+  font-family: var(--font-head);
+  font-size: clamp(0.7rem, 1.8vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-purple-lt);
+  margin: 0;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Mobile: shrink padding so text fits inside frame on small screens */
+@media (max-width: 600px) {
+  .hero-title-frame { max-width: 100%; }
+  .hero-frame-text {
+    padding: 26% 6% 18%;
+  }
+  .hero-headline { font-size: clamp(1.6rem, 8vw, 2.8rem); }
+  .hero-frame-tagline { font-size: clamp(0.55rem, 2.5vw, 0.8rem); letter-spacing: 0.12em; }
+}
