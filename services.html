@@ -1,153 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebOps Studio - Our Services: Custom Web Design, Landing Pages & More</title>
-    <meta name="description" content="Explore WebOps Studio's expert front-end web development services: custom website design, high-converting landing pages, website redesigns, and mobile optimization.">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — WebOps Studio</title>
+  <meta name="description" content="Custom website builds, landing pages, redesigns, mobile optimization, and integrations. Hand-coded front-end development in Minnesota.">
+  <meta property="og:title" content="Services — WebOps Studio">
+  <meta property="og:description" content="Custom website builds, landing pages, redesigns, mobile optimization, and integrations. Hand-coded front-end development.">
+  <meta property="og:image" content="images/Hero_bannerimage_20250622_094324_0000.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
-                <p class="tagline">Veteran-Built Front Ends</p>
-            </div>
-            <nav class="main-nav">
-                <button class="nav-toggle" aria-label="toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="gallery.html">Gallery</a></li> <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+
+<!-- ═══════════════════════════════════ HEADER -->
+<header id="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
+      <p class="tagline">Veteran-Built Front Ends</p>
+    </div>
+    <nav class="main-nav">
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-nav-cta">Start a Project</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════ PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label reveal">Services</div>
+    <h1 class="reveal">What I build.<br>How I build it.</h1>
+    <p class="intro-text reveal">Built for founders, small businesses, and nonprofits who need a real web presence — not a template. Every service is scoped, quoted, and delivered with a clear process and direct communication.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ SERVICES GRID -->
+<section class="services-page-section">
+  <div class="container">
+    <div class="services-grid-detailed">
+
+      <!-- 1. Custom Website Build -->
+      <article class="service-card-detailed reveal">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="8,10 12,14 16,10"/></svg>
         </div>
-    </header>
+        <h3>Custom Website Build</h3>
+        <p class="service-tagline">For businesses that need a complete, professional web presence built from scratch.</p>
 
-    <main>
-        <section id="our-services" class="services-page-section">
-            <div class="container">
-                <h1>Our Services</h1>
-                <p class="intro-text">These are the core services I offer through WebOps Studio. Each is built entirely from scratch — no templates, no shortcuts — and tailored to meet real client needs with clean, responsive, high-performance code.</p>
+        <h4>What's Included</h4>
+        <ul class="service-includes">
+          <li>Multi-page site (Home, About, Services, Contact + more as needed)</li>
+          <li>Custom design system — colors, typography, spacing</li>
+          <li>Mobile-first responsive layout, tested on all screen sizes</li>
+          <li>Contact form + basic integrations</li>
+          <li>GitHub Pages deployment or handoff to your host</li>
+          <li>1–2 rounds of revision included</li>
+        </ul>
 
-                <div class="services-grid-detailed">
-                    <article class="service-card-detailed">
-                        <h3>Custom Website Design</h3>
-                        <h4>What it is:</h4>
-                        <p>A fully custom, multi-page website built from scratch using HTML, CSS, and JavaScript.</p>
-                        <h4>Why clients need it:</h4>
-                        <p>Most templated websites are bloated, slow, or generic. You need a site that reflects your brand, works across devices, and loads fast — without relying on someone else's design.</p>
-                        <h4>How my approach is different:</h4>
-                        <p>I build every line of code by hand, optimizing for speed, structure, and simplicity. This means faster load times, less breakage, and easier long-term maintenance.</p>
-                        <h4>Client value:</h4>
-                        <p>A clean, one-of-a-kind website that looks sharp, runs fast, and stands out — because it's built for you, not mass-market use.</p>
-                    </article>
+        <h4>Best For</h4>
+        <p>Small businesses, freelancers, nonprofits, and personal brands that need a full site built right the first time.</p>
 
-                    <article class="service-card-detailed">
-                        <h3>Landing Pages</h3>
-                        <h4>What it is:</h4>
-                        <p>A high-converting, single-page website focused on one goal: getting users to take action (sign up, buy, donate, etc.).</p>
-                        <h4>Why clients need it:</h4>
-                        <p>Landing pages are crucial for campaigns, launches, or services that need targeted messaging. But a slow or cluttered landing page can kill conversions.</p>
-                        <h4>How my approach is different:</h4>
-                        <p>I design every layout and element with intention — fast-loading code, zero distractions, mobile-first structure, and a laser focus on the call-to-action.</p>
-                        <h4>Client value:</h4>
-                        <p>Higher engagement, more signups/sales, and full control over messaging — all without the noise of bloated platforms.</p>
-                    </article>
+        <h4>Typical Timeline</h4>
+        <p>2–4 weeks depending on scope and content availability.</p>
 
-                    <article class="service-card-detailed">
-                        <h3>Website Redesign & Cleanup</h3>
-                        <h4>What it is:</h4>
-                        <p>A full front-end refresh of your existing website, focusing on layout, usability, and performance.</p>
-                        <h4>Why clients need it:</h4>
-                        <p>If your current site looks outdated, loads slowly, or breaks on mobile — you’re losing visitors (and sales) every day.</p>
-                        <h4>How my approach is different:</h4>
-                        <p>Instead of patching over bad code, I rebuild it from the ground up using clean, modern standards. I audit your current site, identify pain points, and rebuild only what’s necessary.</p>
-                        <h4>Client value:</h4>
-                        <p>A faster, better-looking, more responsive version of your current site — one that users actually enjoy using.</p>
-                    </article>
+        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+      </article>
 
-                    <article class="service-card-detailed">
-                        <h3>Mobile Optimization</h3>
-                        <h4>What it is:</h4>
-                        <p>Custom restructuring and styling of your site to look and perform perfectly on all mobile devices.</p>
-                        <h4>Why clients need it:</h4>
-                        <p>Over 60% of web traffic is mobile — and if your site doesn’t work well on phones, you're losing most of your audience.</p>
-                        <h4>How my approach is different:</h4>
-                        <p>I code responsive breakpoints and adaptive layouts by hand — not relying on generic framework classes — so your site scales naturally across screen sizes.</p>
-                        <h4>Client value:</h4>
-                        <p>A mobile-first experience that improves accessibility, speed, and engagement — especially for users on the go.</p>
-                    </article>
-
-                    <article class="service-card-detailed">
-                        <h3>Contact & Form Integration</h3>
-                        <h4>What it is:</h4>
-                        <p>Custom-coded contact forms, message capture forms, and functional front-end integrations for user outreach.</p>
-                        <h4>Why clients need it:</h4>
-                        <p>You need more than just an email address on a page — forms create trust, streamline communication, and make it easier for clients or customers to reach you.</p>
-                        <h4>How my approach is different:</h4>
-                        <p>I design and code forms manually, ensuring they match your design, validate input properly, and can be wired up with your email or backend.</p>
-                        <h4>Client value:</h4>
-                        <p>A professional, working contact system that feels like part of your brand — not a clunky afterthought.</p>
-                    </article>
-
-                    <article class="service-card-detailed">
-                        <h3>Front-End Refactoring</h3>
-                        <h4>What it is:</h4>
-                        <p>An audit and cleanup of your current site’s front-end code, focusing on structure, performance, and scalability.</p>
-                        <h4>Why clients need it:</h4>
-                        <p>Over time, many sites become bloated and buggy. Refactoring is like tuning your engine — it keeps things clean, lean, and future-ready.</p>
-                        <h4>How my approach is different:</h4>
-                        <p>I don't just rearrange code — I strip out what you don't need, re-organize what you do, and rebuild logic in a way that makes sense. All done without breaking your current visual design.</p>
-                        <h4>Client value:</h4>
-                        <p>A leaner, faster site that’s easier to maintain, more SEO-friendly, and future-proofed for growth.</p>
-                    </article>
-                </div>
-
-                <div class="cta-bottom text-center">
-                    <p>Every project starts with a conversation. If you're ready to level up your site — or build one from the ground up — let’s talk.</p>
-                    <a href="contact.html" class="btn btn-primary">Let's Discuss Your Project</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
-                    <p class="tagline">Veteran-Built Front Ends</p>
-                </div>
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="gallery.html">Gallery</a></li> <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="footer-contact">
-                    <p>Email: <a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+13205226226">320-522-6226</a></p>
-                    <p>Location: MN, United States</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
-            </div>
+      <!-- 2. Landing Pages -->
+      <article class="service-card-detailed reveal" style="animation-delay:0.1s">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="9" y="9" width="7" height="12" rx="1"/><rect x="16" y="4" width="7" height="17" rx="1"/></svg>
         </div>
-    </footer>
+        <h3>Landing Pages</h3>
+        <p class="service-tagline">High-converting single-page sites built around one goal: getting visitors to act.</p>
 
-    <script src="js/scripts.js"></script>
+        <h4>What's Included</h4>
+        <ul class="service-includes">
+          <li>Single-page layout focused on your CTA</li>
+          <li>Copy structure guidance (headline, subhead, proof, CTA)</li>
+          <li>Fast load time — no bloat, no unnecessary scripts</li>
+          <li>Form or button integration (email capture, booking, etc.)</li>
+          <li>Mobile-optimized layout</li>
+          <li>1 round of revision included</li>
+        </ul>
+
+        <h4>Best For</h4>
+        <p>Product launches, service promotions, lead capture, event signups, or any campaign that needs a focused, standalone page.</p>
+
+        <h4>Typical Timeline</h4>
+        <p>3–7 business days.</p>
+
+        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+      </article>
+
+      <!-- 3. Redesign & Cleanup -->
+      <article class="service-card-detailed reveal" style="animation-delay:0.2s">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Redesign &amp; Cleanup</h3>
+        <p class="service-tagline">For existing sites that are outdated, slow, or broken on mobile.</p>
+
+        <h4>What's Included</h4>
+        <ul class="service-includes">
+          <li>Full audit of your current site's front-end code</li>
+          <li>Layout and visual redesign (as much or as little as needed)</li>
+          <li>Mobile and tablet responsiveness fixes</li>
+          <li>Performance improvements — image optimization, dead code removal</li>
+          <li>Preserved content, improved structure</li>
+          <li>1–2 rounds of revision</li>
+        </ul>
+
+        <h4>Best For</h4>
+        <p>Sites built on old templates or frameworks that look dated or don't work well on phones.</p>
+
+        <h4>Typical Timeline</h4>
+        <p>1–3 weeks depending on site complexity.</p>
+
+        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+      </article>
+
+      <!-- 4. Mobile Optimization -->
+      <article class="service-card-detailed reveal" style="animation-delay:0.3s">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>Performance &amp; Mobile Optimization</h3>
+        <p class="service-tagline">Fix a site that works on desktop but breaks on phones — or just runs too slow.</p>
+
+        <h4>What's Included</h4>
+        <ul class="service-includes">
+          <li>Responsive breakpoint audit and rebuild</li>
+          <li>Custom mobile layouts — not just scaled-down desktop</li>
+          <li>Image compression and lazy loading</li>
+          <li>Lighthouse score review + targeted fixes</li>
+          <li>Navigation and menu mobile behavior</li>
+          <li>Tap target and readability fixes</li>
+        </ul>
+
+        <h4>Best For</h4>
+        <p>Sites that lose visitors because the mobile experience is broken or slow.</p>
+
+        <h4>Typical Timeline</h4>
+        <p>3–7 business days.</p>
+
+        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+      </article>
+
+      <!-- 5. Integrations -->
+      <article class="service-card-detailed reveal" style="animation-delay:0.4s">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h3>Basic Integrations</h3>
+        <p class="service-tagline">Connect your site to the tools you already use — forms, payments, embeds.</p>
+
+        <h4>What's Included</h4>
+        <ul class="service-includes">
+          <li>Contact form wired to email (Formspree or similar)</li>
+          <li>PayPal or Stripe donation/payment buttons</li>
+          <li>Google Maps embed</li>
+          <li>Social media feed embeds</li>
+          <li>Calendly or booking tool embed</li>
+          <li>Basic analytics setup (Google Analytics or Plausible)</li>
+        </ul>
+
+        <h4>Best For</h4>
+        <p>Adding missing functionality to an existing site — or bundled into a new build.</p>
+
+        <h4>Typical Timeline</h4>
+        <p>1–3 business days as a standalone add-on.</p>
+
+        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+      </article>
+
+    </div>
+
+    <!-- Pricing note -->
+    <div class="pricing-note reveal">
+      <div class="pricing-note-inner">
+        <div class="pricing-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div>
+          <h3>How Pricing Works</h3>
+          <p>No fixed rate cards — every project is scoped and quoted individually based on what you actually need. I don't pad quotes and I don't surprise you mid-project. You'll get a clear breakdown before any work starts.</p>
+          <p>To get a quote, just tell me what you're building, your timeline, and your budget range. I'll tell you what's realistic.</p>
+          <a href="contact.html" class="link-arrow">
+            Get a Quote
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ CTA -->
+<section class="cta-section">
+  <div class="cta-bg" aria-hidden="true">
+    <div class="cta-glow"></div>
+    <div class="cta-grid"></div>
+  </div>
+  <div class="container cta-inner reveal">
+    <div class="section-label text-center">Next Step</div>
+    <h2>Every project starts with a conversation.</h2>
+    <p>Tell me what you're building. I'll tell you what it takes to build it right.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-primary">Let's Talk</a>
+      <a href="projects.html" class="btn btn-ghost">See the Work First</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo-link">WEB<span class="highlight">[OPS]</span> STUDIO</a>
+      <p class="footer-tagline">Veteran-Built Front Ends</p>
+      <p class="footer-desc">Precision code. Real results. Built by a U.S. Army veteran in Minnesota.</p>
+    </div>
+    <nav class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact-info">
+      <h4>Contact</h4>
+      <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+      <p><a href="tel:+13205226226">320-522-6226</a></p>
+      <p>MN, United States</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
+      <p class="footer-motto">Built clean. Shipped with discipline.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
 </body>
 </html>
