@@ -2,15 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <base href="/WebOps-Studio/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — WebOps Studio</title>
-  <meta name="description" content="Custom website builds, landing pages, redesigns, mobile optimization, and integrations. Hand-coded front-end development in Minnesota.">
-  <meta property="og:title" content="Services — WebOps Studio">
-  <meta property="og:description" content="Custom website builds, landing pages, redesigns, mobile optimization, and integrations. Hand-coded front-end development.">
+  <title>WebOps Studio — Veteran-Built Front Ends</title>
+  <meta name="description" content="WebOps Studio: Building clean, responsive websites from scratch. Custom HTML/CSS/JS by a U.S. Army veteran in Minnesota.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WebOps Studio — Veteran-Built Front Ends">
+  <meta property="og:description" content="Building clean, responsive websites from scratch. Custom HTML/CSS/JS. No templates. No shortcuts.">
   <meta property="og:image" content="images/Hero_bannerimage_20250622_094324_0000.png">
   <meta property="og:type" content="website">
+
+  <!-- Styles -->
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -29,7 +36,7 @@
         <span class="hamburger"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="projects.html">Projects</a></li>
@@ -40,176 +47,363 @@
   </div>
 </header>
 
-<main>
+<!-- ═══════════════════════════════════ HERO -->
+<section class="hero-section" id="hero">
 
-<!-- ═══════════════════════════════════ PAGE HERO -->
-<section class="page-hero">
+  <!-- Full background: Background1.png (portrait deep-space grid) -->
+  <div class="hero-bg" aria-hidden="true">
+    <img
+      src="images/Background1.png"
+      alt=""
+      class="hero-bg-img"
+      onerror="this.style.display='none'"
+    >
+    <!-- Overlay to darken bottom so text below stays readable -->
+    <div class="hero-bg-overlay"></div>
+  </div>
+
+  <!-- Hero content -->
+  <div class="container hero-content">
+
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">U.S. Army Veteran · Front-End Developer · Minnesota</span>
+    </div>
+
+    <!-- Header.png frame with title text centered inside it -->
+    <div class="hero-title-frame">
+      <img
+        src="images/Header.png"
+        alt=""
+        class="hero-frame-img"
+        onerror="this.style.display='none'"
+      >
+      <div class="hero-frame-text">
+        <h1 class="hero-headline">
+          WEB<span class="headline-ops">[OPS]</span> STUDIO
+        </h1>
+        <p class="hero-frame-tagline">Veteran-Built Front Ends</p>
+      </div>
+    </div>
+
+    <p class="hero-sub">Building clean, responsive websites from scratch. No templates. No shortcuts. Every line of code built by hand.</p>
+
+    <div class="hero-ctas">
+      <a href="projects.html" class="btn btn-primary">View My Work</a>
+      <a href="contact.html" class="btn btn-ghost">Start a Project</a>
+    </div>
+
+    <div class="hero-proof-strip">
+      <span class="proof-pill"><span class="proof-dot"></span>Fast Load</span>
+      <span class="proof-pill"><span class="proof-dot"></span>Mobile-First</span>
+      <span class="proof-pill"><span class="proof-dot"></span>Zero Templates</span>
+      <span class="proof-pill"><span class="proof-dot"></span>GitHub Deployed</span>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ MISSION -->
+<section class="mission-section" id="mission">
   <div class="container">
-    <div class="section-label reveal">Services</div>
-    <h1 class="reveal">What I build.<br>How I build it.</h1>
-    <p class="intro-text reveal">Built for founders, small businesses, and nonprofits who need a real web presence — not a template. Every service is scoped, quoted, and delivered with a clear process and direct communication.</p>
+    <div class="section-label reveal">Our Mission</div>
+    <h2 class="reveal">Precision code. Real results.</h2>
+    <p class="mission-body reveal">At WebOps Studio, we bypass generic templates and build meticulous, hand-coded solutions that truly embody your brand. Every site is built with the same dedication and precision found in every veteran-built endeavor — disciplined, adaptive, and mission-oriented.</p>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════════════════════ SERVICES GRID -->
-<section class="services-page-section">
+<!-- ═══════════════════════════════════ FEATURED PROJECTS -->
+<section class="projects-section" id="featured-projects">
   <div class="container">
-    <div class="services-grid-detailed">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Featured Work</div>
+        <h2>Selected Projects</h2>
+      </div>
+      <a href="projects.html" class="link-arrow">
+        View All Projects
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
 
-      <!-- 1. Custom Website Build -->
-      <article class="service-card-detailed reveal">
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="8,10 12,14 16,10"/></svg>
+    <div class="project-grid">
+
+      <!-- Guardian 4 Heroes -->
+      <article class="project-card reveal">
+        <div class="project-thumb">
+          <div class="project-thumb-inner">
+            <img
+              src="images/guardian4heroes_hero.jpg"
+              alt="Guardian 4 Heroes Website"
+              onerror="this.parentElement.classList.add('no-img')"
+            >
+            <div class="project-thumb-fallback" aria-hidden="true">
+              <div class="mock-bar">
+                <span class="mock-dot" style="background:#FF5F57"></span>
+                <span class="mock-dot" style="background:#FEBC2E"></span>
+                <span class="mock-dot" style="background:#28C840"></span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-line accent wide"></div>
+                <div class="mock-line short"></div>
+                <div class="mock-line med"></div>
+                <div class="mock-blocks">
+                  <div class="mock-block"></div>
+                  <div class="mock-block"></div>
+                  <div class="mock-block"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3>Custom Website Build</h3>
-        <p class="service-tagline">For businesses that need a complete, professional web presence built from scratch.</p>
-
-        <h4>What's Included</h4>
-        <ul class="service-includes">
-          <li>Multi-page site (Home, About, Services, Contact + more as needed)</li>
-          <li>Custom design system — colors, typography, spacing</li>
-          <li>Mobile-first responsive layout, tested on all screen sizes</li>
-          <li>Contact form + basic integrations</li>
-          <li>GitHub Pages deployment or handoff to your host</li>
-          <li>1–2 rounds of revision included</li>
-        </ul>
-
-        <h4>Best For</h4>
-        <p>Small businesses, freelancers, nonprofits, and personal brands that need a full site built right the first time.</p>
-
-        <h4>Typical Timeline</h4>
-        <p>2–4 weeks depending on scope and content availability.</p>
-
-        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+        <div class="project-info">
+          <h3>Guardian 4 Heroes</h3>
+          <p class="project-outcome">Nonprofit site for a veteran equine therapy org. Zero prior web presence — built from scratch and launched.</p>
+          <div class="project-tags">
+            <span class="tag">Nonprofit</span>
+            <span class="tag">HTML/CSS/JS</span>
+            <span class="tag">Donation Integration</span>
+          </div>
+          <div class="project-footer">
+            <a href="projects.html" class="case-link">
+              View Case Study
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="live-link">Live Site ↗</a>
+          </div>
+        </div>
       </article>
 
-      <!-- 2. Landing Pages -->
-      <article class="service-card-detailed reveal" style="animation-delay:0.1s">
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="9" y="9" width="7" height="12" rx="1"/><rect x="16" y="4" width="7" height="17" rx="1"/></svg>
+      <!-- Construction Site (in progress) -->
+      <article class="project-card reveal" style="animation-delay:0.1s">
+        <div class="project-thumb">
+          <div class="project-thumb-inner no-img">
+            <div class="project-thumb-fallback" aria-hidden="true">
+              <div class="mock-bar">
+                <span class="mock-dot" style="background:#FF5F57"></span>
+                <span class="mock-dot" style="background:#FEBC2E"></span>
+                <span class="mock-dot" style="background:#28C840"></span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-blocks" style="grid-template-columns:repeat(2,1fr);margin-bottom:12px">
+                  <div class="mock-block tall"></div>
+                  <div class="mock-block tall accent-block"></div>
+                </div>
+                <div class="mock-line wide"></div>
+                <div class="mock-line short"></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-badge">In Progress</div>
         </div>
-        <h3>Landing Pages</h3>
-        <p class="service-tagline">High-converting single-page sites built around one goal: getting visitors to act.</p>
-
-        <h4>What's Included</h4>
-        <ul class="service-includes">
-          <li>Single-page layout focused on your CTA</li>
-          <li>Copy structure guidance (headline, subhead, proof, CTA)</li>
-          <li>Fast load time — no bloat, no unnecessary scripts</li>
-          <li>Form or button integration (email capture, booking, etc.)</li>
-          <li>Mobile-optimized layout</li>
-          <li>1 round of revision included</li>
-        </ul>
-
-        <h4>Best For</h4>
-        <p>Product launches, service promotions, lead capture, event signups, or any campaign that needs a focused, standalone page.</p>
-
-        <h4>Typical Timeline</h4>
-        <p>3–7 business days.</p>
-
-        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
+        <div class="project-info">
+          <h3>Construction Business Site</h3>
+          <p class="project-outcome">Robust site for a local construction company — service listings, project galleries, and custom contact forms.</p>
+          <div class="project-tags">
+            <span class="tag">Local Business</span>
+            <span class="tag">Gallery</span>
+            <span class="tag">Forms</span>
+          </div>
+          <div class="project-footer">
+            <span class="case-link muted">Coming Soon</span>
+          </div>
+        </div>
       </article>
 
-      <!-- 3. Redesign & Cleanup -->
-      <article class="service-card-detailed reveal" style="animation-delay:0.2s">
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <!-- Cafe Concept -->
+      <article class="project-card reveal" style="animation-delay:0.2s">
+        <div class="project-thumb">
+          <div class="project-thumb-inner no-img">
+            <div class="project-thumb-fallback" aria-hidden="true">
+              <div class="mock-bar">
+                <span class="mock-dot" style="background:#FF5F57"></span>
+                <span class="mock-dot" style="background:#FEBC2E"></span>
+                <span class="mock-dot" style="background:#28C840"></span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-line accent" style="width:40%;height:8px;margin-bottom:10px"></div>
+                <div class="mock-line wide"></div>
+                <div class="mock-line med"></div>
+                <div class="mock-blocks">
+                  <div class="mock-block"></div>
+                  <div class="mock-block accent-block"></div>
+                  <div class="mock-block"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-badge">Demo</div>
         </div>
-        <h3>Redesign &amp; Cleanup</h3>
-        <p class="service-tagline">For existing sites that are outdated, slow, or broken on mobile.</p>
-
-        <h4>What's Included</h4>
-        <ul class="service-includes">
-          <li>Full audit of your current site's front-end code</li>
-          <li>Layout and visual redesign (as much or as little as needed)</li>
-          <li>Mobile and tablet responsiveness fixes</li>
-          <li>Performance improvements — image optimization, dead code removal</li>
-          <li>Preserved content, improved structure</li>
-          <li>1–2 rounds of revision</li>
-        </ul>
-
-        <h4>Best For</h4>
-        <p>Sites built on old templates or frameworks that look dated or don't work well on phones.</p>
-
-        <h4>Typical Timeline</h4>
-        <p>1–3 weeks depending on site complexity.</p>
-
-        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
-      </article>
-
-      <!-- 4. Mobile Optimization -->
-      <article class="service-card-detailed reveal" style="animation-delay:0.3s">
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <div class="project-info">
+          <h3>Local Cafe Website</h3>
+          <p class="project-outcome">Concept build showcasing custom menu design, event listings, and a reservation mock-up.</p>
+          <div class="project-tags">
+            <span class="tag">Small Business</span>
+            <span class="tag">Design</span>
+            <span class="tag">Concept</span>
+          </div>
+          <div class="project-footer">
+            <span class="case-link muted">View Demo (Planned)</span>
+          </div>
         </div>
-        <h3>Performance &amp; Mobile Optimization</h3>
-        <p class="service-tagline">Fix a site that works on desktop but breaks on phones — or just runs too slow.</p>
-
-        <h4>What's Included</h4>
-        <ul class="service-includes">
-          <li>Responsive breakpoint audit and rebuild</li>
-          <li>Custom mobile layouts — not just scaled-down desktop</li>
-          <li>Image compression and lazy loading</li>
-          <li>Lighthouse score review + targeted fixes</li>
-          <li>Navigation and menu mobile behavior</li>
-          <li>Tap target and readability fixes</li>
-        </ul>
-
-        <h4>Best For</h4>
-        <p>Sites that lose visitors because the mobile experience is broken or slow.</p>
-
-        <h4>Typical Timeline</h4>
-        <p>3–7 business days.</p>
-
-        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
-      </article>
-
-      <!-- 5. Integrations -->
-      <article class="service-card-detailed reveal" style="animation-delay:0.4s">
-        <div class="service-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-        </div>
-        <h3>Basic Integrations</h3>
-        <p class="service-tagline">Connect your site to the tools you already use — forms, payments, embeds.</p>
-
-        <h4>What's Included</h4>
-        <ul class="service-includes">
-          <li>Contact form wired to email (Formspree or similar)</li>
-          <li>PayPal or Stripe donation/payment buttons</li>
-          <li>Google Maps embed</li>
-          <li>Social media feed embeds</li>
-          <li>Calendly or booking tool embed</li>
-          <li>Basic analytics setup (Google Analytics or Plausible)</li>
-        </ul>
-
-        <h4>Best For</h4>
-        <p>Adding missing functionality to an existing site — or bundled into a new build.</p>
-
-        <h4>Typical Timeline</h4>
-        <p>1–3 business days as a standalone add-on.</p>
-
-        <a href="contact.html" class="btn btn-primary service-cta">Start a Project</a>
       </article>
 
     </div>
+  </div>
+</section>
 
-    <!-- Pricing note -->
-    <div class="pricing-note reveal">
-      <div class="pricing-note-inner">
-        <div class="pricing-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ SERVICES SNAPSHOT -->
+<section class="services-snapshot-section" id="services-snapshot">
+  <div class="container">
+    <div class="section-label reveal">Core Services</div>
+    <h2 class="reveal">What I Build</h2>
+    <div class="services-grid">
+
+      <div class="service-tile reveal">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="8,10 12,14 16,10"/></svg>
         </div>
-        <div>
-          <h3>How Pricing Works</h3>
-          <p>No fixed rate cards — every project is scoped and quoted individually based on what you actually need. I don't pad quotes and I don't surprise you mid-project. You'll get a clear breakdown before any work starts.</p>
-          <p>To get a quote, just tell me what you're building, your timeline, and your budget range. I'll tell you what's realistic.</p>
-          <a href="contact.html" class="link-arrow">
-            Get a Quote
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+        <h3>Custom Website Design</h3>
+        <p>Unique, hand-coded sites built from the ground up to reflect your brand — no templates, ever.</p>
+      </div>
+
+      <div class="service-tile reveal" style="animation-delay:0.08s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="14" width="7" height="7" rx="1"/><rect x="9" y="9" width="7" height="12" rx="1"/><rect x="16" y="4" width="7" height="17" rx="1"/></svg>
         </div>
+        <h3>Landing Pages</h3>
+        <p>High-converting, focused single-page sites for campaigns and lead generation — built to perform.</p>
+      </div>
+
+      <div class="service-tile reveal" style="animation-delay:0.16s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Website Redesign &amp; Cleanup</h3>
+        <p>Modernizing outdated sites with a clean, performant front-end refresh — rebuilt from the ground up.</p>
+      </div>
+
+      <div class="service-tile reveal" style="animation-delay:0.24s">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>Mobile Optimization</h3>
+        <p>Ensuring your site looks and performs perfectly on all screen sizes — coded by hand, not patched.</p>
+      </div>
+
+    </div>
+    <div class="services-cta reveal">
+      <a href="services.html" class="btn btn-primary">See All Services</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ PROCESS -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="section-label reveal text-center">The Process</div>
+    <h2 class="text-center reveal">Four steps. Zero guesswork.</h2>
+    <div class="process-track reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Audit</h3>
+        <p>Diagnose what's broken, what's missing, and what needs to be built.</p>
+      </div>
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Design</h3>
+        <p>Visual system locked before a single line of code is written.</p>
+      </div>
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Build</h3>
+        <p>Clean, modular code. Mobile-first. Optimized from the start.</p>
+      </div>
+      <div class="process-connector" aria-hidden="true"></div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Launch</h3>
+        <p>Deployed via GitHub Pages. Tested across all devices before going live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ PROOF / TESTIMONIALS -->
+<section class="proof-section" id="proof">
+  <div class="container">
+    <div class="proof-metrics reveal">
+      <div class="metric-cell">
+        <div class="metric-num">90<span class="metric-accent">+</span></div>
+        <div class="metric-label">Avg Lighthouse Score</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">0</div>
+        <div class="metric-label">Templates Used</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">100<span class="metric-accent">%</span></div>
+        <div class="metric-label">Mobile-First Builds</div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-num">1<span class="metric-accent">:1</span></div>
+        <div class="metric-label">Direct Communication</div>
+      </div>
+    </div>
+
+    <div class="testimonial-block reveal">
+      <div class="quote-mark" aria-hidden="true">"</div>
+      <blockquote>Craig went above and beyond. He didn't just build us a website — he brought our mission to life. We get compliments on it constantly.</blockquote>
+      <cite>— Guardian 4 Heroes Team</cite>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label reveal text-center">FAQ</div>
+    <h2 class="text-center reveal">Common Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h3>Do you use templates or WordPress?</h3>
+        <p>No. Everything I build is coded from scratch using HTML, CSS, and JavaScript — fully custom, always.</p>
+      </div>
+      <div class="faq-item reveal" style="animation-delay:0.08s">
+        <h3>Will my site work on mobile?</h3>
+        <p>Yes. Every project is built mobile-first and tested on all screen sizes before delivery.</p>
+      </div>
+      <div class="faq-item reveal" style="animation-delay:0.16s">
+        <h3>Can I request changes after v1?</h3>
+        <p>Absolutely. Every project includes 1–2 rounds of revision so we get it right together.</p>
+      </div>
+      <div class="faq-item reveal" style="animation-delay:0.24s">
+        <h3>Do you connect forms or donation tools?</h3>
+        <p>Yes — contact forms, PayPal/Stripe links, and basic integrations are included where needed.</p>
+      </div>
+      <div class="faq-item reveal" style="animation-delay:0.32s">
+        <h3>How much do you charge?</h3>
+        <p>Every project is different. I'll work with you to create a fair quote based on your needs and budget.</p>
+      </div>
+      <div class="faq-item reveal" style="animation-delay:0.4s">
+        <h3>How long does a build take?</h3>
+        <p>A standard site takes 1–3 weeks depending on scope. I give accurate timelines upfront — no surprises.</p>
       </div>
     </div>
   </div>
@@ -218,23 +412,21 @@
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════════ CTA -->
-<section class="cta-section">
+<section class="cta-section" id="contact-cta">
   <div class="cta-bg" aria-hidden="true">
     <div class="cta-glow"></div>
     <div class="cta-grid"></div>
   </div>
   <div class="container cta-inner reveal">
-    <div class="section-label text-center">Next Step</div>
-    <h2>Every project starts with a conversation.</h2>
-    <p>Tell me what you're building. I'll tell you what it takes to build it right.</p>
+    <div class="section-label text-center">Ready?</div>
+    <h2>Let's build something solid.</h2>
+    <p>Direct communication. Clean code. A developer who actually cares about the outcome.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn btn-primary">Let's Talk</a>
-      <a href="projects.html" class="btn btn-ghost">See the Work First</a>
+      <a href="contact.html" class="btn btn-primary">Start a Project</a>
+      <a href="about.html" class="btn btn-ghost">Learn About Craig</a>
     </div>
   </div>
 </section>
-
-</main>
 
 <!-- ═══════════════════════════════════ FOOTER -->
 <footer>
@@ -256,7 +448,7 @@
     </nav>
     <div class="footer-contact-info">
       <h4>Contact</h4>
-      <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#d5b6a7b4bcb2b7b4a0b8b4bbbbe7e5e7e595b2b8b4bcb9fbb6bab8"><span class="__cf_email__" data-cfemail="533021323a343132263e323d3d6163616313343e323a3f7d303c3e">[email&#160;protected]</span></a></p>
       <p><a href="tel:+13205226226">320-522-6226</a></p>
       <p>MN, United States</p>
     </div>
@@ -264,11 +456,4 @@
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
-      <p class="footer-motto">Built clean. Shipped with discipline.</p>
-    </div>
-  </div>
-</footer>
-
-<script src="js/scripts.js"></script>
-</body>
-</html>
+      <p
