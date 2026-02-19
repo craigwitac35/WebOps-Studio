@@ -1,152 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact WebOps Studio - Let's Build Your Vision</title>
-    <meta name="description" content="Get in touch with WebOps Studio for custom web development. Contact Craig Baumann for a free quote on your next website project.">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — WebOps Studio</title>
+  <meta name="description" content="Get in touch with WebOps Studio. Tell Craig what you're building and get a response within 24–48 hours.">
+  <meta property="og:title" content="Contact — WebOps Studio">
+  <meta property="og:description" content="Tell me what you're building. I reply personally within 24–48 hours.">
+  <meta property="og:image" content="images/Hero_bannerimage_20250622_094324_0000.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
-                <p class="tagline">Veteran-Built Front Ends</p>
+
+<!-- ═══════════════════════════════════ HEADER -->
+<header id="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
+      <p class="tagline">Veteran-Built Front Ends</p>
+    </div>
+    <nav class="main-nav">
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn btn-primary btn-nav-cta">Start a Project</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════ PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label reveal">Contact</div>
+    <h1 class="reveal">Tell me what<br>you're building.</h1>
+    <p class="intro-text reveal">I reply personally within 24–48 hours. No bots, no contact forms routed to a VA. Just a direct conversation about your project.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════ CONTACT GRID -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-content-grid">
+
+      <!-- FORM -->
+      <div class="contact-form-container reveal">
+        <h2>Send a Message</h2>
+
+        <form id="contactForm" class="contact-form" action="#" method="POST" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Craig Baumann">
             </div>
-            <nav class="main-nav">
-                <button class="nav-toggle" aria-label="toggle navigation">
-                    <span class="hamburger"></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="gallery.html">Gallery</a></li> <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="project-type">Project Type</label>
+              <div class="select-wrap">
+                <select id="project-type" name="project_type" required>
+                  <option value="" disabled selected>Select a service...</option>
+                  <option value="custom-build">Custom Website Build</option>
+                  <option value="landing-page">Landing Page</option>
+                  <option value="redesign">Redesign &amp; Cleanup</option>
+                  <option value="mobile-opt">Mobile Optimization</option>
+                  <option value="integration">Forms / Integrations</option>
+                  <option value="other">Other / Not Sure Yet</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <div class="select-wrap">
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Select a range...</option>
+                  <option value="under-500">Under $500</option>
+                  <option value="500-1000">$500 – $1,000</option>
+                  <option value="1000-2500">$1,000 – $2,500</option>
+                  <option value="2500-5000">$2,500 – $5,000</option>
+                  <option value="5000-plus">$5,000+</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Me About Your Project</label>
+            <textarea id="message" name="message" rows="6" required placeholder="What are you building? What's working now, what isn't? Any deadlines or special requirements?"></textarea>
+          </div>
+
+          <div class="form-group form-group-radio">
+            <label class="radio-group-label">Preferred Contact Method</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="contact_pref" value="email" checked>
+                <span class="radio-custom"></span>
+                Email
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="contact_pref" value="phone">
+                <span class="radio-custom"></span>
+                Phone / Text
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="contact_pref" value="either">
+                <span class="radio-custom"></span>
+                Either works
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit-btn">
+            Send Message
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- DIRECT INFO -->
+      <div class="direct-contact-info reveal" style="animation-delay:0.12s">
+        <h2>Direct Contact</h2>
+
+        <div class="info-item">
+          <p class="label">Email</p>
+          <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
         </div>
-    </header>
 
-    <main>
-        <section id="contact-us" class="contact-section">
-            <div class="container">
-                <h1>Get in Touch</h1>
-                <p class="intro-text">I’ll Reply Personally. Let’s Start Your Project. Don’t Settle for Templates — Let’s Build Something Real.</p>
-
-                <div class="contact-content-grid">
-                    <div class="contact-form-container">
-                        <h2>Send a Message</h2>
-                        <form id="contactForm" class="contact-form" action="#" method="POST">
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" required placeholder="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message:</label>
-                                <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project or inquiry..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-
-                    <div class="direct-contact-info">
-                        <h2>Direct Contact Info</h2>
-                        <div class="info-item">
-                            <p class="label">Email:</p>
-                            <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-                        </div>
-                        <div class="info-item">
-                            <p class="label">Phone:</p>
-                            <p><a href="tel:+13205226226">320-522-6226</a></p>
-                        </div>
-                        <div class="info-item">
-                            <p class="label">Location:</p>
-                            <p>MN, United States</p>
-                        </div>
-                        <p class="contact-cta-text">Feel free to reach out directly with any questions or project ideas. I'm here to help bring your vision to life with precision and dedication.</p>
-                        <a href="services.html" class="btn btn-secondary">Explore Our Services</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-section">
-            <div class="container">
-                <h2>🌟 Testimonials</h2>
-                <div class="testimonial-item">
-                    <blockquote>
-                        “Craig went above and beyond. He didn’t just build us a website — he brought our mission to life. We get compliments on it constantly.”
-                    </blockquote>
-                    <p class="cite">— Guardian 4 Heroes Team</p>
-                </div>
-                <p class="more-testimonials">(More testimonials can be added here later as clients provide them.)</p>
-            </div>
-        </section>
-
-        <section id="faq" class="faq-section">
-            <div class="container">
-                <h2>❓ Frequently Asked Questions (FAQ)</h2>
-                <div class="faq-item">
-                    <h3>Q: Do you use templates or WordPress?</h3>
-                    <p>A: No. Everything I build is coded from scratch using HTML, CSS, and JavaScript — fully custom.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Q: Will my site work on mobile devices?</h3>
-                    <p>A: Yes. Every project is built mobile-first and tested on all screen sizes.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Q: Can I request changes after the first version?</h3>
-                    <p>A: Absolutely. Every project includes 1–2 rounds of revision so we get it right.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Q: Do you connect forms or donation tools?</h3>
-                    <p>A: Yes — contact forms, PayPal/Stripe links, and basic integrations are all included where needed.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Q: How much do you charge?</h3>
-                    <p>A: Every project is different, but I’ll work with you to create a fair quote based on your needs and budget.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
-                    <p class="tagline">Veteran-Built Front Ends</p>
-                </div>
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="gallery.html">Gallery</a></li> <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <div class="footer-contact">
-                    <p>Email: <a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+13205226226">320-522-6226</a></p>
-                    <p>Location: MN, United States</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
-            </div>
+        <div class="info-item">
+          <p class="label">Phone / Text</p>
+          <p><a href="tel:+13205226226">320-522-6226</a></p>
         </div>
-    </footer>
 
-    <script src="js/scripts.js"></script>
+        <div class="info-item">
+          <p class="label">Location</p>
+          <p>Minnesota, United States</p>
+        </div>
+
+        <div class="info-item">
+          <p class="label">Response Time</p>
+          <p>Within 24–48 hours on business days</p>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-expectations">
+          <h3>What Happens Next</h3>
+          <ul class="expect-steps">
+            <li>
+              <span class="expect-num">1</span>
+              <span>I read your message and review your project details</span>
+            </li>
+            <li>
+              <span class="expect-num">2</span>
+              <span>I follow up with any clarifying questions</span>
+            </li>
+            <li>
+              <span class="expect-num">3</span>
+              <span>I send a clear, itemized quote — no pressure</span>
+            </li>
+            <li>
+              <span class="expect-num">4</span>
+              <span>If it's a fit, we schedule a quick call and get started</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-services-quick">
+          <h3>Not Sure Which Service You Need?</h3>
+          <p>That's fine — just describe what you're trying to accomplish. I'll figure out the right scope and tell you what it would cost.</p>
+          <a href="services.html" class="link-arrow">
+            Browse Services
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo-link">WEB<span class="highlight">[OPS]</span> STUDIO</a>
+      <p class="footer-tagline">Veteran-Built Front Ends</p>
+      <p class="footer-desc">Precision code. Real results. Built by a U.S. Army veteran in Minnesota.</p>
+    </div>
+    <nav class="footer-nav">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact-info">
+      <h4>Contact</h4>
+      <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+      <p><a href="tel:+13205226226">320-522-6226</a></p>
+      <p>MN, United States</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
+      <p class="footer-motto">Built clean. Shipped with discipline.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
 </body>
 </html>
