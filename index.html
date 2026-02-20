@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>WebOps Studio — Veteran-Built Custom Websites</title>
-  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <meta name="description" content="WebOps Studio builds clean, custom, hand-coded websites from scratch. No templates. No shortcuts. Veteran-built front ends with military precision.">
+
   <base href="/WebOps-Studio/">
+
+  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- ═══ HEADER ════════════════════════════════════════════════════════ -->
@@ -21,17 +26,20 @@
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
-      <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Toggle navigation">
+
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
-        <ul class="nav-links">
+
+        <ul class="nav-links" id="primary-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
@@ -40,6 +48,7 @@
   <main>
 
     <!-- ═══ HERO ══════════════════════════════════════════════════════════ -->
+    <!-- Background image should be handled in CSS on .hero-section (not in HTML). -->
     <section class="hero-section" id="home">
       <div class="container">
         <div class="hero-content">
@@ -49,11 +58,14 @@
             <span class="eyebrow-text">U.S. Army Veteran · Self-Taught Developer · Minnesota</span>
           </div>
 
+          <!-- KEEP header image -->
           <div class="hero-title-frame">
             <img
               src="images/New-header-image.png"
               alt="WebOps Studio — Veteran-Built Front Ends"
               class="hero-header-img"
+              loading="eager"
+              decoding="async"
             >
           </div>
 
@@ -68,7 +80,7 @@
             <a href="contact.html" class="btn btn-ghost">Start a Project</a>
           </div>
 
-          <div class="hero-proof-strip">
+          <div class="hero-proof-strip" aria-label="Key strengths">
             <span class="proof-pill"><span class="proof-dot"></span>HTML / CSS / JS</span>
             <span class="proof-pill"><span class="proof-dot"></span>Mobile-First</span>
             <span class="proof-pill"><span class="proof-dot"></span>Zero Templates</span>
@@ -127,7 +139,6 @@
 
         <div class="project-grid">
 
-          <!-- Project 1 — Guardian 4 Heroes -->
           <article class="project-card reveal">
             <div class="project-card-img-placeholder">Guardian 4 Heroes</div>
             <div class="project-card-body">
@@ -138,7 +149,6 @@
             </div>
           </article>
 
-          <!-- Project 2 — Construction Business -->
           <article class="project-card reveal reveal-delay-1">
             <div class="project-card-img-placeholder">Construction Co.</div>
             <div class="project-card-body">
@@ -149,7 +159,6 @@
             </div>
           </article>
 
-          <!-- Project 3 — Cafe Demo -->
           <article class="project-card reveal reveal-delay-2">
             <div class="project-card-img-placeholder">Cafe Demo</div>
             <div class="project-card-body">
@@ -250,6 +259,7 @@
           </div>
           <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean, performant code that works.</p>
         </div>
+
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
@@ -260,6 +270,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
@@ -269,6 +280,7 @@
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
         <a href="contact.html">Get a Free Quote →</a>
@@ -276,7 +288,6 @@
     </div>
   </footer>
 
-  <!-- Back to top -->
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
   <script src="js/scripts.js"></script>
