@@ -59,11 +59,18 @@
           <!-- Form -->
           <div class="contact-form-wrap reveal">
             <h2>Send a Message</h2>
+
             <form
               id="contactForm"
-              action="https://formspree.io/f/YOUR_FORM_ID"
+              action="https://formspree.io/f/mblypkka"
               method="POST"
             >
+              <!-- Status message for AJAX -->
+              <div id="formStatus" class="form-status" style="display:none;"></div>
+
+              <!-- Honeypot (spam trap) -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Your Name</label>
@@ -153,7 +160,7 @@
               <div class="next-steps">
                 <div class="next-step">
                   <span class="next-num">1</span>
-                  <p>I review your message and reach out personally — usually within 24 hours.</p>
+                  <p>I review your message and reach out personally, usually within 24 hours.</p>
                 </div>
                 <div class="next-step">
                   <span class="next-num">2</span>
@@ -182,7 +189,7 @@
       <div class="container">
         <div class="testimonial-block reveal">
           <blockquote>
-            "Craig went above and beyond. He didn't just build us a website —
+            "Craig went above and beyond. He didn't just build us a website,
             he brought our mission to life. We get compliments on it constantly."
           </blockquote>
           <cite>— Guardian 4 Heroes Team</cite>
@@ -201,7 +208,7 @@
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
-          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts — just clean, performant code that works.</p>
+          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean, performant code that works.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -230,6 +237,18 @@
   </footer>
 
   <button class="back-to-top" aria-label="Back to top">↑</button>
+
   <script src="js/scripts.js"></script>
+
+  <!-- MailerLite Universal -->
+  <script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2121003');
+  </script>
+  <!-- End MailerLite Universal -->
+
 </body>
 </html>
