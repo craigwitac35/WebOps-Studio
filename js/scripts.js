@@ -1,6 +1,8 @@
-// WebOps Studio — scripts.js v3.0
+// WebOps Studio — scripts.js v3.1
 // Mobile nav · Sticky header · Active links · Scroll reveal ·
-// FAQ accordion · Portfolio filter · Back to top · MailerLite popup
+// FAQ accordion · Portfolio filter · Back to top · MailerLite popup ·
+// Contact form (AJAX Formspree inline status)
+
 (function () {
   'use strict';
 
@@ -14,32 +16,38 @@
 
   /* ── MOBILE MENU ──────────────────────────────────────────────── */
   const navToggle = document.querySelector('.nav-toggle');
-  const navLinks  = document.querySelector('.nav-links');
+  const navLinks = document.querySelector('.nav-links');
+
+  const closeMobileNav = () => {
+    if (!navToggle || !navLinks) return;
+    navToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       const open = navToggle.classList.toggle('active');
       navLinks.classList.toggle('active', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    navLinks.addEventListener('click', e => {
-      if (e.target.tagName === 'A') {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+
+    navLinks.addEventListener('click', (e) => {
+      if (e.target && e.target.tagName === 'A') closeMobileNav();
     });
-    document.addEventListener('click', e => {
-      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) closeMobileNav();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileNav();
     });
   }
 
   /* ── ACTIVE NAV LINK ──────────────────────────────────────────── */
   const currentPage = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  document.querySelectorAll('.nav-links a').forEach((link) => {
     const href = (link.getAttribute('href') || '').toLowerCase();
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
@@ -49,23 +57,26 @@
   /* ── SCROLL REVEAL ────────────────────────────────────────────── */
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           io.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => io.observe(el));
+
+    reveals.forEach((el) => io.observe(el));
   } else {
-    reveals.forEach(el => el.classList.add('visible'));
+    reveals.forEach((el) => el.classList.add('visible'));
   }
 
   /* ── SMOOTH ANCHOR SCROLL ─────────────────────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -74,18 +85,18 @@
   });
 
   /* ── FAQ ACCORDION ────────────────────────────────────────────── */
-  document.querySelectorAll('.faq-question').forEach(btn => {
+  document.querySelectorAll('.faq-question').forEach((btn) => {
     btn.addEventListener('click', () => {
       const answer = btn.nextElementSibling;
+      if (!answer) return;
+
       const isOpen = btn.classList.contains('open');
 
-      // Close all
-      document.querySelectorAll('.faq-question.open').forEach(b => {
+      document.querySelectorAll('.faq-question.open').forEach((b) => {
         b.classList.remove('open');
-        b.nextElementSibling.classList.remove('open');
+        if (b.nextElementSibling) b.nextElementSibling.classList.remove('open');
       });
 
-      // Open this one if it was closed
       if (!isOpen) {
         btn.classList.add('open');
         answer.classList.add('open');
@@ -96,46 +107,100 @@
   /* ── PORTFOLIO FILTER ─────────────────────────────────────────── */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const portfolioCards = document.querySelectorAll('.portfolio-card');
-  if (filterBtns.length && portfolioCards.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
 
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
+  if (filterBtns.length && portfolioCards.length) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter || 'all';
+
+        filterBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // Show/hide cards
-        portfolioCards.forEach(card => {
+        portfolioCards.forEach((card) => {
           if (filter === 'all') {
             card.removeAttribute('data-hidden');
-          } else {
-            const tags = (card.dataset.tags || '').split(',').map(t => t.trim());
-            card.setAttribute('data-hidden', tags.includes(filter) ? 'false' : 'true');
+            return;
           }
+          const tags = (card.dataset.tags || '')
+            .split(',')
+            .map((t) => t.trim())
+            .filter(Boolean);
+
+          card.setAttribute('data-hidden', tags.includes(filter) ? 'false' : 'true');
         });
       });
     });
   }
 
-  /* ── CONTACT FORM FEEDBACK ────────────────────────────────────── */
-  const form = document.getElementById('contactForm');
-  if (form) {
-    form.addEventListener('submit', e => {
-      // Only intercept if no action set (prevents blocking Formspree)
-      if (!form.action || form.action === window.location.href) {
-        e.preventDefault();
-        const btn = form.querySelector('[type="submit"]');
-        const orig = btn.textContent;
-        btn.textContent = 'Message Sent!';
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-        setTimeout(() => {
-          btn.textContent = orig;
-          btn.disabled = false;
-          btn.style.opacity = '';
-          form.reset();
-        }, 3500);
+  /* ── CONTACT FORM (AJAX → FORMSPREE, NO REDIRECT) ─────────────── */
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = contactForm.querySelector('button[type="submit"], input[type="submit"]');
+
+    const setStatus = (type, message) => {
+      if (!statusEl) return;
+      statusEl.className = 'form-status ' + type;
+      statusEl.textContent = message;
+      statusEl.style.display = 'block';
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!contactForm.action || !contactForm.action.includes('formspree.io')) {
+        setStatus('error', 'Form is not configured correctly yet.');
+        return;
+      }
+
+      if (statusEl) {
+        statusEl.className = 'form-status';
+        statusEl.textContent = '';
+        statusEl.style.display = 'none';
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.tagName === 'BUTTON'
+          ? (submitBtn.textContent || '')
+          : (submitBtn.value || '');
+
+        if (submitBtn.tagName === 'BUTTON') submitBtn.textContent = 'Sending...';
+        else submitBtn.value = 'Sending...';
+      }
+
+      try {
+        const formData = new FormData(contactForm);
+
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          setStatus('success', 'Message sent. I will reply soon.');
+          contactForm.reset();
+        } else {
+          let data = null;
+          try { data = await res.json(); } catch (_) {}
+
+          const msg =
+            data && data.errors && data.errors[0] && data.errors[0].message
+              ? data.errors[0].message
+              : 'Something went wrong. Please try again or email me directly.';
+
+          setStatus('error', msg);
+        }
+      } catch (_) {
+        setStatus('error', 'Network error. Please try again or email me directly.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          const orig = submitBtn.dataset.originalText || '';
+          if (submitBtn.tagName === 'BUTTON') submitBtn.textContent = orig || 'Send Message →';
+          else submitBtn.value = orig || 'Send Message →';
+        }
       }
     });
   }
@@ -143,23 +208,22 @@
   /* ── BACK TO TOP ──────────────────────────────────────────────── */
   const btt = document.querySelector('.back-to-top');
   if (btt) {
-    window.addEventListener('scroll', () => {
-      btt.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
+    const onScrollBtt = () => btt.classList.toggle('visible', window.scrollY > 400);
+    window.addEventListener('scroll', onScrollBtt, { passive: true });
+    onScrollBtt();
+
     btt.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /* ── MAILERLITE POPUP TIMER (5–8 seconds) ─────────────────────── */
-  // MailerLite embed script goes in HTML just before </body>.
-  // This timer fires their popup trigger if they provide a JS API.
-  // If using MailerLite's universal script, it handles timing itself.
-  // This is a fallback manual trigger for custom implementations.
+  /* ── MAILERLITE POPUP TIMER (OPTIONAL) ────────────────────────── */
+  // MailerLite universal script goes in HTML just before </body>.
+  // If you have a MailerLite popup/form ID, replace 'FORM_ID' below.
   const ML_DELAY = 6000; // 6 seconds
   setTimeout(() => {
     if (typeof window.ml === 'function') {
-      window.ml('show', 'FORM_ID', true); // replace FORM_ID with your MailerLite form ID
+      // window.ml('show', 'FORM_ID', true);
     }
   }, ML_DELAY);
 
