@@ -15,6 +15,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function (w, d, e, u, f, l, n) {
+      w[f] =
+        w[f] ||
+        function () {
+          (w[f].q = w[f].q || []).push(arguments);
+        };
+      l = d.createElement(e);
+      l.async = 1;
+      l.src = u;
+      n = d.getElementsByTagName(e)[0];
+      n.parentNode.insertBefore(l, n);
+    })(window, document, "script", "https://assets.mailerlite.com/js/universal.js", "ml");
+
+    ml("account", "2121003");
+  </script>
+  <!-- End MailerLite Universal -->
 </head>
 
 <body>
@@ -33,7 +52,7 @@
         </button>
 
         <ul class="nav-links" id="primary-nav">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
@@ -48,7 +67,7 @@
   <main>
 
     <!-- ═══ HERO ══════════════════════════════════════════════════════════ -->
-    <!-- Background image should be handled in CSS on .hero-section (not in HTML). -->
+    <!-- Background image is handled in CSS on .hero-section -->
     <section class="hero-section" id="home">
       <div class="container">
         <div class="hero-content">
@@ -58,23 +77,18 @@
             <span class="eyebrow-text">U.S. Army Veteran · Self-Taught Developer · Minnesota</span>
           </div>
 
-          <!-- KEEP header image -->
-          <div class="hero-title-frame">
-            <img
-              src="images/New-header-image.png"
-              alt="WebOps Studio — Veteran-Built Front Ends"
-              class="hero-header-img"
-              loading="eager"
-              decoding="async"
-            >
-          </div>
+          <!-- Removed header image. Using text title instead. -->
+          <h1 class="hero-title">
+            Built From Scratch.<br>
+            Every Single Time.
+          </h1>
 
           <p class="hero-sub">
             No templates. No page builders. Every site is hand-coded from scratch
             with the same discipline I brought to the Army, built to perform,
             built to last.
           </p>
-          
+
           <div class="hero-ctas">
             <a href="portfolio.html" class="btn btn-primary">View My Work</a>
             <a href="contact.html" class="btn btn-ghost">Start a Project</a>
@@ -252,12 +266,18 @@
   <footer>
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
           <div class="site-logo">
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-     <div class="ml-embedded" data-form="Pfx24D"></div>     
             <span class="logo-tagline">Veteran-Built Front Ends</span>
-          </div> 
+          </div>
+
+          <!-- Embedded Email Signup (MailerLite) -->
+          <div class="footer-signup">
+            <div class="ml-embedded" data-form="Pfx24D"></div>
+          </div>
+
           <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean, performant code that works.</p>
         </div>
 
@@ -280,6 +300,7 @@
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
         </div>
+
       </div>
 
       <div class="footer-bottom">
@@ -292,16 +313,6 @@
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
   <script src="js/scripts.js"></script>
-
-  <!-- MailerLite Universal -->
-  <script>
-  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '2121003');
-  </script>
-  <!-- End MailerLite Universal -->
 
 </body>
 </html>
