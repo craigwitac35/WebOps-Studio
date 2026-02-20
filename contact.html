@@ -4,12 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — WebOps Studio</title>
-  <meta name="description" content="Get in touch with WebOps Studio. Tell Craig what you're building and get a response within 24–48 hours.">
-  <meta property="og:title" content="Contact — WebOps Studio">
-  <meta property="og:description" content="Tell me what you're building. I reply personally within 24–48 hours.">
-  <meta property="og:image" content="images/Hero_bannerimage_20250622_094324_0000.png">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="images/favicon.png">
+  <meta name="description" content="Get in touch with WebOps Studio. Tell me about your project and I'll reply personally with a clear plan and honest quote.">
+  <base href="/WebOps-Studio/">
+  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,230 +14,222 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════ HEADER -->
-<header id="site-header">
-  <div class="container header-inner">
-    <div class="logo">
-      <a href="index.html">WEB<span class="highlight">[OPS]</span> STUDIO</a>
-      <p class="tagline">Veteran-Built Front Ends</p>
-    </div>
-    <nav class="main-nav">
-      <button class="nav-toggle" aria-label="toggle navigation">
-        <span class="hamburger"></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <a href="contact.html" class="btn btn-primary btn-nav-cta">Start a Project</a>
-  </div>
-</header>
-
-<main>
-
-<!-- ═══════════════════════════════════ PAGE HERO -->
-<section class="page-hero">
-  <div class="container">
-    <div class="section-label reveal">Contact</div>
-    <h1 class="reveal">Tell me what<br>you're building.</h1>
-    <p class="intro-text reveal">I reply personally within 24–48 hours. No bots, no contact forms routed to a VA. Just a direct conversation about your project.</p>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ═══════════════════════════════════ CONTACT GRID -->
-<section class="contact-section">
-  <div class="container">
-    <div class="contact-content-grid">
-
-      <!-- FORM -->
-      <div class="contact-form-container reveal">
-        <h2>Send a Message</h2>
-
-        <form id="contactForm" class="contact-form" action="#" method="POST" novalidate>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" required placeholder="Craig Baumann">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="project-type">Project Type</label>
-              <div class="select-wrap">
-                <select id="project-type" name="project_type" required>
-                  <option value="" disabled selected>Select a service...</option>
-                  <option value="custom-build">Custom Website Build</option>
-                  <option value="landing-page">Landing Page</option>
-                  <option value="redesign">Redesign &amp; Cleanup</option>
-                  <option value="mobile-opt">Mobile Optimization</option>
-                  <option value="integration">Forms / Integrations</option>
-                  <option value="other">Other / Not Sure Yet</option>
-                </select>
-                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="budget">Budget Range</label>
-              <div class="select-wrap">
-                <select id="budget" name="budget" required>
-                  <option value="" disabled selected>Select a range...</option>
-                  <option value="under-500">Under $500</option>
-                  <option value="500-1000">$500 – $1,000</option>
-                  <option value="1000-2500">$1,000 – $2,500</option>
-                  <option value="2500-5000">$2,500 – $5,000</option>
-                  <option value="5000-plus">$5,000+</option>
-                  <option value="not-sure">Not sure yet</option>
-                </select>
-                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Tell Me About Your Project</label>
-            <textarea id="message" name="message" rows="6" required placeholder="What are you building? What's working now, what isn't? Any deadlines or special requirements?"></textarea>
-          </div>
-
-          <div class="form-group form-group-radio">
-            <label class="radio-group-label">Preferred Contact Method</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="contact_pref" value="email" checked>
-                <span class="radio-custom"></span>
-                Email
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="contact_pref" value="phone">
-                <span class="radio-custom"></span>
-                Phone / Text
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="contact_pref" value="either">
-                <span class="radio-custom"></span>
-                Either works
-              </label>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary form-submit-btn">
-            Send Message
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-
-        </form>
+  <!-- ═══ HEADER ════════════════════════════════════════════════════════ -->
+  <header id="site-header">
+    <div class="container">
+      <div class="site-logo">
+        <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+        <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
 
-      <!-- DIRECT INFO -->
-      <div class="direct-contact-info reveal" style="animation-delay:0.12s">
-        <h2>Direct Contact</h2>
+  <main>
 
-        <div class="info-item">
-          <p class="label">Email</p>
-          <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+    <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label">Contact</span>
+        <h1>Let's Build<br>Something Real.</h1>
+        <p>
+          I reply personally. No auto-responders, no sales team.
+          Tell me what you need and I'll come back with a clear plan and honest quote.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT FORM + INFO ════════════════════════════════════════════ -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Form -->
+          <div class="contact-form-wrap reveal">
+            <h2>Send a Message</h2>
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Craig Baumann">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="service">What Are You Looking For?</label>
+                <div class="select-wrap">
+                  <select id="service" name="service">
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="custom-site">Custom Website Design</option>
+                    <option value="landing-page">Landing Page</option>
+                    <option value="redesign">Website Redesign</option>
+                    <option value="mobile">Mobile Optimization</option>
+                    <option value="form">Form / Integration</option>
+                    <option value="refactor">Front-End Refactoring</option>
+                    <option value="other">Something Else</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Approximate Budget</label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="under-500">
+                    <span class="radio-custom"></span>
+                    <span>Under $500</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="500-1500">
+                    <span class="radio-custom"></span>
+                    <span>$500–$1,500</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="1500-plus">
+                    <span class="radio-custom"></span>
+                    <span>$1,500+</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="budget" value="not-sure">
+                    <span class="radio-custom"></span>
+                    <span>Not Sure Yet</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell Me About Your Project</label>
+                <textarea id="message" name="message" rows="6" required placeholder="What do you need? Who's it for? Any existing site or brand assets? The more detail the better."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Message →</button>
+            </form>
+          </div>
+
+          <!-- Info panel -->
+          <div class="contact-info-panel reveal reveal-delay-1">
+            <h3>Direct Contact</h3>
+            <div class="contact-info-items">
+              <div class="info-item">
+                <p class="info-label">Email</p>
+                <p class="info-value"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+              </div>
+              <div class="info-item">
+                <p class="info-label">Phone</p>
+                <p class="info-value"><a href="tel:+13205226226">320-522-6226</a></p>
+              </div>
+              <div class="info-item">
+                <p class="info-label">Location</p>
+                <p class="info-value">Minnesota, United States</p>
+              </div>
+              <div class="info-item">
+                <p class="info-label">Response Time</p>
+                <p class="info-value">Within 24 hours</p>
+              </div>
+            </div>
+
+            <div class="what-next">
+              <h4>What Happens Next</h4>
+              <div class="next-steps">
+                <div class="next-step">
+                  <span class="next-num">1</span>
+                  <p>I review your message and reach out personally — usually within 24 hours.</p>
+                </div>
+                <div class="next-step">
+                  <span class="next-num">2</span>
+                  <p>We have a quick call or exchange to clarify scope and goals.</p>
+                </div>
+                <div class="next-step">
+                  <span class="next-num">3</span>
+                  <p>I send you a clear, itemized quote with a realistic timeline.</p>
+                </div>
+                <div class="next-step">
+                  <span class="next-num">4</span>
+                  <p>You approve. We build. No surprises.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
 
-        <div class="info-item">
-          <p class="label">Phone / Text</p>
-          <p><a href="tel:+13205226226">320-522-6226</a></p>
+    <div class="section-divider"></div>
+
+    <!-- ═══ TESTIMONIAL ════════════════════════════════════════════════════ -->
+    <section class="testimonial-section">
+      <div class="container">
+        <div class="testimonial-block reveal">
+          <blockquote>
+            "Craig went above and beyond. He didn't just build us a website —
+            he brought our mission to life. We get compliments on it constantly."
+          </blockquote>
+          <cite>— Guardian 4 Heroes Team</cite>
         </div>
+      </div>
+    </section>
 
-        <div class="info-item">
-          <p class="label">Location</p>
-          <p>Minnesota, United States</p>
+  </main>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="site-logo">
+            <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+            <span class="logo-tagline">Veteran-Built Front Ends</span>
+          </div>
+          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts — just clean, performant code that works.</p>
         </div>
-
-        <div class="info-item">
-          <p class="label">Response Time</p>
-          <p>Within 24–48 hours on business days</p>
-        </div>
-
-        <div class="contact-divider"></div>
-
-        <div class="contact-expectations">
-          <h3>What Happens Next</h3>
-          <ul class="expect-steps">
-            <li>
-              <span class="expect-num">1</span>
-              <span>I read your message and review your project details</span>
-            </li>
-            <li>
-              <span class="expect-num">2</span>
-              <span>I follow up with any clarifying questions</span>
-            </li>
-            <li>
-              <span class="expect-num">3</span>
-              <span>I send a clear, itemized quote — no pressure</span>
-            </li>
-            <li>
-              <span class="expect-num">4</span>
-              <span>If it's a fit, we schedule a quick call and get started</span>
-            </li>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
-        <div class="contact-divider"></div>
-
-        <div class="contact-services-quick">
-          <h3>Not Sure Which Service You Need?</h3>
-          <p>That's fine — just describe what you're trying to accomplish. I'll figure out the right scope and tell you what it would cost.</p>
-          <a href="services.html" class="link-arrow">
-            Browse Services
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-items">
+            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+            <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
+            <p class="footer-contact-item">Minnesota, United States</p>
+          </div>
         </div>
       </div>
-
+      <div class="footer-bottom">
+        <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
+        <a href="contact.html">Get a Free Quote →</a>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-</main>
-
-<!-- ═══════════════════════════════════ FOOTER -->
-<footer>
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <a href="index.html" class="footer-logo-link">WEB<span class="highlight">[OPS]</span> STUDIO</a>
-      <p class="footer-tagline">Veteran-Built Front Ends</p>
-      <p class="footer-desc">Precision code. Real results. Built by a U.S. Army veteran in Minnesota.</p>
-    </div>
-    <nav class="footer-nav">
-      <h4>Navigate</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="footer-contact-info">
-      <h4>Contact</h4>
-      <p><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-      <p><a href="tel:+13205226226">320-522-6226</a></p>
-      <p>MN, United States</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container footer-bottom-inner">
-      <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
-      <p class="footer-motto">Built clean. Shipped with discipline.</p>
-    </div>
-  </div>
-</footer>
-
-<script src="js/scripts.js"></script>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
