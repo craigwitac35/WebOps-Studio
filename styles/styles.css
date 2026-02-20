@@ -1,7 +1,8 @@
 /* =========================================================================
-   WEBOPS STUDIO — styles.css v3.0
+   WEBOPS STUDIO — styles.css v3.1
    Design tokens → Reset → Typography → Layout → Header → Hero →
    Buttons → Components → Pages → Responsive
+   + Contact form AJAX status styles
    ========================================================================= */
 
 /* ── 1. DESIGN TOKENS ──────────────────────────────────────────────────── */
@@ -371,6 +372,30 @@ section { padding:var(--section-pad) 0; }
 .next-num { width:22px; height:22px; border-radius:50%; background:rgba(232,98,10,0.1); border:1px solid rgba(232,98,10,0.25); color:var(--color-orange); font-family:var(--font-head); font-size:0.65rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .next-step p { font-size:0.82rem; color:var(--color-text-3); margin:0; line-height:1.5; padding-top:2px; }
 
+/* ── 16.1 CONTACT FORM STATUS (AJAX) ────────────────────────────────────── */
+.form-status {
+  margin: 14px 0 18px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text-2);
+  font-size: 0.9rem;
+  display: none;
+}
+.form-status.success {
+  display: block;
+  border-color: rgba(16,185,129,0.35);
+  background: rgba(16,185,129,0.10);
+  color: rgba(255,255,255,0.92);
+}
+.form-status.error {
+  display: block;
+  border-color: rgba(239,68,68,0.35);
+  background: rgba(239,68,68,0.10);
+  color: rgba(255,255,255,0.92);
+}
+
 /* ── 17. TESTIMONIAL ────────────────────────────────────────────────────── */
 .testimonial-section { background:var(--color-surface-1); }
 .testimonial-block { max-width:740px; margin:0 auto; background:var(--color-surface-2); border:1px solid rgba(59,30,109,0.2); border-radius:var(--radius-lg); padding:48px; text-align:center; }
@@ -481,4 +506,4 @@ footer { background:var(--color-bg); border-top:1px solid rgba(59,30,109,0.15); 
     height: 100vh !important;
     padding-top: 80px;
   }
-}
+       }
