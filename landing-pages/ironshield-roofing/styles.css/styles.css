@@ -1,0 +1,827 @@
+/* =========================================================
+   IronShield Roofing — Landing Page CSS
+   File: landing-pages/ironshield-roofing/styles.css
+
+   PURPOSE
+   - Isolated styling for this single landing page demo
+   - Contractor brand feel (navy/charcoal + orange CTA)
+   - Split hero with a real photo + structured cards below
+   - Mobile-first, readable, conversion-focused
+
+   NOTES
+   - Keep paths relative
+   - Avoid adding heavy animations
+   - This file assumes your HTML class names match index.html
+   ========================================================= */
+
+
+/* =========================================================
+   0) QUICK THEME CONTROLS (Edit these first)
+   - Want it darker? change --bg / --panel
+   - Want CTA more red? change --cta
+   ========================================================= */
+
+:root {
+  --bg: #0b1220;            /* Main page background (deep navy/charcoal) */
+  --bg-2: #081022;          /* Darker bar/strip background */
+  --text: #ffffff;          /* Main text */
+  --muted: #cbd5e1;         /* Secondary text */
+  --muted-2: #94a3b8;       /* Lighter secondary text */
+  --line: rgba(255,255,255,0.06);  /* Subtle borders */
+  --panel: rgba(255,255,255,0.03); /* Card/panel background */
+  --panel-line: rgba(255,255,255,0.06);
+
+  --cta: #f97316;           /* Orange CTA */
+  --cta-hover: #ea580c;     /* Hover orange */
+  --cta-soft: rgba(249,115,22,0.14); /* Soft CTA background */
+  --cta-line: rgba(249,115,22,0.35); /* CTA border */
+  --cta-text-dark: #0b1220; /* Text on CTA button */
+
+  --radius: 12px;           /* Global rounding */
+  --shadow: 0 30px 70px rgba(0,0,0,0.55); /* Hero image shadow */
+}
+
+
+/* =========================================================
+   1) RESET / BASE RULES
+   Notes:
+   - Minimal reset for consistent spacing and box sizing
+   - Keep default font system-based for speed
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   2) LAYOUT SYSTEM
+   Notes:
+   - Container sets max width and side padding
+   - Section spacing keeps the page calm and structured
+   ========================================================= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section__title {
+  font-size: 34px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.section__lead {
+  color: var(--muted);
+  max-width: 70ch;
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   3) ACCESSIBILITY: SKIP LINK
+   Notes:
+   - Appears only when focused (keyboard users)
+   ========================================================= */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  background: #ffffff;
+  color: var(--bg);
+  padding: 10px 12px;
+  border-radius: 6px;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  left: 10px;
+}
+
+
+/* =========================================================
+   4) TOP BAR (Emergency strip)
+   Notes:
+   - High-contrast strip with phone + quick "Call Now"
+   - This supports the call-first conversion goal
+   ========================================================= */
+
+.topbar {
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.topbar__message {
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar__phone {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.topbar__phone:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   5) HEADER + NAV
+   Notes:
+   - Simple contractor header, not a SaaS nav
+   - CTA nav link is subtle but visible
+   ========================================================= */
+
+.header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 18px 0;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand__name {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  font-size: 18px;
+}
+
+.brand__tagline {
+  font-size: 12px;
+  color: var(--muted-2);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav__link {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 10px;
+  border-radius: 6px;
+}
+
+.nav__link:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.nav__link--cta {
+  background: var(--cta-soft);
+  border: 1px solid var(--cta-line);
+  color: #fff7ed;
+}
+
+
+/* =========================================================
+   6) BUTTON SYSTEM
+   Notes:
+   - Primary = orange fill
+   - Secondary = outlined
+   - Use .btn--full for form submit
+   ========================================================= */
+
+.btn {
+  padding: 14px 18px;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 6px;
+  display: inline-block;
+  transition: 0.25s ease;
+  line-height: 1;
+}
+
+.btn--sm {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.btn--primary {
+  background: var(--cta);
+  color: var(--cta-text-dark);
+}
+
+.btn--primary:hover {
+  background: var(--cta-hover);
+  color: var(--cta-text-dark);
+}
+
+.btn--secondary {
+  border: 1px solid rgba(255,255,255,0.8);
+  color: var(--text);
+}
+
+.btn--secondary:hover {
+  background: #ffffff;
+  color: var(--bg);
+}
+
+.btn--full {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* =========================================================
+   7) HERO (Split layout)
+   Notes:
+   - Inspired by PCL / Mortenson structure
+   - Background stays clean and controlled
+   - Image is the “media block” on the right
+   ========================================================= */
+
+.hero {
+  padding: 70px 0 40px;
+  background:
+    radial-gradient(900px 600px at 15% 20%, rgba(249,115,22,0.10), transparent 60%),
+    radial-gradient(900px 600px at 80% 0%, rgba(255,255,255,0.05), transparent 55%),
+    var(--bg);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero__eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fdba74;
+  margin-bottom: 14px;
+}
+
+.hero__title {
+  font-size: 52px;
+  line-height: 1.05;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.hero__subhead {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 60ch;
+  margin-bottom: 26px;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.hero__trust {
+  list-style: none;
+  color: var(--muted-2);
+  font-size: 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.hero__trust li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.hero__trust li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--cta);
+  font-weight: 900;
+}
+
+.hero__media img {
+  border-radius: var(--radius);
+  box-shadow:
+    var(--shadow),
+    0 0 0 1px rgba(255,255,255,0.06);
+}
+
+
+/* =========================================================
+   8) HERO CARDS (Under hero)
+   Notes:
+   - These are the “structured proof” blocks
+   - Makes the landing page feel enterprise and organized
+   ========================================================= */
+
+.hero-cards {
+  padding: 18px 0 0;
+  background: var(--bg);
+}
+
+.hero-cards__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+
+/* =========================================================
+   9) CARD SYSTEM (Reusable)
+   Notes:
+   - Used for hero cards, benefits, steps, testimonials, etc.
+   ========================================================= */
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.card--tight {
+  padding: 18px;
+}
+
+.card__title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.card__text {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   10) TRUST STRIP
+   Notes:
+   - Quick credibility builder right after hero
+   ========================================================= */
+
+.trust {
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+  margin-top: 34px;
+}
+
+.trust__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.trust__item {
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 10px;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  color: #e2e8f0;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   11) TWO-COLUMN LAYOUT (Problem section)
+   Notes:
+   - Content left, image/placeholder right
+   ========================================================= */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.list {
+  margin-top: 10px;
+  padding-left: 18px;
+  color: #e2e8f0;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   12) PLACEHOLDER MEDIA BLOCKS
+   Notes:
+   - Used until you drop in real before/after images
+   ========================================================= */
+
+.media-placeholder {
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px dashed rgba(255,255,255,0.18);
+  padding: 26px;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  color: var(--muted-2);
+  text-align: center;
+}
+
+
+/* =========================================================
+   13) PROCESS STEPS
+   Notes:
+   - 4-column desktop, collapses on mobile
+   ========================================================= */
+
+.steps {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+}
+
+.step {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.step__title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.step__text {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   14) BENEFITS GRID
+   Notes:
+   - 3-column desktop
+   - Collapses on tablet/mobile in media queries
+   ========================================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+
+/* =========================================================
+   15) BEFORE / AFTER LAYOUT
+   Notes:
+   - Two equal blocks
+   ========================================================= */
+
+.ba {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+
+/* =========================================================
+   16) TESTIMONIALS
+   Notes:
+   - 3 columns desktop, 1 column mobile
+   ========================================================= */
+
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.quote {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.quote blockquote {
+  color: #e2e8f0;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.quote figcaption {
+  color: var(--muted-2);
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   17) FAQ
+   Notes:
+   - Uses native <details> for no-JS accordion
+   ========================================================= */
+
+.faq__list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq__item {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.faq__item summary {
+  cursor: pointer;
+  font-weight: 900;
+  color: #e2e8f0;
+}
+
+.faq__content {
+  padding-top: 10px;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   18) FINAL CTA (Closing block)
+   Notes:
+   - Strong close with centered CTA
+   ========================================================= */
+
+.final-cta {
+  padding: 70px 0;
+  background:
+    radial-gradient(900px 600px at 80% 20%, rgba(249,115,22,0.14), transparent 60%),
+    var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.final-cta__inner {
+  display: grid;
+  gap: 14px;
+  text-align: center;
+}
+
+.final-cta__title {
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.final-cta__text {
+  color: var(--muted);
+}
+
+.final-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   19) CONTACT SECTION + FORM
+   Notes:
+   - Two-column layout on desktop
+   - Form styles include focus rings for accessibility
+   ========================================================= */
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact a {
+  color: #fdba74;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+.form {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.form__row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+label {
+  font-size: 14px;
+  color: #e2e8f0;
+  font-weight: 800;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(2,6,23,0.55);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(249,115,22,0.7);
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.18);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form__note {
+  margin-top: 10px;
+  color: var(--muted-2);
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   20) FOOTER
+   Notes:
+   - Small, quiet, includes back-to-portfolio link
+   ========================================================= */
+
+.footer {
+  padding: 26px 0;
+  background: var(--bg);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.footer__small {
+  color: var(--muted-2);
+  font-size: 13px;
+}
+
+.footer__link {
+  color: #fdba74;
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   21) RESPONSIVE BREAKPOINTS
+   Notes:
+   - Tablet: stack hero, reduce columns
+   - Mobile: single column grids, tighter spacing
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__title {
+    font-size: 40px;
+  }
+
+  .hero__media {
+    order: -1;
+  }
+
+  .hero-cards__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .trust__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quotes {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 54px 0 30px;
+  }
+
+  .hero__title {
+    font-size: 34px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
