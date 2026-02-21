@@ -1,169 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — WebOps Studio</title>
-  <meta name="description" content="Custom websites built from scratch by WebOps Studio. View case studies including Guardian 4 Heroes nonprofit site and upcoming projects.">
-  <base href="/WebOps-Studio/">
-  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-</head>
-<body>
+  <!-- =========================================================
+       PORTFOLIO PAGE (WebOps Studio)
+       Notes:
+       - Uses shared site header/footer + shared master CSS
+       - Portfolio cards are filterable via scripts.js
+       - Landing page demos live in /landing-pages/<project>/index.html
+  ========================================================== -->
 
-  <!-- ═══ HEADER ════════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio — WebOps Studio</title>
+  <meta
+    name="description"
+    content="Hand-coded websites and landing pages built from scratch by WebOps Studio. View live builds, demos, and case studies."
+  />
+
+  <!-- GitHub Pages base path -->
+  <base href="/WebOps-Studio/" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg" />
+
+  <!-- Master CSS -->
+  <link rel="stylesheet" href="styles/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <!-- =========================================================
+       HEADER (shared across site)
+       Notes:
+       - Mobile nav toggle controlled by scripts.js
+       - Keep IDs consistent across pages
+  ========================================================== -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
-      <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Toggle navigation">
+
+      <nav class="main-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
           <span class="hamburger"></span>
         </button>
-        <ul class="nav-links">
+
+        <ul class="nav-links" id="primary-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
   </header>
 
   <main>
-
-    <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════ -->
+    <!-- =========================================================
+         PAGE HERO
+         Notes:
+         - Clean, readable intro
+         - Sets expectation: real builds + demos + case studies
+    ========================================================== -->
     <section class="page-hero">
       <div class="container">
         <span class="section-label">Portfolio</span>
-        <h1>Built From Scratch.<br>Every Single One.</h1>
+        <h1>Built From Scratch.<br />Built to Perform.</h1>
         <p>
-          No templates. No shortcuts. Each project below was hand-coded
-          from the ground up, designed to fit the client's mission and
-          built to perform on every device.
+          No templates. No page builders. Just clean HTML, CSS, and JavaScript with a focus on speed,
+          clarity, and conversion.
         </p>
       </div>
     </section>
 
-    <!-- ═══ PORTFOLIO GRID ════════════════════════════════════════════════ -->
+    <!-- =========================================================
+         PORTFOLIO GRID (filterable)
+         Notes:
+         - data-filter values must match data-tags in cards
+         - scripts.js should handle filter + reveal animations
+    ========================================================== -->
     <section class="portfolio-section">
       <div class="container">
-
-        <!-- Filter buttons -->
-        <div class="portfolio-filters reveal">
-          <button class="filter-btn active" data-filter="all">All Work</button>
-          <button class="filter-btn" data-filter="nonprofit">Nonprofit</button>
-          <button class="filter-btn" data-filter="business">Business</button>
-          <button class="filter-btn" data-filter="landing-page">Landing Page</button>
-          <button class="filter-btn" data-filter="concept">Concept</button>
+        <!-- Filters -->
+        <div class="portfolio-filters reveal" aria-label="Portfolio filters">
+          <button class="filter-btn active" type="button" data-filter="all">All Work</button>
+          <button class="filter-btn" type="button" data-filter="nonprofit">Nonprofit</button>
+          <button class="filter-btn" type="button" data-filter="business">Business</button>
+          <button class="filter-btn" type="button" data-filter="landing-page">Landing Page</button>
+          <button class="filter-btn" type="button" data-filter="concept">Concept</button>
         </div>
 
-        <!-- Portfolio cards -->
+        <!-- Cards -->
         <div class="portfolio-grid">
-
-          <!-- Guardian 4 Heroes -->
+          <!-- =========================
+               CARD: Guardian 4 Heroes (Live)
+          ========================== -->
           <article class="portfolio-card reveal" data-tags="nonprofit">
             <div class="portfolio-card-img-placeholder">Guardian 4 Heroes</div>
             <div class="portfolio-card-body">
               <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+
               <div class="portfolio-card-tags">
                 <span class="tag">Nonprofit</span>
-                <span class="tag">HTML / CSS / JS</span>
+                <span class="tag">Multi-Page</span>
                 <span class="tag">Mobile-First</span>
               </div>
+
               <h3>Guardian 4 Heroes</h3>
-              <p>Equine therapy nonprofit serving veterans and first responders. Full site built from zero with donation integration, contact form, and mobile-first layout.</p>
+              <p>
+                Equine therapy nonprofit serving veterans and first responders. Full build with donation flow,
+                contact form, and a clean mobile-first layout.
+              </p>
+
               <a href="portfolio.html#guardian4heroes" class="btn btn-ghost btn-sm">View Case Study ↓</a>
             </div>
           </article>
 
-          <!-- Construction Business -->
-          <article class="portfolio-card reveal reveal-delay-1" data-tags="business">
+          <!-- =========================
+               CARD: IronShield Roofing (Landing Page Demo)
+               Path:
+               /landing-pages/ironshield-roofing/index.html
+          ========================== -->
+          <article class="portfolio-card reveal reveal-delay-1" data-tags="landing-page">
+            <div class="portfolio-card-img-placeholder">IronShield Roofing</div>
+            <div class="portfolio-card-body">
+              <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
+
+              <div class="portfolio-card-tags">
+                <span class="tag">Landing Page</span>
+                <span class="tag">Lead Gen</span>
+                <span class="tag">Conversion</span>
+              </div>
+
+              <h3>IronShield Roofing</h3>
+              <p>
+                Storm-damage lead generation landing page. Trust-first layout, call-driven structure,
+                and a focused quote request flow.
+              </p>
+
+              <a href="landing-pages/ironshield-roofing/index.html" class="btn btn-ghost btn-sm">View Demo →</a>
+            </div>
+          </article>
+
+          <!-- =========================
+               CARD: Local Construction Business (In Development)
+          ========================== -->
+          <article class="portfolio-card reveal reveal-delay-2" data-tags="business">
             <div class="portfolio-card-img-placeholder">Construction Co.</div>
             <div class="portfolio-card-body">
               <span class="status-badge status-progress"><span class="status-dot"></span>In Development</span>
+
               <div class="portfolio-card-tags">
                 <span class="tag">Business</span>
-                <span class="tag">HTML / CSS / JS</span>
+                <span class="tag">Multi-Page</span>
+                <span class="tag">Local SEO</span>
               </div>
+
               <h3>Local Construction Business</h3>
-              <p>Full business site with service pages, project gallery, contact form, and local SEO structure. Currently in active development.</p>
+              <p>
+                Full business site with service pages, project gallery, and contact flow. Built to rank locally
+                and convert traffic into calls.
+              </p>
+
               <a href="contact.html" class="btn btn-ghost btn-sm">Inquire About This →</a>
             </div>
           </article>
 
-          <!-- Cafe Concept -->
+          <!-- =========================
+               CARD: Fitness Coach Funnel (Coming Soon)
+               Placeholder for future landing page series
+          ========================== -->
+          <article class="portfolio-card reveal" data-tags="landing-page">
+            <div class="portfolio-card-img-placeholder">Fitness Coach</div>
+            <div class="portfolio-card-body">
+              <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+
+              <div class="portfolio-card-tags">
+                <span class="tag">Landing Page</span>
+                <span class="tag">Applications</span>
+                <span class="tag">High-Ticket</span>
+              </div>
+
+              <h3>Fitness Coach Funnel</h3>
+              <p>
+                Application-style landing page designed for high-ticket coaching. Built to qualify leads
+                and drive form submissions.
+              </p>
+
+              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build →</a>
+            </div>
+          </article>
+
+          <!-- =========================
+               CARD: SaaS Beta Waitlist (Coming Soon)
+               Placeholder for future product launch demo
+          ========================== -->
+          <article class="portfolio-card reveal reveal-delay-1" data-tags="landing-page">
+            <div class="portfolio-card-img-placeholder">SaaS Waitlist</div>
+            <div class="portfolio-card-body">
+              <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+
+              <div class="portfolio-card-tags">
+                <span class="tag">Landing Page</span>
+                <span class="tag">Waitlist</span>
+                <span class="tag">Email Capture</span>
+              </div>
+
+              <h3>SaaS Beta Waitlist</h3>
+              <p>
+                Clean waitlist page for a product launch. Focused layout, fast load, and a clear value
+                stack built for signups.
+              </p>
+
+              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build →</a>
+            </div>
+          </article>
+
+          <!-- =========================
+               CARD: Local Cafe (Concept)
+          ========================== -->
           <article class="portfolio-card reveal reveal-delay-2" data-tags="concept">
             <div class="portfolio-card-img-placeholder">Local Cafe</div>
             <div class="portfolio-card-body">
               <span class="status-badge status-concept"><span class="status-dot"></span>Concept Build</span>
+
               <div class="portfolio-card-tags">
                 <span class="tag">Concept</span>
-                <span class="tag">HTML / CSS / JS</span>
+                <span class="tag">Demo Site</span>
+                <span class="tag">UI Layout</span>
               </div>
-              <h3>Local Cafe — Demo Site</h3>
-              <p>Concept build showcasing menu design, event listings, and a reservation mock-up. Demonstrates range beyond nonprofit and business work.</p>
+
+              <h3>Local Cafe Demo Site</h3>
+              <p>
+                Concept build showcasing menu layout, event listings, and a reservation mockup.
+                Built to show range beyond nonprofit work.
+              </p>
+
               <a href="contact.html" class="btn btn-ghost btn-sm">Start Something Similar →</a>
             </div>
           </article>
-
-          <!-- Landing Page Demo -->
-          <article class="portfolio-card reveal" data-tags="landing-page">
-            <div class="portfolio-card-img-placeholder">Landing Page</div>
-            <div class="portfolio-card-body">
-              <span class="status-badge status-concept"><span class="status-dot"></span>Demo Build</span>
-              <div class="portfolio-card-tags">
-                <span class="tag">Landing Page</span>
-                <span class="tag">HTML / CSS / JS</span>
-              </div>
-              <h3>Lead Gen Landing Page</h3>
-              <p>High-converting single-page demo built for a service business. Focused layout, clear CTA, fast load, zero distractions.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Need One of These? →</a>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- ═══ CASE STUDY — GUARDIAN 4 HEROES ════════════════════════════════ -->
+    <!-- =========================================================
+         CASE STUDY: Guardian 4 Heroes
+         Notes:
+         - Anchored section (portfolio.html#guardian4heroes)
+         - Keep content structured for skimming
+    ========================================================== -->
     <section class="portfolio-section" id="guardian4heroes">
       <div class="container">
-
         <span class="section-label reveal">Case Study</span>
         <h2 class="reveal">Guardian 4 Heroes</h2>
 
         <div class="case-study reveal">
-
-          <!-- Header -->
+          <!-- Summary header -->
           <div class="case-study-header">
             <div class="case-study-meta">
               <div class="meta-item">
                 <span class="meta-label">Client</span>
                 <span class="meta-value">Guardian 4 Heroes</span>
               </div>
+
               <div class="meta-item">
                 <span class="meta-label">Sector</span>
                 <span class="meta-value">Nonprofit, Equine Therapy</span>
               </div>
+
               <div class="meta-item">
                 <span class="meta-label">Built With</span>
                 <span class="meta-value">HTML5 · CSS3 · Vanilla JS</span>
               </div>
+
               <div class="meta-item">
                 <span class="meta-label">Live Site</span>
-                <span class="meta-value"><a href="https://guardian4heroes.org" target="_blank" rel="noopener">guardian4heroes.org ↗</a></span>
+                <span class="meta-value">
+                  <a href="https://guardian4heroes.org" target="_blank" rel="noopener">guardian4heroes.org ↗</a>
+                </span>
               </div>
             </div>
+
             <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
           </div>
 
@@ -171,66 +308,77 @@
           <div class="case-study-grid">
             <div class="case-section">
               <h4>The Mission</h4>
-              <p>Guardian 4 Heroes provides equine therapy to veterans and first responders to support mental and physical well-being. They had no website and needed something custom-built, fully responsive, and emotionally resonant, something that could communicate their values while being practical and easy to navigate.</p>
+              <p>
+                Guardian 4 Heroes provides equine therapy to veterans and first responders.
+                They needed a site that felt mission-aligned, emotionally grounded, and easy to navigate.
+              </p>
             </div>
+
             <div class="case-section">
               <h4>My Role</h4>
               <ul>
-                <li>Visual design, imagery, layout, typography</li>
+                <li>Visual design, layout, typography</li>
                 <li>Full front-end build from scratch</li>
-                <li>Custom mobile and tablet layouts</li>
+                <li>Mobile and tablet breakpoints</li>
                 <li>Contact form wired to email</li>
                 <li>Donation page with tiered buttons</li>
                 <li>Accessible, high-contrast design</li>
               </ul>
             </div>
+
             <div class="case-section">
               <h4>Technical Breakdown</h4>
               <ul>
-                <li>HTML5, CSS3, JavaScript, no frameworks</li>
+                <li>Vanilla HTML, CSS, JavaScript (no frameworks)</li>
                 <li>Hosted on GitHub Pages, migrated to live domain</li>
-                <li>Lightweight, fast load, no unnecessary scripts</li>
-                <li>Mobile-first responsive breakpoints</li>
+                <li>Lightweight and fast with minimal scripts</li>
+                <li>Mobile-first structure with clean hierarchy</li>
               </ul>
             </div>
+
             <div class="case-section">
               <h4>The Outcome</h4>
-              <p>A warm, mission-aligned site that matched their identity and served their goals. Clear donation pathways, a powerful hero section, and a clean mobile layout that scales beautifully on all devices. The organization was thrilled, and their donors and supporters have noticed.</p>
+              <p>
+                A warm, mission-aligned site with clear donation pathways and a strong mobile experience.
+                The organization was thrilled and supporters regularly compliment the build.
+              </p>
             </div>
           </div>
 
-          <!-- Testimonial inside case study -->
-          <blockquote style="font-size:1.1rem; font-style:italic; color:var(--color-text-1); border-left:3px solid var(--color-orange); padding-left:20px; margin:8px 0 0;">
-            "Craig went above and beyond. He didn't just build us a website, he brought our mission to life. We get compliments on it constantly."
-            <br><br>
-            <cite style="font-family:var(--font-head); font-size:0.7rem; letter-spacing:0.15em; color:var(--color-orange); font-style:normal;">— Guardian 4 Heroes Team</cite>
+          <!-- Case study testimonial -->
+          <blockquote class="case-quote">
+            “Craig went above and beyond. He did not just build us a website, he brought our mission to life.
+            We get compliments on it constantly.”
+            <cite class="case-cite">Guardian 4 Heroes Team</cite>
           </blockquote>
-
         </div>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- ═══ CTA STRIP ══════════════════════════════════════════════════════ -->
+    <!-- =========================================================
+         CTA STRIP (shared style)
+    ========================================================== -->
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Your Project</span>
-        <h2 class="reveal">Ready to Be Next?</h2>
+        <h2 class="reveal">Want a Build Like This?</h2>
         <p class="reveal">
-          Every project starts with a conversation. Tell me what you need
-          and I'll tell you exactly how I'd build it.
+          Tell me what you need and I will map out the build and the best path to ship it clean.
         </p>
+
         <div class="cta-btns reveal">
           <a href="contact.html" class="btn btn-primary">Start a Project</a>
           <a href="services.html" class="btn btn-ghost">See My Services</a>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
+  <!-- =========================================================
+       FOOTER (shared across site)
+  ========================================================== -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -239,8 +387,12 @@
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
-          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean, performant code that works.</p>
+          <p>
+            Custom hand-coded websites built with military precision.
+            No templates, no shortcuts, just clean, performant code that works.
+          </p>
         </div>
+
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
@@ -251,6 +403,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
@@ -260,6 +413,7 @@
           </div>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
         <a href="contact.html">Get a Free Quote →</a>
@@ -267,19 +421,12 @@
     </div>
   </footer>
 
+  <!-- =========================================================
+       UI: Back to top button (scripts.js)
+  ========================================================== -->
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
+  <!-- Site JS -->
   <script src="js/scripts.js"></script>
-
-  <!-- MailerLite Universal -->
-  <script>
-  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '2121003');
-  </script>
-  <!-- End MailerLite Universal -->
-
 </body>
 </html>
