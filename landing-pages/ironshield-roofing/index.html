@@ -30,7 +30,7 @@
         <a class="topbar__phone" href="tel:13205555555" aria-label="Call IronShield Roofing at 320-555-5555">
           320-555-5555
         </a>
-        <a class="btn btn--cta btn--sm" href="#contact">Call Now</a>
+        <a class="btn btn--primary btn--sm" href="tel:13205555555">Call Now</a>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
   <!-- HEADER -->
   <header class="header" role="banner">
     <div class="container header__inner">
-      <a class="brand" href="#" aria-label="IronShield Roofing home">
+      <a class="brand" href="#main" aria-label="IronShield Roofing home">
         <span class="brand__name">IronShield Roofing</span>
         <span class="brand__tagline">Storm Damage Specialists</span>
       </a>
@@ -54,41 +54,56 @@
 
   <main id="main">
 
-    <!-- HERO -->
+    <!-- HERO (Split Layout) -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__overlay" aria-hidden="true"></div>
-
       <div class="container hero__inner">
+
         <div class="hero__content">
-          <p class="hero__eyebrow">Storm Damage • Hail • Wind • Leaks</p>
+          <p class="hero__eyebrow">Licensed &amp; Insured • Insurance Claim Specialists</p>
 
           <h1 id="hero-title" class="hero__title">
             Storm Damage? Get Your Roof Inspected Today.
           </h1>
 
           <p class="hero__subhead">
-            Free roof inspections and insurance claim assistance. We document the damage, guide you through the process, and install it right.
+            Free inspections with photo documentation and claim support. We guide you through the process and complete the work clean.
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--cta" href="#contact">Request Free Inspection</a>
-            <a class="btn btn--ghost" href="tel:13205555555">Call 320-555-5555</a>
+            <a class="btn btn--primary" href="#contact">Request Free Inspection</a>
+            <a class="btn btn--secondary" href="tel:13205555555">Call 320-555-5555</a>
           </div>
 
-          <ul class="hero__proof" aria-label="Quick trust points">
-            <li>Licensed &amp; Insured</li>
-            <li>Locally Owned</li>
-            <li>5-Star Rated</li>
-            <li>Insurance Claim Specialists</li>
+          <ul class="hero__trust" aria-label="Quick trust points">
+            <li>Free roof inspections</li>
+            <li>Fast storm-response scheduling</li>
+            <li>Workmanship warranty</li>
           </ul>
         </div>
 
-        <div class="hero__badges" aria-label="Trust badges">
-          <!-- Replace these with real badge images/logos later if desired -->
-          <div class="badge">Licensed &amp; Insured</div>
-          <div class="badge">Locally Owned</div>
-          <div class="badge">5-Star Rated</div>
-          <div class="badge">Claim Help</div>
+        <div class="hero__media" aria-label="Roofing crew hero image">
+          <img src="images/roofing-hero.jpeg" alt="Roofing crew replacing a residential roof" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HERO CARDS (Below Hero) -->
+    <section class="hero-cards" aria-label="Top service highlights">
+      <div class="container hero-cards__inner">
+        <div class="card card--tight">
+          <h2 class="card__title">Free Inspection</h2>
+          <p class="card__text">Straight answers, clear photos, and a written summary of what we find.</p>
+        </div>
+
+        <div class="card card--tight">
+          <h2 class="card__title">Insurance Claim Help</h2>
+          <p class="card__text">We help you understand the steps and document the damage properly.</p>
+        </div>
+
+        <div class="card card--tight">
+          <h2 class="card__title">Fast Turnaround</h2>
+          <p class="card__text">Storm season moves fast. We schedule quickly and keep the job moving.</p>
         </div>
       </div>
     </section>
@@ -99,7 +114,7 @@
         <div class="trust__item">Licensed &amp; Insured</div>
         <div class="trust__item">Locally Owned</div>
         <div class="trust__item">5-Star Rated</div>
-        <div class="trust__item">Insurance Claim Specialists</div>
+        <div class="trust__item">Claim Specialists</div>
       </div>
     </section>
 
@@ -109,57 +124,56 @@
         <div class="two-col__content">
           <h2 id="problem-title" class="section__title">Storm Damage Isn’t Always Visible.</h2>
           <p class="section__lead">
-            A roof can look “fine” from the ground while hidden damage spreads. A quick inspection now can prevent leaks, mold, and expensive interior repairs later.
+            A roof can look fine from the ground while hidden damage spreads. A quick inspection now can prevent leaks and expensive interior repairs later.
           </p>
 
           <ul class="list">
             <li>Missing or lifted shingles</li>
             <li>Hail bruising and granule loss</li>
             <li>Flashing damage around vents and chimneys</li>
-            <li>Hidden leaks you won’t notice until it’s worse</li>
+            <li>Hidden leaks that show up weeks later</li>
             <li>Insurance paperwork confusion and delays</li>
           </ul>
         </div>
 
-        <div class="two-col__media" aria-label="Storm damage placeholder image">
-          <!-- Replace with a real image later -->
+        <div class="two-col__media" aria-label="Storm damage placeholder">
           <div class="media-placeholder">
-            <p><strong>Placeholder:</strong> Storm-damaged roof photo</p>
+            <p><strong>Placeholder:</strong> Storm damage photo</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOLUTION -->
+    <!-- SOLUTION / PROCESS -->
     <section id="process" class="section solution" aria-labelledby="solution-title">
       <div class="container section__inner">
         <h2 id="solution-title" class="section__title">We Handle It From Inspection to Insurance.</h2>
         <p class="section__lead">
-          You don’t need a contractor who disappears after the quote. You need a team that documents the damage, explains your options, and finishes the job clean.
+          You don’t need a contractor who disappears after the quote. You need a team that documents the damage, explains options, and finishes the job clean.
         </p>
 
         <ol class="steps" aria-label="IronShield Roofing process steps">
           <li class="step">
             <h3 class="step__title">Free Inspection</h3>
-            <p class="step__text">We inspect your roof and identify storm-related issues, even the subtle ones.</p>
+            <p class="step__text">We inspect your roof and identify storm-related issues, including subtle damage.</p>
           </li>
           <li class="step">
             <h3 class="step__title">Photo Documentation</h3>
-            <p class="step__text">Clear photos and notes so you have evidence of damage for the claim process.</p>
+            <p class="step__text">Clear photos and notes so you have evidence for the claim process.</p>
           </li>
           <li class="step">
             <h3 class="step__title">Insurance Assistance</h3>
-            <p class="step__text">We help you understand next steps and communicate clearly so you’re not guessing.</p>
+            <p class="step__text">We help you understand next steps so you are not guessing.</p>
           </li>
           <li class="step">
             <h3 class="step__title">Professional Installation</h3>
-            <p class="step__text">Clean, fast work with quality materials and workmanship you can trust.</p>
+            <p class="step__text">Quality materials, clean job sites, and a finished result you can trust.</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <!-- BENEFITS GRID -->
+    <!-- BENEFITS / SERVICES -->
     <section id="services" class="section benefits" aria-labelledby="benefits-title">
       <div class="container section__inner">
         <h2 id="benefits-title" class="section__title">What You Get With IronShield</h2>
@@ -168,19 +182,19 @@
         <div class="grid" role="list" aria-label="Benefits grid">
           <div class="card" role="listitem">
             <h3 class="card__title">Free Roof Inspection</h3>
-            <p class="card__text">No pressure. Just clarity on what’s going on up there.</p>
+            <p class="card__text">No pressure. Just clarity on what is going on up there.</p>
           </div>
           <div class="card" role="listitem">
             <h3 class="card__title">Fast Turnaround</h3>
-            <p class="card__text">Storm season moves fast. We move faster.</p>
+            <p class="card__text">Storm season moves fast. We schedule quickly and communicate clearly.</p>
           </div>
           <div class="card" role="listitem">
             <h3 class="card__title">Insurance Claim Assistance</h3>
-            <p class="card__text">We help you navigate the claim process without confusion.</p>
+            <p class="card__text">We help document damage and explain the process without confusion.</p>
           </div>
           <div class="card" role="listitem">
             <h3 class="card__title">High-Quality Materials</h3>
-            <p class="card__text">We use proven products built for durability and weather.</p>
+            <p class="card__text">Proven products built for durability and weather performance.</p>
           </div>
           <div class="card" role="listitem">
             <h3 class="card__title">Workmanship Warranty</h3>
@@ -219,22 +233,22 @@
     <section id="reviews" class="section testimonials" aria-labelledby="testimonials-title">
       <div class="container section__inner">
         <h2 id="testimonials-title" class="section__title">Homeowners Trust IronShield</h2>
-        <p class="section__lead">Real-world feedback. Insurance help, fast installs, and clean work.</p>
+        <p class="section__lead">Real-world feedback. Claim help, fast installs, and clean work.</p>
 
         <div class="quotes" aria-label="Customer testimonials">
           <figure class="quote">
             <blockquote>★★★★★ “They handled everything with our insurance and replaced our roof in two days.”</blockquote>
-            <figcaption>— Local Homeowner</figcaption>
+            <figcaption>Local Homeowner</figcaption>
           </figure>
 
           <figure class="quote">
             <blockquote>★★★★★ “Professional, fast, and honest. The inspection was thorough and the crew was respectful.”</blockquote>
-            <figcaption>— Local Homeowner</figcaption>
+            <figcaption>Local Homeowner</figcaption>
           </figure>
 
           <figure class="quote">
             <blockquote>★★★★★ “They documented everything with photos, explained the process, and the roof looks brand new.”</blockquote>
-            <figcaption>— Local Homeowner</figcaption>
+            <figcaption>Local Homeowner</figcaption>
           </figure>
         </div>
       </div>
@@ -257,7 +271,7 @@
           <details class="faq__item">
             <summary>Do you work with insurance?</summary>
             <div class="faq__content">
-              <p>Yes. We help document damage and guide you through the claim process so you’re not left guessing.</p>
+              <p>Yes. We help document damage and guide you through the claim process so you are not left guessing.</p>
             </div>
           </details>
 
@@ -271,7 +285,7 @@
           <details class="faq__item">
             <summary>How soon can you start?</summary>
             <div class="faq__content">
-              <p>Storm response timelines vary. Submit the form or call and we’ll give you the fastest available slot.</p>
+              <p>Storm response timelines vary. Submit the form or call and we will give you the fastest available slot.</p>
             </div>
           </details>
         </div>
@@ -285,8 +299,8 @@
         <p class="final-cta__text">Book a free inspection today and get clear answers fast.</p>
 
         <div class="final-cta__actions">
-          <a class="btn btn--cta" href="#contact">Request Free Inspection</a>
-          <a class="btn btn--ghost" href="tel:13205555555">Call 320-555-5555</a>
+          <a class="btn btn--primary" href="#contact">Request Free Inspection</a>
+          <a class="btn btn--secondary" href="tel:13205555555">Call 320-555-5555</a>
         </div>
       </div>
     </section>
@@ -297,7 +311,7 @@
         <div class="contact__content">
           <h2 id="contact-title" class="section__title">Request a Free Inspection</h2>
           <p class="section__lead">
-            Fill this out and we’ll reach out ASAP. Prefer a call? Dial
+            Fill this out and we will reach out ASAP. Prefer a call? Dial
             <a href="tel:13205555555">320-555-5555</a>.
           </p>
 
@@ -334,9 +348,8 @@
               <textarea id="message" name="message" rows="4" placeholder="Tell us what happened (hail, wind, leak, missing shingles, etc.)"></textarea>
             </div>
 
-            <button class="btn btn--cta btn--full" type="submit">Request Free Inspection</button>
+            <button class="btn btn--primary btn--full" type="submit">Request Free Inspection</button>
 
-            <!-- Optional fake confirmation message placeholder (no JS yet) -->
             <p class="form__note">
               By submitting, you agree to be contacted about your inspection request.
             </p>
@@ -350,10 +363,7 @@
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
-      <p class="footer__small">
-        © <span id="year">2026</span> IronShield Roofing. All rights reserved.
-      </p>
-
+      <p class="footer__small">© 2026 IronShield Roofing. All rights reserved.</p>
       <p class="footer__small">
         <a class="footer__link" href="../../portfolio.html">← Back to Portfolio</a>
       </p>
