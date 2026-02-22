@@ -36,6 +36,10 @@
       display: flex;
       align-items: center;
       overflow: hidden;
+      background-image: url('images/Background1.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
     .port-hero__bg {
@@ -44,22 +48,14 @@
       z-index: 0;
     }
 
-    .port-hero__img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-    }
-
     .port-hero__overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        110deg,
-        rgba(8, 12, 28, 0.82) 0%,
-        rgba(8, 12, 28, 0.60) 55%,
-        rgba(8, 12, 28, 0.35) 100%
+        135deg,
+        rgba(8, 12, 28, 0.88) 0%,
+        rgba(8, 12, 28, 0.70) 60%,
+        rgba(8, 12, 28, 0.50) 100%
       );
     }
 
@@ -450,19 +446,26 @@
 
     .lightbox__close {
       position: absolute;
-      top: -48px;
+      top: -60px;
       right: 0;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.6);
-      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 1.4rem;
       cursor: pointer;
       line-height: 1;
-      transition: color 0.2s;
+      transition: background 0.2s, border-color 0.2s;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .lightbox__close:hover {
-      color: #fff;
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.6);
     }
 
     .lightbox__nav {
@@ -620,7 +623,6 @@
     ========================================================== -->
     <section class="port-hero">
       <div class="port-hero__bg">
-        <img src="images/portfolio-hero.png" alt="Code and wireframe blueprint background" class="port-hero__img" />
         <div class="port-hero__overlay"></div>
       </div>
 
@@ -1093,12 +1095,13 @@
   <!-- LIGHTBOX HTML (placed before closing body) -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery">
     <div class="lightbox__inner">
-      <button class="lightbox__close" onclick="closeLightbox()" aria-label="Close gallery">×</button>
+      <button class="lightbox__close" onclick="closeLightbox()" aria-label="Close gallery">✕</button>
       <button class="lightbox__nav lightbox__prev" onclick="lightboxPrev()" aria-label="Previous image">‹</button>
       <div id="lightboxContent"></div>
       <button class="lightbox__nav lightbox__next" onclick="lightboxNext()" aria-label="Next image">›</button>
       <p class="lightbox__caption" id="lightboxCaption"></p>
       <p class="lightbox__counter" id="lightboxCounter"></p>
+      <p style="text-align:center;margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.2);letter-spacing:0.08em;">TAP OUTSIDE OR PRESS ESC TO CLOSE</p>
     </div>
   </div>
 
