@@ -2,607 +2,615 @@
 <html lang="en">
 <head>
   <!-- =========================================================
-       PORTFOLIO PAGE (WebOps Studio) v2
-       Notes:
-       - Full redesign with hero, featured project, lightbox
-       - Uses shared site header/footer + shared master CSS
-       - Lightbox controlled by inline JS (no dependencies)
-       - Landing page demos live in /landing-pages/<project>/
+       PORTFOLIO — WebOps Studio v5
+       Structure:
+       1. Page Hero
+       2. Live Sites (Guardian 4 Heroes — annotated)
+       3. Demo Sites & Landing Pages
+       4. Concept Builds
+       5. CTA Strip
   ========================================================== -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Portfolio — WebOps Studio</title>
-  <meta name="description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. View live builds, demos, and case studies." />
+  <meta name="description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results." />
 
-  <!-- GitHub Pages base path -->
   <base href="/WebOps-Studio/" />
-
-  <!-- Favicon -->
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg" />
-
-  <!-- Master CSS -->
   <link rel="stylesheet" href="styles/styles.css" />
 
-  <!-- Portfolio-specific styles -->
-  <style>
-    /* =============================================
-       PORTFOLIO HERO
-    ============================================= */
-    .port-hero {
-      position: relative;
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background-image: url('images/Background1.png');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-    }
-
-    .port-hero__bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .port-hero__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(8, 12, 28, 0.88) 0%,
-        rgba(8, 12, 28, 0.70) 60%,
-        rgba(8, 12, 28, 0.50) 100%
-      );
-    }
-
-    .port-hero__inner {
-      position: relative;
-      z-index: 1;
-      padding: 80px 0;
-    }
-
-    .port-hero__eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--color-accent, #7c5cbf);
-      margin-bottom: 20px;
-    }
-
-    .port-hero__line {
-      display: block;
-      width: 32px;
-      height: 2px;
-      background: var(--color-accent, #7c5cbf);
-    }
-
-    .port-hero__title {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(2.8rem, 7vw, 5.2rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .port-hero__title span {
-      color: var(--color-accent, #7c5cbf);
-    }
-
-    .port-hero__sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.7;
-      max-width: 520px;
-      margin-bottom: 36px;
-    }
-
-    .port-hero__stats {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .port-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .port-stat__num {
-      font-family: 'Oswald', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-    }
-
-    .port-stat__label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-    }
-
-    /* =============================================
-       FEATURED PROJECT — GUARDIAN 4 HEROES
-    ============================================= */
-    .featured-project {
-      padding: 96px 0;
-      background: var(--color-surface, #0d0d1a);
-    }
-
-    .featured-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--color-accent, #7c5cbf);
-      margin-bottom: 48px;
-    }
-
-    .featured-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--color-accent, #7c5cbf);
-    }
-
-    .featured-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 64px;
-      align-items: start;
-    }
-
-    /* Image gallery side */
-    .featured-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .gallery-main {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      aspect-ratio: 16/9;
-    }
-
-    .gallery-main img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-main:hover img {
-      transform: scale(1.03);
-    }
-
-    .gallery-main__overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .gallery-main:hover .gallery-main__overlay {
-      opacity: 1;
-    }
-
-    .gallery-main__icon {
-      font-size: 2rem;
-      color: #fff;
-      background: rgba(0,0,0,0.5);
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .gallery-thumbs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .gallery-thumb {
-      aspect-ratio: 16/9;
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      border: 2px solid transparent;
-      background: rgba(255,255,255,0.04);
-      transition: border-color 0.2s;
-    }
-
-    .gallery-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.2s;
-    }
-
-    .gallery-thumb:hover {
-      border-color: var(--color-accent, #7c5cbf);
-    }
-
-    .gallery-thumb.active {
-      border-color: var(--color-accent, #7c5cbf);
-    }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.25);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(255,255,255,0.03);
-    }
-
-    /* Content side */
-    .featured-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: sticky;
-      top: 100px;
-    }
-
-    .featured-status {
-      margin-bottom: 20px;
-    }
-
-    .featured-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-
-    .featured-url {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      color: var(--color-accent, #7c5cbf);
-      margin-bottom: 24px;
-      text-decoration: none;
-    }
-
-    .featured-url:hover {
-      text-decoration: underline;
-    }
-
-    .featured-desc {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.75;
-      margin-bottom: 32px;
-    }
-
-    .featured-meta {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 32px;
-      padding: 24px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-    }
-
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .meta-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .meta-value {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-    }
-
-    .meta-value a {
-      color: var(--color-accent, #7c5cbf);
-    }
-
-    .featured-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 32px;
-    }
-
-    .feat-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.6);
-    }
-
-    .featured-quote {
-      border-left: 3px solid var(--color-accent, #7c5cbf);
-      padding: 16px 20px;
-      background: rgba(124, 92, 191, 0.06);
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 32px;
-    }
-
-    .featured-quote p {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.65;
-      font-style: italic;
-      margin-bottom: 8px;
-    }
-
-    .featured-quote cite {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-      font-style: normal;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .featured-cta {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* =============================================
-       LIGHTBOX
-    ============================================= */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(0,0,0,0.95);
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .lightbox.active {
-      display: flex;
-    }
-
-    .lightbox__inner {
-      position: relative;
-      max-width: 1100px;
-      width: 100%;
-    }
-
-    .lightbox__img {
-      width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    .lightbox__placeholder {
-      width: 100%;
-      height: 60vh;
-      background: rgba(255,255,255,0.04);
-      border: 1px dashed rgba(255,255,255,0.15);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .lightbox__close {
-      position: absolute;
-      top: -60px;
-      right: 0;
-      background: rgba(255, 255, 255, 0.15);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      color: #fff;
-      font-size: 1.4rem;
-      cursor: pointer;
-      line-height: 1;
-      transition: background 0.2s, border-color 0.2s;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lightbox__close:hover {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.6);
-    }
-
-    .lightbox__nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: #fff;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-    }
-
-    .lightbox__nav:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .lightbox__prev { left: -64px; }
-    .lightbox__next { right: -64px; }
-
-    .lightbox__caption {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .lightbox__counter {
-      text-align: center;
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* =============================================
-       PORTFOLIO GRID SECTION
-    ============================================= */
-    .port-grid-section {
-      padding: 96px 0;
-    }
-
-    .port-grid-section .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 48px;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    /* =============================================
-       CASE STUDY SECTION
-    ============================================= */
-    .case-study-section {
-      padding: 96px 0;
-      background: var(--color-surface, #0d0d1a);
-    }
-
-    /* =============================================
-       MOBILE
-    ============================================= */
-    @media (max-width: 900px) {
-      .featured-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .featured-content {
-        position: static;
-      }
-
-      .gallery-thumbs {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .lightbox__prev { left: -8px; }
-      .lightbox__next { right: -8px; }
-
-      .port-hero__stats {
-        gap: 24px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .port-hero {
-        min-height: 80vh;
-      }
-
-      .featured-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-thumbs {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .lightbox__nav {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-      }
-
-      .lightbox__prev { left: 4px; }
-      .lightbox__next { right: 4px; }
-    }
-  </style>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+  /* ============================================================
+     PORTFOLIO PAGE — SCOPED STYLES
+     All classes prefixed port- to avoid global conflicts
+  ============================================================ */
+
+  /* ── PAGE HERO ─────────────────────────────────────────── */
+  .port-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(7,7,12,0.65) 0%,
+        rgba(7,7,12,0.50) 40%,
+        rgba(7,7,12,0.85) 85%,
+        rgba(7,7,12,1.00) 100%
+      ),
+      url('images/Background1.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .port-hero__inner { padding: 120px 0 80px; position: relative; z-index: 1; }
+
+  .port-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin-bottom: 20px;
+  }
+
+  .port-hero__line {
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--color-orange);
+    opacity: 0.7;
+  }
+
+  .port-hero__title {
+    font-family: var(--font-head);
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    margin-bottom: 20px;
+  }
+
+  .port-hero__title span { color: var(--color-orange); }
+
+  .port-hero__sub {
+    font-size: 1.05rem;
+    color: var(--color-text-3);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .port-hero__stats { display: flex; gap: 48px; flex-wrap: wrap; }
+
+  .port-stat__num {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1;
+    display: block;
+  }
+
+  .port-stat__label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-text-3);
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ── SECTION BREAK ─────────────────────────────────────── */
+  .port-section-break {
+    background: var(--color-surface-2);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 28px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .port-section-break::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 0% 50%, rgba(59,30,109,0.12), transparent 60%),
+      radial-gradient(circle at 100% 50%, rgba(232,98,10,0.08), transparent 60%);
+    pointer-events: none;
+  }
+
+  .port-section-break__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .port-section-break__line {
+    flex: 1;
+    height: 1px;
+    background: var(--gradient-divider);
+  }
+
+  .port-section-break__label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    white-space: nowrap;
+  }
+
+  .port-section-break__badge {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(232,98,10,0.25);
+    background: rgba(232,98,10,0.07);
+    color: var(--color-orange);
+    white-space: nowrap;
+  }
+
+  /* ── PROJECT SECTION ───────────────────────────────────── */
+  .port-project-section {
+    padding: 80px 0;
+    background: var(--color-bg);
+  }
+
+  .port-project-section:nth-of-type(even) {
+    background: var(--color-surface-1);
+  }
+
+  .port-project-intro {
+    max-width: 720px;
+    margin-bottom: 72px;
+  }
+
+  .port-project-intro h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 16px;
+  }
+
+  .port-project-intro p {
+    font-size: 1.05rem;
+    color: var(--color-text-2);
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  .port-project-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  /* ── ANNOTATED IMAGE BLOCKS ────────────────────────────── */
+  .port-annotated {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 96px;
+  }
+
+  .port-annotated:last-child { margin-bottom: 0; }
+
+  /* Alternating layout — odd=image left, even=image right */
+  .port-annotated:nth-child(odd) .port-annotated__img  { order: 1; }
+  .port-annotated:nth-child(odd) .port-annotated__notes { order: 2; }
+  .port-annotated:nth-child(even) .port-annotated__img  { order: 2; }
+  .port-annotated:nth-child(even) .port-annotated__notes { order: 1; }
+
+  .port-annotated__img {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    cursor: zoom-in;
+  }
+
+  .port-annotated__img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .port-annotated__img:hover img { transform: scale(1.02); }
+
+  .port-annotated__img-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+
+  .port-annotated__img:hover .port-annotated__img-overlay {
+    background: rgba(0,0,0,0.25);
+  }
+
+  .port-annotated__zoom {
+    opacity: 0;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: rgba(0,0,0,0.6);
+    padding: 8px 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: opacity 0.3s ease;
+  }
+
+  .port-annotated__img:hover .port-annotated__zoom { opacity: 1; }
+
+  .port-annotated__num {
+    position: absolute;
+    top: 16px; left: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    background: rgba(7,7,12,0.85);
+    border: 1px solid rgba(232,98,10,0.25);
+    padding: 4px 10px;
+    border-radius: 3px;
+    z-index: 2;
+  }
+
+  .port-annotated__notes { display: flex; flex-direction: column; }
+
+  .port-annotated__label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin-bottom: 10px;
+  }
+
+  .port-annotated__title {
+    font-family: var(--font-head);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .port-annotated__desc {
+    font-size: 0.95rem;
+    color: var(--color-text-2);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .port-insights { display: flex; flex-direction: column; gap: 12px; }
+
+  .port-insight { display: flex; gap: 12px; align-items: flex-start; }
+
+  .port-insight__tag {
+    font-family: var(--font-mono);
+    font-size: 0.48rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    border: 1px solid rgba(232,98,10,0.25);
+    background: rgba(232,98,10,0.07);
+    color: var(--color-orange);
+    flex-shrink: 0;
+    margin-top: 2px;
+    white-space: nowrap;
+  }
+
+  .port-insight__tag--tech {
+    border-color: rgba(195,185,217,0.20);
+    background: rgba(59,30,109,0.10);
+    color: var(--color-purple-lt);
+  }
+
+  .port-insight p {
+    font-size: 0.85rem;
+    color: var(--color-text-3);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── CSS CODE BLOCK TREATMENT ──────────────────────────── */
+  .port-annotated--code .port-annotated__img {
+    border-color: rgba(59,30,109,0.40);
+    background: #0a0a12;
+    box-shadow: 0 0 40px rgba(59,30,109,0.15);
+  }
+
+  .port-annotated--code .port-annotated__notes {
+    background: rgba(10,10,18,0.60);
+    border: 1px solid rgba(59,30,109,0.25);
+    border-radius: var(--radius-md);
+    padding: 32px;
+  }
+
+  .port-annotated--code .port-annotated__label { color: var(--color-purple-lt); }
+
+  .port-annotated--code .port-annotated__title {
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--color-purple-lt);
+  }
+
+  .port-annotated--code .port-annotated__num {
+    color: var(--color-purple-lt);
+    border-color: rgba(195,185,217,0.20);
+    background: rgba(10,10,18,0.90);
+  }
+
+  .port-code-callouts { display: flex; flex-direction: column; gap: 10px; }
+
+  .port-code-callout {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 12px;
+    background: rgba(7,7,12,0.60);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(59,30,109,0.20);
+  }
+
+  .port-code-callout__line {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    color: var(--color-purple-lt);
+    background: rgba(59,30,109,0.20);
+    border: 1px solid rgba(59,30,109,0.30);
+    padding: 2px 7px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    white-space: nowrap;
+  }
+
+  .port-code-callout p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-3);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .port-code-callout p strong {
+    color: var(--color-purple-lt);
+    font-weight: 500;
+  }
+
+  /* ── DEMO / CONCEPT CARD GRID ──────────────────────────── */
+  .port-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .port-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .port-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(232,98,10,0.25);
+  }
+
+  /*
+    DROP-IN IMAGE SYSTEM
+    Upload image matching the src filename.
+    onerror hides the img and shows the placeholder automatically.
+    No code changes needed — just upload the file.
+  */
+  .port-card__img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    background: var(--color-surface-1);
+  }
+
+  .port-card__placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--color-surface-1);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .port-card__placeholder-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-text-3);
+  }
+
+  .port-card__placeholder-hint {
+    font-family: var(--font-mono);
+    font-size: 0.48rem;
+    letter-spacing: 0.10em;
+    color: rgba(255,255,255,0.18);
+    text-transform: uppercase;
+  }
+
+  .port-card__body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .port-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+
+  .port-card__title {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+    margin-bottom: 10px;
+  }
+
+  .port-card__desc {
+    font-size: 0.88rem;
+    color: var(--color-text-3);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  /* ── LIGHTBOX ──────────────────────────────────────────── */
+  .port-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.96);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .port-lightbox.active { display: flex; }
+
+  .port-lightbox__inner {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  .port-lightbox__img {
+    width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    display: block;
+  }
+
+  .port-lightbox__close {
+    position: absolute;
+    top: -56px; right: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.20);
+    color: var(--color-white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+
+  .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
+
+  .port-lightbox__caption {
+    text-align: center;
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-text-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .port-lightbox__hint {
+    text-align: center;
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.50rem;
+    color: rgba(255,255,255,0.18);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .port-annotated {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    /* On mobile — always image on top, notes below */
+    .port-annotated:nth-child(odd) .port-annotated__img,
+    .port-annotated:nth-child(even) .port-annotated__img  { order: 1; }
+    .port-annotated:nth-child(odd) .port-annotated__notes,
+    .port-annotated:nth-child(even) .port-annotated__notes { order: 2; }
+
+    .port-annotated--code .port-annotated__notes { padding: 24px; }
+
+    .port-card-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .port-hero__stats { gap: 28px; }
+    .port-card-grid { grid-template-columns: 1fr; }
+    .port-section-break__badge { display: none; }
+  }
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ═══ HEADER ════════════════════════════════════════════ -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
-
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
-
         <ul class="nav-links" id="primary-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -610,7 +618,6 @@
           <li><a href="portfolio.html" class="active">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-
         <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
@@ -618,39 +625,30 @@
 
   <main>
 
-    <!-- =========================================================
-         PORTFOLIO HERO
-    ========================================================== -->
+    <!-- ═══ 1. PAGE HERO ══════════════════════════════════════ -->
     <section class="port-hero">
-      <div class="port-hero__bg">
-        <div class="port-hero__overlay"></div>
-      </div>
-
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
           WebOps Studio · Selected Work
         </p>
-
         <h1 class="port-hero__title">
           Built From Scratch.<br>
           <span>Built to Perform.</span>
         </h1>
-
         <p class="port-hero__sub">
           No templates. No page builders. Every project is hand-coded HTML, CSS, and JavaScript — structured for speed, clarity, and conversion.
         </p>
-
         <div class="port-hero__stats">
-          <div class="port-stat">
+          <div>
             <span class="port-stat__num">100%</span>
             <span class="port-stat__label">Hand-Coded</span>
           </div>
-          <div class="port-stat">
+          <div>
             <span class="port-stat__num">0</span>
             <span class="port-stat__label">Templates Used</span>
           </div>
-          <div class="port-stat">
+          <div>
             <span class="port-stat__num">Live</span>
             <span class="port-stat__label">Real Deployments</span>
           </div>
@@ -658,208 +656,422 @@
       </div>
     </section>
 
-    <!-- =========================================================
-         FEATURED PROJECT: GUARDIAN 4 HEROES
-    ========================================================== -->
-    <section class="featured-project" id="guardian4heroes">
+    <!-- ═══ SECTION BREAK — LIVE SITES ═══════════════════════ -->
+    <div class="port-section-break">
+      <div class="container">
+        <div class="port-section-break__inner">
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__label">Live Sites</span>
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__badge">Production · Live</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 2. LIVE SITES — GUARDIAN 4 HEROES ════════════════ -->
+    <section class="port-project-section">
       <div class="container">
 
-        <p class="featured-label">Featured Project</p>
-
-        <div class="featured-layout">
-
-          <!-- Gallery -->
-          <div class="featured-gallery">
-            <div class="gallery-main" id="galleryMain" onclick="openLightbox(0)" role="button" tabindex="0" aria-label="View Guardian 4 Heroes screenshots">
-              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Home Page" id="galleryMainImg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
-              <div class="gallery-main__overlay">
-                <div class="gallery-main__icon">⤢</div>
-              </div>
-            </div>
-
-            <div class="gallery-thumbs" role="list" aria-label="Screenshot thumbnails">
-              <div class="gallery-thumb active" role="listitem" onclick="setThumb(0)" tabindex="0" aria-label="Screenshot 1">
-                <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes home page">
-              </div>
-              <div class="gallery-thumb" role="listitem" onclick="setThumb(1)" tabindex="0" aria-label="Screenshot 2">
-                <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission section">
-              </div>
-              <div class="gallery-thumb" role="listitem" onclick="setThumb(2)" tabindex="0" aria-label="Screenshot 3">
-                <img src="images/guardian-3.jpg" alt="Guardian 4 Heroes shop">
-              </div>
-              <div class="gallery-thumb" role="listitem" onclick="setThumb(3)" tabindex="0" aria-label="Screenshot 4">
-                <img src="images/guardian-4.jpg" alt="Guardian 4 Heroes donation page">
-              </div>
-            </div>
-
-            <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:4px;">
-              Click any image to open fullscreen gallery
-            </p>
+        <div class="port-project-intro reveal">
+          <span class="section-label">Featured Project</span>
+          <h2>Guardian 4 Heroes</h2>
+          <p>
+            This one means a lot to me personally. Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate, so I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion-focused throughout.
+          </p>
+          <div class="port-project-meta">
+            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Vanilla JS</span>
+            <span class="tag">GitHub Pages</span>
+            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="margin-left:4px;">Visit Live Site ↗</a>
           </div>
-
-          <!-- Content -->
-          <div class="featured-content">
-            <div class="featured-status">
-              <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-            </div>
-
-            <h2 class="featured-title">Guardian 4 Heroes</h2>
-
-            <a class="featured-url" href="https://guardian4heroes.org" target="_blank" rel="noopener">
-              guardian4heroes.org ↗
-            </a>
-
-            <p class="featured-desc">
-              Equine therapy nonprofit serving veterans and first responders. They needed a site that felt mission-aligned, emotionally grounded, and easy to navigate — with clear donation pathways and a strong mobile experience.
-            </p>
-
-            <div class="featured-meta">
-              <div class="meta-item">
-                <span class="meta-label">Client</span>
-                <span class="meta-value">Guardian 4 Heroes</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Sector</span>
-                <span class="meta-value">Nonprofit · Equine Therapy</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Stack</span>
-                <span class="meta-value">HTML5 · CSS3 · Vanilla JS</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Status</span>
-                <span class="meta-value"><a href="https://guardian4heroes.org" target="_blank" rel="noopener">Live ↗</a></span>
-              </div>
-            </div>
-
-            <div class="featured-tags">
-              <span class="feat-tag">Nonprofit</span>
-              <span class="feat-tag">Multi-Page</span>
-              <span class="feat-tag">Mobile-First</span>
-              <span class="feat-tag">Donation Flow</span>
-              <span class="feat-tag">Contact Form</span>
-              <span class="feat-tag">GitHub Pages</span>
-            </div>
-
-            <div class="featured-quote">
-              <p>"Craig went above and beyond. He did not just build us a website, he brought our mission to life. We get compliments on it constantly."</p>
-              <cite>— Guardian 4 Heroes Team</cite>
-            </div>
-
-            <div class="featured-cta">
-              <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-primary">Visit Live Site ↗</a>
-              <a href="#guardian4heroes-case" class="btn btn-ghost">View Case Study ↓</a>
-            </div>
-          </div>
-
         </div>
+
+        <!-- ── Block 1: Hero ─────────────────────────────── -->
+        <div class="port-annotated reveal">
+          <div class="port-annotated__img" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes — Hero & Navigation')" role="button" tabindex="0" aria-label="View hero screenshot fullscreen">
+            <span class="port-annotated__num">01 · Hero</span>
+            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section with transparent navigation and gold title treatment" loading="lazy" />
+            <div class="port-annotated__img-overlay">
+              <span class="port-annotated__zoom">View Fullscreen</span>
+            </div>
+          </div>
+          <div class="port-annotated__notes">
+            <span class="port-annotated__label">Design Breakdown · 01</span>
+            <h3 class="port-annotated__title">Hero & Navigation Structure</h3>
+            <p class="port-annotated__desc">
+              The nav sits transparent over a full-viewport barn interior photograph, creating immediate emotional context. The Donate button is front and center — not buried — because for a nonprofit, that is the primary conversion action and it needs to be visible at all times.
+            </p>
+            <div class="port-insights">
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>Playfair Display was chosen for the title to bring warmth and authority — it reads as trustworthy, not corporate.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>The gold accent on the "4" and the gold rule separator create a visual anchor that carries through the entire site identity.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag port-insight__tag--tech">Tech</span>
+                <p>Transparent nav is positioned absolute over the hero so the image bleeds full-height. On scroll, the header gains a dark background via a JavaScript scroll class.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Block 2: Mission ──────────────────────────── -->
+        <div class="port-annotated reveal">
+          <div class="port-annotated__img" onclick="openLightbox('images/guardian-2.jpg','Guardian 4 Heroes — Mission Section')" role="button" tabindex="0" aria-label="View mission section fullscreen">
+            <span class="port-annotated__num">02 · Mission</span>
+            <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission section with left border accents and horse silhouette" loading="lazy" />
+            <div class="port-annotated__img-overlay">
+              <span class="port-annotated__zoom">View Fullscreen</span>
+            </div>
+          </div>
+          <div class="port-annotated__notes">
+            <span class="port-annotated__label">Design Breakdown · 02</span>
+            <h3 class="port-annotated__title">Mission & Content Hierarchy</h3>
+            <p class="port-annotated__desc">
+              The left border accent on headings is a deliberate structural choice — it creates visual rhythm without adding visual weight. The horse silhouette bleeds into the background behind the content, adding emotional resonance without pulling focus away from the text.
+            </p>
+            <div class="port-insights">
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>The warm golden background image reinforces the mission theme — connection, earth, nature — while staying readable at all contrast levels.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>Strong typographic contrast between the bold uppercase heading and body copy creates clear hierarchy without needing extra UI elements.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag port-insight__tag--tech">Tech</span>
+                <p>Background image is set in CSS with a semi-transparent overlay layer so text remains WCAG-compliant at all screen sizes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Block 3: Shop ─────────────────────────────── -->
+        <div class="port-annotated reveal">
+          <div class="port-annotated__img" onclick="openLightbox('images/guardian-3.jpg','Guardian 4 Heroes — Shop Section')" role="button" tabindex="0" aria-label="View shop section fullscreen">
+            <span class="port-annotated__num">03 · Shop</span>
+            <img src="images/guardian-3.jpg" alt="Guardian 4 Heroes shop section with handmade product cards" loading="lazy" />
+            <div class="port-annotated__img-overlay">
+              <span class="port-annotated__zoom">View Fullscreen</span>
+            </div>
+          </div>
+          <div class="port-annotated__notes">
+            <span class="port-annotated__label">Design Breakdown · 03</span>
+            <h3 class="port-annotated__title">Product Card Layout</h3>
+            <p class="port-annotated__desc">
+              The shop section needed to feel warm and handmade — because it is. The card uses a light background against the golden gradient to pull the eye and separate the product from the page. Personality-driven copy alongside the price makes it feel human, not like a checkout form.
+            </p>
+            <div class="port-insights">
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>The rounded card with a light background creates contrast against the warm site palette — intentional separation that signals "this is an action item."</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>Product copy with personality — "pretends she doesn't want snuggles" — drives emotional connection before the purchase, which fits the nonprofit tone.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag port-insight__tag--tech">Tech</span>
+                <p>Card layout is pure CSS Flexbox — no JavaScript, no library. Scales cleanly from mobile to desktop without a single breakpoint override.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Block 4: Donation ─────────────────────────── -->
+        <div class="port-annotated reveal">
+          <div class="port-annotated__img" onclick="openLightbox('images/guardian-4.jpg','Guardian 4 Heroes — Donation Page')" role="button" tabindex="0" aria-label="View donation page fullscreen">
+            <span class="port-annotated__num">04 · Donation</span>
+            <img src="images/guardian-4.jpg" alt="Guardian 4 Heroes donation page with tiered button amounts" loading="lazy" />
+            <div class="port-annotated__img-overlay">
+              <span class="port-annotated__zoom">View Fullscreen</span>
+            </div>
+          </div>
+          <div class="port-annotated__notes">
+            <span class="port-annotated__label">Design Breakdown · 04</span>
+            <h3 class="port-annotated__title">Donation UX & Conversion Flow</h3>
+            <p class="port-annotated__desc">
+              The tiered button layout is a UX decision, not just a style choice. Giving people pre-set amounts reduces friction and increases conversion — they do not have to think, they just pick. The cowboy-and-horse silhouette behind the buttons is emotionally loaded without being distracting.
+            </p>
+            <div class="port-insights">
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>Pre-set donation amounts follow nonprofit best-practice UX — anchored tiers drive average donation value up by removing the blank-field anxiety of custom input.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag">Design</span>
+                <p>The silhouette communicates the mission in a single image — no words required. Emotion before action.</p>
+              </div>
+              <div class="port-insight">
+                <span class="port-insight__tag port-insight__tag--tech">Tech</span>
+                <p>Buttons are laid out in CSS Grid — they reflow from a 2-column layout on desktop to a single column on mobile automatically, no JS needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Block 5: CSS Code ─────────────────────────── -->
+        <div class="port-annotated port-annotated--code reveal">
+          <div class="port-annotated__img" onclick="openLightbox('images/guardian-5.jpg','Guardian 4 Heroes — CSS Stylesheet')" role="button" tabindex="0" aria-label="View CSS screenshot fullscreen">
+            <span class="port-annotated__num">05 · Code</span>
+            <img src="images/guardian-5.jpg" alt="Guardian 4 Heroes CSS stylesheet showing token system and organized sections" loading="lazy" />
+            <div class="port-annotated__img-overlay">
+              <span class="port-annotated__zoom">View Fullscreen</span>
+            </div>
+          </div>
+          <div class="port-annotated__notes">
+            <span class="port-annotated__label">Code Breakdown · 05</span>
+            <h3 class="port-annotated__title">styles.css — Under the Hood</h3>
+            <p class="port-annotated__desc">
+              This is what the code actually looks like. Organized sections, a CSS custom property token system at the top, and clear comment headers throughout — not just a working stylesheet, but a maintainable one.
+            </p>
+            <div class="port-code-callouts">
+              <div class="port-code-callout">
+                <span class="port-code-callout__line">L4–18</span>
+                <p><strong>:root token system</strong> — all colors, spacing, and shadows defined as custom properties. Change one value, update the entire site.</p>
+              </div>
+              <div class="port-code-callout">
+                <span class="port-code-callout__line">L20–22</span>
+                <p><strong>Section comment headers</strong> — every section is labeled and separated. Any developer can pick this up and know exactly where everything lives.</p>
+              </div>
+              <div class="port-code-callout">
+                <span class="port-code-callout__line">L49–56</span>
+                <p><strong>body::before pseudo-element</strong> — the site-wide overlay effect handled in pure CSS. Zero JavaScript required.</p>
+              </div>
+              <div class="port-code-callout">
+                <span class="port-code-callout__line">L38–42</span>
+                <p><strong>background-attachment: fixed</strong> — the parallax scroll effect is a single CSS property. No libraries, no JavaScript.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- =========================================================
-         PORTFOLIO GRID — LANDING PAGES + OTHER WORK
-    ========================================================== -->
-    <section class="port-grid-section">
+    <!-- ═══ SECTION BREAK — DEMO SITES ═══════════════════════ -->
+    <div class="port-section-break">
+      <div class="container">
+        <div class="port-section-break__inner">
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__label">Demo Sites & Landing Pages</span>
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__badge">Demo · Live</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 3. DEMO SITES & LANDING PAGES ════════════════════ -->
+    <section class="port-project-section">
       <div class="container">
 
-        <div class="section-head">
-          <div>
-            <span class="section-label">All Work</span>
-            <h2>More Builds</h2>
-          </div>
-
-          <!-- Filters -->
-          <div class="portfolio-filters reveal" aria-label="Portfolio filters">
-            <button class="filter-btn active" type="button" data-filter="all">All</button>
-            <button class="filter-btn" type="button" data-filter="landing-page">Landing Pages</button>
-            <button class="filter-btn" type="button" data-filter="business">Business</button>
-            <button class="filter-btn" type="button" data-filter="concept">Concept</button>
-          </div>
+        <div class="port-project-intro reveal">
+          <span class="section-label">Landing Pages & Demos</span>
+          <h2>Industry Demo Builds</h2>
+          <p>
+            These are purpose-built landing pages designed to show what a conversion-focused build looks like across different industries. Each one is hand-coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.
+          </p>
         </div>
 
-        <div class="portfolio-grid">
+        <div class="port-card-grid">
 
           <!-- IronShield Roofing -->
-          <article class="portfolio-card reveal" data-tags="landing-page">
+          <article class="port-card reveal">
+            <!--
+              DROP-IN IMAGE:
+              Upload to: landing-pages/ironshield-roofing/images/ironshield-preview.jpg
+              Will appear automatically. No code changes needed.
+            -->
             <img
               src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
               alt="IronShield Roofing landing page demo"
-              class="project-card-img"
+              class="port-card__img"
               loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div class="portfolio-card-body">
-              <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
-              <div class="portfolio-card-tags">
+            <div class="port-card__placeholder" style="display:none;">
+              <span class="port-card__placeholder-label">IronShield Roofing</span>
+              <span class="port-card__placeholder-hint">Upload: ironshield-preview.jpg</span>
+            </div>
+            <div class="port-card__body">
+              <div class="port-card__tags">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
+              </div>
+              <div class="port-card__tags">
                 <span class="tag">Landing Page</span>
                 <span class="tag">Lead Gen</span>
                 <span class="tag">Conversion</span>
               </div>
-              <h3>IronShield Roofing</h3>
-              <p>Storm-damage lead generation landing page. Trust-first layout, call-driven structure, and a focused quote request flow.</p>
+              <h3 class="port-card__title">IronShield Roofing</h3>
+              <p class="port-card__desc">Storm-damage lead generation page. Trust-first layout, call-driven structure, and a focused quote request flow built for a local roofing contractor.</p>
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo →</a>
             </div>
           </article>
 
-          <!-- Construction Co. -->
-          <article class="portfolio-card reveal reveal-delay-1" data-tags="business">
-            <div class="portfolio-card-img-placeholder">Construction Co.</div>
-            <div class="portfolio-card-body">
-              <span class="status-badge status-progress"><span class="status-dot"></span>In Development</span>
-              <div class="portfolio-card-tags">
-                <span class="tag">Business</span>
-                <span class="tag">Multi-Page</span>
-                <span class="tag">Local SEO</span>
-              </div>
-              <h3>Local Construction Business</h3>
-              <p>Full business site with service pages, project gallery, and contact flow. Built to rank locally and convert traffic into calls.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Inquire About This →</a>
-            </div>
-          </article>
-
           <!-- Fitness Coach -->
-          <article class="portfolio-card reveal reveal-delay-2" data-tags="landing-page">
-            <div class="portfolio-card-img-placeholder">Fitness Coach</div>
-            <div class="portfolio-card-body">
-              <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
-              <div class="portfolio-card-tags">
-                <span class="tag">Landing Page</span>
-                <span class="tag">Applications</span>
-                <span class="tag">High-Ticket</span>
+          <article class="port-card reveal reveal-delay-1">
+            <!--
+              DROP-IN IMAGE:
+              Upload to: landing-pages/fitness-coach-funnel/images/fitness-coach-preview.jpg
+              Will appear automatically. No code changes needed.
+            -->
+            <img
+              src="landing-pages/fitness-coach-funnel/images/fitness-coach-preview.jpg"
+              alt="Fitness Coach landing page"
+              class="port-card__img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="port-card__placeholder">
+              <span class="port-card__placeholder-label">Fitness Coach Funnel</span>
+              <span class="port-card__placeholder-hint">Upload: fitness-coach-preview.jpg</span>
+            </div>
+            <div class="port-card__body">
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
               </div>
-              <h3>Fitness Coach Funnel</h3>
-              <p>Application-style landing page designed for high-ticket coaching. Built to qualify leads and drive form submissions.</p>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span>
+                <span class="tag">High-Ticket</span>
+                <span class="tag">Applications</span>
+              </div>
+              <h3 class="port-card__title">Fitness Coach Funnel</h3>
+              <p class="port-card__desc">Application-style landing page for a high-ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build →</a>
             </div>
           </article>
 
           <!-- SaaS Waitlist -->
-          <article class="portfolio-card reveal" data-tags="landing-page">
-            <div class="portfolio-card-img-placeholder">SaaS Waitlist</div>
-            <div class="portfolio-card-body">
-              <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
-              <div class="portfolio-card-tags">
+          <article class="port-card reveal reveal-delay-2">
+            <!--
+              DROP-IN IMAGE:
+              Upload to: landing-pages/saas-beta-waitlist/images/saas-waitlist-preview.jpg
+              Will appear automatically. No code changes needed.
+            -->
+            <img
+              src="landing-pages/saas-beta-waitlist/images/saas-waitlist-preview.jpg"
+              alt="SaaS Beta Waitlist landing page"
+              class="port-card__img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="port-card__placeholder">
+              <span class="port-card__placeholder-label">SaaS Beta Waitlist</span>
+              <span class="port-card__placeholder-hint">Upload: saas-waitlist-preview.jpg</span>
+            </div>
+            <div class="port-card__body">
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+              </div>
+              <div class="port-card__tags">
                 <span class="tag">Landing Page</span>
                 <span class="tag">Waitlist</span>
                 <span class="tag">Email Capture</span>
               </div>
-              <h3>SaaS Beta Waitlist</h3>
-              <p>Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built for signups.</p>
+              <h3 class="port-card__title">SaaS Beta Waitlist</h3>
+              <p class="port-card__desc">Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built to convert visitors into signups.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build →</a>
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SECTION BREAK — CONCEPT BUILDS ═══════════════════ -->
+    <div class="port-section-break">
+      <div class="container">
+        <div class="port-section-break__inner">
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__label">Concept Builds</span>
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__badge">UI · Concept</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ 4. CONCEPT BUILDS ═════════════════════════════════ -->
+    <section class="port-project-section">
+      <div class="container">
+
+        <div class="port-project-intro reveal">
+          <span class="section-label">Concept Builds</span>
+          <h2>UI & Range Demos</h2>
+          <p>
+            These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.
+          </p>
+        </div>
+
+        <div class="port-card-grid">
+
+          <!-- Local Construction -->
+          <article class="port-card reveal">
+            <!--
+              DROP-IN IMAGE:
+              Upload to: landing-pages/construction-co/images/construction-preview.jpg
+              Will appear automatically. No code changes needed.
+            -->
+            <img
+              src="landing-pages/construction-co/images/construction-preview.jpg"
+              alt="Local Construction business site"
+              class="port-card__img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="port-card__placeholder">
+              <span class="port-card__placeholder-label">Construction Co.</span>
+              <span class="port-card__placeholder-hint">Upload: construction-preview.jpg</span>
+            </div>
+            <div class="port-card__body">
+              <div class="port-card__tags">
+                <span class="status-badge status-concept"><span class="status-dot"></span>In Development</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Business Site</span>
+                <span class="tag">Multi-Page</span>
+                <span class="tag">Local SEO</span>
+              </div>
+              <h3 class="port-card__title">Local Construction Business</h3>
+              <p class="port-card__desc">Full business site with service pages, project gallery, and contact flow. Built to rank locally and convert traffic into phone calls.</p>
+              <a href="contact.html" class="btn btn-ghost btn-sm">Start Something Similar →</a>
+            </div>
+          </article>
+
           <!-- Local Cafe -->
-          <article class="portfolio-card reveal reveal-delay-1" data-tags="concept">
-            <div class="portfolio-card-img-placeholder">Local Cafe</div>
-            <div class="portfolio-card-body">
-              <span class="status-badge status-concept"><span class="status-dot"></span>Concept Build</span>
-              <div class="portfolio-card-tags">
+          <article class="port-card reveal reveal-delay-1">
+            <!--
+              DROP-IN IMAGE:
+              Upload to: landing-pages/local-cafe/images/cafe-preview.jpg
+              Will appear automatically. No code changes needed.
+            -->
+            <img
+              src="landing-pages/local-cafe/images/cafe-preview.jpg"
+              alt="Local Cafe demo site"
+              class="port-card__img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="port-card__placeholder">
+              <span class="port-card__placeholder-label">Local Cafe</span>
+              <span class="port-card__placeholder-hint">Upload: cafe-preview.jpg</span>
+            </div>
+            <div class="port-card__body">
+              <div class="port-card__tags">
+                <span class="status-badge status-concept"><span class="status-dot"></span>Concept Build</span>
+              </div>
+              <div class="port-card__tags">
                 <span class="tag">Concept</span>
                 <span class="tag">Demo Site</span>
                 <span class="tag">UI Layout</span>
               </div>
-              <h3>Local Cafe Demo Site</h3>
-              <p>Concept build showcasing menu layout, event listings, and a reservation mockup. Built to show range beyond nonprofit work.</p>
+              <h3 class="port-card__title">Local Cafe Demo Site</h3>
+              <p class="port-card__desc">Concept build showing menu layout, event listings, and a reservation mockup. Built to demonstrate range beyond nonprofit and contractor work.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Start Something Similar →</a>
             </div>
           </article>
@@ -870,81 +1082,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- =========================================================
-         CASE STUDY: Guardian 4 Heroes
-    ========================================================== -->
-    <section class="case-study-section" id="guardian4heroes-case">
-      <div class="container">
-        <span class="section-label reveal">Case Study</span>
-        <h2 class="reveal">Guardian 4 Heroes — Full Breakdown</h2>
-
-        <div class="case-study reveal">
-          <div class="case-study-header">
-            <div class="case-study-meta">
-              <div class="meta-item">
-                <span class="meta-label">Client</span>
-                <span class="meta-value">Guardian 4 Heroes</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Sector</span>
-                <span class="meta-value">Nonprofit, Equine Therapy</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Built With</span>
-                <span class="meta-value">HTML5 · CSS3 · Vanilla JS</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Live Site</span>
-                <span class="meta-value">
-                  <a href="https://guardian4heroes.org" target="_blank" rel="noopener">guardian4heroes.org ↗</a>
-                </span>
-              </div>
-            </div>
-            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-          </div>
-
-          <div class="case-study-grid">
-            <div class="case-section">
-              <h4>The Mission</h4>
-              <p>Guardian 4 Heroes provides equine therapy to veterans and first responders. They needed a site that felt mission-aligned, emotionally grounded, and easy to navigate.</p>
-            </div>
-            <div class="case-section">
-              <h4>My Role</h4>
-              <ul>
-                <li>Visual design, layout, typography</li>
-                <li>Full front-end build from scratch</li>
-                <li>Mobile and tablet breakpoints</li>
-                <li>Contact form wired to email</li>
-                <li>Donation page with tiered buttons</li>
-                <li>Accessible, high-contrast design</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Technical Breakdown</h4>
-              <ul>
-                <li>Vanilla HTML, CSS, JavaScript — no frameworks</li>
-                <li>Hosted on GitHub Pages, migrated to live domain</li>
-                <li>Lightweight and fast with minimal scripts</li>
-                <li>Mobile-first structure with clean hierarchy</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>The Outcome</h4>
-              <p>A warm, mission-aligned site with clear donation pathways and a strong mobile experience. The organization was thrilled and supporters regularly compliment the build.</p>
-            </div>
-          </div>
-
-          <blockquote class="case-quote">
-            "Craig went above and beyond. He did not just build us a website, he brought our mission to life. We get compliments on it constantly."
-            <cite class="case-cite">Guardian 4 Heroes Team</cite>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- CTA STRIP -->
+    <!-- ═══ 5. CTA STRIP ══════════════════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Your Project</span>
@@ -959,7 +1097,7 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -983,7 +1121,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#5f3c2d3e36383d3e2a323e31316d6f6d6f1f38323e3633713c3032"><span class="__cf_email__" data-cfemail="650617040c0207041008040b0b57555755250208040c094b060a08">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="mailto:craig@webopsstudio.com">craig@webopsstudio.com</a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
@@ -998,111 +1136,84 @@
 
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
-  <!-- =========================================================
-       LIGHTBOX + GALLERY JS
-       Replace placeholder srcs with real screenshot paths once
-       Guardian 4 Heroes screenshots are uploaded to:
-       images/guardian-1.jpg, guardian-2.jpg, etc.
-  ========================================================== -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ==============================================
-    // GALLERY IMAGES — update src values when you
-    // upload real screenshots to your images/ folder
-    // ==============================================
-    const galleryImages = [
-      { src: 'images/guardian-1.jpg', caption: 'Guardian 4 Heroes — Home Page' },
-      { src: 'images/guardian-2.jpg', caption: 'Guardian 4 Heroes — Mission & About' },
-      { src: 'images/guardian-3.jpg', caption: 'Guardian 4 Heroes — Shop' },
-      { src: 'images/guardian-4.jpg', caption: 'Guardian 4 Heroes — Donation Page' },
-    ];
+  <!-- ═══ LIGHTBOX ══════════════════════════════════════════ -->
+  <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="port-lightbox__inner">
+      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">✕</button>
+      <img class="port-lightbox__img" id="lightboxImg" src="" alt="" />
+      <p class="port-lightbox__caption" id="lightboxCaption"></p>
+      <p class="port-lightbox__hint">Press ESC or tap outside to close</p>
+    </div>
+  </div>
 
-    let currentIndex = 0;
-
-    function setThumb(index) {
-      currentIndex = index;
-      const thumbs = document.querySelectorAll('.gallery-thumb');
-      thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
-      const img = galleryImages[index];
-      const mainImg = document.getElementById('galleryMainImg');
-      if (mainImg && img.src) {
-        mainImg.src = img.src;
-        mainImg.alt = img.caption;
-      }
-    }
-
-    function openLightbox(index) {
-      currentIndex = index;
-      updateLightbox();
-      document.getElementById('lightbox').classList.add('active');
+  <!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+  <script>
+    // ── Lightbox ──────────────────────────────────────────
+    function openLightbox(src, caption) {
+      document.getElementById('lightboxImg').src     = src;
+      document.getElementById('lightboxImg').alt     = caption;
+      document.getElementById('lightboxCaption').textContent = caption;
+      document.getElementById('portLightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('portLightbox').classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    function updateLightbox() {
-      const img = galleryImages[currentIndex];
-      const container = document.getElementById('lightboxContent');
-      if (img.src) {
-        container.innerHTML = `<img src="${img.src}" alt="${img.caption}" class="lightbox__img">`;
-      } else {
-        container.innerHTML = `<div class="lightbox__placeholder">${img.caption}</div>`;
-      }
-      document.getElementById('lightboxCaption').textContent = img.caption;
-      document.getElementById('lightboxCounter').textContent = `${currentIndex + 1} / ${galleryImages.length}`;
-    }
-
-    function lightboxNext() {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      updateLightbox();
-    }
-
-    function lightboxPrev() {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      updateLightbox();
-    }
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      const lb = document.getElementById('lightbox');
-      if (!lb.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') lightboxNext();
-      if (e.key === 'ArrowLeft') lightboxPrev();
-    });
-
-    // Click outside to close
-    document.getElementById('lightbox')?.addEventListener('click', function(e) {
+    document.getElementById('portLightbox').addEventListener('click', function(e) {
       if (e.target === this) closeLightbox();
     });
 
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const filter = this.dataset.filter;
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-          const tags = card.dataset.tags || '';
-          card.style.display = (filter === 'all' || tags.includes(filter)) ? '' : 'none';
-        });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Keyboard support on image blocks
+    document.querySelectorAll('.port-annotated__img[role="button"]').forEach(el => {
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
       });
     });
+
+    // ── Scroll reveal ─────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.10 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Header scroll state ───────────────────────────────
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ── Back to top ───────────────────────────────────────
+    const btt = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Mobile nav ────────────────────────────────────────
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks  = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+    }
   </script>
 
-  <!-- LIGHTBOX HTML (placed before closing body) -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery">
-    <div class="lightbox__inner">
-      <button class="lightbox__close" onclick="closeLightbox()" aria-label="Close gallery">✕</button>
-      <button class="lightbox__nav lightbox__prev" onclick="lightboxPrev()" aria-label="Previous image">‹</button>
-      <div id="lightboxContent"></div>
-      <button class="lightbox__nav lightbox__next" onclick="lightboxNext()" aria-label="Next image">›</button>
-      <p class="lightbox__caption" id="lightboxCaption"></p>
-      <p class="lightbox__counter" id="lightboxCounter"></p>
-      <p style="text-align:center;margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.2);letter-spacing:0.08em;">TAP OUTSIDE OR PRESS ESC TO CLOSE</p>
-    </div>
-  </div>
-
-  <!-- Add project card image CSS
+</body>
+</html>
