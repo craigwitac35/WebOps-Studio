@@ -2,41 +2,26 @@
 <html lang="en">
 <head>
   <!-- =========================================================
-  WebOps Studio | index.html
-  Purpose: Home page that explains the offer, builds trust, and
-  routes visitors to Contact (primary) or Portfolio (secondary).
-  Notes: Keep this file clean. Avoid nesting <article> inside <article>.
+  WebOps Studio | index.html v8
+  Purpose: Home page — explain the offer, build trust, route to
+  Contact (primary) or Portfolio (secondary).
   ========================================================== -->
 
-  <!-- ===== Meta ===== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>WebOps Studio — Veteran-Built Custom Websites</title>
   <meta name="description" content="WebOps Studio builds clean, custom, hand-coded websites from scratch. No templates. No shortcuts. Veteran-built front ends with military precision.">
 
-  <!-- ===== GitHub Pages Base Path =====
-  NOTE: This must match your repo name exactly.
-  If you ever rename the repo, update this line.
-  -->
   <base href="/WebOps-Studio/">
-
-  <!-- ===== Favicon ===== -->
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
-
-  <!-- ===== Styles ===== -->
   <link rel="stylesheet" href="styles/styles.css">
 
-  <!-- ===== Fonts ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- =========================================================
-  MailerLite Universal Script (Load Once)
-  Used by: Email signup embed section later on this page.
-  NOTE: Do not duplicate this script anywhere else.
-  ========================================================== -->
+  <!-- MailerLite — load once here, do not duplicate -->
   <script>
     (function (w, d, e, u, f, l, n) {
       w[f] = w[f] || function () { (w[f].q = w[f].q || []).push(arguments); };
@@ -45,26 +30,49 @@
     })(window, document, "script", "https://assets.mailerlite.com/js/universal.js", "ml");
     ml("account", "2121003");
   </script>
+
+  <style>
+    /* ── Project card image — scoped to index ── */
+    .project-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Selected work section intro text ── */
+    .work-section-intro {
+      font-size: 0.95rem;
+      color: var(--color-text-2);
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Project card drop-in image system ──
+       Upload image matching the src path.
+       onerror hides the img and shows placeholder automatically.
+       No code changes needed — just upload the file.
+    */
+    .project-card-img[src=""] {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- =========================================================
-  HEADER
-  Edit here if you change nav links or CTA label.
-  ========================================================== -->
+  <!-- ═══ HEADER ════════════════════════════════════════════ -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
-
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
-
         <ul class="nav-links" id="primary-nav">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -72,7 +80,6 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-
         <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
@@ -80,11 +87,7 @@
 
   <main>
 
-    <!-- =========================================================
-    HERO
-    Edit here if you want to change positioning, headline, or CTAs.
-    Keep the copy short for mobile readability.
-    ========================================================== -->
+    <!-- ═══ HERO ══════════════════════════════════════════════ -->
     <section class="hero-section" id="home">
       <div class="container">
         <div class="hero-content">
@@ -138,11 +141,7 @@
       </div>
     </section>
 
-    <!-- =========================================================
-    VALUE PROPS
-    Edit card copy here if you want to change positioning.
-    Icons are inline SVG for performance and consistency.
-    ========================================================== -->
+    <!-- ═══ VALUE PROPS ════════════════════════════════════════ -->
     <section class="value-props-section">
       <div class="container">
         <span class="section-label">How I Build</span>
@@ -200,11 +199,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- =========================================================
-    BUILD STANDARDS
-    This section sets expectations and builds trust.
-    Edit bullet copy here if you change your baseline standards.
-    ========================================================== -->
+    <!-- ═══ BUILD STANDARDS ════════════════════════════════════ -->
     <section class="build-standards-section">
       <div class="container">
         <span class="section-label reveal">Build Standards</span>
@@ -223,7 +218,6 @@
             </span>
             <span>Semantic HTML foundation for clean structure and SEO</span>
           </div>
-
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -232,7 +226,6 @@
             </span>
             <span>Responsive layout tested across real breakpoints</span>
           </div>
-
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -241,7 +234,6 @@
             </span>
             <span>Organized file structure for easy future maintenance</span>
           </div>
-
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -250,7 +242,6 @@
             </span>
             <span>Conversion-focused layout hierarchy</span>
           </div>
-
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -259,7 +250,6 @@
             </span>
             <span>Strong visual hierarchy that guides attention</span>
           </div>
-
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -268,7 +258,6 @@
             </span>
             <span>Optimized asset loading for consistent performance</span>
           </div>
-
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -287,31 +276,29 @@
 
     <div class="section-divider"></div>
 
-    <!-- =========================================================
-    FEATURED WORK (FULL SITES)
-    Use this section for multi-page or full concept site builds.
-    If you add a new full site, add a new <article> card here.
-    ========================================================== -->
+    <!-- ═══ SELECTED WORK ══════════════════════════════════════ -->
     <section class="featured-work-section">
       <div class="container">
 
         <div class="section-head">
           <div>
-            <span class="section-label">Featured Work</span>
-            <h2>Full Site Builds</h2>
+            <span class="section-label">Selected Work</span>
+            <h2>What I Build</h2>
           </div>
-          <a href="portfolio.html" class="btn btn-ghost btn-sm">View Portfolio →</a>
+          <a href="portfolio.html" class="btn btn-ghost btn-sm">View Full Portfolio →</a>
         </div>
-
-        <p class="section-intro reveal">
-          Multi-page builds and concept sites. Structured from scratch, designed to scale, and built to perform.
-        </p>
 
         <div class="project-grid">
 
-          <!-- Full Site: Guardian 4 Heroes -->
+          <!-- ── Card 1: Guardian 4 Heroes — Live Site ── -->
           <article class="project-card reveal">
-            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes website hero section" class="project-card-img" loading="lazy">
+            <img
+              src="images/guardian-1.jpg"
+              alt="Guardian 4 Heroes website hero section"
+              class="project-card-img"
+              loading="lazy"
+              onerror="this.style.display='none';"
+            />
             <div class="project-card-body">
               <div class="spec-badge-row">
                 <span class="spec-badge badge-type">Nonprofit</span>
@@ -319,71 +306,23 @@
                 <span class="spec-badge badge-live">Live</span>
               </div>
               <h3>Guardian 4 Heroes</h3>
-              <p>Full nonprofit site for an equine therapy organization serving veterans and first responders. Donation flow, structured navigation, contact form integration, and mobile-first layout.</p>
-              <a href="portfolio.html#guardian4heroes" class="btn btn-ghost btn-sm">View Case Study</a>
+              <p class="work-section-intro">
+                This is a full multi-page nonprofit site I built for an equine therapy organization serving veterans and first responders. Every page was hand-coded from scratch: navigation, donation flow, shop section, contact form, and mobile layout. This is what a complete custom build looks like.
+              </p>
+              <a href="portfolio.html#guardian4heroes" class="btn btn-ghost btn-sm">See the Full Breakdown →</a>
             </div>
           </article>
 
-          <!-- Full Site: Construction Co (In Development) -->
+          <!-- ── Card 2: IronShield Roofing — Landing Page ── -->
           <article class="project-card reveal reveal-delay-1">
-            <div class="project-card-img-placeholder">Construction Co.</div>
-            <div class="project-card-body">
-              <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Business</span>
-                <span class="spec-badge badge-type">Multi-Page</span>
-                <span class="spec-badge badge-dev">In Development</span>
-              </div>
-              <h3>Local Construction Business</h3>
-              <p>Full business site with service pages, project gallery, contact flow, and local SEO structure. Currently in active development.</p>
-              <a href="portfolio.html" class="btn btn-ghost btn-sm">See Portfolio</a>
-            </div>
-          </article>
-
-          <!-- Full Site: Local Cafe (Concept) -->
-          <article class="project-card reveal reveal-delay-2">
-            <div class="project-card-img-placeholder">Local Cafe</div>
-            <div class="project-card-body">
-              <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Concept</span>
-                <span class="spec-badge badge-concept">Demo Build</span>
-              </div>
-              <h3>Local Cafe Concept Site</h3>
-              <p>Concept build showcasing menu layout, event listings, and a reservation interface. Built to demonstrate range across industries.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Start Something Similar</a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- =========================================================
-    LANDING PAGE DEMOS
-    Keep these single-page demo builds separate from full sites.
-    Links point to /landing-pages/<project-name>/index.html
-    ========================================================== -->
-    <section class="featured-work-section">
-      <div class="container">
-
-        <div class="section-head">
-          <div>
-            <span class="section-label">Demo Series</span>
-            <h2>Landing Page Demos</h2>
-          </div>
-          <a href="portfolio.html" class="btn btn-ghost btn-sm">View Portfolio →</a>
-        </div>
-
-        <p class="section-intro reveal">
-          Single-page builds focused on one goal: calls, quote requests, or email capture. Clean, fast, and conversion-driven.
-        </p>
-
-        <div class="project-grid">
-
-          <!-- Landing Page: Roofing (Live Demo) -->
-          <article class="project-card reveal">
-            <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page demo" class="project-card-img" loading="lazy">
+            <img
+              src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
+              alt="IronShield Roofing landing page demo"
+              class="project-card-img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="project-card-img-placeholder" style="display:none;">IronShield Roofing</div>
             <div class="project-card-body">
               <div class="spec-badge-row">
                 <span class="spec-badge badge-type">Landing Page</span>
@@ -391,38 +330,33 @@
                 <span class="spec-badge badge-live">Demo Live</span>
               </div>
               <h3>IronShield Roofing</h3>
-              <p>Storm-damage lead generation page built to capture calls and quote requests quickly. Trust-first layout, mobile-first, CTA-driven.</p>
-              <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo</a>
+              <p class="work-section-intro">
+                Landing pages are single-page builds with one job: convert a visitor into a lead. No distractions, no extra pages, just a focused layout built around one action. A call, a quote request, or a form submission. If you have a service business and need to capture leads fast, this is the build for you.
+              </p>
+              <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Live Demo →</a>
             </div>
           </article>
 
-          <!-- Landing Page: Fitness (Coming Soon) -->
-          <article class="project-card reveal reveal-delay-1">
-            <div class="project-card-img-placeholder">Fitness Coach</div>
-            <div class="project-card-body">
-              <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Landing Page</span>
-                <span class="spec-badge badge-type">Applications</span>
-                <span class="spec-badge badge-dev">Coming Soon</span>
-              </div>
-              <h3>Fitness Coach Funnel</h3>
-              <p>Application-style landing page designed for high-ticket coaching offers. Built to qualify leads and drive form submissions.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build</a>
-            </div>
-          </article>
-
-          <!-- Landing Page: SaaS Waitlist (Coming Soon) -->
+          <!-- ── Card 3: Local Cafe — Concept Build ── -->
           <article class="project-card reveal reveal-delay-2">
-            <div class="project-card-img-placeholder">SaaS Waitlist</div>
+            <img
+              src="images/cafe-preview.jpg"
+              alt="Local Cafe concept demo site"
+              class="project-card-img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="project-card-img-placeholder" style="display:none;">Local Cafe</div>
             <div class="project-card-body">
               <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Landing Page</span>
-                <span class="spec-badge badge-type">Email Capture</span>
-                <span class="spec-badge badge-dev">Coming Soon</span>
+                <span class="spec-badge badge-type">Concept Build</span>
+                <span class="spec-badge badge-dev">Demo</span>
               </div>
-              <h3>SaaS Beta Waitlist</h3>
-              <p>Clean waitlist page built for early-stage product launches. Focused layout, clear value stack, and friction-free signup flow.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build</a>
+              <h3>Local Cafe Demo Site</h3>
+              <p class="work-section-intro">
+                Don't see your industry here? Tell me what you do, who your customers are, and what you need the site to accomplish. I'll build it. I've built for nonprofits, contractors, and coaches. Whatever the niche, the process is the same: clean code, clear structure, built around your goals.
+              </p>
+              <a href="contact.html" class="btn btn-ghost btn-sm">Start a Conversation →</a>
             </div>
           </article>
 
@@ -432,10 +366,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- =========================================================
-    SERVICES TEASER
-    Keep this short. The goal is to push to Services or Contact.
-    ========================================================== -->
+    <!-- ═══ SERVICES TEASER ════════════════════════════════════ -->
     <section class="services-teaser-section">
       <div class="container">
 
@@ -444,7 +375,7 @@
             <span class="section-label reveal">Services</span>
             <h2 class="reveal">What I Can Build For You</h2>
           </div>
-          <a href="services.html" class="btn btn-ghost btn-sm">See Services →</a>
+          <a href="services.html" class="btn btn-ghost btn-sm">See All Services →</a>
         </div>
 
         <p class="section-intro reveal">
@@ -488,27 +419,6 @@
             <p>Strip the bloat and rebuild it right. Modern layout, improved performance, and a cleaner structure.</p>
           </div>
 
-          <div class="service-tile reveal reveal-delay-3">
-            <div class="service-tile-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
-            </div>
-            <h3>Mobile Optimization</h3>
-            <p>Responsive breakpoints written by hand and tested across real devices. No generic framework shortcuts.</p>
-          </div>
-
-          <div class="service-tile reveal">
-            <div class="service-tile-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-              </svg>
-            </div>
-            <h3>Front-End Development Support</h3>
-            <p>Code fixes, layout work, form integration, or general front-end help. Bring me in at whatever stage you need.</p>
-          </div>
-
         </div>
 
         <div class="text-center" style="margin-top: 44px;">
@@ -520,32 +430,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- =========================================================
-    EMAIL SIGNUP (MAILERLITE EMBED)
-    If you change the form in MailerLite, update data-form.
-    ========================================================== -->
-    <section class="email-signup-section">
-      <div class="container">
-        <span class="section-label">Stay Updated</span>
-        <h2>Build Updates and Project Drops</h2>
-        <p class="email-signup-sub">
-          I share project launches, build breakdowns, and behind-the-scenes updates. No spam.
-        </p>
-
-        <div class="email-embed-wrap">
-          <div class="ml-embedded" data-form="Pfx24D"></div>
-        </div>
-
-        <p class="email-microcopy">Unsubscribe anytime.</p>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- =========================================================
-    TESTIMONIAL
-    Replace quote when you have more client feedback.
-    ========================================================== -->
+    <!-- ═══ TESTIMONIAL ════════════════════════════════════════ -->
     <section class="testimonial-section">
       <div class="container">
         <div class="testimonial-block reveal">
@@ -557,15 +442,28 @@
       </div>
     </section>
 
-    <!-- =========================================================
-    FINAL CTA
-    Main conversion: Contact
-    Secondary: Portfolio
-    ========================================================== -->
+    <!-- ═══ EMAIL SIGNUP ════════════════════════════════════════ -->
+    <section class="email-signup-section">
+      <div class="container">
+        <span class="section-label">Stay Updated</span>
+        <h2>Build Updates and Project Drops</h2>
+        <p class="email-signup-sub">
+          I share project launches, build breakdowns, and behind-the-scenes updates. No spam.
+        </p>
+        <div class="email-embed-wrap">
+          <div class="ml-embedded" data-form="Pfx24D"></div>
+        </div>
+        <p class="email-microcopy">Unsubscribe anytime.</p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Ready?</span>
-        <h2 class="reveal">Lets Build Something Solid</h2>
+        <h2 class="reveal">Let's Build Something Solid</h2>
         <p class="reveal">
           Tell me what you need. I will structure and code it cleanly from the ground up.
         </p>
@@ -578,10 +476,7 @@
 
   </main>
 
-  <!-- =========================================================
-  FOOTER
-  Edit contact details here when needed.
-  ========================================================== -->
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -608,7 +503,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#cba8b9aaa2aca9aabea6aaa5a5f9fbf9fb8baca6aaa2a7e5a8a4a6"><span class="__cf_email__" data-cfemail="4b28392a222c292a3e262a2525797b797b0b2c262a222765282426">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
@@ -624,27 +519,9 @@
     </div>
   </footer>
 
-  <!-- =========================================================
-  UI: Back to top button
-  Controlled by: js/scripts.js
-  ========================================================== -->
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
-  <!-- =========================================================
-  Scripts
-  Keep this at the end so the page renders fast.
-  ========================================================== -->
   <script src="js/scripts.js"></script>
-
-  <style>
-    .project-card-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 8px 8px 0 0;
-      display: block;
-    }
-  </style>
 
 </body>
 </html>
