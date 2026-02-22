@@ -48,7 +48,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center center;
+      display: block;
     }
 
     .port-hero__overlay {
@@ -56,9 +57,9 @@
       inset: 0;
       background: linear-gradient(
         110deg,
-        rgba(8, 12, 28, 0.96) 0%,
-        rgba(8, 12, 28, 0.85) 55%,
-        rgba(8, 12, 28, 0.65) 100%
+        rgba(8, 12, 28, 0.82) 0%,
+        rgba(8, 12, 28, 0.60) 55%,
+        rgba(8, 12, 28, 0.35) 100%
       );
     }
 
@@ -668,9 +669,7 @@
           <!-- Gallery -->
           <div class="featured-gallery">
             <div class="gallery-main" id="galleryMain" onclick="openLightbox(0)" role="button" tabindex="0" aria-label="View Guardian 4 Heroes screenshots">
-              <div class="gallery-placeholder" id="galleryMainContent">
-                <span>Guardian 4 Heroes — Screenshot 1</span>
-              </div>
+              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Home Page" id="galleryMainImg" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
               <div class="gallery-main__overlay">
                 <div class="gallery-main__icon">⤢</div>
               </div>
@@ -678,16 +677,16 @@
 
             <div class="gallery-thumbs" role="list" aria-label="Screenshot thumbnails">
               <div class="gallery-thumb active" role="listitem" onclick="setThumb(0)" tabindex="0" aria-label="Screenshot 1">
-                <div class="gallery-placeholder"><span>1</span></div>
+                <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes home page">
               </div>
               <div class="gallery-thumb" role="listitem" onclick="setThumb(1)" tabindex="0" aria-label="Screenshot 2">
-                <div class="gallery-placeholder"><span>2</span></div>
+                <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission section">
               </div>
               <div class="gallery-thumb" role="listitem" onclick="setThumb(2)" tabindex="0" aria-label="Screenshot 3">
-                <div class="gallery-placeholder"><span>3</span></div>
+                <img src="images/guardian-3.jpg" alt="Guardian 4 Heroes shop">
               </div>
               <div class="gallery-thumb" role="listitem" onclick="setThumb(3)" tabindex="0" aria-label="Screenshot 4">
-                <div class="gallery-placeholder"><span>4</span></div>
+                <img src="images/guardian-4.jpg" alt="Guardian 4 Heroes donation page">
               </div>
             </div>
 
@@ -982,7 +981,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#5f3c2d3e36383d3e2a323e31316d6f6d6f1f38323e3633713c3032"><span class="__cf_email__" data-cfemail="650617040c0207041008040b0b57555755250208040c094b060a08">[email&#160;protected]</span></a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
@@ -1003,19 +1002,17 @@
        Guardian 4 Heroes screenshots are uploaded to:
        images/guardian-1.jpg, guardian-2.jpg, etc.
   ========================================================== -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ==============================================
     // GALLERY IMAGES — update src values when you
     // upload real screenshots to your images/ folder
     // ==============================================
     const galleryImages = [
-      { src: null, caption: 'Guardian 4 Heroes — Home Page' },
-      { src: null, caption: 'Guardian 4 Heroes — About Page' },
-      { src: null, caption: 'Guardian 4 Heroes — Donation Page' },
-      { src: null, caption: 'Guardian 4 Heroes — Contact Page' },
+      { src: 'images/guardian-1.jpg', caption: 'Guardian 4 Heroes — Home Page' },
+      { src: 'images/guardian-2.jpg', caption: 'Guardian 4 Heroes — Mission & About' },
+      { src: 'images/guardian-3.jpg', caption: 'Guardian 4 Heroes — Shop' },
+      { src: 'images/guardian-4.jpg', caption: 'Guardian 4 Heroes — Donation Page' },
     ];
-    // Example once uploaded:
-    // { src: 'images/guardian-1.jpg', caption: 'Guardian 4 Heroes — Home Page' }
 
     let currentIndex = 0;
 
@@ -1023,13 +1020,11 @@
       currentIndex = index;
       const thumbs = document.querySelectorAll('.gallery-thumb');
       thumbs.forEach((t, i) => t.classList.toggle('active', i === index));
-
-      const mainContent = document.getElementById('galleryMainContent');
       const img = galleryImages[index];
-      if (img.src) {
-        mainContent.innerHTML = `<img src="${img.src}" alt="${img.caption}" style="width:100%;height:100%;object-fit:cover;">`;
-      } else {
-        mainContent.innerHTML = `<span>${img.caption}</span>`;
+      const mainImg = document.getElementById('galleryMainImg');
+      if (mainImg && img.src) {
+        mainImg.src = img.src;
+        mainImg.alt = img.caption;
       }
     }
 
@@ -1107,17 +1102,4 @@
     </div>
   </div>
 
-  <!-- Add project card image CSS to existing stylesheet -->
-  <style>
-    .project-card-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 8px 8px 0 0;
-      display: block;
-    }
-  </style>
-
-  <script src="js/scripts.js"></script>
-</body>
-</html>
+  <!-- Add project card image CSS
