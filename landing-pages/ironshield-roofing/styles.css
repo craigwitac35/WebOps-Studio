@@ -1,63 +1,49 @@
 /* =========================================================
-   IronShield Roofing — Landing Page CSS
+   IronShield Roofing — Landing Page CSS v2
    File: landing-pages/ironshield-roofing/styles.css
-
-   PURPOSE
-   - Isolated styling for this single landing page demo
-   - Contractor brand feel (navy/charcoal + orange CTA)
-   - Split hero with a real photo + structured cards below
-   - Mobile-first, readable, conversion-focused
-
-   NOTES
-   - Keep paths relative
-   - Avoid adding heavy animations
-   - This file assumes your HTML class names match index.html
-   ========================================================= */
-
+   Design: Full-width hero overlay, alternating dark sections,
+           orange accent borders, elevated contractor aesthetic
+========================================================= */
 
 /* =========================================================
-   0) QUICK THEME CONTROLS (Edit these first)
-   - Want it darker? change --bg / --panel
-   - Want CTA more red? change --cta
-   ========================================================= */
-
+   0) THEME TOKENS
+========================================================= */
 :root {
-  --bg: #0b1220;            /* Main page background (deep navy/charcoal) */
-  --bg-2: #081022;          /* Darker bar/strip background */
-  --text: #ffffff;          /* Main text */
-  --muted: #cbd5e1;         /* Secondary text */
-  --muted-2: #94a3b8;       /* Lighter secondary text */
-  --line: rgba(255,255,255,0.06);  /* Subtle borders */
-  --panel: rgba(255,255,255,0.03); /* Card/panel background */
-  --panel-line: rgba(255,255,255,0.06);
+  --bg:           #0a1628;
+  --bg-alt:       #06101e;
+  --bg-card:      rgba(255, 255, 255, 0.04);
+  --bg-card-hover:rgba(255, 255, 255, 0.07);
 
-  --cta: #f97316;           /* Orange CTA */
-  --cta-hover: #ea580c;     /* Hover orange */
-  --cta-soft: rgba(249,115,22,0.14); /* Soft CTA background */
-  --cta-line: rgba(249,115,22,0.35); /* CTA border */
-  --cta-text-dark: #0b1220; /* Text on CTA button */
+  --text:         #f1f5f9;
+  --muted:        #94a3b8;
+  --muted-2:      #64748b;
+  --line:         rgba(255, 255, 255, 0.08);
 
-  --radius: 12px;           /* Global rounding */
-  --shadow: 0 30px 70px rgba(0,0,0,0.55); /* Hero image shadow */
+  --cta:          #f97316;
+  --cta-hover:    #ea580c;
+  --cta-dark:     #0a1628;
+  --cta-glow:     rgba(249, 115, 22, 0.25);
+  --cta-border:   rgba(249, 115, 22, 0.4);
+
+  --accent-line:  3px solid #f97316;
+  --radius:       10px;
+  --radius-lg:    16px;
+
+  --font-display: 'Oswald', sans-serif;
+  --font-body:    system-ui, -apple-system, sans-serif;
+
+  --container:    1140px;
+  --section-pad:  96px 0;
+  --section-pad-sm: 64px 0;
 }
 
-
 /* =========================================================
-   1) RESET / BASE RULES
-   Notes:
-   - Minimal reset for consistent spacing and box sizing
-   - Keep default font system-based for speed
-   ========================================================= */
-
-* {
+   1) RESET & BASE
+========================================================= */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }
 
 html {
@@ -65,117 +51,194 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
   color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--cta);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--cta-hover);
+}
+
+ul {
+  list-style: none;
+}
 
 /* =========================================================
-   2) LAYOUT SYSTEM
-   Notes:
-   - Container sets max width and side padding
-   - Section spacing keeps the page calm and structured
-   ========================================================= */
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section {
-  padding: 80px 0;
-}
-
-.section__title {
-  font-size: 34px;
-  line-height: 1.15;
-  margin-bottom: 12px;
-}
-
-.section__lead {
-  color: var(--muted);
-  max-width: 70ch;
-  margin-bottom: 28px;
-}
-
-
-/* =========================================================
-   3) ACCESSIBILITY: SKIP LINK
-   Notes:
-   - Appears only when focused (keyboard users)
-   ========================================================= */
-
+   2) SKIP LINK
+========================================================= */
 .skip-link {
   position: absolute;
-  left: -999px;
-  top: 10px;
-  background: #ffffff;
-  color: var(--bg);
-  padding: 10px 12px;
-  border-radius: 6px;
+  top: -100%;
+  left: 1rem;
+  background: var(--cta);
+  color: var(--cta-dark);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  border-radius: var(--radius);
   z-index: 9999;
 }
 
 .skip-link:focus {
-  left: 10px;
+  top: 1rem;
 }
 
+/* =========================================================
+   3) CONTAINER
+========================================================= */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
 /* =========================================================
-   4) TOP BAR (Emergency strip)
-   Notes:
-   - High-contrast strip with phone + quick "Call Now"
-   - This supports the call-first conversion goal
-   ========================================================= */
+   4) BUTTONS
+========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
 
+.btn--cta {
+  background: var(--cta);
+  color: var(--cta-dark);
+  border-color: var(--cta);
+  font-weight: 700;
+}
+
+.btn--cta:hover {
+  background: var(--cta-hover);
+  border-color: var(--cta-hover);
+  color: var(--cta-dark);
+  box-shadow: 0 0 24px var(--cta-glow);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.btn--outline:hover {
+  border-color: rgba(255,255,255,0.7);
+  color: #fff;
+}
+
+.btn--sm {
+  padding: 10px 20px;
+  font-size: 0.85rem;
+}
+
+.btn--lg {
+  padding: 16px 36px;
+  font-size: 1rem;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* =========================================================
+   5) TOP BAR
+========================================================= */
 .topbar {
-  background: var(--bg-2);
-  border-bottom: 1px solid var(--line);
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--cta-border);
+  padding: 10px 24px;
 }
 
 .topbar__inner {
+  max-width: var(--container);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  padding: 10px 0;
+  gap: 12px;
+  flex-wrap: nowrap;
 }
 
 .topbar__message {
-  font-size: 14px;
-  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.topbar__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--cta);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 
 .topbar__actions {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .topbar__phone {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 0.2px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cta);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .topbar__phone:hover {
-  text-decoration: underline;
+  color: var(--cta-hover);
 }
 
-
 /* =========================================================
-   5) HEADER + NAV
-   Notes:
-   - Simple contractor header, not a SaaS nav
-   - CTA nav link is subtle but visible
-   ========================================================= */
-
+   6) HEADER
+========================================================= */
 .header {
-  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -183,602 +246,952 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 22px;
-  padding: 18px 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  gap: 24px;
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
-  color: var(--text);
-  display: inline-flex;
-  flex-direction: column;
-  gap: 2px;
+}
+
+.brand__icon {
+  font-size: 1.6rem;
+  color: var(--cta);
+  line-height: 1;
 }
 
 .brand__name {
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  font-size: 18px;
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
 }
 
-.brand__tagline {
-  font-size: 12px;
-  color: var(--muted-2);
+.brand__sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 8px;
 }
 
 .nav__link {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-size: 14px;
-  padding: 10px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 8px 12px;
   border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .nav__link:hover {
-  background: rgba(255,255,255,0.06);
-}
-
-.nav__link--cta {
-  background: var(--cta-soft);
-  border: 1px solid var(--cta-line);
-  color: #fff7ed;
-}
-
-
-/* =========================================================
-   6) BUTTON SYSTEM
-   Notes:
-   - Primary = orange fill
-   - Secondary = outlined
-   - Use .btn--full for form submit
-   ========================================================= */
-
-.btn {
-  padding: 14px 18px;
-  font-weight: 800;
-  text-decoration: none;
-  border-radius: 6px;
-  display: inline-block;
-  transition: 0.25s ease;
-  line-height: 1;
-}
-
-.btn--sm {
-  padding: 10px 14px;
-  font-size: 14px;
-}
-
-.btn--primary {
-  background: var(--cta);
-  color: var(--cta-text-dark);
-}
-
-.btn--primary:hover {
-  background: var(--cta-hover);
-  color: var(--cta-text-dark);
-}
-
-.btn--secondary {
-  border: 1px solid rgba(255,255,255,0.8);
   color: var(--text);
 }
 
-.btn--secondary:hover {
-  background: #ffffff;
-  color: var(--bg);
+.nav__link--cta {
+  background: var(--cta);
+  color: var(--cta-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  padding: 9px 16px;
 }
 
-.btn--full {
-  width: 100%;
-  text-align: center;
+.nav__link--cta:hover {
+  background: var(--cta-hover);
+  color: var(--cta-dark);
 }
-
 
 /* =========================================================
-   7) HERO (Split layout)
-   Notes:
-   - Inspired by PCL / Mortenson structure
-   - Background stays clean and controlled
-   - Image is the “media block” on the right
-   ========================================================= */
-
+   7) HERO — Full-width image with dark overlay
+========================================================= */
 .hero {
-  padding: 70px 0 40px;
-  background:
-    radial-gradient(900px 600px at 15% 20%, rgba(249,115,22,0.10), transparent 60%),
-    radial-gradient(900px 600px at 80% 0%, rgba(255,255,255,0.05), transparent 55%),
-    var(--bg);
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(6, 12, 28, 0.93) 0%,
+    rgba(6, 12, 28, 0.82) 50%,
+    rgba(6, 12, 28, 0.55) 100%
+  );
 }
 
 .hero__inner {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  gap: 60px;
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero__content {
+  max-width: 680px;
 }
 
 .hero__eyebrow {
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #fdba74;
-  margin-bottom: 14px;
+  color: var(--cta);
+  margin-bottom: 24px;
+}
+
+.eyebrow__line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--cta);
+  flex-shrink: 0;
 }
 
 .hero__title {
-  font-size: 52px;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 700;
   line-height: 1.05;
-  margin-bottom: 18px;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero__title--accent {
+  color: var(--cta);
+  display: block;
 }
 
 .hero__subhead {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: var(--muted);
-  max-width: 60ch;
-  margin-bottom: 26px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 540px;
 }
 
 .hero__cta {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 18px;
+  margin-bottom: 40px;
 }
 
 .hero__trust {
-  list-style: none;
-  color: var(--muted-2);
-  font-size: 14px;
-  display: grid;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .hero__trust li {
-  position: relative;
-  padding-left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.75);
 }
 
-.hero__trust li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
+.trust__check {
   color: var(--cta);
-  font-weight: 900;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
-.hero__media img {
-  border-radius: var(--radius);
-  box-shadow:
-    var(--shadow),
-    0 0 0 1px rgba(255,255,255,0.06);
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--cta), transparent);
+  animation: scrollDrop 2s ease infinite;
+}
+
+@keyframes scrollDrop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
 
 /* =========================================================
-   8) HERO CARDS (Under hero)
-   Notes:
-   - These are the “structured proof” blocks
-   - Makes the landing page feel enterprise and organized
-   ========================================================= */
-
-.hero-cards {
-  padding: 18px 0 0;
-  background: var(--bg);
+   8) TRUST STRIP
+========================================================= */
+.trust-strip {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--cta-border);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 24px;
 }
 
-.hero-cards__inner {
+.trust-strip__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 28px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.trust-strip__icon {
+  font-size: 1rem;
+}
+
+.trust-strip__divider {
+  width: 1px;
+  height: 24px;
+  background: var(--line);
+}
+
+/* =========================================================
+   9) SECTION SYSTEM
+========================================================= */
+.section {
+  padding: var(--section-pad);
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.section__label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cta);
+  margin-bottom: 12px;
+}
+
+.section__label--light {
+  color: rgba(249, 115, 22, 0.8);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section__lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 40px;
+}
+
+.section__lead--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* =========================================================
+   10) HERO CARDS
+========================================================= */
+.cards-section {
+  padding: var(--section-pad-sm);
+}
+
+.cards-section__inner {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 24px;
 }
-
-
-/* =========================================================
-   9) CARD SYSTEM (Reusable)
-   Notes:
-   - Used for hero cards, benefits, steps, testimonials, etc.
-   ========================================================= */
 
 .card {
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
-  border-radius: var(--radius);
-  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-top: var(--accent-line);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.card--tight {
-  padding: 18px;
+.card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+}
+
+.card__number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cta);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
 }
 
 .card__title {
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-weight: 900;
-}
-
-.card__text {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-
-/* =========================================================
-   10) TRUST STRIP
-   Notes:
-   - Quick credibility builder right after hero
-   ========================================================= */
-
-.trust {
-  padding: 26px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-2);
-  margin-top: 34px;
-}
-
-.trust__inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.trust__item {
-  text-align: center;
-  padding: 12px 10px;
-  border-radius: 10px;
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
-  color: #e2e8f0;
-  font-weight: 800;
-  font-size: 14px;
-}
-
-
-/* =========================================================
-   11) TWO-COLUMN LAYOUT (Problem section)
-   Notes:
-   - Content left, image/placeholder right
-   ========================================================= */
-
-.two-col {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.list {
-  margin-top: 10px;
-  padding-left: 18px;
-  color: #e2e8f0;
-}
-
-.list li {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
   margin-bottom: 10px;
 }
 
+.card__text {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
 
 /* =========================================================
-   12) PLACEHOLDER MEDIA BLOCKS
-   Notes:
-   - Used until you drop in real before/after images
-   ========================================================= */
+   11) PROBLEM SECTION (Two-col)
+========================================================= */
+.section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.section__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.check-list {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.check-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  padding-left: 4px;
+}
+
+.check-list li::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--cta);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
 .media-placeholder {
-  border-radius: var(--radius);
-  background: var(--panel);
-  border: 1px dashed rgba(255,255,255,0.18);
-  padding: 26px;
-  min-height: 220px;
-  display: grid;
-  place-items: center;
+  background: var(--bg-card);
+  border: 1px dashed rgba(249, 115, 22, 0.3);
+  border-radius: var(--radius-lg);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+}
+
+.media-placeholder__label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--muted-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.media-placeholder__sub {
+  font-size: 0.82rem;
+  color: var(--muted-2);
+}
+
+/* =========================================================
+   12) PROCESS STEPS
+========================================================= */
+.process {
   text-align: center;
 }
 
-
-/* =========================================================
-   13) PROCESS STEPS
-   Notes:
-   - 4-column desktop, collapses on mobile
-   ========================================================= */
+.process .section__title,
+.process .section__lead {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .steps {
-  margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 24px;
   list-style: none;
+  margin-top: 56px;
+  text-align: left;
+  counter-reset: none;
 }
 
 .step {
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
-  border-radius: var(--radius);
-  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-top: var(--accent-line);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.step:hover {
+  background: var(--bg-card-hover);
+}
+
+.step__num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--cta);
+  opacity: 0.25;
+  line-height: 1;
+  margin-bottom: 16px;
 }
 
 .step__title {
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 10px;
 }
 
 .step__text {
+  font-size: 0.88rem;
   color: var(--muted);
-  font-size: 14px;
+  line-height: 1.65;
 }
 
-
 /* =========================================================
-   14) BENEFITS GRID
-   Notes:
-   - 3-column desktop
-   - Collapses on tablet/mobile in media queries
-   ========================================================= */
+   13) BENEFITS GRID
+========================================================= */
+.benefits {
+  text-align: center;
+}
 
-.grid {
+.benefits .section__title,
+.benefits .section__lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
+  text-align: left;
 }
 
+.benefit {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 28px 32px;
+  position: relative;
+  transition: background 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+
+.benefit:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.benefit__accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--cta);
+}
+
+.benefit__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.benefit__text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
 
 /* =========================================================
-   15) BEFORE / AFTER LAYOUT
-   Notes:
-   - Two equal blocks
-   ========================================================= */
+   14) BEFORE / AFTER
+========================================================= */
+.before-after {
+  text-align: center;
+}
+
+.before-after .section__title {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .ba {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
 }
 
+.ba__item {
+  flex: 1;
+  position: relative;
+}
+
+.ba__label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.1);
+  color: var(--muted);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.ba__label--after {
+  background: var(--cta-glow);
+  color: var(--cta);
+}
+
+.ba__arrow {
+  font-size: 2rem;
+  color: var(--cta);
+  flex-shrink: 0;
+}
 
 /* =========================================================
-   16) TESTIMONIALS
-   Notes:
-   - 3 columns desktop, 1 column mobile
-   ========================================================= */
+   15) TESTIMONIALS
+========================================================= */
+.testimonials {
+  text-align: center;
+}
+
+.testimonials .section__title {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .quotes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 24px;
+  text-align: left;
+  margin-top: 48px;
 }
 
 .quote {
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
-  border-radius: var(--radius);
-  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-left: var(--accent-line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+}
+
+.quote__stars {
+  font-size: 0.9rem;
+  color: var(--cta);
+  margin-bottom: 14px;
+  letter-spacing: 0.1em;
 }
 
 .quote blockquote {
-  color: #e2e8f0;
-  font-weight: 800;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
 }
 
 .quote figcaption {
+  font-size: 0.8rem;
   color: var(--muted-2);
-  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-
 /* =========================================================
-   17) FAQ
-   Notes:
-   - Uses native <details> for no-JS accordion
-   ========================================================= */
+   16) FAQ
+========================================================= */
+.faq__inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
 
 .faq__list {
-  display: grid;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .faq__item {
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 14px 16px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.faq__item[open] {
+  border-color: var(--cta-border);
 }
 
 .faq__item summary {
+  padding: 20px 24px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
   cursor: pointer;
-  font-weight: 900;
-  color: #e2e8f0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.2s;
+}
+
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__item summary::after {
+  content: '+';
+  color: var(--cta);
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+
+.faq__item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq__item summary:hover {
+  color: var(--cta);
 }
 
 .faq__content {
-  padding-top: 10px;
-  color: var(--muted);
+  padding: 0 24px 20px;
+  border-top: 1px solid var(--line);
 }
 
+.faq__content p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.7;
+  padding-top: 16px;
+}
 
 /* =========================================================
-   18) FINAL CTA (Closing block)
-   Notes:
-   - Strong close with centered CTA
-   ========================================================= */
-
+   17) FINAL CTA
+========================================================= */
 .final-cta {
-  padding: 70px 0;
-  background:
-    radial-gradient(900px 600px at 80% 20%, rgba(249,115,22,0.14), transparent 60%),
-    var(--bg-2);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  position: relative;
+  padding: 100px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+  border-top: 1px solid var(--cta-border);
+  border-bottom: 1px solid var(--cta-border);
 }
 
 .final-cta__inner {
-  display: grid;
-  gap: 14px;
-  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta__title {
-  font-size: 34px;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 16px;
 }
 
 .final-cta__text {
+  font-size: 1.05rem;
   color: var(--muted);
+  margin-bottom: 40px;
 }
 
 .final-cta__actions {
   display: flex;
-  justify-content: center;
   gap: 14px;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-top: 6px;
 }
 
-
 /* =========================================================
-   19) CONTACT SECTION + FORM
-   Notes:
-   - Two-column layout on desktop
-   - Form styles include focus rings for accessibility
-   ========================================================= */
+   18) CONTACT FORM
+========================================================= */
+.contact {
+  background: var(--bg-alt);
+}
 
 .contact__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
   align-items: start;
 }
 
-.contact a {
-  color: #fdba74;
-  text-decoration: none;
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.contact a:hover {
-  text-decoration: underline;
+.contact__info {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact__info-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.contact__info-item a {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.contact__info-item a:hover {
+  color: var(--cta);
+}
+
+.contact__formwrap {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-top: var(--accent-line);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
 }
 
 .form {
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
-  border-radius: var(--radius);
-  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .form__row {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  margin-bottom: 14px;
 }
 
-label {
-  font-size: 14px;
-  color: #e2e8f0;
-  font-weight: 800;
+.form__row label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(2,6,23,0.55);
+.form__row input,
+.form__row textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 13px 16px;
   color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  transition: border-color 0.2s, background 0.2s;
   outline: none;
 }
 
-input:focus,
-textarea:focus {
-  border-color: rgba(249,115,22,0.7);
-  box-shadow: 0 0 0 3px rgba(249,115,22,0.18);
+.form__row input::placeholder,
+.form__row textarea::placeholder {
+  color: var(--muted-2);
 }
 
-textarea {
+.form__row input:focus,
+.form__row textarea:focus {
+  border-color: var(--cta);
+  background: rgba(249, 115, 22, 0.05);
+}
+
+.form__row textarea {
   resize: vertical;
+  min-height: 110px;
 }
 
 .form__note {
-  margin-top: 10px;
+  font-size: 0.75rem;
   color: var(--muted-2);
-  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
 }
 
-
 /* =========================================================
-   20) FOOTER
-   Notes:
-   - Small, quiet, includes back-to-portfolio link
-   ========================================================= */
-
+   19) FOOTER
+========================================================= */
 .footer {
-  padding: 26px 0;
-  background: var(--bg);
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
 }
 
 .footer__inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer__brand {
+  display: flex;
   align-items: center;
-  border-top: 1px solid var(--line);
-  padding-top: 18px;
+  gap: 8px;
+}
+
+.footer__brand .brand__icon {
+  color: var(--cta);
+  font-size: 1.2rem;
+}
+
+.footer__name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
 }
 
 .footer__small {
+  font-size: 0.8rem;
   color: var(--muted-2);
-  font-size: 13px;
 }
 
 .footer__link {
-  color: #fdba74;
-  text-decoration: none;
+  font-size: 0.82rem;
+  color: var(--cta);
+  font-weight: 500;
 }
 
 .footer__link:hover {
-  text-decoration: underline;
+  color: var(--cta-hover);
 }
 
-
 /* =========================================================
-   21) RESPONSIVE BREAKPOINTS
-   Notes:
-   - Tablet: stack hero, reduce columns
-   - Mobile: single column grids, tighter spacing
-   ========================================================= */
-
-@media (max-width: 1000px) {
-  .hero__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .hero__title {
-    font-size: 40px;
-  }
-
-  .hero__media {
-    order: -1;
-  }
-
-  .hero-cards__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .trust__inner {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .two-col {
+   20) MOBILE RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .cards-section__inner {
     grid-template-columns: 1fr;
   }
 
@@ -786,7 +1199,7 @@ textarea {
     grid-template-columns: 1fr 1fr;
   }
 
-  .grid {
+  .benefits-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -794,34 +1207,93 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .section__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .faq__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .contact__inner {
     grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact__formwrap {
+    padding: 28px 20px;
+  }
+
+  .ba {
+    flex-direction: column;
+  }
+
+  .ba__arrow {
+    transform: rotate(90deg);
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  :root {
+    --section-pad: 64px 0;
+    --section-pad-sm: 48px 0;
+  }
+
+  .topbar__inner {
+    gap: 8px;
+  }
+
+  .topbar__message {
+    font-size: 0.75rem;
+  }
+
   .hero {
-    padding: 54px 0 30px;
+    min-height: 100svh;
   }
 
-  .hero__title {
-    font-size: 34px;
+  .hero__cta {
+    flex-direction: column;
   }
 
-  .section {
-    padding: 60px 0;
+  .hero__cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .nav .nav__link:not(.nav__link--cta) {
+    display: none;
   }
 
   .steps {
     grid-template-columns: 1fr;
   }
 
-  .footer__inner {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-strip__inner {
+    gap: 8px;
+  }
+
+  .trust-strip__item {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+
+  .trust-strip__divider {
+    display: none;
+  }
+
+  .final-cta__actions {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 }
