@@ -1,6 +1,13 @@
 /*
 =========================================================================
-   WEBOPS STUDIO — styles.css v5.0
+   WEBOPS STUDIO — styles.css v6.0
+   Audit changes from v5.0:
+   - Standardized gradient formula via tokens (--gradient-*)
+   - Removed green live badges → orange neutral
+   - Removed amber/purple accent badges → orange only
+   - Reduced card hover effect stacking (max 2 simultaneous effects)
+   - Consistent surface/border layering across all sections
+
    Tokens → Reset → Typography → Utilities → Layout → Buttons →
    Header/Nav → Hero → Sections → Cards/Components → Pages →
    Footer → Back to Top → Animations → Responsive
@@ -52,6 +59,54 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+
+  /*
+    GRADIENT SYSTEM — single source of truth.
+    Every section background gradient pulls from here.
+    Do not write inline gradients outside of hero background-image.
+  */
+
+  /* Standard page section overlay — top to bottom, dark to slightly lighter */
+  --gradient-section:
+    linear-gradient(
+      to bottom,
+      rgba(7,7,12,0.95) 0%,
+      rgba(14,14,26,0.90) 100%
+    );
+
+  /* Hero overlay — deeper fade for readability over background image */
+  --gradient-hero:
+    linear-gradient(
+      to bottom,
+      rgba(7,7,12,0.60)  0%,
+      rgba(7,7,12,0.45) 30%,
+      rgba(7,7,12,0.78) 78%,
+      rgba(7,7,12,1.00) 100%
+    );
+
+  /* Card — subtle diagonal depth, no color cast */
+  --gradient-card:
+    linear-gradient(
+      135deg,
+      rgba(20,20,31,1.00) 0%,
+      rgba(14,14,26,1.00) 100%
+    );
+
+  /* Divider — horizontal fade for section separators */
+  --gradient-divider:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(59,30,109,0.20) 25%,
+      rgba(195,185,217,0.10) 50%,
+      rgba(59,30,109,0.20) 75%,
+      transparent 100%
+    );
+
+  /* Ambient glow — purple left, orange right. Used on hero only. */
+  --gradient-ambient:
+    radial-gradient(circle at 15% 20%, rgba(59,30,109,0.18), transparent 55%),
+    radial-gradient(circle at 85% 30%, rgba(232,98,10,0.10), transparent 55%);
 }
 
 /*
@@ -156,14 +211,7 @@ section { padding: var(--section-pad) 0; }
 
 .section-divider {
   height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(59,30,109,0.2) 25%,
-    rgba(195,185,217,0.1) 50%,
-    rgba(59,30,109,0.2) 75%,
-    transparent 100%
-  );
+  background: var(--gradient-divider);
 }
 
 .section-intro {
@@ -372,31 +420,21 @@ section { padding: var(--section-pad) 0; }
   align-items: center;
   padding: 140px 0 100px;
   overflow: hidden;
-
-  /* Background image + readability gradient — no HTML img needed */
   background:
-    linear-gradient(
-      to bottom,
-      rgba(7,7,12,0.60)  0%,
-      rgba(7,7,12,0.45) 30%,
-      rgba(7,7,12,0.78) 78%,
-      rgba(7,7,12,1.00) 100%
-    ),
+    var(--gradient-hero),
     url("../images/Background1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Ambient glow accents */
+/* Ambient glow — hero only */
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(59,30,109,0.18), transparent 55%),
-    radial-gradient(circle at 85% 30%, rgba(232,98,10,0.10), transparent 55%);
+  background: var(--gradient-ambient);
   z-index: 0;
 }
 
@@ -453,7 +491,6 @@ section { padding: var(--section-pad) 0; }
   display: block;
 }
 
-/* Accent line — orange with subtle glow */
 .hero-title-accent {
   font-size: clamp(2.8rem, 7vw, 5rem);
   letter-spacing: 0.04em;
@@ -462,7 +499,6 @@ section { padding: var(--section-pad) 0; }
   display: block;
 }
 
-/* Subordinate descriptor line */
 .hero-title-line2 {
   font-size: clamp(1rem, 2.4vw, 1.5rem);
   letter-spacing: 0.14em;
@@ -472,7 +508,6 @@ section { padding: var(--section-pad) 0; }
   display: block;
 }
 
-/* Subheadline paragraph */
 .hero-sub {
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   color: rgba(255,255,255,0.85);
@@ -485,7 +520,6 @@ section { padding: var(--section-pad) 0; }
   animation: fade-up 0.7s 0.38s forwards;
 }
 
-/* CTA row */
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
@@ -606,13 +640,13 @@ section { padding: var(--section-pad) 0; }
   background: rgba(232,98,10,0.07);
   border: 1px solid rgba(232,98,10,0.15);
   flex-shrink: 0;
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
+/* Removed box-shadow from icon hover — was stacking on top of card hover */
 .icon-wrap:hover {
   background: rgba(232,98,10,0.12);
   border-color: rgba(232,98,10,0.30);
-  box-shadow: 0 0 16px rgba(232,98,10,0.15);
 }
 
 .value-icon,
@@ -768,24 +802,24 @@ section { padding: var(--section-pad) 0; }
 }
 
 .project-card {
-  background: var(--color-surface-2);
+  background: var(--gradient-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
 
+/* Reduced: was transform + box-shadow + border-color (3 effects) → now transform + border-color (2) */
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lift);
   border-color: rgba(59,30,109,0.40);
 }
 
 .project-card-img-placeholder {
   width: 100%; height: 200px;
-  background: linear-gradient(135deg, var(--color-surface-1), rgba(59,30,109,0.30) 200%);
+  background: var(--color-surface-1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -814,7 +848,7 @@ section { padding: var(--section-pad) 0; }
 
 .project-card-body .btn { align-self: flex-start; }
 
-/* Spec badge system */
+/* Spec badge system — orange only */
 .spec-badge-row {
   display: flex;
   flex-wrap: wrap;
@@ -835,28 +869,30 @@ section { padding: var(--section-pad) 0; }
   border: 1px solid;
 }
 
+/* Primary badge — orange */
 .badge-type {
   color: var(--color-orange);
   border-color: rgba(232,98,10,0.25);
   background: rgba(232,98,10,0.07);
 }
 
+/* Status badges — orange accent, neutral styling. Green/amber/purple removed. */
 .badge-live {
-  color: #10b981;
-  border-color: rgba(16,185,129,0.28);
-  background: rgba(16,185,129,0.07);
+  color: var(--color-orange);
+  border-color: rgba(232,98,10,0.25);
+  background: rgba(232,98,10,0.07);
 }
 
 .badge-dev {
-  color: #f59e0b;
-  border-color: rgba(245,158,11,0.28);
-  background: rgba(245,158,11,0.07);
+  color: var(--color-text-3);
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
 }
 
 .badge-concept {
-  color: #8b5cf6;
-  border-color: rgba(139,92,246,0.28);
-  background: rgba(139,92,246,0.07);
+  color: var(--color-text-3);
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
 }
 
 /*
@@ -875,17 +911,17 @@ section { padding: var(--section-pad) 0; }
 }
 
 .service-tile {
-  background: var(--color-surface-2);
+  background: var(--gradient-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 30px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+/* Reduced: was transform + border + box-shadow → now transform + border */
 .service-tile:hover {
   transform: translateY(-3px);
   border-color: rgba(232,98,10,0.25);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.30);
 }
 
 .service-tile h3 { font-size: 1rem; margin-bottom: 10px; }
@@ -913,19 +949,19 @@ section { padding: var(--section-pad) 0; }
 }
 
 .service-card {
-  background: var(--color-surface-1);
+  background: var(--gradient-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 32px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
   display: flex;
   flex-direction: column;
 }
 
+/* Reduced: was transform + border + box-shadow → now transform + border */
 .service-card:hover {
   transform: translateY(-4px);
   border-color: rgba(232,98,10,0.20);
-  box-shadow: var(--shadow-card);
 }
 
 .service-card h3 {
@@ -1078,7 +1114,7 @@ section { padding: var(--section-pad) 0; }
   background: transparent;
   color: var(--color-text-3);
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .filter-btn:hover { border-color: var(--color-orange); color: var(--color-orange); }
@@ -1096,18 +1132,18 @@ section { padding: var(--section-pad) 0; }
 }
 
 .portfolio-card {
-  background: var(--color-surface-1);
+  background: var(--gradient-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
 
+/* Reduced: was transform + box-shadow + border-color → now transform + border-color */
 .portfolio-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lift);
   border-color: rgba(232,98,10,0.25);
 }
 
@@ -1115,7 +1151,7 @@ section { padding: var(--section-pad) 0; }
 
 .portfolio-card-img-placeholder {
   width: 100%; height: 200px;
-  background: linear-gradient(135deg, var(--color-surface-2) 0%, rgba(59,30,109,0.30) 100%);
+  background: var(--color-surface-1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1162,7 +1198,7 @@ section { padding: var(--section-pad) 0; }
   line-height: 1.6;
 }
 
-/* Status badge */
+/* Status badge — orange for live, neutral for in-progress/concept */
 .status-badge {
   display: inline-flex;
   align-items: center;
@@ -1177,21 +1213,21 @@ section { padding: var(--section-pad) 0; }
 }
 
 .status-live {
-  background: rgba(16,185,129,0.08);
-  color: #10b981;
-  border: 1px solid rgba(16,185,129,0.22);
+  background: rgba(232,98,10,0.08);
+  color: var(--color-orange);
+  border: 1px solid rgba(232,98,10,0.25);
 }
 
 .status-progress {
-  background: rgba(245,158,11,0.08);
-  color: #f59e0b;
-  border: 1px solid rgba(245,158,11,0.22);
+  background: rgba(255,255,255,0.04);
+  color: var(--color-text-3);
+  border: 1px solid rgba(255,255,255,0.10);
 }
 
 .status-concept {
-  background: rgba(139,92,246,0.08);
-  color: #8b5cf6;
-  border: 1px solid rgba(139,92,246,0.22);
+  background: rgba(255,255,255,0.04);
+  color: var(--color-text-3);
+  border: 1px solid rgba(255,255,255,0.10);
 }
 
 .status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
@@ -1569,8 +1605,8 @@ section { padding: var(--section-pad) 0; }
 
 .form-status.success {
   display: block;
-  border-color: rgba(16,185,129,0.35);
-  background: rgba(16,185,129,0.08);
+  border-color: rgba(232,98,10,0.35);
+  background: rgba(232,98,10,0.08);
   color: rgba(255,255,255,0.92);
 }
 
