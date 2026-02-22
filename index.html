@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <!-- =========================================================
-  WebOps Studio | index.html v8
-  Purpose: Home page — explain the offer, build trust, route to
+  WebOps Studio | index.html v9
+  Purpose: Home page. Explain the offer, build trust, route to
   Contact (primary) or Portfolio (secondary).
   ========================================================== -->
 
@@ -13,7 +13,23 @@
   <title>WebOps Studio — Veteran-Built Custom Websites</title>
   <meta name="description" content="WebOps Studio builds clean, custom, hand-coded websites from scratch. No templates. No shortcuts. Veteran-built front ends with military precision.">
 
+  <!-- Open Graph / Social Share -->
+  <meta property="og:title" content="WebOps Studio — Veteran-Built Custom Websites">
+  <meta property="og:description" content="WebOps Studio builds clean, custom, hand-coded websites from scratch. No templates. No shortcuts. Veteran-built front ends with military precision.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://craigwitac35.github.io/WebOps-Studio/">
+  <meta property="og:image" content="https://craigwitac35.github.io/WebOps-Studio/images/Shareface.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WebOps Studio — Veteran-Built Custom Websites">
+  <meta name="twitter:description" content="Clean, custom, hand-coded websites. Built from scratch for speed, clarity, and long-term reliability.">
+  <meta name="twitter:image" content="https://craigwitac35.github.io/WebOps-Studio/images/Shareface.jpg">
+
   <base href="/WebOps-Studio/">
+
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
 
@@ -21,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- MailerLite — load once here, do not duplicate -->
+  <!-- MailerLite (load once here, do not duplicate) -->
   <script>
     (function (w, d, e, u, f, l, n) {
       w[f] = w[f] || function () { (w[f].q = w[f].q || []).push(arguments); };
@@ -32,7 +48,7 @@
   </script>
 
   <style>
-    /* ── Project card image — scoped to index ── */
+    /* Project card image (scoped to index) */
     .project-card-img {
       width: 100%;
       height: 220px;
@@ -40,7 +56,7 @@
       display: block;
     }
 
-    /* ── Selected work section intro text ── */
+    /* Selected work section intro text */
     .work-section-intro {
       font-size: 0.95rem;
       color: var(--color-text-2);
@@ -49,11 +65,7 @@
       margin-bottom: 24px;
     }
 
-    /* ── Project card drop-in image system ──
-       Upload image matching the src path.
-       onerror hides the img and shows placeholder automatically.
-       No code changes needed — just upload the file.
-    */
+    /* Drop-in image system */
     .project-card-img[src=""] {
       display: none;
     }
@@ -62,17 +74,19 @@
 
 <body>
 
-  <!-- ═══ HEADER ════════════════════════════════════════════ -->
+  <!-- HEADER -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
+
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
+
         <ul class="nav-links" id="primary-nav">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -80,6 +94,7 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
         <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
@@ -87,7 +102,7 @@
 
   <main>
 
-    <!-- ═══ HERO ══════════════════════════════════════════════ -->
+    <!-- HERO -->
     <section class="hero-section" id="home">
       <div class="container">
         <div class="hero-content">
@@ -141,7 +156,7 @@
       </div>
     </section>
 
-    <!-- ═══ VALUE PROPS ════════════════════════════════════════ -->
+    <!-- VALUE PROPS -->
     <section class="value-props-section">
       <div class="container">
         <span class="section-label">How I Build</span>
@@ -199,7 +214,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- ═══ BUILD STANDARDS ════════════════════════════════════ -->
+    <!-- BUILD STANDARDS -->
     <section class="build-standards-section">
       <div class="container">
         <span class="section-label reveal">Build Standards</span>
@@ -218,6 +233,7 @@
             </span>
             <span>Semantic HTML foundation for clean structure and SEO</span>
           </div>
+
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -226,6 +242,7 @@
             </span>
             <span>Responsive layout tested across real breakpoints</span>
           </div>
+
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -234,6 +251,7 @@
             </span>
             <span>Organized file structure for easy future maintenance</span>
           </div>
+
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -242,6 +260,7 @@
             </span>
             <span>Conversion-focused layout hierarchy</span>
           </div>
+
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -250,6 +269,7 @@
             </span>
             <span>Strong visual hierarchy that guides attention</span>
           </div>
+
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -258,6 +278,7 @@
             </span>
             <span>Optimized asset loading for consistent performance</span>
           </div>
+
           <div class="standard-item">
             <span class="standard-check">
               <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -276,7 +297,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- ═══ SELECTED WORK ══════════════════════════════════════ -->
+    <!-- SELECTED WORK -->
     <section class="featured-work-section">
       <div class="container">
 
@@ -290,7 +311,7 @@
 
         <div class="project-grid">
 
-          <!-- ── Card 1: Guardian 4 Heroes — Live Site ── -->
+          <!-- Card 1: Guardian 4 Heroes -->
           <article class="project-card reveal">
             <img
               src="images/guardian-1.jpg"
@@ -313,7 +334,7 @@
             </div>
           </article>
 
-          <!-- ── Card 2: IronShield Roofing — Landing Page ── -->
+          <!-- Card 2: IronShield Roofing -->
           <article class="project-card reveal reveal-delay-1">
             <img
               src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
@@ -337,7 +358,7 @@
             </div>
           </article>
 
-          <!-- ── Card 3: Local Cafe — Concept Build ── -->
+          <!-- Card 3: Local Cafe -->
           <article class="project-card reveal reveal-delay-2">
             <img
               src="images/cafe-preview.jpg"
@@ -354,7 +375,7 @@
               </div>
               <h3>Local Cafe Demo Site</h3>
               <p class="work-section-intro">
-                Don't see your industry here? Tell me what you do, who your customers are, and what you need the site to accomplish. I'll build it. I've built for nonprofits, contractors, and coaches. Whatever the niche, the process is the same: clean code, clear structure, built around your goals.
+                Do not see your industry here? Tell me what you do, who your customers are, and what you need the site to accomplish. I will build it. I have built for nonprofits, contractors, and coaches. Whatever the niche, the process is the same: clean code, clear structure, built around your goals.
               </p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Start a Conversation →</a>
             </div>
@@ -366,7 +387,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- ═══ SERVICES TEASER ════════════════════════════════════ -->
+    <!-- SERVICES TEASER -->
     <section class="services-teaser-section">
       <div class="container">
 
@@ -430,19 +451,19 @@
 
     <div class="section-divider"></div>
 
-    <!-- ═══ TESTIMONIAL ════════════════════════════════════════ -->
+    <!-- TESTIMONIAL -->
     <section class="testimonial-section">
       <div class="container">
         <div class="testimonial-block reveal">
           <blockquote>
-            "Craig went above and beyond. He did not just build us a website, he brought our mission to life. We get compliments on it constantly."
+            "Placeholder."
           </blockquote>
           <cite>Guardian 4 Heroes Team</cite>
         </div>
       </div>
     </section>
 
-    <!-- ═══ EMAIL SIGNUP ════════════════════════════════════════ -->
+    <!-- EMAIL SIGNUP -->
     <section class="email-signup-section">
       <div class="container">
         <span class="section-label">Stay Updated</span>
@@ -459,7 +480,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+    <!-- FINAL CTA -->
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Ready?</span>
@@ -476,7 +497,7 @@
 
   </main>
 
-  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -522,6 +543,5 @@
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
   <script src="js/scripts.js"></script>
-
 </body>
 </html>
