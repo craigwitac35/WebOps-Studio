@@ -14,18 +14,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     .page-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
       background:
         linear-gradient(
           to bottom,
-          rgba(7,7,12,0.60)  0%,
-          rgba(7,7,12,0.45) 30%,
-          rgba(7,7,12,0.78) 78%,
+          rgba(7,7,12,0.65) 0%,
+          rgba(7,7,12,0.50) 40%,
+          rgba(7,7,12,0.85) 85%,
           rgba(7,7,12,1.00) 100%
         ),
         url('images/Background1.png');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
+    }
+    .page-hero .container { padding: 120px 0 80px; position: relative; z-index: 1; }
+    .page-hero__inner { padding: 120px 0 80px; position: relative; z-index: 1; }
+    .page-hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #E8620A;
+      margin-bottom: 20px;
+    }
+    .page-hero__eyebrow-line {
+      display: block;
+      width: 28px; height: 1px;
+      background: #E8620A;
+      opacity: 0.7;
+    }
+    .page-hero__title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .page-hero__title span { color: #E8620A; }
+    .page-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.7;
+      max-width: 520px;
     }
   </style>
 </head>
@@ -59,13 +99,13 @@
 
     <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════ -->
     <section class="page-hero">
-      <div class="container">
+      <div class="container page-hero__inner">
         <p class="page-hero__eyebrow">
           <span class="page-hero__eyebrow-line"></span>
           WebOps Studio · About
         </p>
-        <h1>Veteran. Developer.<br><span style="color:#E8620A;text-shadow:0 0 48px rgba(232,98,10,0.25);">Builder.</span></h1>
-        <p>
+        <h1 class="page-hero__title">Veteran. Developer.<br><span>Builder.</span></h1>
+        <p class="page-hero__sub">
           I'm Craig Baumann, U.S. Army veteran turned self-taught front-end developer
           based in Minnesota. I build websites the way I approached every mission:
           with discipline, precision, and a refusal to cut corners.
