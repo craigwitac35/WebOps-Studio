@@ -441,13 +441,15 @@ section { padding: var(--section-pad) 0; }
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 860px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* Eyebrow */
 .hero-eyebrow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   margin-bottom: 32px;
   opacity: 0;
@@ -485,14 +487,14 @@ section { padding: var(--section-pad) 0; }
 }
 
 .hero-title-line1 {
-  font-size: clamp(2.8rem, 7vw, 5rem) !important;
+  font-size: clamp(3.5rem, 9vw, 7rem) !important;
   letter-spacing: 0.06em;
   color: var(--color-text-1);
   display: block;
 }
 
 .hero-title-accent {
-  font-size: clamp(2.8rem, 7vw, 5rem) !important;
+  font-size: clamp(3.5rem, 9vw, 7rem) !important;
   letter-spacing: 0.04em;
   color: var(--color-orange);
   text-shadow: 0 0 48px rgba(232,98,10,0.25);
@@ -512,7 +514,8 @@ section { padding: var(--section-pad) 0; }
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   color: rgba(255,255,255,0.85);
   font-weight: 300;
-  max-width: 520px;
+  max-width: 580px;
+  margin: 0 auto 40px;
   line-height: 1.85;
   margin-bottom: 40px;
   text-shadow: 0 1px 8px rgba(0,0,0,0.60);
@@ -525,6 +528,7 @@ section { padding: var(--section-pad) 0; }
   flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 52px;
+  justify-content: center;
   opacity: 0;
   animation: fade-up 0.7s 0.50s forwards;
 }
@@ -534,6 +538,7 @@ section { padding: var(--section-pad) 0; }
   display: flex;
   flex-wrap: wrap;
   gap: 12px 28px;
+  justify-content: center;
   opacity: 0;
   animation: fade-up 0.7s 0.62s forwards;
 }
@@ -677,6 +682,17 @@ section { padding: var(--section-pad) 0; }
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+}
+
+.service-card-icon {
+  margin-bottom: 0;
+  padding-top: 4px;
+  width: 56px;
+  height: 56px;
+  background: rgba(232,98,10,0.07);
+  border: 1px solid rgba(232,98,10,0.18);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
 }
 
 .value-icon svg,
@@ -963,9 +979,9 @@ section { padding: var(--section-pad) 0; }
 .services-page-section { background: var(--color-bg); }
 
 .services-detailed-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   margin-bottom: 60px;
 }
 
@@ -973,24 +989,42 @@ section { padding: var(--section-pad) 0; }
   background: var(--gradient-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 32px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  padding: 40px 48px;
+  transition: border-color 0.2s ease;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.service-card:nth-child(even) {
+  background: var(--color-surface-1);
+  grid-template-columns: 1fr 72px;
+}
+
+.service-card:nth-child(even) .service-card-icon {
+  order: 2;
+}
+
+.service-card:nth-child(even) .service-card__body {
+  order: 1;
+}
+
+.service-card:hover {
+  border-color: rgba(232,98,10,0.25);
+}
+
+.service-card__body {
   display: flex;
   flex-direction: column;
 }
 
-/* Reduced: was transform + border + box-shadow → now transform + border */
-.service-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(232,98,10,0.20);
-}
-
 .service-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: var(--color-white);
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .service-card .service-tagline {
@@ -1878,7 +1912,6 @@ footer {
   .contact-info-panel     { position: static; }
   .case-study-grid        { grid-template-columns: 1fr; }
   .footer-grid            { grid-template-columns: 1fr 1fr; }
-  .services-detailed-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1923,8 +1956,18 @@ footer {
   .portfolio-grid,
   .services-grid,
   .bio-grid,
-  .footer-grid,
-  .services-detailed-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .services-detailed-grid .service-card,
+  .services-detailed-grid .service-card:nth-child(even) {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .services-detailed-grid .service-card:nth-child(even) .service-card-icon,
+  .services-detailed-grid .service-card:nth-child(even) .service-card__body {
+    order: unset;
+  }
 
   .form-row { grid-template-columns: 1fr; }
 
