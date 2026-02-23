@@ -31,10 +31,16 @@
       background-size: cover;
       background-position: center;
     }
-    .port-hero__inner { padding: 120px 0 80px; position: relative; z-index: 1; }
+    .port-hero__inner {
+      padding: 140px 0 100px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
     .port-hero__eyebrow {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       font-family: 'Roboto Mono', monospace;
       font-size: 0.6rem;
@@ -51,20 +57,21 @@
     }
     .port-hero__title {
       font-family: 'Oswald', sans-serif !important;
-      font-size: clamp(2.8rem, 7vw, 5rem) !important;
+      font-size: clamp(3.5rem, 9vw, 7rem) !important;
       font-weight: 700;
-      line-height: 1.05 !important;
+      line-height: 1.0 !important;
       letter-spacing: 0.02em !important;
       text-transform: uppercase;
       color: #ffffff;
       margin-bottom: 20px !important;
     }
-    .port-hero__title span { color: #E8620A; }
+    .port-hero__title span { color: #E8620A; text-shadow: 0 0 48px rgba(232,98,10,0.25); }
     .port-hero__sub {
       font-size: 1.05rem;
-      color: rgba(255,255,255,0.50);
+      color: rgba(255,255,255,0.65);
       line-height: 1.7;
-      max-width: 520px;
+      max-width: 580px;
+      margin: 0 auto;
     }
   </style>
 </head>
