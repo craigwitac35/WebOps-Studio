@@ -1945,16 +1945,7 @@ footer {
   .bio-grid,
   .footer-grid { grid-template-columns: 1fr; }
 
-  .services-detailed-grid .service-card,
-  .services-detailed-grid .service-card:nth-child(even) {
-    grid-template-columns: 1fr;
-    padding: 28px;
-  }
-
-  .services-detailed-grid .service-card:nth-child(even) .service-card-icon,
-  .services-detailed-grid .service-card:nth-child(even) .service-card__body {
-    order: unset;
-  }
+  .services-detailed-grid { grid-template-columns: 1fr !important; }
 
   .form-row { grid-template-columns: 1fr; }
 
