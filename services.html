@@ -10,25 +10,27 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Roboto Mono added to match site-wide font system -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ═══ HEADER ════════════════════════════════════════════════════════ -->
+  <!-- ═══ HEADER ════════════════════════════════════════════ -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
-      <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Toggle navigation">
+      <!-- aria-expanded, aria-controls, id="primary-nav" added to match scripts.js -->
+      <nav class="main-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
-        <ul class="nav-links">
+        <ul class="nav-links" id="primary-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -39,7 +41,7 @@
 
   <main>
 
-    <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════ -->
+    <!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
     <section class="page-hero">
       <div class="container">
         <span class="section-label">Services</span>
@@ -52,14 +54,20 @@
       </div>
     </section>
 
-    <!-- ═══ SERVICES GRID ═════════════════════════════════════════════════ -->
+    <!-- ═══ SERVICES GRID ══════════════════════════════════════ -->
     <section class="services-page-section">
       <div class="container">
-
         <div class="services-detailed-grid">
 
+          <!-- Custom Website Design -->
           <article class="service-card reveal">
-            <div class="service-card-icon">🖥️</div>
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
             <h3>Custom Website Design</h3>
             <p class="service-tagline">Your brand. Your code. Nothing generic.</p>
             <ul class="service-includes">
@@ -70,12 +78,19 @@
               <li>Contact form integration included</li>
               <li>1 to 2 revision rounds</li>
             </ul>
-            <p class="service-timeline">⏱ Typical timeline: 2 to 4 weeks</p>
+            <p class="service-timeline">Typical timeline: 2 to 4 weeks</p>
             <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
           </article>
 
+          <!-- Landing Pages -->
           <article class="service-card reveal reveal-delay-1">
-            <div class="service-card-icon">🎯</div>
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
             <h3>Landing Pages</h3>
             <p class="service-tagline">One goal. One page. Built to convert.</p>
             <ul class="service-includes">
@@ -86,13 +101,19 @@
               <li>Form or button integration</li>
               <li>Quick turnaround</li>
             </ul>
-            <p class="service-timeline">⏱ Typical timeline: 3 to 7 days</p>
+            <p class="service-timeline">Typical timeline: 3 to 7 days</p>
             <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
           </article>
 
+          <!-- Website Redesign -->
           <article class="service-card reveal">
-            <div class="service-card-icon">🔧</div>
-            <h3>Website Redesign & Cleanup</h3>
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+            </div>
+            <h3>Website Redesign &amp; Cleanup</h3>
             <p class="service-tagline">Strip the bloat. Rebuild it right.</p>
             <ul class="service-includes">
               <li>Audit of your current site</li>
@@ -102,12 +123,18 @@
               <li>Mobile fixes and responsive overhaul</li>
               <li>No disruption to your content</li>
             </ul>
-            <p class="service-timeline">⏱ Typical timeline: 1 to 3 weeks</p>
+            <p class="service-timeline">Typical timeline: 1 to 3 weeks</p>
             <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
           </article>
 
+          <!-- Mobile Optimization -->
           <article class="service-card reveal reveal-delay-1">
-            <div class="service-card-icon">📱</div>
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
             <h3>Mobile Optimization</h3>
             <p class="service-tagline">Over 60% of traffic is mobile. Is your site ready?</p>
             <ul class="service-includes">
@@ -118,13 +145,18 @@
               <li>Tested across real devices</li>
               <li>Speed improvements included</li>
             </ul>
-            <p class="service-timeline">⏱ Typical timeline: 3 to 7 days</p>
+            <p class="service-timeline">Typical timeline: 3 to 7 days</p>
             <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
           </article>
 
+          <!-- Contact & Form Integration -->
           <article class="service-card reveal">
-            <div class="service-card-icon">📋</div>
-            <h3>Contact & Form Integration</h3>
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <h3>Contact &amp; Form Integration</h3>
             <p class="service-tagline">More than an email address on a page.</p>
             <ul class="service-includes">
               <li>Custom-coded contact forms</li>
@@ -134,12 +166,18 @@
               <li>Matches your existing design</li>
               <li>Spam protection built in</li>
             </ul>
-            <p class="service-timeline">⏱ Typical timeline: 1 to 3 days</p>
+            <p class="service-timeline">Typical timeline: 1 to 3 days</p>
             <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
           </article>
 
+          <!-- Front-End Refactoring -->
           <article class="service-card reveal reveal-delay-1">
-            <div class="service-card-icon">⚡</div>
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
             <h3>Front-End Refactoring</h3>
             <p class="service-tagline">Tune the engine. Keep the look.</p>
             <ul class="service-includes">
@@ -150,7 +188,7 @@
               <li>Future-proofed for growth</li>
               <li>No visual redesign required</li>
             </ul>
-            <p class="service-timeline">⏱ Typical timeline: 1 to 2 weeks</p>
+            <p class="service-timeline">Typical timeline: 1 to 2 weeks</p>
             <a href="contact.html" class="btn btn-primary btn-sm">Get a Quote</a>
           </article>
 
@@ -173,7 +211,7 @@
 
     <div class="section-divider"></div>
 
-    <!-- ═══ FAQ ════════════════════════════════════════════════════════════ -->
+    <!-- ═══ FAQ ════════════════════════════════════════════════ -->
     <section class="faq-section">
       <div class="container">
         <span class="section-label reveal">FAQ</span>
@@ -255,7 +293,7 @@
       </div>
     </section>
 
-    <!-- ═══ CTA STRIP ══════════════════════════════════════════════════════ -->
+    <!-- ═══ CTA STRIP ══════════════════════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Get Started</span>
@@ -273,7 +311,7 @@
 
   </main>
 
-  <!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
+  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
