@@ -12,7 +12,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Roboto Mono added to match site-wide font system -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-</head>
+  <style>
+    .page-hero {
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(7,7,12,0.60)  0%,
+          rgba(7,7,12,0.45) 30%,
+          rgba(7,7,12,0.78) 78%,
+          rgba(7,7,12,1.00) 100%
+        ),
+        url('images/Background1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style></head>
 <body>
 
   <!-- ═══ HEADER ════════════════════════════════════════════ -->
@@ -44,7 +59,10 @@
     <!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
     <section class="page-hero">
       <div class="container">
-        <span class="section-label">Contact</span>
+        <p class="page-hero__eyebrow">
+          <span class="page-hero__eyebrow-line"></span>
+          WebOps Studio · Contact
+        </p>
         <h1>Let's Build<br>Something Real.</h1>
         <p>
           I reply personally. No auto-responders, no sales team.
