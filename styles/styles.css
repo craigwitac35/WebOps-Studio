@@ -485,14 +485,14 @@ section { padding: var(--section-pad) 0; }
 }
 
 .hero-title-line1 {
-  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-size: clamp(2.8rem, 7vw, 5rem) !important;
   letter-spacing: 0.06em;
   color: var(--color-text-1);
   display: block;
 }
 
 .hero-title-accent {
-  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-size: clamp(2.8rem, 7vw, 5rem) !important;
   letter-spacing: 0.04em;
   color: var(--color-orange);
   text-shadow: 0 0 48px rgba(232,98,10,0.25);
@@ -1879,7 +1879,6 @@ footer {
   .case-study-grid        { grid-template-columns: 1fr; }
   .footer-grid            { grid-template-columns: 1fr 1fr; }
   .services-detailed-grid { grid-template-columns: 1fr; }
-  .standards-grid         { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (max-width: 768px) {
@@ -1924,7 +1923,8 @@ footer {
   .portfolio-grid,
   .services-grid,
   .bio-grid,
-  .footer-grid   { grid-template-columns: 1fr; }
+  .footer-grid,
+  .services-detailed-grid { grid-template-columns: 1fr; }
 
   .form-row { grid-template-columns: 1fr; }
 
