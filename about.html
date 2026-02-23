@@ -13,7 +13,7 @@
   <!-- FIX 1: Added Roboto Mono to match index and portfolio font imports -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    .page-hero {
+    .port-hero {
       position: relative;
       min-height: 72vh;
       display: flex;
@@ -31,9 +31,8 @@
       background-size: cover;
       background-position: center;
     }
-    .page-hero .container { padding: 120px 0 80px; position: relative; z-index: 1; }
-    .page-hero__inner { padding: 120px 0 80px; position: relative; z-index: 1; }
-    .page-hero__eyebrow {
+    .port-hero__inner { padding: 120px 0 80px; position: relative; z-index: 1; }
+    .port-hero__eyebrow {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -42,26 +41,26 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #E8620A;
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
     }
-    .page-hero__eyebrow-line {
+    .port-hero__line {
       display: block;
       width: 28px; height: 1px;
       background: #E8620A;
       opacity: 0.7;
     }
-    .page-hero__title {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
+    .port-hero__title {
+      font-family: 'Oswald', sans-serif !important;
+      font-size: clamp(2.8rem, 7vw, 5rem) !important;
       font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: 0.02em;
+      line-height: 1.05 !important;
+      letter-spacing: 0.02em !important;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
     }
-    .page-hero__title span { color: #E8620A; }
-    .page-hero__sub {
+    .port-hero__title span { color: #E8620A; }
+    .port-hero__sub {
       font-size: 1.05rem;
       color: rgba(255,255,255,0.50);
       line-height: 1.7;
@@ -98,14 +97,14 @@
   <main>
 
     <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════ -->
-    <section class="page-hero">
-      <div class="container page-hero__inner">
-        <p class="page-hero__eyebrow">
-          <span class="page-hero__eyebrow-line"></span>
+    <section class="port-hero">
+      <div class="container port-hero__inner">
+        <p class="port-hero__eyebrow">
+          <span class="port-hero__line"></span>
           WebOps Studio · About
         </p>
-        <h1 class="page-hero__title">Veteran. Developer.<br><span>Builder.</span></h1>
-        <p class="page-hero__sub">
+        <h1 class="port-hero__title">Veteran. Developer.<br><span>Builder.</span></h1>
+        <p class="port-hero__sub">
           I'm Craig Baumann, U.S. Army veteran turned self-taught front-end developer
           based in Minnesota. I build websites the way I approached every mission:
           with discipline, precision, and a refusal to cut corners.
