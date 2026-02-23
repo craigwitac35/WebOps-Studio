@@ -21,14 +21,18 @@
   const closeMobileNav = () => {
     if (!navToggle || !navLinks) return;
     navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
     navLinks.classList.remove('active');
     document.body.style.overflow = '';
   };
 
   if (navToggle && navLinks) {
+    navToggle.setAttribute('aria-expanded', 'false');
+
     navToggle.addEventListener('click', () => {
       const open = navToggle.classList.toggle('active');
       navLinks.classList.toggle('active', open);
+      navToggle.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
     });
 

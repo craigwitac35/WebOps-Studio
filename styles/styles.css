@@ -1903,6 +1903,29 @@ footer {
 ─────────────────────────────────────────────────────────────────────────
 */
 
+
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .hero-eyebrow,
+  .hero-title,
+  .hero-sub,
+  .hero-ctas,
+  .hero-proof-strip {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+    transition: none !important;
+  }
+}
 @media (max-width: 1024px) {
   .project-grid           { grid-template-columns: repeat(2, 1fr); }
   .portfolio-grid         { grid-template-columns: repeat(2, 1fr); }
