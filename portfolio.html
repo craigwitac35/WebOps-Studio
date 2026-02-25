@@ -28,6 +28,43 @@
 
   <style>
 
+
+    /* ── FEATURED SCREENSHOT (full width above notes) ──────── */
+    .port-featured-img {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      cursor: zoom-in;
+      margin-bottom: 32px;
+    }
+    .port-featured-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .port-featured-img:hover img { transform: scale(1.01); }
+    .port-featured-img .port-annotated__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; }
+    .port-featured-img:hover .port-annotated__img-overlay { background: rgba(0,0,0,0.25); }
+    .port-featured-img:hover .port-annotated__zoom { opacity: 1; }
+    .port-featured-notes {
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    /* ── CAROUSEL CLICKABLE SLIDES ──────────────────────────── */
+    .carousel-slide {
+      min-width: 100%;
+      position: relative;
+      cursor: zoom-in;
+    }
+    .carousel-slide:hover .carousel-slide__overlay { background: rgba(0,0,0,0.25); }
+    .carousel-slide:hover .carousel-slide__zoom { opacity: 1; }
+    .carousel-slide__overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; z-index: 2; }
+    .carousel-slide__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
+
     /* ── HERO ─────────────────────────────────────────────── */
     .port-hero {
       position: relative;
@@ -321,22 +358,20 @@
           </div>
         </div>
 
-        <!-- G4H: First screenshot always visible -->
-        <div class="port-annotated reveal" style="margin-bottom: 40px;">
-          <div class="port-annotated__img" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes: Hero and Navigation')" role="button" tabindex="0" aria-label="View hero screenshot fullscreen">
-            <span class="port-annotated__num">01 &middot; Hero</span>
-            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" loading="lazy">
-            <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
-          </div>
-          <div class="port-annotated__notes">
-            <span class="port-annotated__label">Design Breakdown &middot; 01</span>
-            <h3 class="port-annotated__title">Hero &amp; Navigation Structure</h3>
-            <p class="port-annotated__desc">The nav sits transparent over a full-viewport barn interior photograph, creating immediate emotional context. The Donate button is front and center — for a nonprofit, that is the primary conversion action and it needs to be visible at all times.</p>
-            <div class="port-insights">
-              <div class="port-insight"><span class="port-insight__tag">Design</span><p>Playfair Display was chosen for the title to bring warmth and authority. It reads as trustworthy, not corporate.</p></div>
-              <div class="port-insight"><span class="port-insight__tag">Design</span><p>The gold accent on the "4" and the gold rule separator create a visual anchor that carries through the entire site identity.</p></div>
-              <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Transparent nav is positioned absolute over the hero so the image bleeds full-height. On scroll, the header gains a dark background via a JavaScript scroll class.</p></div>
-            </div>
+        <!-- G4H: First screenshot full width above notes -->
+        <div class="port-featured-img reveal" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes: Hero and Navigation')" role="button" tabindex="0" aria-label="View hero screenshot fullscreen">
+          <span class="port-annotated__num">01 &middot; Hero</span>
+          <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" loading="lazy">
+          <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
+        </div>
+        <div class="port-featured-notes reveal">
+          <span class="port-annotated__label">Design Breakdown &middot; 01</span>
+          <h3 class="port-annotated__title">Hero &amp; Navigation Structure</h3>
+          <p class="port-annotated__desc">The nav sits transparent over a full-viewport barn interior photograph, creating immediate emotional context. The Donate button is front and center — for a nonprofit, that is the primary conversion action and it needs to be visible at all times.</p>
+          <div class="port-insights">
+            <div class="port-insight"><span class="port-insight__tag">Design</span><p>Playfair Display was chosen for the title to bring warmth and authority. It reads as trustworthy, not corporate.</p></div>
+            <div class="port-insight"><span class="port-insight__tag">Design</span><p>The gold accent on the "4" and the gold rule separator create a visual anchor that carries through the entire site identity.</p></div>
+            <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Transparent nav is positioned absolute over the hero so the image bleeds full-height. On scroll, the header gains a dark background via a JavaScript scroll class.</p></div>
           </div>
         </div>
 
@@ -487,25 +522,30 @@
                 <div class="site-carousel" data-carousel="ember">
                   <div class="carousel-track-wrap">
                     <div class="carousel-track" id="carousel-ember-track">
-                      <div class="carousel-slide">
+                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.home.jpg','Ember & Oak Cafe: Homepage')">
                         <img src="images/ember.demo.home.jpg" alt="Ember and Oak Cafe homepage" loading="lazy">
                         <span class="carousel-slide__label">01 &middot; Homepage</span>
+                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
                       </div>
-                      <div class="carousel-slide">
+                      <div class="carousel-slide" onclick="openLightbox('images/ember-demo-menu.jpg','Ember & Oak Cafe: Menu')">
                         <img src="images/ember-demo-menu.jpg" alt="Ember and Oak Cafe menu page" loading="lazy">
                         <span class="carousel-slide__label">02 &middot; Menu</span>
+                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
                       </div>
-                      <div class="carousel-slide">
+                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.about.jpg','Ember & Oak Cafe: About')">
                         <img src="images/ember.demo.about.jpg" alt="Ember and Oak Cafe about page" loading="lazy">
                         <span class="carousel-slide__label">03 &middot; About</span>
+                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
                       </div>
-                      <div class="carousel-slide">
+                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.catering.jpg','Ember & Oak Cafe: Catering')">
                         <img src="images/ember.demo.catering.jpg" alt="Ember and Oak Cafe catering page" loading="lazy">
                         <span class="carousel-slide__label">04 &middot; Catering</span>
+                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
                       </div>
-                      <div class="carousel-slide">
+                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.css.jpg','Ember & Oak Cafe: CSS / Code')">
                         <img src="images/ember.demo.css.jpg" alt="Ember and Oak Cafe stylesheet code" loading="lazy">
                         <span class="carousel-slide__label">05 &middot; CSS / Code</span>
+                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
                       </div>
                     </div>
                   </div>
