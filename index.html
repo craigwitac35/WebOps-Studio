@@ -12,7 +12,6 @@
 
   <title>WebOps Studio — Veteran-Built Custom Websites</title>
   <meta name="description" content="WebOps Studio builds clean, custom, hand-coded websites from scratch. No templates. No shortcuts. Veteran-built front ends with military precision.">
-<!-- Open Graph / Social Sharing -->
 <meta property="og:title" content="WebOps Studio — Veteran-Built Custom Websites">
 <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
 <meta property="og:type" content="website">
@@ -36,11 +35,12 @@
   </script>
 
   <style>
-    /* ── Project card image — scoped to index ── */
+    /* ── Project card image — tall to match portfolio screenshots ── */
     .project-card-img {
       width: 100%;
-      height: 220px;
+      height: 420px;
       object-fit: cover;
+      object-position: top;
       display: block;
     }
 
@@ -53,11 +53,6 @@
       margin-bottom: 24px;
     }
 
-    /* ── Project card drop-in image system ──
-       Upload image matching the src path.
-       onerror hides the img and shows placeholder automatically.
-       No code changes needed — just upload the file.
-    */
     .project-card-img[src=""] {
       display: none;
     }
@@ -341,16 +336,16 @@
             </div>
           </article>
 
-          <!-- ── Card 3: Local Cafe — Concept Build ── -->
+          <!-- ── Card 3: Ember & Oak Cafe — Concept Build ── -->
           <article class="project-card reveal reveal-delay-2">
             <img
-              src="images/cafe-preview.jpg"
-              alt="Local Cafe concept demo site"
+              src="images/ember.demo.home.jpg"
+              alt="Ember and Oak Cafe concept demo site"
               class="project-card-img"
               loading="lazy"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div class="project-card-img-placeholder" style="display:none;">Local Cafe</div>
+            <div class="project-card-img-placeholder" style="display:none;">Ember &amp; Oak Cafe</div>
             <div class="project-card-body">
               <div class="spec-badge-row">
                 <span class="spec-badge badge-type">Concept Build</span>
