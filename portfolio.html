@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <!-- =========================================================
-  WebOps Studio | portfolio.html
+  WebOps Studio | portfolio.html v2
   Sections:
-    1. Hero
-    2. Guardian 4 Heroes (intro + collapsible breakdown)
-    3. Concept Builds (accordion — Ember & Oak with carousel)
-    4. Landing Pages (card grid)
+    1. Hero (unchanged)
+    2. Guardian 4 Heroes — split layout + collapsible breakdown
+    3. Concept Builds — featured project cards (large image + thumbnails)
+    4. Landing Pages — card grid
     5. CTA Strip
   ========================================================== -->
   <meta charset="UTF-8">
@@ -28,44 +28,9 @@
 
   <style>
 
-
-    /* ── FEATURED SCREENSHOT (full width above notes) ──────── */
-    .port-featured-img {
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      background: var(--color-surface-2);
-      cursor: zoom-in;
-      margin-bottom: 32px;
-    }
-    .port-featured-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .port-featured-img:hover img { transform: scale(1.01); }
-    .port-featured-img .port-annotated__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; }
-    .port-featured-img:hover .port-annotated__img-overlay { background: rgba(0,0,0,0.25); }
-    .port-featured-img:hover .port-annotated__zoom { opacity: 1; }
-    .port-featured-notes {
-      max-width: 720px;
-      margin-bottom: 40px;
-    }
-
-    /* ── CAROUSEL CLICKABLE SLIDES ──────────────────────────── */
-    .carousel-slide {
-      min-width: 100%;
-      position: relative;
-      cursor: zoom-in;
-    }
-    .carousel-slide:hover .carousel-slide__overlay { background: rgba(0,0,0,0.25); }
-    .carousel-slide:hover .carousel-slide__zoom { opacity: 1; }
-    .carousel-slide__overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; z-index: 2; }
-    .carousel-slide__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
-
-    /* ── HERO ─────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════ */
     .port-hero {
       position: relative;
       min-height: 72vh;
@@ -92,7 +57,9 @@
     .port-stat__num { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--color-white); line-height: 1; display: block; }
     .port-stat__label { font-family: var(--font-mono); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-3); display: block; margin-top: 4px; }
 
-    /* ── SECTION BREAK ────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════
+       SECTION BREAK
+    ══════════════════════════════════════════════════════ */
     .port-section-break { background: var(--color-surface-2); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 28px 0; position: relative; overflow: hidden; }
     .port-section-break::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 0% 50%, rgba(59,30,109,0.12), transparent 60%), radial-gradient(circle at 100% 50%, rgba(232,98,10,0.08), transparent 60%); pointer-events: none; }
     .port-section-break__inner { position: relative; z-index: 1; display: flex; align-items: center; gap: 20px; }
@@ -100,15 +67,44 @@
     .port-section-break__label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-orange); white-space: nowrap; }
     .port-section-break__badge { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); white-space: nowrap; }
 
-    /* ── PROJECT SECTION WRAPPER ──────────────────────────── */
-    .port-project-section { padding: 80px 0; background: var(--color-bg); }
-    .port-project-section:nth-of-type(even) { background: var(--color-surface-1); }
-    .port-project-intro { max-width: 720px; margin-bottom: 48px; }
-    .port-project-intro h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; }
-    .port-project-intro p { font-size: 1.05rem; color: var(--color-text-2); line-height: 1.85; margin: 0; }
-    .port-project-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; align-items: center; }
+    /* ══════════════════════════════════════════════════════
+       PROJECT SECTIONS
+    ══════════════════════════════════════════════════════ */
+    .port-project-section { padding: 80px 0; }
+    .port-project-section--alt { background: var(--color-surface-1); }
 
-    /* ── COLLAPSIBLE BREAKDOWN ────────────────────────────── */
+    /* ══════════════════════════════════════════════════════
+       GUARDIAN 4 HEROES — SPLIT LAYOUT
+    ══════════════════════════════════════════════════════ */
+    .g4h-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+    .g4h-split__text { display: flex; flex-direction: column; }
+    .g4h-split__eyebrow { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 14px; }
+    .g4h-split__title { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; text-transform: uppercase; color: var(--color-white); letter-spacing: 0.02em; line-height: 1.05; margin-bottom: 20px; }
+    .g4h-split__desc { font-size: 1rem; color: var(--color-text-2); line-height: 1.85; margin-bottom: 28px; }
+    .g4h-split__meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .g4h-split__img {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      cursor: zoom-in;
+    }
+    .g4h-split__img img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+    .g4h-split__img:hover img { transform: scale(1.02); }
+    .g4h-split__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; }
+    .g4h-split__img:hover .g4h-split__img-overlay { background: rgba(0,0,0,0.3); }
+    .g4h-split__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
+    .g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
+    .g4h-split__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
+
+    /* ── COLLAPSIBLE BREAKDOWN ── */
     .breakdown-toggle {
       display: flex;
       align-items: center;
@@ -119,44 +115,27 @@
       padding: 16px 24px;
       cursor: pointer;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--color-orange);
       transition: border-color 0.2s ease, background 0.2s ease;
       width: 100%;
       text-align: left;
-      margin-bottom: 0;
     }
     .breakdown-toggle:hover { border-color: rgba(232,98,10,0.4); background: rgba(232,98,10,0.05); }
-    .breakdown-toggle__arrow {
-      margin-left: auto;
-      width: 20px;
-      height: 20px;
-      border: 1px solid rgba(232,98,10,0.35);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
+    .breakdown-toggle__arrow { margin-left: auto; width: 22px; height: 22px; border: 1px solid rgba(232,98,10,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .breakdown-toggle__arrow svg { width: 10px; height: 10px; stroke: var(--color-orange); transition: transform 0.3s ease; }
     .breakdown-toggle[aria-expanded="true"] .breakdown-toggle__arrow svg { transform: rotate(180deg); }
+    .breakdown-panel { overflow: hidden; max-height: 0; transition: max-height 0.5s ease; }
+    .breakdown-panel.open { max-height: 8000px; }
+    .breakdown-panel__inner { padding-top: 56px; }
 
-    .breakdown-panel {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.5s ease;
-    }
-    .breakdown-panel.open { max-height: 6000px; }
-    .breakdown-panel__inner { padding-top: 48px; }
-
-    /* ── ANNOTATED LAYOUT ─────────────────────────────────── */
-    .port-annotated { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+    /* ── ANNOTATED ROWS (inside breakdown) ── */
+    .port-annotated { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-bottom: 72px; }
     .port-annotated:last-child { margin-bottom: 0; }
-    .port-annotated:nth-child(odd) .port-annotated__img  { order: 1; }
-    .port-annotated:nth-child(odd) .port-annotated__notes { order: 2; }
+    .port-annotated:nth-child(odd) .port-annotated__img   { order: 1; }
+    .port-annotated:nth-child(odd) .port-annotated__notes  { order: 2; }
     .port-annotated:nth-child(even) .port-annotated__img  { order: 2; }
     .port-annotated:nth-child(even) .port-annotated__notes { order: 1; }
     .port-annotated__img { position: relative; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-surface-2); cursor: zoom-in; }
@@ -166,80 +145,192 @@
     .port-annotated__img:hover .port-annotated__img-overlay { background: rgba(0,0,0,0.25); }
     .port-annotated__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
     .port-annotated__img:hover .port-annotated__zoom { opacity: 1; }
-    .port-annotated__num { position: absolute; top: 16px; left: 16px; font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
+    .port-annotated__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
     .port-annotated__notes { display: flex; flex-direction: column; }
-    .port-annotated__label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 10px; }
-    .port-annotated__title { font-family: var(--font-head); font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; text-transform: uppercase; color: var(--color-white); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 18px; }
-    .port-annotated__desc { font-size: 0.95rem; color: var(--color-text-2); line-height: 1.8; margin-bottom: 24px; }
+    .port-annotated__label { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 10px; }
+    .port-annotated__title { font-family: var(--font-head); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 700; text-transform: uppercase; color: var(--color-white); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 16px; }
+    .port-annotated__desc { font-size: 0.92rem; color: var(--color-text-2); line-height: 1.8; margin-bottom: 20px; }
     .port-insights { display: flex; flex-direction: column; gap: 12px; }
     .port-insight { display: flex; gap: 12px; align-items: flex-start; }
-    .port-insight__tag { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); flex-shrink: 0; margin-top: 2px; white-space: nowrap; }
+    .port-insight__tag { font-family: var(--font-mono); font-size: 0.46rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); flex-shrink: 0; margin-top: 2px; white-space: nowrap; }
     .port-insight__tag--tech { border-color: rgba(195,185,217,0.20); background: rgba(59,30,109,0.10); color: var(--color-purple-lt); }
-    .port-insight p { font-size: 0.85rem; color: var(--color-text-3); line-height: 1.65; margin: 0; }
+    .port-insight p { font-size: 0.83rem; color: var(--color-text-3); line-height: 1.65; margin: 0; }
     .port-annotated--code .port-annotated__img { border-color: rgba(59,30,109,0.40); background: #0a0a12; box-shadow: 0 0 40px rgba(59,30,109,0.15); }
-    .port-annotated--code .port-annotated__notes { background: rgba(10,10,18,0.60); border: 1px solid rgba(59,30,109,0.25); border-radius: var(--radius-md); padding: 32px; }
+    .port-annotated--code .port-annotated__notes { background: rgba(10,10,18,0.60); border: 1px solid rgba(59,30,109,0.25); border-radius: var(--radius-md); padding: 28px; }
     .port-annotated--code .port-annotated__label { color: var(--color-purple-lt); }
-    .port-annotated--code .port-annotated__title { font-family: var(--font-mono); font-size: clamp(1rem, 2vw, 1.3rem); text-transform: none; letter-spacing: 0.02em; color: var(--color-purple-lt); }
+    .port-annotated--code .port-annotated__title { font-family: var(--font-mono); font-size: clamp(0.9rem, 1.8vw, 1.2rem); text-transform: none; letter-spacing: 0.02em; color: var(--color-purple-lt); }
     .port-annotated--code .port-annotated__num { color: var(--color-purple-lt); border-color: rgba(195,185,217,0.20); background: rgba(10,10,18,0.90); }
     .port-code-callouts { display: flex; flex-direction: column; gap: 10px; }
     .port-code-callout { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: rgba(7,7,12,0.60); border-radius: var(--radius-sm); border: 1px solid rgba(59,30,109,0.20); }
-    .port-code-callout__line { font-family: var(--font-mono); font-size: 0.52rem; color: var(--color-purple-lt); background: rgba(59,30,109,0.20); border: 1px solid rgba(59,30,109,0.30); padding: 2px 7px; border-radius: 2px; flex-shrink: 0; margin-top: 1px; white-space: nowrap; }
-    .port-code-callout p { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-3); line-height: 1.6; margin: 0; }
+    .port-code-callout__line { font-family: var(--font-mono); font-size: 0.5rem; color: var(--color-purple-lt); background: rgba(59,30,109,0.20); border: 1px solid rgba(59,30,109,0.30); padding: 2px 7px; border-radius: 2px; flex-shrink: 0; margin-top: 1px; white-space: nowrap; }
+    .port-code-callout p { font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-text-3); line-height: 1.6; margin: 0; }
     .port-code-callout p strong { color: var(--color-purple-lt); font-weight: 500; }
 
-    /* ── ACCORDION ────────────────────────────────────────── */
-    .concept-accordion { display: flex; flex-direction: column; gap: 2px; }
-    .accordion-item { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; transition: border-color 0.2s ease; }
-    .accordion-item.is-open { border-color: rgba(232,98,10,0.35); }
-    .accordion-trigger {
-      width: 100%;
+    /* ══════════════════════════════════════════════════════
+       CONCEPT BUILD CARDS
+    ══════════════════════════════════════════════════════ */
+    .concept-cards { display: flex; flex-direction: column; gap: 48px; }
+
+    .concept-card {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+    .concept-card:hover { border-color: rgba(232,98,10,0.3); }
+
+    .concept-card__header {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 24px 28px;
-      background: var(--color-surface-1);
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      transition: background 0.2s ease;
+      justify-content: space-between;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-surface-2);
     }
-    .accordion-trigger:hover { background: var(--color-surface-2); }
-    .accordion-item.is-open .accordion-trigger { background: var(--color-surface-2); border-bottom: 1px solid var(--color-border); }
-    .accordion-trigger__num { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.14em; color: var(--color-orange); flex-shrink: 0; }
-    .accordion-trigger__title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); flex: 1; }
-    .accordion-trigger__meta { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; padding-right: 20px; }
-    .accordion-trigger__arrow { width: 28px; height: 28px; border: 1px solid rgba(232,98,10,0.30); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease, background 0.2s ease; }
-    .accordion-trigger__arrow svg { width: 12px; height: 12px; stroke: var(--color-orange); transition: transform 0.3s ease; }
-    .accordion-item.is-open .accordion-trigger__arrow svg { transform: rotate(180deg); }
-    .accordion-item.is-open .accordion-trigger__arrow { background: rgba(232,98,10,0.1); }
+    .concept-card__title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-white);
+    }
+    .concept-card__header-meta { display: flex; gap: 8px; align-items: center; }
 
-    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
-    .accordion-item.is-open .accordion-body { max-height: 2000px; }
-    .accordion-body__inner { padding: 36px 28px; }
+    .concept-card__body { padding: 24px 28px; }
 
-    /* ── CAROUSEL ─────────────────────────────────────────── */
-    .site-carousel { position: relative; }
-    .carousel-track-wrap { overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-2); max-width: 960px; margin: 0 auto; }
-    .carousel-track { display: flex; transition: transform 0.4s ease; }
-    .carousel-slide { min-width: 100%; position: relative; }
-    .carousel-slide img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: contain; background: var(--color-surface-2); }
-    .carousel-slide__label { position: absolute; bottom: 12px; left: 12px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-white); background: rgba(7,7,12,0.80); border: 1px solid rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 3px; }
-    .carousel-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; max-width: 960px; margin-left: auto; margin-right: auto; }
-    .carousel-btn { width: 36px; height: 36px; border: 1px solid var(--color-border); border-radius: 50%; background: var(--color-surface-2); color: var(--color-white); font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s ease, background 0.2s ease; flex-shrink: 0; }
-    .carousel-btn:hover { border-color: var(--color-orange); background: rgba(232,98,10,0.08); }
-    .carousel-dots { display: flex; gap: 8px; align-items: center; }
-    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border); cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; border: none; padding: 0; }
-    .carousel-dot.active { background: var(--color-orange); transform: scale(1.3); }
+    .concept-card__main-img {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      cursor: zoom-in;
+      margin-bottom: 16px;
+    }
+    .concept-card__main-img img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .concept-card__main-img:hover img { transform: scale(1.02); }
+    .concept-card__main-overlay {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+    .concept-card__main-img:hover .concept-card__main-overlay { background: rgba(0,0,0,0.3); }
+    .concept-card__main-zoom {
+      opacity: 0;
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: rgba(0,0,0,0.65);
+      padding: 8px 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: opacity 0.3s ease;
+    }
+    .concept-card__main-img:hover .concept-card__main-zoom { opacity: 1; }
+    .concept-card__main-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: rgba(7,7,12,0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
 
-    .accordion-site-desc { font-size: 0.92rem; color: var(--color-text-2); line-height: 1.8; margin: 24px 0 20px; }
-    .accordion-site-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .concept-card__thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .concept-card__thumb {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      cursor: zoom-in;
+      transition: border-color 0.2s ease;
+    }
+    .concept-card__thumb:hover { border-color: rgba(232,98,10,0.4); }
+    .concept-card__thumb img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .concept-card__thumb:hover img { transform: scale(1.05); }
+    .concept-card__thumb-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-family: var(--font-mono);
+      font-size: 0.42rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: rgba(7,7,12,0.85);
+      padding: 4px 6px;
+      text-align: center;
+    }
 
-    /* ── CARD GRID (Landing Pages) ────────────────────────── */
+    .concept-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+    .concept-card__tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .concept-card__actions { display: flex; gap: 10px; align-items: center; }
+
+    .concept-card--placeholder { opacity: 0.55; }
+    .concept-card__placeholder-body {
+      padding: 60px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .concept-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
+    .concept-card__placeholder-hint { font-family: var(--font-mono); font-size: 0.46rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase; }
+
+    /* ══════════════════════════════════════════════════════
+       LANDING PAGE CARDS
+    ══════════════════════════════════════════════════════ */
     .port-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .port-card { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
+    .port-card { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
     .port-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); }
-    .port-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--color-surface-1); }
-    .port-card__placeholder { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
+    .port-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; background: var(--color-surface-2); }
+    .port-card__placeholder { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-2); border-bottom: 1px solid var(--color-border); }
     .port-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
     .port-card__placeholder-hint { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase; }
     .port-card__body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
@@ -247,33 +338,41 @@
     .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
     .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
 
-    /* ── LIGHTBOX ─────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════
+       LIGHTBOX
+    ══════════════════════════════════════════════════════ */
     .port-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; padding: 24px; }
     .port-lightbox.active { display: flex; }
-    .port-lightbox__inner { position: relative; max-width: 1100px; width: 100%; }
-    .port-lightbox__img { width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius-sm); display: block; }
+    .port-lightbox__inner { position: relative; max-width: 1200px; width: 100%; }
+    .port-lightbox__img { width: 100%; max-height: 88vh; object-fit: contain; border-radius: var(--radius-sm); display: block; }
     .port-lightbox__close { position: absolute; top: -56px; right: 0; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: var(--color-white); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
-    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
-    .port-lightbox__caption { text-align: center; margin-top: 14px; font-family: var(--font-mono); font-size: 0.62rem; color: var(--color-text-3); letter-spacing: 0.12em; text-transform: uppercase; }
-    .port-lightbox__hint { text-align: center; margin-top: 6px; font-family: var(--font-mono); font-size: 0.50rem; color: rgba(255,255,255,0.18); letter-spacing: 0.10em; text-transform: uppercase; }
+    .port-lightbox__close:hover { background: rgba(255,255,255,0.22); }
+    .port-lightbox__caption { text-align: center; margin-top: 14px; font-family: var(--font-mono); font-size: 0.6rem; color: var(--color-text-3); letter-spacing: 0.12em; text-transform: uppercase; }
+    .port-lightbox__hint { text-align: center; margin-top: 6px; font-family: var(--font-mono); font-size: 0.48rem; color: rgba(255,255,255,0.18); letter-spacing: 0.10em; text-transform: uppercase; }
 
-    /* ── RESPONSIVE ───────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .port-annotated { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
+      .g4h-split { grid-template-columns: 1fr; gap: 32px; }
+      .g4h-split__img { order: -1; }
+      .port-annotated { grid-template-columns: 1fr; gap: 28px; margin-bottom: 56px; }
       .port-annotated:nth-child(odd) .port-annotated__img,
       .port-annotated:nth-child(even) .port-annotated__img  { order: 1; }
       .port-annotated:nth-child(odd) .port-annotated__notes,
       .port-annotated:nth-child(even) .port-annotated__notes { order: 2; }
-      .port-annotated--code .port-annotated__notes { padding: 24px; }
+      .port-annotated--code .port-annotated__notes { padding: 20px; }
       .port-card-grid { grid-template-columns: repeat(2, 1fr); }
-      .accordion-trigger__meta { display: none; }
     }
     @media (max-width: 640px) {
       .port-hero__stats { gap: 28px; }
       .port-card-grid { grid-template-columns: 1fr; }
       .port-section-break__badge { display: none; }
-      .accordion-trigger { padding: 18px 20px; gap: 14px; }
-      .accordion-body__inner { padding: 24px 20px; }
+      .concept-card__header { padding: 16px 20px; }
+      .concept-card__body { padding: 18px 20px; }
+      .concept-card__thumbs { grid-template-columns: repeat(2, 1fr); }
+      .concept-card__footer { padding: 14px 0 0; }
+      .concept-card__placeholder-body { padding: 40px 20px; }
     }
   </style>
 </head>
@@ -305,7 +404,7 @@
 
   <main>
 
-    <!-- ═══ 1. HERO ════════════════════════════════════════ -->
+    <!-- ═══ 1. HERO (UNCHANGED) ═══════════════════════════ -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -328,7 +427,7 @@
       </div>
     </section>
 
-    <!-- ═══ SECTION BREAK: LIVE SITES ═════════════════════ -->
+    <!-- ═══ SECTION BREAK: LIVE SITES ════════════════════ -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -340,47 +439,37 @@
       </div>
     </div>
 
-    <!-- ═══ 2. GUARDIAN 4 HEROES ═══════════════════════════ -->
+    <!-- ═══ 2. GUARDIAN 4 HEROES ══════════════════════════ -->
     <section class="port-project-section" id="guardian4heroes">
       <div class="container">
 
-        <div class="port-project-intro reveal">
-          <span class="section-label">Featured Project</span>
-          <h2>Guardian 4 Heroes</h2>
-          <p>Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate. I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion-focused throughout.</p>
-          <div class="port-project-meta">
-            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">Vanilla JS</span>
-            <span class="tag">GitHub Pages</span>
-            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
+        <div class="g4h-split reveal">
+          <div class="g4h-split__text">
+            <span class="g4h-split__eyebrow">Featured Project</span>
+            <h2 class="g4h-split__title">Guardian 4 Heroes</h2>
+            <p class="g4h-split__desc">Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate. Built entirely from scratch in HTML, CSS, and vanilla JavaScript. Lightweight, accessible, and conversion-focused throughout.</p>
+            <div class="g4h-split__meta">
+              <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Vanilla JS</span>
+              <span class="tag">GitHub Pages</span>
+              <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
+            </div>
+          </div>
+          <div class="g4h-split__img"
+               onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes: Hero Section')"
+               role="button" tabindex="0" aria-label="View fullscreen">
+            <span class="g4h-split__num">01 &middot; Hero</span>
+            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" loading="lazy">
+            <div class="g4h-split__img-overlay"><span class="g4h-split__zoom">View Fullscreen</span></div>
           </div>
         </div>
 
-        <!-- G4H: First screenshot full width above notes -->
-        <div class="port-featured-img reveal" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes: Hero and Navigation')" role="button" tabindex="0" aria-label="View hero screenshot fullscreen">
-          <span class="port-annotated__num">01 &middot; Hero</span>
-          <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" loading="lazy">
-          <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
-        </div>
-        <div class="port-featured-notes reveal">
-          <span class="port-annotated__label">Design Breakdown &middot; 01</span>
-          <h3 class="port-annotated__title">Hero &amp; Navigation Structure</h3>
-          <p class="port-annotated__desc">The nav sits transparent over a full-viewport barn interior photograph, creating immediate emotional context. The Donate button is front and center — for a nonprofit, that is the primary conversion action and it needs to be visible at all times.</p>
-          <div class="port-insights">
-            <div class="port-insight"><span class="port-insight__tag">Design</span><p>Playfair Display was chosen for the title to bring warmth and authority. It reads as trustworthy, not corporate.</p></div>
-            <div class="port-insight"><span class="port-insight__tag">Design</span><p>The gold accent on the "4" and the gold rule separator create a visual anchor that carries through the entire site identity.</p></div>
-            <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Transparent nav is positioned absolute over the hero so the image bleeds full-height. On scroll, the header gains a dark background via a JavaScript scroll class.</p></div>
-          </div>
-        </div>
-
-        <!-- Toggle reveals panels 2-5 -->
-        <button
-          class="breakdown-toggle reveal"
-          aria-expanded="false"
-          aria-controls="g4h-breakdown"
-          id="g4h-toggle">
+        <button class="breakdown-toggle reveal"
+                aria-expanded="false"
+                aria-controls="g4h-breakdown"
+                id="g4h-toggle">
           <span>[ View Full Design &amp; Code Breakdown ]</span>
           <span class="breakdown-toggle__arrow">
             <svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -392,8 +481,10 @@
         <div class="breakdown-panel" id="g4h-breakdown" role="region" aria-labelledby="g4h-toggle">
           <div class="breakdown-panel__inner">
 
-            <div class="port-annotated reveal">
-              <div class="port-annotated__img" onclick="openLightbox('images/guardian-2.jpg','Guardian 4 Heroes: Mission Section')" role="button" tabindex="0" aria-label="View mission section fullscreen">
+            <div class="port-annotated">
+              <div class="port-annotated__img"
+                   onclick="openLightbox('images/guardian-2.jpg','Guardian 4 Heroes: Mission Section')"
+                   role="button" tabindex="0" aria-label="View fullscreen">
                 <span class="port-annotated__num">02 &middot; Mission</span>
                 <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission section" loading="lazy">
                 <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
@@ -401,17 +492,19 @@
               <div class="port-annotated__notes">
                 <span class="port-annotated__label">Design Breakdown &middot; 02</span>
                 <h3 class="port-annotated__title">Mission &amp; Content Hierarchy</h3>
-                <p class="port-annotated__desc">The left border accent on headings creates visual rhythm without adding visual weight. The horse silhouette bleeds into the background behind the content, adding emotional resonance without pulling focus away from the text.</p>
+                <p class="port-annotated__desc">The left border accent on headings creates visual rhythm without adding visual weight. The horse silhouette bleeds into the background, adding emotional resonance without pulling focus from the text.</p>
                 <div class="port-insights">
-                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>The warm golden background image reinforces the mission theme: connection, earth, nature. It stays readable at all contrast levels.</p></div>
-                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Strong typographic contrast between the bold uppercase heading and body copy creates clear hierarchy without needing extra UI elements.</p></div>
-                  <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Background image is set in CSS with a semi-transparent overlay layer so text remains WCAG-compliant at all screen sizes.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Warm golden background image reinforces the mission theme: connection, earth, nature. Stays readable at all contrast levels.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Strong typographic contrast between bold uppercase heading and body copy creates clear hierarchy without extra UI elements.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Background set in CSS with a semi-transparent overlay so text remains WCAG-compliant at all screen sizes.</p></div>
                 </div>
               </div>
             </div>
 
-            <div class="port-annotated reveal">
-              <div class="port-annotated__img" onclick="openLightbox('images/guardian-3.jpg','Guardian 4 Heroes: Shop Section')" role="button" tabindex="0" aria-label="View shop section fullscreen">
+            <div class="port-annotated">
+              <div class="port-annotated__img"
+                   onclick="openLightbox('images/guardian-3.jpg','Guardian 4 Heroes: Shop Section')"
+                   role="button" tabindex="0" aria-label="View fullscreen">
                 <span class="port-annotated__num">03 &middot; Shop</span>
                 <img src="images/guardian-3.jpg" alt="Guardian 4 Heroes shop section" loading="lazy">
                 <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
@@ -419,17 +512,19 @@
               <div class="port-annotated__notes">
                 <span class="port-annotated__label">Design Breakdown &middot; 03</span>
                 <h3 class="port-annotated__title">Product Card Layout</h3>
-                <p class="port-annotated__desc">The shop section needed to feel warm and handmade. The card uses a light background against the golden gradient to pull the eye and separate the product from the page. Personality-driven copy alongside the price makes it feel human, not like a checkout form.</p>
+                <p class="port-annotated__desc">The shop section needed to feel warm and handmade. The card uses a light background against the golden gradient to pull the eye and separate the product from the page.</p>
                 <div class="port-insights">
-                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>The rounded card with a light background creates contrast against the warm site palette — intentional separation that signals "this is an action item."</p></div>
-                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Product copy with personality drives emotional connection before the purchase, which fits the nonprofit tone.</p></div>
-                  <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Card layout is pure CSS Flexbox. No JavaScript, no library. Scales cleanly from mobile to desktop without a single breakpoint override.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Rounded card with light background creates contrast — intentional separation that signals "this is an action item."</p></div>
+                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Personality-driven product copy drives emotional connection before the purchase, fitting the nonprofit tone.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Pure CSS Flexbox layout. Scales from mobile to desktop without a single breakpoint override.</p></div>
                 </div>
               </div>
             </div>
 
-            <div class="port-annotated reveal">
-              <div class="port-annotated__img" onclick="openLightbox('images/guardian-4.jpg','Guardian 4 Heroes: Donation Page')" role="button" tabindex="0" aria-label="View donation page fullscreen">
+            <div class="port-annotated">
+              <div class="port-annotated__img"
+                   onclick="openLightbox('images/guardian-4.jpg','Guardian 4 Heroes: Donation Page')"
+                   role="button" tabindex="0" aria-label="View fullscreen">
                 <span class="port-annotated__num">04 &middot; Donation</span>
                 <img src="images/guardian-4.jpg" alt="Guardian 4 Heroes donation page" loading="lazy">
                 <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
@@ -437,17 +532,19 @@
               <div class="port-annotated__notes">
                 <span class="port-annotated__label">Design Breakdown &middot; 04</span>
                 <h3 class="port-annotated__title">Donation UX &amp; Conversion Flow</h3>
-                <p class="port-annotated__desc">The tiered button layout is a UX decision, not just a style choice. Giving people pre-set amounts reduces friction and increases conversion. They do not have to think, they just pick. The silhouette behind the buttons is emotionally loaded without being distracting.</p>
+                <p class="port-annotated__desc">The tiered button layout is a UX decision, not just a style choice. Pre-set amounts reduce friction and increase conversion. They do not have to think — they just pick.</p>
                 <div class="port-insights">
-                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Pre-set donation amounts follow nonprofit best-practice UX. Anchored tiers drive average donation value up by removing the blank-field anxiety of custom input.</p></div>
-                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>The silhouette communicates the mission in a single image. No words required. Emotion before action.</p></div>
-                  <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>Buttons are laid out in CSS Grid. They reflow from a 2-column layout on desktop to a single column on mobile automatically — no JS needed.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>Anchored donation tiers follow nonprofit best-practice UX. Drives average donation value up by removing blank-field anxiety.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag">Design</span><p>The silhouette communicates the mission in a single image. Emotion before action.</p></div>
+                  <div class="port-insight"><span class="port-insight__tag port-insight__tag--tech">Tech</span><p>CSS Grid layout reflows from 2-column on desktop to single column on mobile automatically — no JS needed.</p></div>
                 </div>
               </div>
             </div>
 
-            <div class="port-annotated port-annotated--code reveal">
-              <div class="port-annotated__img" onclick="openLightbox('images/guardian-5.jpg','Guardian 4 Heroes: CSS Stylesheet')" role="button" tabindex="0" aria-label="View CSS screenshot fullscreen">
+            <div class="port-annotated port-annotated--code">
+              <div class="port-annotated__img"
+                   onclick="openLightbox('images/guardian-5.jpg','Guardian 4 Heroes: CSS Stylesheet')"
+                   role="button" tabindex="0" aria-label="View fullscreen">
                 <span class="port-annotated__num">05 &middot; Code</span>
                 <img src="images/guardian-5.jpg" alt="Guardian 4 Heroes CSS stylesheet" loading="lazy">
                 <div class="port-annotated__img-overlay"><span class="port-annotated__zoom">View Fullscreen</span></div>
@@ -457,22 +554,21 @@
                 <h3 class="port-annotated__title">styles.css: Under the Hood</h3>
                 <p class="port-annotated__desc">Organized sections, a CSS custom property token system at the top, and clear comment headers throughout. Not just a working stylesheet — a maintainable one.</p>
                 <div class="port-code-callouts">
-                  <div class="port-code-callout"><span class="port-code-callout__line">L4-18</span><p><strong>:root token system</strong>: all colors, spacing, and shadows defined as custom properties. Change one value, update the entire site.</p></div>
-                  <div class="port-code-callout"><span class="port-code-callout__line">L20-22</span><p><strong>Section comment headers</strong>: every section is labeled and separated. Any developer can pick this up and know exactly where everything lives.</p></div>
-                  <div class="port-code-callout"><span class="port-code-callout__line">L49-56</span><p><strong>body::before pseudo-element</strong>: the site-wide overlay effect handled in pure CSS. Zero JavaScript required.</p></div>
-                  <div class="port-code-callout"><span class="port-code-callout__line">L38-42</span><p><strong>background-attachment: fixed</strong>: the parallax scroll effect is a single CSS property. No libraries, no JavaScript.</p></div>
+                  <div class="port-code-callout"><span class="port-code-callout__line">L4-18</span><p><strong>:root token system</strong> — all colors, spacing, and shadows as custom properties. Change one value, update the entire site.</p></div>
+                  <div class="port-code-callout"><span class="port-code-callout__line">L20-22</span><p><strong>Section comment headers</strong> — every section labeled and separated. Any developer knows exactly where everything lives.</p></div>
+                  <div class="port-code-callout"><span class="port-code-callout__line">L49-56</span><p><strong>body::before pseudo-element</strong> — site-wide overlay effect handled in pure CSS. Zero JavaScript required.</p></div>
+                  <div class="port-code-callout"><span class="port-code-callout__line">L38-42</span><p><strong>background-attachment: fixed</strong> — parallax scroll is a single CSS property. No libraries, no JavaScript.</p></div>
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-        <!-- end breakdown panel -->
 
       </div>
     </section>
 
-    <!-- ═══ SECTION BREAK: CONCEPT BUILDS ════════════════════ -->
+    <!-- ═══ SECTION BREAK: CONCEPT BUILDS ════════════════ -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -484,145 +580,98 @@
       </div>
     </div>
 
-    <!-- ═══ 3. CONCEPT BUILDS — ACCORDION ══════════════════ -->
-    <section class="port-project-section">
+    <!-- ═══ 3. CONCEPT BUILDS ════════════════════════════ -->
+    <section class="port-project-section port-project-section--alt">
       <div class="container">
 
         <div class="port-project-intro reveal">
           <span class="section-label">Concept Builds</span>
           <h2>UI &amp; Range Demos</h2>
-          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche. Click any project to explore it.</p>
+          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
         </div>
 
-        <div class="concept-accordion reveal">
+        <div class="concept-cards">
 
           <!-- ── Ember & Oak Cafe ── -->
-          <div class="accordion-item" id="accordion-ember">
-            <button
-              class="accordion-trigger"
-              aria-expanded="false"
-              aria-controls="accordion-ember-body">
-              <span class="accordion-trigger__num">01</span>
-              <span class="accordion-trigger__title">Ember &amp; Oak Cafe</span>
-              <div class="accordion-trigger__meta">
-                <span class="tag">Multi-Page</span>
-                <span class="tag">Restaurant</span>
+          <article class="concept-card reveal">
+            <div class="concept-card__header">
+              <h3 class="concept-card__title">Ember &amp; Oak Cafe</h3>
+              <div class="concept-card__header-meta">
                 <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               </div>
-              <span class="accordion-trigger__arrow">
-                <svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="2,4 6,8 10,4"></polyline>
-                </svg>
-              </span>
-            </button>
-            <div class="accordion-body" id="accordion-ember-body">
-              <div class="accordion-body__inner">
+            </div>
+            <div class="concept-card__body">
 
-                <!-- Carousel -->
-                <div class="site-carousel" data-carousel="ember">
-                  <div class="carousel-track-wrap">
-                    <div class="carousel-track" id="carousel-ember-track">
-                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.home.jpg','Ember & Oak Cafe: Homepage')">
-                        <img src="images/ember.demo.home.jpg" alt="Ember and Oak Cafe homepage" loading="lazy">
-                        <span class="carousel-slide__label">01 &middot; Homepage</span>
-                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
-                      </div>
-                      <div class="carousel-slide" onclick="openLightbox('images/ember-demo-menu.jpg','Ember & Oak Cafe: Menu')">
-                        <img src="images/ember-demo-menu.jpg" alt="Ember and Oak Cafe menu page" loading="lazy">
-                        <span class="carousel-slide__label">02 &middot; Menu</span>
-                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
-                      </div>
-                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.about.jpg','Ember & Oak Cafe: About')">
-                        <img src="images/ember.demo.about.jpg" alt="Ember and Oak Cafe about page" loading="lazy">
-                        <span class="carousel-slide__label">03 &middot; About</span>
-                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
-                      </div>
-                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.catering.jpg','Ember & Oak Cafe: Catering')">
-                        <img src="images/ember.demo.catering.jpg" alt="Ember and Oak Cafe catering page" loading="lazy">
-                        <span class="carousel-slide__label">04 &middot; Catering</span>
-                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
-                      </div>
-                      <div class="carousel-slide" onclick="openLightbox('images/ember.demo.css.jpg','Ember & Oak Cafe: CSS / Code')">
-                        <img src="images/ember.demo.css.jpg" alt="Ember and Oak Cafe stylesheet code" loading="lazy">
-                        <span class="carousel-slide__label">05 &middot; CSS / Code</span>
-                        <div class="carousel-slide__overlay"><span class="carousel-slide__zoom">View Fullscreen</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-controls">
-                    <button class="carousel-btn" data-carousel-prev="ember" aria-label="Previous slide">&#8592;</button>
-                    <div class="carousel-dots" id="carousel-ember-dots">
-                      <button class="carousel-dot active" data-carousel-dot="ember" data-index="0" aria-label="Slide 1"></button>
-                      <button class="carousel-dot" data-carousel-dot="ember" data-index="1" aria-label="Slide 2"></button>
-                      <button class="carousel-dot" data-carousel-dot="ember" data-index="2" aria-label="Slide 3"></button>
-                      <button class="carousel-dot" data-carousel-dot="ember" data-index="3" aria-label="Slide 4"></button>
-                      <button class="carousel-dot" data-carousel-dot="ember" data-index="4" aria-label="Slide 5"></button>
-                    </div>
-                    <button class="carousel-btn" data-carousel-next="ember" aria-label="Next slide">&#8594;</button>
-                  </div>
+              <div class="concept-card__main-img"
+                   onclick="openLightbox('images/ember.demo.home.jpg','Ember & Oak Cafe: Homepage')"
+                   role="button" tabindex="0" aria-label="View homepage fullscreen">
+                <span class="concept-card__main-label">01 &middot; Homepage</span>
+                <img src="images/ember.demo.home.jpg" alt="Ember and Oak Cafe homepage" loading="lazy">
+                <div class="concept-card__main-overlay"><span class="concept-card__main-zoom">View Fullscreen</span></div>
+              </div>
+
+              <div class="concept-card__thumbs">
+                <div class="concept-card__thumb"
+                     onclick="openLightbox('images/ember-demo-menu.jpg','Ember & Oak Cafe: Menu')"
+                     role="button" tabindex="0" aria-label="View menu page fullscreen">
+                  <img src="images/ember-demo-menu.jpg" alt="Ember and Oak Cafe menu" loading="lazy">
+                  <span class="concept-card__thumb-label">Menu</span>
                 </div>
+                <div class="concept-card__thumb"
+                     onclick="openLightbox('images/ember.demo.about.jpg','Ember & Oak Cafe: About')"
+                     role="button" tabindex="0" aria-label="View about page fullscreen">
+                  <img src="images/ember.demo.about.jpg" alt="Ember and Oak Cafe about" loading="lazy">
+                  <span class="concept-card__thumb-label">About</span>
+                </div>
+                <div class="concept-card__thumb"
+                     onclick="openLightbox('images/ember.demo.catering.jpg','Ember & Oak Cafe: Catering')"
+                     role="button" tabindex="0" aria-label="View catering page fullscreen">
+                  <img src="images/ember.demo.catering.jpg" alt="Ember and Oak Cafe catering" loading="lazy">
+                  <span class="concept-card__thumb-label">Catering</span>
+                </div>
+                <div class="concept-card__thumb"
+                     onclick="openLightbox('images/ember.demo.css.jpg','Ember & Oak Cafe: CSS Code')"
+                     role="button" tabindex="0" aria-label="View CSS code fullscreen">
+                  <img src="images/ember.demo.css.jpg" alt="Ember and Oak Cafe CSS" loading="lazy">
+                  <span class="concept-card__thumb-label">CSS / Code</span>
+                </div>
+              </div>
 
-                <p class="accordion-site-desc">
-                  A full six-page concept site for a fictional neighborhood cafe. Built to demonstrate multi-page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages. Every page hand-coded from scratch with a shared stylesheet.
-                </p>
-                <div class="accordion-site-actions">
+              <div class="concept-card__footer">
+                <div class="concept-card__tags">
                   <span class="tag">HTML5</span>
                   <span class="tag">CSS3</span>
                   <span class="tag">Vanilla JS</span>
                   <span class="tag">GitHub Pages</span>
+                  <span class="tag">Multi-Page</span>
+                </div>
+                <div class="concept-card__actions">
                   <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View Live Demo &#8599;</a>
                 </div>
-
               </div>
+
             </div>
-          </div>
-          <!-- end Ember & Oak -->
+          </article>
 
           <!-- ── Local Construction (placeholder) ── -->
-          <div class="accordion-item" id="accordion-construction">
-            <button
-              class="accordion-trigger"
-              aria-expanded="false"
-              aria-controls="accordion-construction-body">
-              <span class="accordion-trigger__num">02</span>
-              <span class="accordion-trigger__title">Local Construction Business</span>
-              <div class="accordion-trigger__meta">
-                <span class="tag">Business Site</span>
-                <span class="tag">Multi-Page</span>
+          <article class="concept-card concept-card--placeholder reveal">
+            <div class="concept-card__header">
+              <h3 class="concept-card__title">Local Construction Business</h3>
+              <div class="concept-card__header-meta">
                 <span class="status-badge status-progress"><span class="status-dot"></span>In Development</span>
               </div>
-              <span class="accordion-trigger__arrow">
-                <svg viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="2,4 6,8 10,4"></polyline>
-                </svg>
-              </span>
-            </button>
-            <div class="accordion-body" id="accordion-construction-body">
-              <div class="accordion-body__inner">
-                <div class="port-card__placeholder" style="border-radius: var(--radius-md); border: 1px solid var(--color-border); margin-bottom: 24px; min-height: 200px;">
-                  <span class="port-card__placeholder-label">Coming Soon</span>
-                  <span class="port-card__placeholder-hint">Screenshots uploading soon</span>
-                </div>
-                <p class="accordion-site-desc">
-                  Full business site with service pages, project gallery, and contact flow. Built to rank locally and convert traffic into phone calls and quote requests.
-                </p>
-                <div class="accordion-site-actions">
-                  <span class="tag">Business Site</span>
-                  <span class="tag">Local SEO</span>
-                  <a href="contact.html" class="btn btn-ghost btn-sm">Start Something Similar &#8594;</a>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- end Construction -->
+            <div class="concept-card__placeholder-body">
+              <span class="concept-card__placeholder-label">Screenshots Coming Soon</span>
+              <span class="concept-card__placeholder-hint">Full business site with service pages, gallery, and contact flow</span>
+            </div>
+          </article>
 
         </div>
-        <!-- end accordion -->
-
       </div>
     </section>
 
-    <!-- ═══ SECTION BREAK: LANDING PAGES ══════════════════ -->
+    <!-- ═══ SECTION BREAK: LANDING PAGES ═════════════════ -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -634,7 +683,7 @@
       </div>
     </div>
 
-    <!-- ═══ 4. LANDING PAGES ═══════════════════════════════ -->
+    <!-- ═══ 4. LANDING PAGES ══════════════════════════════ -->
     <section class="port-project-section">
       <div class="container">
 
@@ -647,19 +696,21 @@
         <div class="port-card-grid">
 
           <article class="port-card reveal">
-            <img
-              src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
-              alt="IronShield Roofing landing page demo"
-              class="port-card__img"
-              loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
+                 alt="IronShield Roofing landing page demo"
+                 class="port-card__img" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
             <div class="port-card__placeholder" style="display:none;">
               <span class="port-card__placeholder-label">IronShield Roofing</span>
               <span class="port-card__placeholder-hint">Upload: ironshield-preview.jpg</span>
             </div>
             <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span></div>
+              <div class="port-card__tags">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span>
+              </div>
               <h3 class="port-card__title">IronShield Roofing</h3>
               <p class="port-card__desc">Storm-damage lead generation page. Trust-first layout, call-driven structure, and a focused quote request flow built for a local roofing contractor.</p>
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
@@ -672,8 +723,12 @@
               <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
             <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High-Ticket</span><span class="tag">Applications</span></div>
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span><span class="tag">High-Ticket</span><span class="tag">Applications</span>
+              </div>
               <h3 class="port-card__title">Fitness Coach Funnel</h3>
               <p class="port-card__desc">Application-style landing page for a high-ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
@@ -686,8 +741,12 @@
               <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
             <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Waitlist</span><span class="tag">Email Capture</span></div>
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span><span class="tag">Waitlist</span><span class="tag">Email Capture</span>
+              </div>
               <h3 class="port-card__title">SaaS Beta Waitlist</h3>
               <p class="port-card__desc">Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built to convert visitors into signups.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
@@ -784,7 +843,9 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
-    document.querySelectorAll('.port-annotated__img[role="button"]').forEach(el => {
+
+    // Keyboard support for all clickable image elements
+    document.querySelectorAll('[role="button"]').forEach(el => {
       el.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
       });
@@ -799,73 +860,6 @@
       g4hPanel.classList.toggle('open');
     });
 
-    // ── ACCORDION ─────────────────────────────────────────
-    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-      trigger.addEventListener('click', function() {
-        const item     = this.closest('.accordion-item');
-        const isOpen   = item.classList.contains('is-open');
-        // Close all
-        document.querySelectorAll('.accordion-item').forEach(i => {
-          i.classList.remove('is-open');
-          i.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
-        });
-        // Open clicked if it was closed
-        if (!isOpen) {
-          item.classList.add('is-open');
-          this.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // ── CAROUSELS ─────────────────────────────────────────
-    const carousels = {};
-
-    function initCarousel(name) {
-      carousels[name] = { current: 0 };
-      const track  = document.getElementById('carousel-' + name + '-track');
-      const slides = track ? track.querySelectorAll('.carousel-slide') : [];
-      carousels[name].total = slides.length;
-    }
-
-    function goToSlide(name, index) {
-      const state  = carousels[name];
-      const total  = state.total;
-      if (index < 0) index = total - 1;
-      if (index >= total) index = 0;
-      state.current = index;
-      const track = document.getElementById('carousel-' + name + '-track');
-      if (track) track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      document.querySelectorAll('[data-carousel-dot="' + name + '"]').forEach(dot => {
-        dot.classList.toggle('active', parseInt(dot.dataset.index) === index);
-      });
-    }
-
-    // Init all carousels
-    document.querySelectorAll('[data-carousel]').forEach(el => {
-      initCarousel(el.dataset.carousel);
-    });
-
-    // Prev/Next buttons
-    document.querySelectorAll('[data-carousel-prev]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.dataset.carouselPrev;
-        goToSlide(name, carousels[name].current - 1);
-      });
-    });
-    document.querySelectorAll('[data-carousel-next]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.dataset.carouselNext;
-        goToSlide(name, carousels[name].current + 1);
-      });
-    });
-
-    // Dot buttons
-    document.querySelectorAll('[data-carousel-dot]').forEach(dot => {
-      dot.addEventListener('click', () => {
-        goToSlide(dot.dataset.carouselDot, parseInt(dot.dataset.index));
-      });
-    });
-
     // ── SCROLL REVEAL ─────────────────────────────────────
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -874,9 +868,8 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.10 });
+    }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
   </script>
 </body>
 </html>
