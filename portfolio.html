@@ -5,11 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — WebOps Studio</title>
   <meta name="description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
+  <meta property="og:title" content="WebOps Studio — Portfolio">
+  <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
+  <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
+
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── HERO ─────────────────────────────────────────────── */
+    .port-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(to bottom,
+          rgba(7,7,12,0.65) 0%,
+          rgba(7,7,12,0.50) 40%,
+          rgba(7,7,12,0.85) 85%,
+          rgba(7,7,12,1.00) 100%),
+        url('images/Background1.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .port-hero__inner { padding: 140px 0 100px; position: relative; z-index: 1; text-align: center; }
+    .port-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 20px; }
+    .port-hero__line { display: block; width: 28px; height: 1px; background: var(--color-orange); opacity: 0.7; }
+    .port-hero__title { font-family: var(--font-head); font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 1.0; letter-spacing: 0.02em; text-transform: uppercase; color: var(--color-white); margin-bottom: 20px; }
+    .port-hero__title span { color: var(--color-orange); text-shadow: 0 0 48px rgba(232,98,10,0.25); }
+    .port-hero__sub { font-size: 1.05rem; color: var(--color-text-3); line-height: 1.7; max-width: 580px; margin: 0 auto 40px; }
+    .port-hero__stats { display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; }
+    .port-stat__num { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--color-white); line-height: 1; display: block; }
+    .port-stat__label { font-family: var(--font-mono); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-3); display: block; margin-top: 4px; }
+
+    /* ── SECTION BREAK ────────────────────────────────────── */
+    .port-section-break { background: var(--color-surface-2); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 28px 0; position: relative; overflow: hidden; }
+    .port-section-break::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 0% 50%, rgba(59,30,109,0.12), transparent 60%), radial-gradient(circle at 100% 50%, rgba(232,98,10,0.08), transparent 60%); pointer-events: none; }
+    .port-section-break__inner { position: relative; z-index: 1; display: flex; align-items: center; gap: 20px; }
+    .port-section-break__line { flex: 1; height: 1px; background: var(--gradient-divider); }
+    .port-section-break__label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-orange); white-space: nowrap; }
+    .port-section-break__badge { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); white-space: nowrap; }
+
+    /* ── PROJECT SECTION WRAPPER ──────────────────────────── */
+    .port-project-section { padding: 80px 0; background: var(--color-bg); }
+    .port-project-section:nth-of-type(even) { background: var(--color-surface-1); }
+    .port-project-intro { max-width: 720px; margin-bottom: 48px; }
+    .port-project-intro h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; }
+    .port-project-intro p { font-size: 1.05rem; color: var(--color-text-2); line-height: 1.85; margin: 0; }
+    .port-project-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; align-items: center; }
+
+    /* ── CARD GRID (Landing Pages) ────────────────────────── */
+    .port-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .port-card { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
+    .port-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); }
+    .port-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--color-surface-1); }
+    .port-card__placeholder { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
+    .port-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
+    .port-card__placeholder-hint { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase; }
+    .port-card__body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .port-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
+    .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
+
+    /* ── LIGHTBOX ─────────────────────────────────────────── */
+    .port-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; padding: 24px; }
+    .port-lightbox.active { display: flex; }
+    .port-lightbox__inner { position: relative; max-width: 1100px; width: 100%; }
+    .port-lightbox__img { width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius-sm); display: block; }
+    .port-lightbox__close { position: absolute; top: -56px; right: 0; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: var(--color-white); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
+    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
+    .port-lightbox__caption { text-align: center; margin-top: 14px; font-family: var(--font-mono); font-size: 0.62rem; color: var(--color-text-3); letter-spacing: 0.12em; text-transform: uppercase; }
+    .port-lightbox__hint { text-align: center; margin-top: 6px; font-family: var(--font-mono); font-size: 0.50rem; color: rgba(255,255,255,0.18); letter-spacing: 0.10em; text-transform: uppercase; }
+
+    /* ── NEW ADDITIONS: SPLIT LAYOUT & CONCEPT CAROUSELS ── */
+    .g4h-split { display: block; margin-bottom: 48px; }
+    .g4h-split::after { content: ""; display: block; clear: both; }
+
+    .g4h-split__img {
+      float: right;
+      width: min(520px, 48%);
+      margin: 6px 0 18px 40px;
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      cursor: zoom-in;
+    }
+    .g4h-split__img img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+    .g4h-split__img:hover img { transform: scale(1.02); }
+    .g4h-split__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; pointer-events: none; }
+    .g4h-split__img:hover .g4h-split__img-overlay { background: rgba(0,0,0,0.25); }
+    .g4h-split__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
+    .g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
+    .g4h-split__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
+
+    /* Concept Build Rows (two-panel) */
+    .concept-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; margin-top: 34px; }
+    .concept-summary { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 26px; }
+    .concept-summary__title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px; color: var(--color-white); }
+    .concept-summary__desc { color: var(--color-text-2); line-height: 1.8; margin: 0 0 18px; font-size: 0.95rem; }
+    .concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+    .concept-preview { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+    .concept-preview__main { position: relative; width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-2); cursor: zoom-in; display: block; }
+    .concept-preview__main img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; transition: transform 0.35s ease; }
+    .concept-preview__main:hover img { transform: scale(1.02); }
+
+    .concept-thumbs { display: grid; grid-template-columns: 44px 1fr 44px; gap: 10px; align-items: center; margin-top: 12px; }
+    .concept-thumbs__arrow { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(232,98,10,0.35); background: rgba(232,98,10,0.08); color: var(--color-white); font-size: 1.6rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; flex-shrink: 0; }
+    .concept-thumbs__arrow:hover { background: rgba(232,98,10,0.18); border-color: rgba(232,98,10,0.6); }
+    .concept-thumbs__track { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 6px 2px; scrollbar-width: none; }
+    .concept-thumbs__track::-webkit-scrollbar { display: none; }
+    .concept-thumbs__thumb { border: 2px solid var(--color-border); background: var(--color-surface-2); border-radius: 6px; overflow: hidden; padding: 0; cursor: pointer; flex: 0 0 120px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .concept-thumbs__thumb img { width: 100%; height: 76px; object-fit: cover; object-position: top; display: block; transition: transform 0.25s ease; }
+    .concept-thumbs__thumb:hover img { transform: scale(1.04); }
+    .concept-thumbs__thumb.is-active { border-color: rgba(232,98,10,0.6); box-shadow: 0 0 0 3px rgba(232,98,10,0.12); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .port-card-grid { grid-template-columns: repeat(2, 1fr); }
+      .concept-row { grid-template-columns: 1fr; }
+      
+      /* Mobile Image scaling for text wrap */
+      .g4h-split__img {
+        width: 45%;
+        margin: 6px 0 16px 20px;
+      }
+    }
+    @media (max-width: 640px) {
+      .port-hero__stats { gap: 28px; }
+      .port-card-grid { grid-template-columns: 1fr; }
+      .port-section-break__badge { display: none; }
+      
+      /* Keeps it wrapped nicely on small phone screens without blowing up */
+      .g4h-split__img {
+        width: 45%; 
+        margin: 6px 0 12px 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -37,21 +179,41 @@
   </header>
 
   <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="page-hero__eyebrow">
-          <span class="page-hero__eyebrow-line"></span> WebOps Studio &middot; Selected Work <span class="page-hero__eyebrow-line"></span>
+
+    <section class="port-hero">
+      <div class="container port-hero__inner">
+        <p class="port-hero__eyebrow">
+          <span class="port-hero__line"></span>
+          WebOps Studio &middot; Selected Work
+          <span class="port-hero__line"></span>
         </p>
-        <h1 class="page-hero__title" style="font-size: clamp(3.5rem, 9vw, 7rem); font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #fff; margin-bottom: 20px;">
-          Built From Scratch.<br><span style="color: #E8620A;">Built to Perform.</span>
+        <h1 class="port-hero__title">
+          Built From Scratch.<br>
+          <span>Built to Perform.</span>
         </h1>
-        <p class="page-hero__sub" style="font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 580px; margin: 0 auto;">
+        <p class="port-hero__sub">
           No templates. No page builders. Every project is hand-coded HTML, CSS, and JavaScript — structured for speed, clarity, and conversion.
         </p>
+        <div class="port-hero__stats">
+          <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand-Coded</span></div>
+          <div><span class="port-stat__num">0</span><span class="port-stat__label">Templates Used</span></div>
+          <div><span class="port-stat__num">Live</span><span class="port-stat__label">Real Deployments</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="port-project-section" id="guardian4heroes" style="padding: 80px 0;">
+    <div class="port-section-break">
+      <div class="container">
+        <div class="port-section-break__inner">
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__label">Live Sites</span>
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__badge">Production &middot; Live</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="port-project-section" id="guardian4heroes">
       <div class="container">
 
         <div class="g4h-split reveal">
@@ -62,7 +224,7 @@
           </div>
           
           <span class="section-label">Featured Project</span>
-          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px;">Guardian 4 Heroes</h2>
+          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
             Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate.
           </p>
@@ -70,12 +232,12 @@
             I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion-focused throughout. The design prioritizes clear donation pathways and trust-building imagery without relying on heavy frameworks.
           </p>
           
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
-            <span class="tag" style="font-family: 'Roboto Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: #E8620A;">Live Site</span>
-            <span class="tag" style="font-family: 'Roboto Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5);">HTML5</span>
-            <span class="tag" style="font-family: 'Roboto Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5);">Vanilla JS</span>
+          <div class="port-project-meta" style="margin-bottom: 20px;">
+            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">Vanilla JS</span>
+            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
           </div>
-          <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site →</a>
         </div>
 
         <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 50px;">
@@ -89,41 +251,50 @@
               <img src="images/guardian-2.jpg" alt="Mission & Content">
             </div>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1">‹</button>
+              <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/guardian-2.jpg" data-caption="Mission & Content"><img src="images/guardian-2.jpg" alt="Mission"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1">›</button>
+              <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <section class="port-project-section" style="padding: 80px 0; background: #0e0e1a;">
+    <div class="port-section-break">
       <div class="container">
-        
-        <div style="max-width: 720px; margin-bottom: 48px;" class="reveal">
+        <div class="port-section-break__inner">
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__label">Concept Builds</span>
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__badge">UI &middot; Demo</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="port-project-section">
+      <div class="container">
+
+        <div class="port-project-intro reveal">
           <span class="section-label">Concept Builds</span>
-          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px;">UI & Range Demos</h2>
-          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85;">These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
+          <h2>UI &amp; Range Demos</h2>
+          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
         </div>
 
         <div class="concept-row reveal" data-carousel="ember">
           <div class="concept-summary">
-            <h3 class="concept-summary__title">Ember & Oak Cafe</h3>
+            <h3 class="concept-summary__title">Ember &amp; Oak Cafe</h3>
             <p class="concept-summary__desc">A full six-page concept site for a fictional neighborhood cafe. Built to demonstrate multi-page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
             <div class="concept-summary__tags">
-              <span class="tag" style="font-family: 'Roboto Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: #E8620A;">Demo Live</span>
-              <span class="tag" style="font-family: 'Roboto Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5);">HTML5</span>
-              <span class="tag" style="font-family: 'Roboto Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5);">CSS3</span>
+              <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
             </div>
-            <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View Live Demo →</a>
+            <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="margin-top: 10px; display: inline-block;">View Live Demo &#8599;</a>
           </div>
 
           <div class="concept-preview">
@@ -131,7 +302,7 @@
               <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe Home">
             </div>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1">‹</button>
+              <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember & Oak - Home"><img src="images/ember.demo.home.jpg" alt="Home"></div>
                 <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember & Oak - Menu"><img src="images/ember-demo-menu.jpg" alt="Menu"></div>
@@ -139,7 +310,7 @@
                 <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember & Oak - Catering"><img src="images/ember.demo.catering.jpg" alt="Catering"></div>
                 <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember & Oak - Code"><img src="images/ember.demo.css.jpg" alt="Code"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1">›</button>
+              <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
             </div>
           </div>
         </div>
@@ -147,112 +318,140 @@
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <section class="port-project-section" style="padding: 80px 0;">
+    <div class="port-section-break">
       <div class="container">
-        <div style="max-width: 720px; margin-bottom: 48px;" class="reveal">
-          <span class="section-label">Landing Pages & Demos</span>
-          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px;">Industry Demo Builds</h2>
-          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85;">Purpose-built landing pages designed to show what a conversion-focused build looks like across different industries. Each one is hand-coded, deployed live, and built to demonstrate a real use case.</p>
+        <div class="port-section-break__inner">
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__label">Landing Pages</span>
+          <div class="port-section-break__line"></div>
+          <span class="port-section-break__badge">Demo &middot; Live</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="port-project-section">
+      <div class="container">
+
+        <div class="port-project-intro reveal">
+          <span class="section-label">Landing Pages &amp; Demos</span>
+          <h2>Industry Demo Builds</h2>
+          <p>Purpose-built landing pages designed to show what a conversion-focused build looks like across different industries. Each one is hand-coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-          <article class="port-card reveal" style="background: linear-gradient(135deg, #14141f 0%, #0e0e1a 100%); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-            <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Demo" style="width: 100%; aspect-ratio: 16/9; object-fit: cover;">
-            <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
-              <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #fff;">IronShield Roofing</h3>
-              <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.65; flex: 1; margin-bottom: 20px;">Storm-damage lead generation page. Trust-first layout, call-driven structure, and a focused quote request flow.</p>
-              <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm" style="align-self: flex-start;">View Demo →</a>
+        <div class="port-card-grid">
+
+          <article class="port-card reveal">
+            <img
+              src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
+              alt="IronShield Roofing landing page demo"
+              class="port-card__img"
+              loading="lazy"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="port-card__placeholder" style="display:none;">
+              <span class="port-card__placeholder-label">IronShield Roofing</span>
+              <span class="port-card__placeholder-hint">Upload: ironshield-preview.jpg</span>
+            </div>
+            <div class="port-card__body">
+              <div class="port-card__tags"><span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span></div>
+              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span></div>
+              <h3 class="port-card__title">IronShield Roofing</h3>
+              <p class="port-card__desc">Storm-damage lead generation page. Trust-first layout, call-driven structure, and a focused quote request flow built for a local roofing contractor.</p>
+              <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
             </div>
           </article>
 
-          <article class="port-card reveal" style="background: linear-gradient(135deg, #14141f 0%, #0e0e1a 100%); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0e0e1a; border-bottom: 1px solid rgba(255,255,255,0.07);">
-              <span style="font-family: 'Roboto Mono', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Fitness Coach Funnel</span>
-              <span style="font-family: 'Roboto Mono', monospace; font-size: 0.48rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase;">Coming Soon</span>
+          <article class="port-card reveal reveal-delay-1">
+            <div class="port-card__placeholder">
+              <span class="port-card__placeholder-label">Fitness Coach Funnel</span>
+              <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
-            <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
-              <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #fff;">Fitness Coach Funnel</h3>
-              <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.65; flex: 1; margin-bottom: 20px;">Application-style landing page for a high-ticket coaching offer. Built to qualify leads and drive form submissions.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm" style="align-self: flex-start;">Request This Build →</a>
+            <div class="port-card__body">
+              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
+              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High-Ticket</span><span class="tag">Applications</span></div>
+              <h3 class="port-card__title">Fitness Coach Funnel</h3>
+              <p class="port-card__desc">Application-style landing page for a high-ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
+              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
             </div>
           </article>
 
-          <article class="port-card reveal" style="background: linear-gradient(135deg, #14141f 0%, #0e0e1a 100%); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-            <div style="width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0e0e1a; border-bottom: 1px solid rgba(255,255,255,0.07);">
-              <span style="font-family: 'Roboto Mono', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5);">SaaS Beta Waitlist</span>
-              <span style="font-family: 'Roboto Mono', monospace; font-size: 0.48rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase;">Coming Soon</span>
+          <article class="port-card reveal reveal-delay-2">
+            <div class="port-card__placeholder">
+              <span class="port-card__placeholder-label">SaaS Beta Waitlist</span>
+              <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
-            <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
-              <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; color: #fff;">SaaS Beta Waitlist</h3>
-              <p style="font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.65; flex: 1; margin-bottom: 20px;">Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built to convert visitors.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm" style="align-self: flex-start;">Request This Build →</a>
+            <div class="port-card__body">
+              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
+              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Waitlist</span><span class="tag">Email Capture</span></div>
+              <h3 class="port-card__title">SaaS Beta Waitlist</h3>
+              <p class="port-card__desc">Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built to convert visitors into signups.</p>
+              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <section class="cta-strip" style="background: #14141f; padding: 80px 0; text-align: center;">
+    <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Your Project</span>
-        <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px;">Want a Build Like This?</h2>
-        <p class="reveal" style="font-size: 1.05rem; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 36px;">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
-        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;" class="reveal">
+        <h2 class="reveal">Want a Build Like This?</h2>
+        <p class="reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
+        <div class="cta-btns reveal">
           <a href="contact.html" class="btn btn-primary">Start a Project</a>
           <a href="services.html" class="btn btn-ghost">See My Services</a>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer style="background: #07070C; border-top: 1px solid rgba(59,30,109,0.15); padding: 60px 0 28px;">
+  <footer>
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px;">
-        <div>
-          <div class="site-logo" style="margin-bottom: 16px;">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="site-logo">
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5); max-width: 260px; line-height: 1.7;">Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
+          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
         </div>
-        <div>
-          <h4 style="font-family: 'Roboto Mono', monospace; font-size: 0.58rem; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 18px;">Navigation</h4>
-          <ul style="display: flex; flex-direction: column; gap: 10px; list-style: none; padding: 0;">
-            <li><a href="index.html" style="font-size: 0.88rem; color: rgba(255,255,255,0.5);">Home</a></li>
-            <li><a href="about.html" style="font-size: 0.88rem; color: rgba(255,255,255,0.5);">About</a></li>
-            <li><a href="services.html" style="font-size: 0.88rem; color: rgba(255,255,255,0.5);">Services</a></li>
-            <li><a href="portfolio.html" style="font-size: 0.88rem; color: #E8620A;">Portfolio</a></li>
-            <li><a href="contact.html" style="font-size: 0.88rem; color: rgba(255,255,255,0.5);">Contact</a></li>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div>
-          <h4 style="font-family: 'Roboto Mono', monospace; font-size: 0.58rem; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 18px;">Contact</h4>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5);"><a href="mailto:craigbaumann2020@gmail.com" style="color: inherit;">craigbaumann2020@gmail.com</a></p>
-            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5);"><a href="tel:+13205226226" style="color: inherit;">320-522-6226</a></p>
-            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.5);">Minnesota, United States</p>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-items">
+            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+            <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
+            <p class="footer-contact-item">Minnesota, United States</p>
           </div>
         </div>
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-        <p style="font-size: 0.78rem; color: rgba(255,255,255,0.5); margin: 0;">&copy; 2026 WebOps Studio. All rights reserved.</p>
-        <a href="contact.html" style="font-size: 0.78rem; color: rgba(255,255,255,0.5);">Get a Free Quote →</a>
+      <div class="footer-bottom">
+        <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
+        <a href="contact.html">Get a Free Quote &#8594;</a>
       </div>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <button class="back-to-top" aria-label="Back to top">&#8593;</button>
 
-  <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; padding: 24px;">
-    <div class="port-lightbox__inner" style="position: relative; max-width: 1100px; width: 100%;">
-      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close" style="position: absolute; top: -56px; right: 0; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: #fff; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">✕</button>
-      <img class="port-lightbox__img" id="lightboxImg" src="" alt="" style="width: 100%; max-height: 85vh; object-fit: contain; border-radius: 6px; display: block;">
-      <p class="port-lightbox__caption" id="lightboxCaption" style="text-align: center; margin-top: 14px; font-family: 'Roboto Mono', monospace; font-size: 0.62rem; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase;"></p>
-      <p class="port-lightbox__hint" style="text-align: center; margin-top: 6px; font-family: 'Roboto Mono', monospace; font-size: 0.50rem; color: rgba(255,255,255,0.18); letter-spacing: 0.10em; text-transform: uppercase;">Press ESC or tap outside to close</p>
+  <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="port-lightbox__inner">
+      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">✕</button>
+      <img class="port-lightbox__img" id="lightboxImg" src="" alt="">
+      <p class="port-lightbox__caption" id="lightboxCaption"></p>
+      <p class="port-lightbox__hint">Press ESC or tap outside to close</p>
     </div>
   </div>
 
@@ -263,11 +462,11 @@
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxImg').alt = caption;
       document.getElementById('lightboxCaption').textContent = caption;
-      document.getElementById('portLightbox').style.display = 'flex';
+      document.getElementById('portLightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
     function closeLightbox() {
-      document.getElementById('portLightbox').style.display = 'none';
+      document.getElementById('portLightbox').classList.remove('active');
       document.body.style.overflow = '';
     }
     document.getElementById('portLightbox').addEventListener('click', function(e) {
@@ -279,3 +478,5 @@
   </script>
 </body>
 </html>
+
+
