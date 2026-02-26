@@ -1979,3 +1979,53 @@ footer {
   .nav-links  { display: flex !important; }
   .nav-toggle { display: none  !important; }
 }
+/* ── PORTFOLIO PAGE ADDITIONS: Split Layout & Concept Builds ── */
+
+.g4h-split { display: block; margin-bottom: 48px; }
+.g4h-split::after { content: ""; display: block; clear: both; }
+
+.g4h-split__img {
+  float: right;
+  width: min(520px, 48%);
+  margin: 6px 0 18px 40px;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  cursor: zoom-in;
+}
+.g4h-split__img img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+.g4h-split__img:hover img { transform: scale(1.02); }
+.g4h-split__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; pointer-events: none; }
+.g4h-split__img:hover .g4h-split__img-overlay { background: rgba(0,0,0,0.25); }
+.g4h-split__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
+.g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
+.g4h-split__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
+
+/* Concept Build Rows (two-panel) */
+.concept-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; margin-top: 34px; }
+.concept-summary { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 26px; }
+.concept-summary__title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px; color: var(--color-white); }
+.concept-summary__desc { color: var(--color-text-2); line-height: 1.8; margin: 0 0 18px; font-size: 0.95rem; }
+.concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+.concept-preview { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+.concept-preview__main { position: relative; width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-2); cursor: zoom-in; display: block; }
+.concept-preview__main img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; transition: transform 0.35s ease; }
+.concept-preview__main:hover img { transform: scale(1.02); }
+
+.concept-thumbs { display: grid; grid-template-columns: 44px 1fr 44px; gap: 10px; align-items: center; margin-top: 12px; }
+.concept-thumbs__arrow { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(232,98,10,0.35); background: rgba(232,98,10,0.08); color: var(--color-white); font-size: 1.6rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; flex-shrink: 0; }
+.concept-thumbs__arrow:hover { background: rgba(232,98,10,0.18); border-color: rgba(232,98,10,0.6); }
+.concept-thumbs__track { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 6px 2px; scrollbar-width: none; }
+.concept-thumbs__track::-webkit-scrollbar { display: none; }
+.concept-thumbs__thumb { border: 2px solid var(--color-border); background: var(--color-surface-2); border-radius: 6px; overflow: hidden; padding: 0; cursor: pointer; flex: 0 0 120px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.concept-thumbs__thumb img { width: 100%; height: 76px; object-fit: cover; object-position: top; display: block; transition: transform 0.25s ease; }
+.concept-thumbs__thumb:hover img { transform: scale(1.04); }
+.concept-thumbs__thumb.is-active { border-color: rgba(232,98,10,0.6); box-shadow: 0 0 0 3px rgba(232,98,10,0.12); }
+
+@media (max-width: 900px) {
+  .g4h-split__img { float: none; width: 100%; margin: 0 0 24px 0; }
+  .concept-row { grid-template-columns: 1fr; }
+}
