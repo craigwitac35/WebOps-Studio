@@ -232,3 +232,48 @@
   }, ML_DELAY);
 
 })();
+/* ── PORTFOLIO ADDITIONS: Concept Carousel Logic ── */
+(function initConceptCarousels() {
+  document.querySelectorAll('.concept-row[data-carousel]').forEach(function (row) {
+    const mainBtn  = row.querySelector('.concept-preview__main');
+    const mainImg  = mainBtn ? mainBtn.querySelector('img') : null;
+    const track    = row.querySelector('.concept-thumbs__track');
+    const thumbs   = Array.from(row.querySelectorAll('.concept-thumbs__thumb'));
+    const arrows   = Array.from(row.querySelectorAll('.concept-thumbs__arrow'));
+
+    if (!mainBtn || !mainImg || !track) return;
+
+    // Swap main image when a thumb is clicked
+    function setActive(thumb) {
+      thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+      thumb.classList.add('is-active');
+
+      var src     = thumb.dataset.src;
+      var caption = thumb.dataset.caption || '';
+
+      mainImg.src              = src;
+      mainImg.alt              = caption;
+      mainBtn.dataset.full     = src;
+      mainBtn.dataset.caption  = caption;
+    }
+
+    thumbs.forEach(function (t) {
+      t.addEventListener('click', function () { setActive(t); });
+    });
+
+    // Main image click -> lightbox (using your existing openLightbox function)
+    mainBtn.addEventListener('click', function () {
+      var full    = this.dataset.full    || mainImg.src;
+      var caption = this.dataset.caption || '';
+      if (typeof openLightbox === 'function') openLightbox(full, caption);
+    });
+
+    // Arrow buttons scroll the thumb strip
+    arrows.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var dir = Number(btn.dataset.dir || 1);
+        track.scrollBy({ left: dir * 130, behavior: 'smooth' });
+      });
+    });
+  });
+})();
