@@ -475,17 +475,18 @@
       background: rgba(0,0,0,0.96);
       align-items: center;
       justify-content: center;
-      padding: 0;
     }
     .port-lightbox.active { display: flex; }
     .port-lightbox__inner {
       position: relative;
-      width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 48px 16px 16px;
+      box-sizing: border-box;
     }
     .port-lightbox__close {
       position: fixed;
@@ -507,15 +508,17 @@
     }
     .port-lightbox__close:hover { background: rgba(232,98,10,0.60); }
     .port-lightbox__img {
-      width: 100%;
-      max-width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
       display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 80px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
     }
     .port-lightbox__caption {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 12px;
       font-family: var(--font-mono);
       font-size: 0.62rem;
       color: var(--color-text-3);
