@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — WebOps Studio</title>
+  <title>Portfolio &mdash; WebOps Studio</title>
   <meta name="description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
-  <meta property="og:title" content="WebOps Studio — Portfolio">
+  <meta property="og:title" content="WebOps Studio &mdash; Portfolio">
   <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
-  <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
+  <meta property="og:url" content="https://craigwitac35.github.io/WebOps-Studio/portfolio.html">
+  <meta property="og:image" content="https://craigwitac35.github.io/WebOps-Studio/images/Faveicon.jpg">
 
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+
     /* ── HERO ─────────────────────────────────────────────── */
     .port-hero {
       position: relative;
@@ -31,126 +32,535 @@
           rgba(7,7,12,0.50) 40%,
           rgba(7,7,12,0.85) 85%,
           rgba(7,7,12,1.00) 100%),
-        url('images/Background1.png');
+        url('images/background-new-image.jpg');
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
     }
-    .port-hero__inner { padding: 140px 0 100px; position: relative; z-index: 1; text-align: center; }
-    .port-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 20px; }
-    .port-hero__line { display: block; width: 28px; height: 1px; background: var(--color-orange); opacity: 0.7; }
-    .port-hero__title { font-family: var(--font-head); font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 700; line-height: 1.0; letter-spacing: 0.02em; text-transform: uppercase; color: var(--color-white); margin-bottom: 20px; }
-    .port-hero__title span { color: var(--color-orange); text-shadow: 0 0 48px rgba(232,98,10,0.25); }
-    .port-hero__sub { font-size: 1.05rem; color: var(--color-text-3); line-height: 1.7; max-width: 580px; margin: 0 auto 40px; }
-    .port-hero__stats { display: flex; gap: 48px; flex-wrap: wrap; justify-content: center; }
-    .port-stat__num { font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--color-white); line-height: 1; display: block; }
-    .port-stat__label { font-family: var(--font-mono); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-3); display: block; margin-top: 4px; }
+    .port-hero__inner {
+      padding: 140px 0 100px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .port-hero__eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin-bottom: 20px;
+    }
+    .port-hero__line {
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--color-orange);
+      opacity: 0.7;
+    }
+    .port-hero__title {
+      font-family: var(--font-head);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      margin-bottom: 20px;
+    }
+    .port-hero__title span {
+      color: var(--color-orange);
+      text-shadow: 0 0 48px rgba(232,98,10,0.25);
+    }
+    .port-hero__sub {
+      font-size: 1.05rem;
+      color: var(--color-text-3);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+    .port-hero__stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .port-stat__num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1;
+      display: block;
+    }
+    .port-stat__label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-3);
+      display: block;
+      margin-top: 4px;
+    }
 
-    /* ── SECTION BREAK ────────────────────────────────────── */
-    .port-section-break { background: var(--color-surface-2); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 28px 0; position: relative; overflow: hidden; }
-    .port-section-break::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 0% 50%, rgba(59,30,109,0.12), transparent 60%), radial-gradient(circle at 100% 50%, rgba(232,98,10,0.08), transparent 60%); pointer-events: none; }
-    .port-section-break__inner { position: relative; z-index: 1; display: flex; align-items: center; gap: 20px; }
-    .port-section-break__line { flex: 1; height: 1px; background: var(--gradient-divider); }
-    .port-section-break__label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-orange); white-space: nowrap; }
-    .port-section-break__badge { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); white-space: nowrap; }
+    /* ── SECTION BREAK — accent line / title / accent line ── */
+    .port-section-break {
+      padding: 32px 0;
+    }
+    .port-section-break__inner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .port-section-break__accent {
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--color-orange), transparent);
+      flex: 1;
+    }
+    .port-section-break__accent--left {
+      max-width: 60px;
+      flex: 0 0 60px;
+      background: linear-gradient(to right, transparent, var(--color-orange));
+    }
+    .port-section-break__title {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      white-space: nowrap;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+    .port-section-break__badge {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--color-text-3);
+      white-space: nowrap;
+    }
 
-    /* ── PROJECT SECTION WRAPPER ──────────────────────────── */
-    .port-project-section { padding: 80px 0; background: var(--color-bg); }
-    .port-project-section:nth-of-type(even) { background: var(--color-surface-1); }
-    .port-project-intro { max-width: 720px; margin-bottom: 48px; }
-    .port-project-intro h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; }
-    .port-project-intro p { font-size: 1.05rem; color: var(--color-text-2); line-height: 1.85; margin: 0; }
-    .port-project-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; align-items: center; }
+    /* ── PROJECT SECTION — subtle purple-dark bg ─────────── */
+    .port-project-section {
+      padding: 72px 0;
+      background: #0a0a14;
+    }
+    .port-project-intro {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+    .port-project-intro h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .port-project-intro p {
+      font-size: 1.05rem;
+      color: var(--color-text-2);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .port-project-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      align-items: center;
+    }
 
-    /* ── CARD GRID (Landing Pages) ────────────────────────── */
-    .port-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .port-card { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
-    .port-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); }
-    .port-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--color-surface-1); }
-    .port-card__placeholder { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
-    .port-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
-    .port-card__placeholder-hint { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase; }
-    .port-card__body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .port-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-    .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
-    .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
-
-    /* ── LIGHTBOX ─────────────────────────────────────────── */
-    .port-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; padding: 24px; }
-    .port-lightbox.active { display: flex; }
-    .port-lightbox__inner { position: relative; max-width: 1100px; width: 100%; }
-    .port-lightbox__img { width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius-sm); display: block; }
-    .port-lightbox__close { position: absolute; top: -56px; right: 0; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: var(--color-white); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
-    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
-    .port-lightbox__caption { text-align: center; margin-top: 14px; font-family: var(--font-mono); font-size: 0.62rem; color: var(--color-text-3); letter-spacing: 0.12em; text-transform: uppercase; }
-    .port-lightbox__hint { text-align: center; margin-top: 6px; font-family: var(--font-mono); font-size: 0.50rem; color: rgba(255,255,255,0.18); letter-spacing: 0.10em; text-transform: uppercase; }
-
-    /* ── NEW ADDITIONS: SPLIT LAYOUT & CONCEPT CAROUSELS ── */
-    .g4h-split { display: block; margin-bottom: 48px; }
-    .g4h-split::after { content: ""; display: block; clear: both; }
-
+    /* ── G4H UNIFIED CARD ─────────────────────────────────── */
+    .g4h-card {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .g4h-card__top {
+      padding: 32px;
+    }
+    .g4h-split {
+      display: block;
+      margin-bottom: 0;
+    }
+    .g4h-split::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
     .g4h-split__img {
       float: right;
-      width: min(520px, 48%);
-      margin: 6px 0 18px 40px;
+      width: min(480px, 46%);
+      margin: 4px 0 16px 36px;
       position: relative;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--color-border);
       background: var(--color-surface-2);
       cursor: zoom-in;
     }
-    .g4h-split__img img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+    .g4h-split__img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
     .g4h-split__img:hover img { transform: scale(1.02); }
-    .g4h-split__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; pointer-events: none; }
+    .g4h-split__img-overlay {
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      pointer-events: none;
+    }
     .g4h-split__img:hover .g4h-split__img-overlay { background: rgba(0,0,0,0.25); }
-    .g4h-split__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
+    .g4h-split__zoom {
+      opacity: 0;
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      background: rgba(0,0,0,0.6);
+      padding: 8px 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: opacity 0.3s ease;
+    }
     .g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
-    .g4h-split__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
+    .g4h-split__num {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      background: rgba(7,7,12,0.85);
+      border: 1px solid rgba(232,98,10,0.25);
+      padding: 4px 10px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+    .g4h-card__divider {
+      height: 1px;
+      background: var(--color-border);
+    }
+    .g4h-card__gallery {
+      padding: 28px 32px;
+      background: var(--color-surface-2);
+    }
+    .g4h-card__gallery-label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--color-text-3);
+      margin-bottom: 16px;
+    }
 
-    /* Concept Build Rows (two-panel) */
-    .concept-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; margin-top: 34px; }
-    .concept-summary { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 26px; }
-    .concept-summary__title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px; color: var(--color-white); }
-    .concept-summary__desc { color: var(--color-text-2); line-height: 1.8; margin: 0 0 18px; font-size: 0.95rem; }
-    .concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-
-    .concept-preview { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
-    .concept-preview__main { position: relative; width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-2); cursor: zoom-in; display: block; }
-    .concept-preview__main img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; transition: transform 0.35s ease; }
+    /* ── CONCEPT ROWS ─────────────────────────────────────── */
+    .concept-row {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 34px;
+    }
+    .concept-summary {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 26px;
+    }
+    .concept-summary__title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 14px;
+      color: var(--color-white);
+    }
+    .concept-summary__desc {
+      color: var(--color-text-2);
+      line-height: 1.8;
+      margin: 0 0 18px;
+      font-size: 0.95rem;
+    }
+    .concept-summary__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .concept-preview {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    .concept-preview__main {
+      position: relative;
+      width: 100%;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--color-surface-2);
+      cursor: zoom-in;
+      display: block;
+    }
+    .concept-preview__main img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.35s ease;
+    }
     .concept-preview__main:hover img { transform: scale(1.02); }
-
-    .concept-thumbs { display: grid; grid-template-columns: 44px 1fr 44px; gap: 10px; align-items: center; margin-top: 12px; }
-    .concept-thumbs__arrow { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(232,98,10,0.35); background: rgba(232,98,10,0.08); color: var(--color-white); font-size: 1.6rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; flex-shrink: 0; }
-    .concept-thumbs__arrow:hover { background: rgba(232,98,10,0.18); border-color: rgba(232,98,10,0.6); }
-    .concept-thumbs__track { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 6px 2px; scrollbar-width: none; }
+    .concept-thumbs {
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .concept-thumbs__arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,98,10,0.35);
+      background: rgba(232,98,10,0.08);
+      color: var(--color-white);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .concept-thumbs__arrow:hover {
+      background: rgba(232,98,10,0.18);
+      border-color: rgba(232,98,10,0.6);
+    }
+    .concept-thumbs__track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 6px 2px;
+      scrollbar-width: none;
+    }
     .concept-thumbs__track::-webkit-scrollbar { display: none; }
-    .concept-thumbs__thumb { border: 2px solid var(--color-border); background: var(--color-surface-2); border-radius: 6px; overflow: hidden; padding: 0; cursor: pointer; flex: 0 0 120px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-    .concept-thumbs__thumb img { width: 100%; height: 76px; object-fit: cover; object-position: top; display: block; transition: transform 0.25s ease; }
+    .concept-thumbs__thumb {
+      border: 2px solid var(--color-border);
+      background: var(--color-surface-2);
+      border-radius: 6px;
+      overflow: hidden;
+      padding: 0;
+      cursor: pointer;
+      flex: 0 0 110px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .concept-thumbs__thumb img {
+      width: 100%;
+      height: 70px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.25s ease;
+    }
     .concept-thumbs__thumb:hover img { transform: scale(1.04); }
-    .concept-thumbs__thumb.is-active { border-color: rgba(232,98,10,0.6); box-shadow: 0 0 0 3px rgba(232,98,10,0.12); }
+    .concept-thumbs__thumb.is-active {
+      border-color: rgba(232,98,10,0.6);
+      box-shadow: 0 0 0 3px rgba(232,98,10,0.12);
+    }
+
+    /* ── LANDING PAGE CARDS ───────────────────────────────── */
+    .port-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .port-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .port-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,98,10,0.25);
+    }
+    .port-card__img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      background: var(--color-surface-1);
+    }
+    .port-card__placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--color-surface-1);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .port-card__placeholder-label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-3);
+    }
+    .port-card__placeholder-hint {
+      font-family: var(--font-mono);
+      font-size: 0.48rem;
+      letter-spacing: 0.10em;
+      color: rgba(255,255,255,0.18);
+      text-transform: uppercase;
+    }
+    .port-card__body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .port-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .port-card__title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-white);
+      margin-bottom: 10px;
+    }
+    .port-card__desc {
+      font-size: 0.88rem;
+      color: var(--color-text-3);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    /* ── LIGHTBOX ─────────────────────────────────────────── */
+    .port-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .port-lightbox.active { display: flex; }
+    .port-lightbox__inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .port-lightbox__img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      display: block;
+    }
+    .port-lightbox__close {
+      position: absolute;
+      top: -56px;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      color: var(--color-white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
+    .port-lightbox__caption {
+      text-align: center;
+      margin-top: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--color-text-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .port-lightbox__hint {
+      text-align: center;
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.50rem;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 900px) {
       .port-card-grid { grid-template-columns: repeat(2, 1fr); }
       .concept-row { grid-template-columns: 1fr; }
-      
-      /* Mobile Image scaling for text wrap */
-      .g4h-split__img {
-        width: 45%;
-        margin: 6px 0 16px 20px;
-      }
     }
+
+    @media (max-width: 768px) {
+      /* Stack G4H image full-width on mobile */
+      .g4h-split__img {
+        float: none;
+        width: 100%;
+        margin: 0 0 24px 0;
+        border-radius: var(--radius-sm);
+      }
+      .g4h-card__top { padding: 20px; }
+      .g4h-card__gallery { padding: 20px; }
+      .port-section-break__badge { display: none; }
+    }
+
     @media (max-width: 640px) {
       .port-hero__stats { gap: 28px; }
       .port-card-grid { grid-template-columns: 1fr; }
-      .port-section-break__badge { display: none; }
-      
-      /* Keeps it wrapped nicely on small phone screens without blowing up */
-      .g4h-split__img {
-        width: 45%; 
-        margin: 6px 0 12px 14px;
-      }
+      .concept-thumbs__thumb { flex: 0 0 90px; }
+      .concept-thumbs__thumb img { height: 58px; }
     }
+
   </style>
 </head>
 
@@ -180,6 +590,7 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -192,7 +603,7 @@
           <span>Built to Perform.</span>
         </h1>
         <p class="port-hero__sub">
-          No templates. No page builders. Every project is hand-coded HTML, CSS, and JavaScript — structured for speed, clarity, and conversion.
+          No templates. No page builders. Every project is hand-coded HTML, CSS, and JavaScript &mdash; structured for speed, clarity, and conversion.
         </p>
         <div class="port-hero__stats">
           <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand-Coded</span></div>
@@ -202,87 +613,125 @@
       </div>
     </section>
 
+    <!-- SECTION BREAK: LIVE SITES -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
-          <div class="port-section-break__line"></div>
-          <span class="port-section-break__label">Live Sites</span>
-          <div class="port-section-break__line"></div>
+          <div class="port-section-break__accent port-section-break__accent--left"></div>
+          <span class="port-section-break__title">Live Sites</span>
+          <div class="port-section-break__accent"></div>
           <span class="port-section-break__badge">Production &middot; Live</span>
         </div>
       </div>
     </div>
 
+    <!-- GUARDIAN 4 HEROES -->
     <section class="port-project-section" id="guardian4heroes">
       <div class="container">
 
-        <div class="g4h-split reveal">
-          <div class="g4h-split__img" role="button" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes - Hero')" tabindex="0" aria-label="View hero screenshot">
-            <span class="g4h-split__num">01 &middot; Hero</span>
-            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero Section">
-            <div class="g4h-split__img-overlay"><span class="g4h-split__zoom">View Fullscreen</span></div>
+        <div class="g4h-card reveal">
+
+          <div class="g4h-card__top">
+            <div class="g4h-split">
+              <div class="g4h-split__img"
+                   role="button"
+                   onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes - Hero')"
+                   tabindex="0"
+                   aria-label="View hero screenshot">
+                <span class="g4h-split__num">01 &middot; Hero</span>
+                <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero Section">
+                <div class="g4h-split__img-overlay">
+                  <span class="g4h-split__zoom">View Fullscreen</span>
+                </div>
+              </div>
+
+              <span class="section-label">Featured Project</span>
+              <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
+              <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
+                Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders &mdash; people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate.
+              </p>
+              <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 24px;">
+                I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion-focused throughout. The design prioritizes clear donation pathways and trust-building imagery without relying on heavy frameworks.
+              </p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">Vanilla JS</span>
+                <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
+              </div>
+            </div>
           </div>
-          
-          <span class="section-label">Featured Project</span>
-          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
-          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
-            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate.
-          </p>
-          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 24px;">
-            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion-focused throughout. The design prioritizes clear donation pathways and trust-building imagery without relying on heavy frameworks.
-          </p>
-          
-          <div class="port-project-meta" style="margin-bottom: 20px;">
-            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">Vanilla JS</span>
-            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
+
+          <div class="g4h-card__divider"></div>
+
+          <div class="g4h-card__gallery">
+            <p class="g4h-card__gallery-label">Project Gallery</p>
+            <div class="concept-preview" style="background: transparent; border: none; padding: 0;">
+              <div class="concept-preview__main"
+                   role="button"
+                   data-full="images/guardian-1.jpg"
+                   data-caption="Guardian 4 Heroes - Hero">
+                <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero">
+              </div>
+              <div class="concept-thumbs">
+                <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
+                <div class="concept-thumbs__track">
+                  <div class="concept-thumbs__thumb is-active"
+                       data-src="images/guardian-1.jpg"
+                       data-caption="Hero">
+                    <img src="images/guardian-1.jpg" alt="Hero">
+                  </div>
+                  <div class="concept-thumbs__thumb"
+                       data-src="images/guardian-2.jpg"
+                       data-caption="Mission &amp; Content">
+                    <img src="images/guardian-2.jpg" alt="Mission">
+                  </div>
+                  <div class="concept-thumbs__thumb"
+                       data-src="images/guardian-3.jpg"
+                       data-caption="Shop Section">
+                    <img src="images/guardian-3.jpg" alt="Shop">
+                  </div>
+                  <div class="concept-thumbs__thumb"
+                       data-src="images/guardian-4.jpg"
+                       data-caption="Donation UX">
+                    <img src="images/guardian-4.jpg" alt="Donation">
+                  </div>
+                  <div class="concept-thumbs__thumb"
+                       data-src="images/guardian-5.jpg"
+                       data-caption="CSS Architecture">
+                    <img src="images/guardian-5.jpg" alt="CSS">
+                  </div>
+                </div>
+                <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
+              </div>
+            </div>
           </div>
+
         </div>
 
-        <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 50px;">
-          <div class="concept-summary">
-            <h3 class="concept-summary__title">Project Gallery</h3>
-            <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
-          </div>
-          
-          <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/guardian-2.jpg" data-caption="Mission & Content">
-              <img src="images/guardian-2.jpg" alt="Mission & Content">
-            </div>
-            <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
-              <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-2.jpg" data-caption="Mission & Content"><img src="images/guardian-2.jpg" alt="Mission"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS"></div>
-              </div>
-              <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
+    <!-- SECTION BREAK: CONCEPT BUILDS -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
-          <div class="port-section-break__line"></div>
-          <span class="port-section-break__label">Concept Builds</span>
-          <div class="port-section-break__line"></div>
+          <div class="port-section-break__accent port-section-break__accent--left"></div>
+          <span class="port-section-break__title">Concept Builds</span>
+          <div class="port-section-break__accent"></div>
           <span class="port-section-break__badge">UI &middot; Demo</span>
         </div>
       </div>
     </div>
 
+    <!-- CONCEPT BUILDS -->
     <section class="port-project-section">
       <div class="container">
 
         <div class="port-project-intro reveal">
           <span class="section-label">Concept Builds</span>
           <h2>UI &amp; Range Demos</h2>
-          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
+          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges &mdash; all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
         </div>
 
         <div class="concept-row reveal" data-carousel="ember">
@@ -294,21 +743,48 @@
               <span class="tag">HTML5</span>
               <span class="tag">CSS3</span>
             </div>
-            <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="margin-top: 10px; display: inline-block;">View Live Demo &#8599;</a>
+            <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-ghost btn-sm"
+               style="margin-top: 10px; display: inline-block;">View Live Demo &#8599;</a>
           </div>
 
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember & Oak Cafe - Home">
-              <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe Home">
+            <div class="concept-preview__main"
+                 role="button"
+                 data-full="images/ember.demo.home.jpg"
+                 data-caption="Ember &amp; Oak Cafe - Home">
+              <img src="images/ember.demo.home.jpg" alt="Ember and Oak Cafe Home">
             </div>
             <div class="concept-thumbs">
               <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
               <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember & Oak - Home"><img src="images/ember.demo.home.jpg" alt="Home"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember & Oak - Menu"><img src="images/ember-demo-menu.jpg" alt="Menu"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.about.jpg" data-caption="Ember & Oak - About"><img src="images/ember.demo.about.jpg" alt="About"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember & Oak - Catering"><img src="images/ember.demo.catering.jpg" alt="Catering"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember & Oak - Code"><img src="images/ember.demo.css.jpg" alt="Code"></div>
+                <div class="concept-thumbs__thumb is-active"
+                     data-src="images/ember.demo.home.jpg"
+                     data-caption="Ember &amp; Oak - Home">
+                  <img src="images/ember.demo.home.jpg" alt="Home">
+                </div>
+                <div class="concept-thumbs__thumb"
+                     data-src="images/ember-demo-menu.jpg"
+                     data-caption="Ember &amp; Oak - Menu">
+                  <img src="images/ember-demo-menu.jpg" alt="Menu">
+                </div>
+                <div class="concept-thumbs__thumb"
+                     data-src="images/ember.demo.about.jpg"
+                     data-caption="Ember &amp; Oak - About">
+                  <img src="images/ember.demo.about.jpg" alt="About">
+                </div>
+                <div class="concept-thumbs__thumb"
+                     data-src="images/ember.demo.catering.jpg"
+                     data-caption="Ember &amp; Oak - Catering">
+                  <img src="images/ember.demo.catering.jpg" alt="Catering">
+                </div>
+                <div class="concept-thumbs__thumb"
+                     data-src="images/ember.demo.css.jpg"
+                     data-caption="Ember &amp; Oak - Code">
+                  <img src="images/ember.demo.css.jpg" alt="Code">
+                </div>
               </div>
               <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
             </div>
@@ -318,24 +794,26 @@
       </div>
     </section>
 
+    <!-- SECTION BREAK: LANDING PAGES -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
-          <div class="port-section-break__line"></div>
-          <span class="port-section-break__label">Landing Pages</span>
-          <div class="port-section-break__line"></div>
+          <div class="port-section-break__accent port-section-break__accent--left"></div>
+          <span class="port-section-break__title">Landing Pages</span>
+          <div class="port-section-break__accent"></div>
           <span class="port-section-break__badge">Demo &middot; Live</span>
         </div>
       </div>
     </div>
 
+    <!-- LANDING PAGES -->
     <section class="port-project-section">
       <div class="container">
 
         <div class="port-project-intro reveal">
           <span class="section-label">Landing Pages &amp; Demos</span>
           <h2>Industry Demo Builds</h2>
-          <p>Purpose-built landing pages designed to show what a conversion-focused build looks like across different industries. Each one is hand-coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.</p>
+          <p>Purpose-built landing pages designed to show what a conversion-focused build looks like across different industries. Each one is hand-coded, deployed live, and built to demonstrate a real use case &mdash; not just a pretty layout.</p>
         </div>
 
         <div class="port-card-grid">
@@ -352,8 +830,12 @@
               <span class="port-card__placeholder-hint">Upload: ironshield-preview.jpg</span>
             </div>
             <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span></div>
+              <div class="port-card__tags">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span>
+              </div>
               <h3 class="port-card__title">IronShield Roofing</h3>
               <p class="port-card__desc">Storm-damage lead generation page. Trust-first layout, call-driven structure, and a focused quote request flow built for a local roofing contractor.</p>
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
@@ -366,8 +848,12 @@
               <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
             <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High-Ticket</span><span class="tag">Applications</span></div>
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span><span class="tag">High-Ticket</span><span class="tag">Applications</span>
+              </div>
               <h3 class="port-card__title">Fitness Coach Funnel</h3>
               <p class="port-card__desc">Application-style landing page for a high-ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
@@ -380,8 +866,12 @@
               <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
             <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Waitlist</span><span class="tag">Email Capture</span></div>
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span>
+              </div>
+              <div class="port-card__tags">
+                <span class="tag">Landing Page</span><span class="tag">Waitlist</span><span class="tag">Email Capture</span>
+              </div>
               <h3 class="port-card__title">SaaS Beta Waitlist</h3>
               <p class="port-card__desc">Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built to convert visitors into signups.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
@@ -448,7 +938,7 @@
 
   <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="port-lightbox__inner">
-      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">✕</button>
+      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
       <img class="port-lightbox__img" id="lightboxImg" src="" alt="">
       <p class="port-lightbox__caption" id="lightboxCaption"></p>
       <p class="port-lightbox__hint">Press ESC or tap outside to close</p>
@@ -457,7 +947,6 @@
 
   <script src="js/scripts.js"></script>
   <script>
-    // Lightbox execution fallback
     function openLightbox(src, caption) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxImg').alt = caption;
@@ -478,6 +967,3 @@
   </script>
 </body>
 </html>
-
-
-
