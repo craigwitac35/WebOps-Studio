@@ -32,10 +32,9 @@
           rgba(7,7,12,0.50) 40%,
           rgba(7,7,12,0.85) 85%,
           rgba(7,7,12,1.00) 100%),
-        url('images/background-new-image.jpg');
+        url('images/Background1.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
     }
     .port-hero__inner {
       padding: 140px 0 100px;
@@ -326,8 +325,7 @@
     }
     .concept-preview__main img {
       width: 100%;
-      height: auto;
-      aspect-ratio: 16/9;
+      height: 420px;
       object-fit: cover;
       object-position: top;
       display: block;
@@ -382,7 +380,7 @@
     }
     .concept-thumbs__thumb img {
       width: 100%;
-      height: 70px;
+      height: 90px;
       object-fit: cover;
       object-position: top;
       display: block;
@@ -552,13 +550,15 @@
       .g4h-card__top { padding: 20px; }
       .g4h-card__gallery { padding: 20px; }
       .port-section-break__badge { display: none; }
+      /* Taller carousel is great on desktop but needs trim on mobile */
+      .concept-preview__main img { height: 260px; }
     }
 
     @media (max-width: 640px) {
       .port-hero__stats { gap: 28px; }
       .port-card-grid { grid-template-columns: 1fr; }
       .concept-thumbs__thumb { flex: 0 0 90px; }
-      .concept-thumbs__thumb img { height: 58px; }
+      .concept-thumbs__thumb img { height: 70px; }
     }
 
   </style>
@@ -666,43 +666,45 @@
 
           <div class="g4h-card__gallery">
             <p class="g4h-card__gallery-label">Project Gallery</p>
-            <div class="concept-preview" style="background: transparent; border: none; padding: 0;">
-              <div class="concept-preview__main"
-                   role="button"
-                   data-full="images/guardian-1.jpg"
-                   data-caption="Guardian 4 Heroes - Hero">
-                <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero">
-              </div>
-              <div class="concept-thumbs">
-                <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
-                <div class="concept-thumbs__track">
-                  <div class="concept-thumbs__thumb is-active"
-                       data-src="images/guardian-1.jpg"
-                       data-caption="Hero">
-                    <img src="images/guardian-1.jpg" alt="Hero">
-                  </div>
-                  <div class="concept-thumbs__thumb"
-                       data-src="images/guardian-2.jpg"
-                       data-caption="Mission &amp; Content">
-                    <img src="images/guardian-2.jpg" alt="Mission">
-                  </div>
-                  <div class="concept-thumbs__thumb"
-                       data-src="images/guardian-3.jpg"
-                       data-caption="Shop Section">
-                    <img src="images/guardian-3.jpg" alt="Shop">
-                  </div>
-                  <div class="concept-thumbs__thumb"
-                       data-src="images/guardian-4.jpg"
-                       data-caption="Donation UX">
-                    <img src="images/guardian-4.jpg" alt="Donation">
-                  </div>
-                  <div class="concept-thumbs__thumb"
-                       data-src="images/guardian-5.jpg"
-                       data-caption="CSS Architecture">
-                    <img src="images/guardian-5.jpg" alt="CSS">
-                  </div>
+            <div class="concept-row" data-carousel="g4h" style="grid-template-columns: 1fr; margin-top: 0;">
+              <div class="concept-preview" style="background: transparent; border: none; padding: 0;">
+                <div class="concept-preview__main"
+                     role="button"
+                     data-full="images/guardian-1.jpg"
+                     data-caption="Guardian 4 Heroes - Hero">
+                  <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero">
                 </div>
-                <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
+                <div class="concept-thumbs">
+                  <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
+                  <div class="concept-thumbs__track">
+                    <div class="concept-thumbs__thumb is-active"
+                         data-src="images/guardian-1.jpg"
+                         data-caption="Hero">
+                      <img src="images/guardian-1.jpg" alt="Hero">
+                    </div>
+                    <div class="concept-thumbs__thumb"
+                         data-src="images/guardian-2.jpg"
+                         data-caption="Mission &amp; Content">
+                      <img src="images/guardian-2.jpg" alt="Mission">
+                    </div>
+                    <div class="concept-thumbs__thumb"
+                         data-src="images/guardian-3.jpg"
+                         data-caption="Shop Section">
+                      <img src="images/guardian-3.jpg" alt="Shop">
+                    </div>
+                    <div class="concept-thumbs__thumb"
+                         data-src="images/guardian-4.jpg"
+                         data-caption="Donation UX">
+                      <img src="images/guardian-4.jpg" alt="Donation">
+                    </div>
+                    <div class="concept-thumbs__thumb"
+                         data-src="images/guardian-5.jpg"
+                         data-caption="CSS Architecture">
+                      <img src="images/guardian-5.jpg" alt="CSS">
+                    </div>
+                  </div>
+                  <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
+                </div>
               </div>
             </div>
           </div>
