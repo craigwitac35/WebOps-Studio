@@ -475,50 +475,43 @@
       background: rgba(0,0,0,0.96);
       align-items: center;
       justify-content: center;
+      padding: 24px;
     }
     .port-lightbox.active { display: flex; }
     .port-lightbox__inner {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      max-width: 1100px;
       width: 100%;
-      height: 100%;
-      padding: 48px 16px 16px;
-      box-sizing: border-box;
+    }
+    .port-lightbox__img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      display: block;
     }
     .port-lightbox__close {
       position: fixed;
       top: 12px;
       right: 12px;
-      z-index: 10;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: rgba(0,0,0,0.70);
       border: 1px solid rgba(255,255,255,0.25);
       color: var(--color-white);
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background 0.2s ease;
+      z-index: 10000;
     }
-    .port-lightbox__close:hover { background: rgba(232,98,10,0.60); }
-    .port-lightbox__img {
-      display: block;
-      max-width: 100%;
-      max-height: calc(100vh - 80px);
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      margin: 0 auto;
-    }
+    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
     .port-lightbox__caption {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 14px;
       font-family: var(--font-mono);
       font-size: 0.62rem;
       color: var(--color-text-3);
@@ -527,7 +520,7 @@
     }
     .port-lightbox__hint {
       text-align: center;
-      margin-top: 4px;
+      margin-top: 6px;
       font-family: var(--font-mono);
       font-size: 0.50rem;
       color: rgba(255,255,255,0.18);
