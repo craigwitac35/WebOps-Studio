@@ -318,7 +318,7 @@
     }
     .concept-preview__main img {
       width: 100%;
-      height: 420px;
+      aspect-ratio: 16/9;
       object-fit: cover;
       object-position: top;
       display: block;
@@ -406,14 +406,15 @@
     }
     .port-card__img {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 3/4;
       object-fit: cover;
+      object-position: top;
       display: block;
       background: var(--color-surface-1);
     }
     .port-card__placeholder {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 3/4;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -474,42 +475,47 @@
       background: rgba(0,0,0,0.96);
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 16px;
     }
     .port-lightbox.active { display: flex; }
     .port-lightbox__inner {
       position: relative;
       max-width: 1100px;
       width: 100%;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
     }
-    .port-lightbox__img {
-      width: 100%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: var(--radius-sm);
-      display: block;
-    }
+    /* Close button sits INSIDE the panel at top-right, always visible */
     .port-lightbox__close {
       position: absolute;
-      top: -56px;
-      right: 0;
-      width: 44px;
-      height: 44px;
+      top: 8px;
+      right: 8px;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(0,0,0,0.70);
+      border: 1px solid rgba(255,255,255,0.25);
       color: var(--color-white);
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background 0.2s ease;
     }
-    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
+    .port-lightbox__close:hover { background: rgba(232,98,10,0.60); }
+    .port-lightbox__img {
+      width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      display: block;
+    }
     .port-lightbox__caption {
       text-align: center;
-      margin-top: 14px;
+      margin-top: 10px;
       font-family: var(--font-mono);
       font-size: 0.62rem;
       color: var(--color-text-3);
@@ -518,7 +524,7 @@
     }
     .port-lightbox__hint {
       text-align: center;
-      margin-top: 6px;
+      margin-top: 4px;
       font-family: var(--font-mono);
       font-size: 0.50rem;
       color: rgba(255,255,255,0.18);
@@ -543,8 +549,6 @@
       .g4h-card__top { padding: 20px; }
       .g4h-card__gallery { padding: 20px; }
       .port-section-break__badge { display: none; }
-      /* Taller carousel is great on desktop but needs trim on mobile */
-      .concept-preview__main img { height: 260px; }
     }
 
     @media (max-width: 640px) {
@@ -659,45 +663,34 @@
 
           <div class="g4h-card__gallery">
             <p class="g4h-card__gallery-label">Project Gallery</p>
-            <div class="concept-row" data-carousel="g4h" style="grid-template-columns: 1fr; margin-top: 0;">
-              <div class="concept-preview" style="background: transparent; border: none; padding: 0;">
-                <div class="concept-preview__main"
-                     role="button"
-                     data-full="images/guardian-1.jpg"
-                     data-caption="Guardian 4 Heroes - Hero">
-                  <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero">
-                </div>
-                <div class="concept-thumbs">
-                  <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
-                  <div class="concept-thumbs__track">
-                    <div class="concept-thumbs__thumb is-active"
-                         data-src="images/guardian-1.jpg"
-                         data-caption="Hero">
-                      <img src="images/guardian-1.jpg" alt="Hero">
-                    </div>
-                    <div class="concept-thumbs__thumb"
-                         data-src="images/guardian-2.jpg"
-                         data-caption="Mission &amp; Content">
-                      <img src="images/guardian-2.jpg" alt="Mission">
-                    </div>
-                    <div class="concept-thumbs__thumb"
-                         data-src="images/guardian-3.jpg"
-                         data-caption="Shop Section">
-                      <img src="images/guardian-3.jpg" alt="Shop">
-                    </div>
-                    <div class="concept-thumbs__thumb"
-                         data-src="images/guardian-4.jpg"
-                         data-caption="Donation UX">
-                      <img src="images/guardian-4.jpg" alt="Donation">
-                    </div>
-                    <div class="concept-thumbs__thumb"
-                         data-src="images/guardian-5.jpg"
-                         data-caption="CSS Architecture">
-                      <img src="images/guardian-5.jpg" alt="CSS">
-                    </div>
+            <div class="concept-preview" style="background: transparent; border: none; padding: 0;" id="g4hCarousel">
+              <div class="concept-preview__main"
+                   role="button"
+                   id="g4hMainBtn"
+                   data-full="images/guardian-1.jpg"
+                   data-caption="Guardian 4 Heroes - Hero">
+                <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero" id="g4hMainImg">
+              </div>
+              <div class="concept-thumbs">
+                <button class="concept-thumbs__arrow" id="g4hPrev">&#8249;</button>
+                <div class="concept-thumbs__track" id="g4hTrack">
+                  <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Hero">
+                    <img src="images/guardian-1.jpg" alt="Hero">
                   </div>
-                  <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
+                  <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content">
+                    <img src="images/guardian-2.jpg" alt="Mission">
+                  </div>
+                  <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section">
+                    <img src="images/guardian-3.jpg" alt="Shop">
+                  </div>
+                  <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX">
+                    <img src="images/guardian-4.jpg" alt="Donation">
+                  </div>
+                  <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture">
+                    <img src="images/guardian-5.jpg" alt="CSS">
+                  </div>
                 </div>
+                <button class="concept-thumbs__arrow" id="g4hNext">&#8250;</button>
               </div>
             </div>
           </div>
@@ -895,7 +888,7 @@
 
   <footer>
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-grid" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;">
         <div class="footer-brand">
           <div class="site-logo">
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
@@ -942,6 +935,7 @@
 
   <script src="js/scripts.js"></script>
   <script>
+    /* ── Lightbox ─────────────────────────────────────────── */
     function openLightbox(src, caption) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxImg').alt = caption;
@@ -959,6 +953,51 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
+
+    /* ── G4H Self-contained carousel ─────────────────────── */
+    (function() {
+      var mainBtn  = document.getElementById('g4hMainBtn');
+      var mainImg  = document.getElementById('g4hMainImg');
+      var track    = document.getElementById('g4hTrack');
+      var thumbs   = Array.from(track.querySelectorAll('.concept-thumbs__thumb'));
+      var prev     = document.getElementById('g4hPrev');
+      var next     = document.getElementById('g4hNext');
+
+      function setActive(thumb) {
+        thumbs.forEach(function(t) { t.classList.remove('is-active'); });
+        thumb.classList.add('is-active');
+        var src     = thumb.dataset.src;
+        var caption = thumb.dataset.caption || '';
+        mainImg.src = src;
+        mainImg.alt = caption;
+        mainBtn.dataset.full    = src;
+        mainBtn.dataset.caption = caption;
+        // scroll thumb into view
+        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+
+      // Thumb clicks
+      thumbs.forEach(function(t) {
+        t.addEventListener('click', function() { setActive(t); });
+      });
+
+      // Main image click -> lightbox
+      mainBtn.addEventListener('click', function() {
+        openLightbox(this.dataset.full || mainImg.src, this.dataset.caption || '');
+      });
+
+      // Arrow buttons — step through thumbs
+      prev.addEventListener('click', function() {
+        var current = thumbs.findIndex(function(t) { return t.classList.contains('is-active'); });
+        var target  = current > 0 ? current - 1 : thumbs.length - 1;
+        setActive(thumbs[target]);
+      });
+      next.addEventListener('click', function() {
+        var current = thumbs.findIndex(function(t) { return t.classList.contains('is-active'); });
+        var target  = current < thumbs.length - 1 ? current + 1 : 0;
+        setActive(thumbs[target]);
+      });
+    })();
   </script>
 </body>
 </html>
