@@ -254,7 +254,7 @@
     }
     .g4h-card__gallery {
       padding: 28px 32px;
-      background: var(--color-surface-2);
+      background: var(--color-surface-1);
     }
     .g4h-card__gallery-label {
       font-family: var(--font-mono);
@@ -475,22 +475,22 @@
       background: rgba(0,0,0,0.96);
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 0;
     }
     .port-lightbox.active { display: flex; }
     .port-lightbox__inner {
       position: relative;
-      max-width: 1100px;
       width: 100%;
-      max-height: 95vh;
+      height: 100%;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    /* Close button sits INSIDE the panel at top-right, always visible */
     .port-lightbox__close {
-      position: absolute;
-      top: 8px;
-      right: 8px;
+      position: fixed;
+      top: 12px;
+      right: 12px;
       z-index: 10;
       width: 40px;
       height: 40px;
@@ -508,9 +508,9 @@
     .port-lightbox__close:hover { background: rgba(232,98,10,0.60); }
     .port-lightbox__img {
       width: 100%;
-      max-height: 82vh;
+      max-width: 100%;
+      max-height: 90vh;
       object-fit: contain;
-      border-radius: var(--radius-sm);
       display: block;
     }
     .port-lightbox__caption {
