@@ -18,9 +18,27 @@
 <style>
 /* ═══════════════════════════════════════════════════════════════
    PORTFOLIO REDESIGN - CINEMATIC DARK THEME
+   ALL FIXES APPLIED: Brighter Background, Mobile Responsive, Image Paths
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── HERO SECTION WITH ATMOSPHERIC BACKGROUND ── */
+/* ── GLOBAL MOBILE FIX ── */
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure all images stay within bounds */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── HERO SECTION WITH ATMOSPHERIC BACKGROUND (BRIGHTENED) ── */
 .port-hero {
   position: relative;
   min-height: 85vh;
@@ -42,7 +60,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.4;
+  opacity: 0.7; /* INCREASED from 0.4 to 0.7 - much brighter */
   z-index: 1;
 }
 
@@ -55,9 +73,9 @@
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(7,7,12,0.3) 0%,
-    rgba(7,7,12,0.7) 50%,
-    rgba(7,7,12,0.95) 100%
+    rgba(7,7,12,0.1) 0%,      /* REDUCED from 0.3 - less dark at top */
+    rgba(7,7,12,0.4) 50%,     /* REDUCED from 0.7 - less dark in middle */
+    rgba(7,7,12,0.85) 100%    /* REDUCED from 0.95 - less dark at bottom */
   );
   z-index: 2;
 }
@@ -427,6 +445,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 4px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .concept-thumbs__thumb {
@@ -725,34 +744,111 @@
   }
 }
 
-/* ── RESPONSIVE DESIGN ── */
+/* ── RESPONSIVE DESIGN (MOBILE FIXES) ── */
 @media (max-width: 768px) {
   .port-hero {
     min-height: 70vh;
+    padding: 0 10px;
+  }
+
+  .port-hero__inner {
+    padding: 40px 10px;
+    max-width: 100%;
+  }
+
+  .port-hero__title {
+    font-size: 2rem;
+    word-break: break-word;
   }
 
   .port-hero__stats {
-    gap: 24px;
+    gap: 20px;
+    flex-direction: column;
   }
 
   .g4h-split {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 24px;
+    padding: 20px;
+  }
+
+  .g4h-split__img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
   }
 
   .concept-row {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 24px;
+    padding: 20px;
   }
 
   .port-card-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .port-section-break__line {
-    max-width: 100px;
+    max-width: 60px;
+  }
+
+  .port-section-break__badge {
+    font-size: 0.6rem;
+    padding: 4px 10px;
+  }
+
+  .port-project-intro {
+    padding: 0 10px;
+  }
+
+  .port-project-intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .port-lightbox__inner {
+    max-width: 95vw;
+    padding: 10px;
+  }
+
+  .port-lightbox__close {
+    top: -40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .port-lightbox__img {
+    max-width: 100%;
+    max-height: 70vh;
+  }
+
+  .concept-thumbs__thumb {
+    width: 80px;
+    height: 60px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .port-hero__title {
+    font-size: 1.8rem;
+  }
+
+  .port-stat__num {
+    font-size: 2rem;
+  }
+
+  .port-hero__eyebrow {
+    font-size: 0.65rem;
+    gap: 10px;
+  }
+
+  .port-hero__line {
+    width: 20px;
+  }
+
+  .port-project-intro h2 {
+    font-size: 1.5rem;
   }
 }
 </style>
@@ -781,7 +877,7 @@
 </header>
 
 <main>
-<!-- HERO SECTION WITH ATMOSPHERIC BACKGROUND -->
+<!-- HERO SECTION WITH ATMOSPHERIC BACKGROUND (BRIGHTENED) -->
 <section class="port-hero">
 <div class="container port-hero__inner">
 <p class="port-hero__eyebrow">
@@ -944,10 +1040,10 @@ I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it
 </div>
 
 <div class="port-card-grid">
-<!-- IronShield Roofing -->
+<!-- IronShield Roofing - FIXED IMAGE PATH -->
 <article class="port-card reveal">
 <img
-src="images/ironshield-preview.jpg"
+src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
 alt="IronShield Roofing landing page demo"
 class="port-card__img"
 loading="lazy"
@@ -1056,7 +1152,7 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 <div class="footer-col">
 <h4>Contact</h4>
 <div class="footer-contact-items">
-<p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
+<p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#8ae9f8ebe3ede8ebffe7ebe4e4b8bab8bacaede7ebe3e6a4e9e5e7"><span class="__cf_email__" data-cfemail="8fecfdeee6e8edeefae2eee1e1bdbfbdbfcfe8e2eee6e3a1ece0e2">[email&#160;protected]</span></a></p>
 <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
 <p class="footer-contact-item">Minnesota, United States</p>
 </div>
@@ -1081,7 +1177,7 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 </div>
 </div>
 
-<script src="js/scripts.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/scripts.js"></script>
 <script>
 // ═══════════════════════════════════════════════════════════════
 // LIGHTBOX FUNCTIONS
