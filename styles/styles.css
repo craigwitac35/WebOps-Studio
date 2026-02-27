@@ -121,7 +121,16 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--font-body);
-  background: var(--color-bg);
+  
+  /* --- NEW GLOBAL BACKGROUND --- */
+  background-image: 
+    linear-gradient(rgba(7, 7, 12, 0.80), rgba(7, 7, 12, 0.85)),
+    url('../images/background-new-image.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  /* ----------------------------- */
+
   color: var(--color-text-2);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -2028,4 +2037,245 @@ footer {
 @media (max-width: 900px) {
   .g4h-split__img { float: none; width: 100%; margin: 0 0 24px 0; }
   .concept-row { grid-template-columns: 1fr; }
+}
+/* =========================================================================
+   PORTFOLIO REDESIGN (Glassmorphism & Cinematic UI)
+========================================================================= */
+
+:root {
+  --port-bg: #07070c;
+  --port-panel: rgba(16,16,22,0.72);
+  --port-panel-2: rgba(18,18,26,0.80);
+  --port-border: rgba(255,255,255,0.08);
+  --port-border-strong: rgba(255,255,255,0.12);
+  --port-orange: var(--color-orange);
+  --port-text: rgba(255,255,255,0.86);
+  --port-muted: rgba(255,255,255,0.62);
+  --port-glow: 0 0 0 1px rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.45);
+  --port-radius: 14px;
+}
+
+/* Base Panel System */
+.port-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid var(--port-border);
+  border-radius: var(--port-radius);
+  box-shadow: var(--port-glow);
+  overflow: hidden;
+  position: relative;
+}
+
+.port-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(232,98,10,0.10), transparent 50%),
+    radial-gradient(circle at 90% 30%, rgba(59,30,109,0.12), transparent 55%);
+  opacity: .9;
+}
+
+.port-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.port-hairline {
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(232,98,10,0.0),
+    rgba(232,98,10,0.35),
+    rgba(255,255,255,0.08),
+    rgba(232,98,10,0.0)
+  );
+}
+
+/* Glowing Section Dividers */
+.port-section-break {
+  background: transparent;
+  border: none;
+  padding: 26px 0 18px;
+}
+
+.port-section-break__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.port-section-break__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+.port-section-break__label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--port-orange);
+  box-shadow: 0 0 18px rgba(232,98,10,0.45);
+}
+
+.port-section-break__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(232,98,10,0.35),
+    rgba(255,255,255,0.12),
+    rgba(232,98,10,0.0)
+  );
+}
+
+.port-section-break__badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(232,98,10,0.28);
+  background: rgba(232,98,10,0.08);
+  color: rgba(255,255,255,0.86);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.port-section-break__badge::after {
+  content: "▾";
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transform: translateY(-1px);
+}
+
+/* Featured Project Panel */
+.port-featured {
+  margin-top: 24px;
+  margin-bottom: 60px;
+}
+
+.port-featured__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 26px;
+  padding: 22px;
+  align-items: start;
+}
+
+.port-featured__content {
+  padding-right: 6px;
+}
+
+.port-featured__title {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 10px 0 14px;
+  color: var(--color-white);
+  font-size: 2rem;
+}
+
+.port-featured__p {
+  color: rgba(255,255,255,0.76);
+  line-height: 1.85;
+  margin: 0 0 14px;
+  font-size: 1.02rem;
+}
+
+/* Redesigned Grid Images for Panel Look */
+.g4h-split__img {
+  float: none;
+  width: 100%;
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid var(--port-border-strong);
+  background: rgba(10,10,14,0.6);
+}
+
+.g4h-split__img-overlay { background: transparent; }
+.g4h-split__img:hover .g4h-split__img-overlay { background: rgba(0,0,0,0.25); }
+
+.g4h-split__zoom {
+  opacity: 0;
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(0,0,0,0.6);
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: opacity 0.3s ease;
+}
+
+.g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
+
+/* 3-Tile Concept Gallery (Option A) */
+.port-gallery {
+  padding: 22px;
+  margin-top: 18px;
+  margin-bottom: 60px;
+}
+
+.port-gallery__head h2 { margin: 8px 0 0; }
+
+.port-gallery__grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.port-gallery__card {
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(10,10,14,0.55);
+}
+
+.port-gallery__card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+
+.port-gallery__card h3 {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  padding: 12px 12px 14px;
+  margin: 0;
+  color: rgba(255,255,255,0.86);
+}
+
+/* Landing Page Card Polish */
+.port-card {
+  border-radius: 14px;
+  background: rgba(10,10,14,0.55);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 14px 45px rgba(0,0,0,0.35);
+}
+
+.port-card__body { padding: 18px; }
+.port-card__desc { color: rgba(255,255,255,0.62); }
+
+.port-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232,98,10,0.28);
+}
+
+/* Responsive Overrides */
+@media(max-width: 900px){
+  .port-featured__grid { grid-template-columns: 1fr; }
+  .port-gallery__grid { grid-template-columns: 1fr; }
+  .port-section-break__badge { display: none; }
 }
