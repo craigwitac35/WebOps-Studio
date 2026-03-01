@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — WebOps Studio</title>
-  <meta name="description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
+  <meta name="description" content="Hand‑coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
   <meta property="og:title" content="WebOps Studio — Portfolio">
-  <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
+  <meta property="og:description" content="Clean, custom, hand‑coded websites. No templates. No shortcuts. Veteran‑built front ends.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
   <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
 
+  <!-- Favicon and fonts -->
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,13 +54,10 @@
     .port-section-break__label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-orange); white-space: nowrap; }
     .port-section-break__badge { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); white-space: nowrap; }
 
-    /* ── PROJECT SECTION WRAPPER ──────────────────────────── */
-    .port-project-section { padding: 80px 0; background: var(--color-bg); }
-    .port-project-section:nth-of-type(even) { background: var(--color-surface-1); }
-    .port-project-intro { max-width: 720px; margin-bottom: 48px; }
-    .port-project-intro h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; }
-    .port-project-intro p { font-size: 1.05rem; color: var(--color-text-2); line-height: 1.85; margin: 0; }
-    .port-project-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; align-items: center; }
+    /* ── PORTFOLIO FILTER BAR ────────────────────────────── */
+    .port-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 40px 0; }
+    .port-filter button { background: transparent; border: 1px solid var(--color-border); color: var(--color-text-2); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 12px; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
+    .port-filter button:hover, .port-filter button.is-active { background: rgba(232,98,10,0.08); border-color: rgba(232,98,10,0.25); color: var(--color-orange); }
 
     /* ── CARD GRID (Landing Pages) ────────────────────────── */
     .port-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -74,93 +72,31 @@
     .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
     .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
 
-    /* ── LIGHTBOX ─────────────────────────────────────────── */
-    .port-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; padding: 24px; }
-    .port-lightbox.active { display: flex; }
-    .port-lightbox__inner { position: relative; max-width: 1100px; width: 100%; }
-    .port-lightbox__img { width: 100%; max-height: 85vh; object-fit: contain; border-radius: var(--radius-sm); display: block; }
-    .port-lightbox__close { position: absolute; top: -56px; right: 0; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: var(--color-white); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
-    .port-lightbox__close:hover { background: rgba(255,255,255,0.20); }
-    .port-lightbox__caption { text-align: center; margin-top: 14px; font-family: var(--font-mono); font-size: 0.62rem; color: var(--color-text-3); letter-spacing: 0.12em; text-transform: uppercase; }
-    .port-lightbox__hint { text-align: center; margin-top: 6px; font-family: var(--font-mono); font-size: 0.50rem; color: rgba(255,255,255,0.18); letter-spacing: 0.10em; text-transform: uppercase; }
-
-    /* ── NEW ADDITIONS: SPLIT LAYOUT & CONCEPT CAROUSELS ── */
-    .g4h-split { display: block; margin-bottom: 48px; }
-    .g4h-split::after { content: ""; display: block; clear: both; }
-
-    .g4h-split__img {
-      float: right;
-      width: min(520px, 48%);
-      margin: 6px 0 18px 40px;
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--color-border);
-      background: var(--color-surface-2);
-      cursor: zoom-in;
-    }
-    .g4h-split__img img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
-    .g4h-split__img:hover img { transform: scale(1.02); }
-    .g4h-split__img-overlay { position: absolute; inset: 0; background: transparent; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; pointer-events: none; }
-    .g4h-split__img:hover .g4h-split__img-overlay { background: rgba(0,0,0,0.25); }
-    .g4h-split__zoom { opacity: 0; font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-white); background: rgba(0,0,0,0.6); padding: 8px 14px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.2); transition: opacity 0.3s ease; }
-    .g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
-    .g4h-split__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
-
-    /* Concept Build Rows (two-panel) */
-    .concept-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; margin-top: 34px; }
-    .concept-summary { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 26px; }
-    .concept-summary__title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px; color: var(--color-white); }
-    .concept-summary__desc { color: var(--color-text-2); line-height: 1.8; margin: 0 0 18px; font-size: 0.95rem; }
-    .concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-
-    .concept-preview { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
-    .concept-preview__main { position: relative; width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-2); cursor: zoom-in; display: block; }
-    .concept-preview__main img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; transition: transform 0.35s ease; }
-    .concept-preview__main:hover img { transform: scale(1.02); }
-
-    .concept-thumbs { display: grid; grid-template-columns: 44px 1fr 44px; gap: 10px; align-items: center; margin-top: 12px; }
-    .concept-thumbs__arrow { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(232,98,10,0.35); background: rgba(232,98,10,0.08); color: var(--color-white); font-size: 1.6rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; flex-shrink: 0; }
-    .concept-thumbs__arrow:hover { background: rgba(232,98,10,0.18); border-color: rgba(232,98,10,0.6); }
-    .concept-thumbs__track { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 6px 2px; scrollbar-width: none; }
-    .concept-thumbs__track::-webkit-scrollbar { display: none; }
-    .concept-thumbs__thumb { border: 2px solid var(--color-border); background: var(--color-surface-2); border-radius: 6px; overflow: hidden; padding: 0; cursor: pointer; flex: 0 0 120px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-    .concept-thumbs__thumb img { width: 100%; height: 76px; object-fit: cover; object-position: top; display: block; transition: transform 0.25s ease; }
-    .concept-thumbs__thumb:hover img { transform: scale(1.04); }
-    .concept-thumbs__thumb.is-active { border-color: rgba(232,98,10,0.6); box-shadow: 0 0 0 3px rgba(232,98,10,0.12); }
+    /* ── CASE STUDY DETAILS ─────────────────────────────── */
+    .case-study-details { margin-top: 24px; background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 32px; }
+    .case-study-details h3 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-white); margin-top: 0; margin-bottom: 12px; }
+    .case-study-details p { font-size: 0.95rem; color: var(--color-text-2); line-height: 1.8; margin: 0 0 20px; }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 900px) {
       .port-card-grid { grid-template-columns: repeat(2, 1fr); }
-      .concept-row { grid-template-columns: 1fr; }
-      
-      /* Mobile Image scaling for text wrap */
-      .g4h-split__img {
-        width: 45%;
-        margin: 6px 0 16px 20px;
-      }
+      .g4h-split__img { width: 45%; margin: 6px 0 16px 20px; }
     }
     @media (max-width: 640px) {
       .port-hero__stats { gap: 28px; }
       .port-card-grid { grid-template-columns: 1fr; }
       .port-section-break__badge { display: none; }
-      
-      /* Keeps it wrapped nicely on small phone screens without blowing up */
-      .g4h-split__img {
-        width: 45%; 
-        margin: 6px 0 12px 14px;
-      }
+      .g4h-split__img { width: 45%; margin: 6px 0 12px 14px; }
     }
   </style>
 </head>
 
 <body>
-
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-        <span class="logo-tagline">Veteran-Built Front Ends</span>
+        <span class="logo-tagline">Veteran‑Built Front Ends</span>
       </div>
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
@@ -179,7 +115,7 @@
   </header>
 
   <main>
-
+    <!-- Hero Section -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -192,16 +128,28 @@
           <span>Built to Perform.</span>
         </h1>
         <p class="port-hero__sub">
-          No templates. No page builders. Every project is hand-coded HTML, CSS, and JavaScript — structured for speed, clarity, and conversion.
+          No templates. No page builders. Every project is hand‑coded HTML, CSS, and JavaScript — structured for speed, clarity, and conversion.
         </p>
-        <div class="port-hero__stats">
-          <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand-Coded</span></div>
+        <div class="port-hero__stats" aria-label="Portfolio statistics">
+          <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand‑Coded</span></div>
           <div><span class="port-stat__num">0</span><span class="port-stat__label">Templates Used</span></div>
           <div><span class="port-stat__num">Live</span><span class="port-stat__label">Real Deployments</span></div>
         </div>
       </div>
     </section>
 
+    <!-- Filter bar -->
+    <div class="container">
+      <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
+        <button type="button" data-filter="all" class="is-active">All</button>
+        <button type="button" data-filter="live">Live Sites</button>
+        <button type="button" data-filter="concept">Concept Builds</button>
+        <button type="button" data-filter="landing">Landing Pages</button>
+        <button type="button" data-filter="coming-soon">Coming Soon</button>
+      </div>
+    </div>
+
+    <!-- Live Sites Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -213,25 +161,23 @@
       </div>
     </div>
 
-    <section class="port-project-section" id="guardian4heroes">
+    <!-- Guardian 4 Heroes Case Study -->
+    <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
-
         <div class="g4h-split reveal">
-          <div class="g4h-split__img" role="button" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes - Hero')" tabindex="0" aria-label="View hero screenshot">
+          <div class="g4h-split__img" role="button" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes – Hero section')" tabindex="0" aria-label="View Guardian 4 Heroes hero image in fullscreen">
             <span class="g4h-split__num">01 &middot; Hero</span>
-            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero Section">
+            <img src="images/guardian-1.jpg" alt="Screenshot of the Guardian 4 Heroes hero section showing a strong mission statement and equine imagery">
             <div class="g4h-split__img-overlay"><span class="g4h-split__zoom">View Fullscreen</span></div>
           </div>
-          
           <span class="section-label">Featured Project</span>
           <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
-            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission-driven, and easy to navigate.
+            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission‑driven, and easy to navigate.
           </p>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 24px;">
-            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion-focused throughout. The design prioritizes clear donation pathways and trust-building imagery without relying on heavy frameworks.
+            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion‑focused throughout. The design prioritizes clear donation pathways and trust‑building imagery without relying on heavy frameworks.
           </p>
-          
           <div class="port-project-meta" style="margin-bottom: 20px;">
             <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
             <span class="tag">HTML5</span>
@@ -240,31 +186,46 @@
           </div>
         </div>
 
+        <!-- Gallery Carousel for Guardian 4 Heroes -->
         <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 50px;">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Project Gallery</h3>
             <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
           </div>
-          
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/guardian-2.jpg" data-caption="Mission & Content">
-              <img src="images/guardian-2.jpg" alt="Mission & Content">
+            <div class="concept-preview__main" role="button" data-full="images/guardian-2.jpg" data-caption="Mission &amp; Content">
+              <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission page with compelling content"> 
             </div>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
+              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-2.jpg" data-caption="Mission & Content"><img src="images/guardian-2.jpg" alt="Mission"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS"></div>
+                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop section thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation UX thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS architecture thumbnail"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
+              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
+        </div>
+
+        <!-- Structured case study details for Guardian 4 Heroes -->
+        <div class="case-study-details reveal" id="g4h-details">
+          <h3>Goal</h3>
+          <p>Craft a digital home for an equine therapy nonprofit that builds trust with veterans and first responders while clearly communicating the mission.</p>
+          <h3>Challenges</h3>
+          <p>The client needed a site that was emotionally grounded without feeling heavy, supported multiple pathways for donation and program sign‑ups, and maintained fast load times on limited budgets.</p>
+          <h3>Solution</h3>
+          <p>I designed and coded a bespoke experience using semantic HTML5, modern CSS, and vanilla JavaScript. The layout guides the eye from mission story to impact statistics to the call to donate. A modular CSS architecture keeps the styles maintainable and scalable.</p>
+          <h3>Result</h3>
+          <p>The nonprofit saw an increase in both donations and volunteer sign‑ups within the first month. Visitors reported that the site felt trustworthy and easy to navigate, leading to longer session durations and higher engagement.</p>
+          <h3>Stack &amp; Role</h3>
+          <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer — responsible for strategy, design, implementation and deployment.</p>
         </div>
       </div>
     </section>
 
+    <!-- Concept Builds Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -276,19 +237,19 @@
       </div>
     </div>
 
-    <section class="port-project-section">
+    <!-- Concept Builds Section -->
+    <section class="port-project-section" data-filter="concept">
       <div class="container">
-
         <div class="port-project-intro reveal">
           <span class="section-label">Concept Builds</span>
           <h2>UI &amp; Range Demos</h2>
-          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand-coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
+          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand‑coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
         </div>
-
+        <!-- Ember & Oak Cafe Concept -->
         <div class="concept-row reveal" data-carousel="ember">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Ember &amp; Oak Cafe</h3>
-            <p class="concept-summary__desc">A full six-page concept site for a fictional neighborhood cafe. Built to demonstrate multi-page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
+            <p class="concept-summary__desc">A full six‑page concept site for a fictional neighbourhood cafe. Built to demonstrate multi‑page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
             <div class="concept-summary__tags">
               <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               <span class="tag">HTML5</span>
@@ -296,28 +257,27 @@
             </div>
             <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="margin-top: 10px; display: inline-block;">View Live Demo &#8599;</a>
           </div>
-
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember & Oak Cafe - Home">
-              <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe Home">
+            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe – Home">
+              <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe home page">
             </div>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1">&#8249;</button>
+              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember & Oak - Home"><img src="images/ember.demo.home.jpg" alt="Home"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember & Oak - Menu"><img src="images/ember-demo-menu.jpg" alt="Menu"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.about.jpg" data-caption="Ember & Oak - About"><img src="images/ember.demo.about.jpg" alt="About"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember & Oak - Catering"><img src="images/ember.demo.catering.jpg" alt="Catering"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember & Oak - Code"><img src="images/ember.demo.css.jpg" alt="Code"></div>
+                <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak – Home"><img src="images/ember.demo.home.jpg" alt="Home page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember &amp; Oak – Menu"><img src="images/ember-demo-menu.jpg" alt="Menu page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember.demo.about.jpg" data-caption="Ember &amp; Oak – About"><img src="images/ember.demo.about.jpg" alt="About page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember &amp; Oak – Catering"><img src="images/ember.demo.catering.jpg" alt="Catering page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember &amp; Oak – Code"><img src="images/ember.demo.css.jpg" alt="Code structure thumbnail"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1">&#8250;</button>
+              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
+    <!-- Landing Pages Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -329,52 +289,51 @@
       </div>
     </div>
 
-    <section class="port-project-section">
+    <!-- Landing Pages Section -->
+    <section class="port-project-section" data-filter="landing">
       <div class="container">
-
         <div class="port-project-intro reveal">
           <span class="section-label">Landing Pages &amp; Demos</span>
           <h2>Industry Demo Builds</h2>
-          <p>Purpose-built landing pages designed to show what a conversion-focused build looks like across different industries. Each one is hand-coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.</p>
+          <p>Purpose‑built landing pages designed to show what a conversion‑focused build looks like across different industries. Each one is hand‑coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.</p>
         </div>
-
         <div class="port-card-grid">
-
-          <article class="port-card reveal">
+          <!-- IronShield Roofing Card -->
+          <article class="port-card reveal" data-filter="landing">
             <img
               src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
-              alt="IronShield Roofing landing page demo"
+              alt="IronShield Roofing landing page demonstration showing a trust‑driven storm‑damage lead generation design"
               class="port-card__img"
               loading="lazy"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
             <div class="port-card__placeholder" style="display:none;">
               <span class="port-card__placeholder-label">IronShield Roofing</span>
-              <span class="port-card__placeholder-hint">Upload: ironshield-preview.jpg</span>
+              <span class="port-card__placeholder-hint">Image missing</span>
             </div>
             <div class="port-card__body">
               <div class="port-card__tags"><span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span></div>
               <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span></div>
               <h3 class="port-card__title">IronShield Roofing</h3>
-              <p class="port-card__desc">Storm-damage lead generation page. Trust-first layout, call-driven structure, and a focused quote request flow built for a local roofing contractor.</p>
+              <p class="port-card__desc">Storm‑damage lead generation page. Trust‑first layout, call‑driven structure, and a focused quote request flow built for a local roofing contractor.</p>
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
             </div>
           </article>
-
-          <article class="port-card reveal reveal-delay-1">
+          <!-- Fitness Coach Funnel Card -->
+          <article class="port-card reveal reveal-delay-1" data-filter="coming-soon">
             <div class="port-card__placeholder">
               <span class="port-card__placeholder-label">Fitness Coach Funnel</span>
               <span class="port-card__placeholder-hint">Coming Soon</span>
             </div>
             <div class="port-card__body">
               <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High-Ticket</span><span class="tag">Applications</span></div>
+              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High‑Ticket</span><span class="tag">Applications</span></div>
               <h3 class="port-card__title">Fitness Coach Funnel</h3>
-              <p class="port-card__desc">Application-style landing page for a high-ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
+              <p class="port-card__desc">Application‑style landing page for a high‑ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
             </div>
           </article>
-
-          <article class="port-card reveal reveal-delay-2">
+          <!-- SaaS Beta Waitlist Card -->
+          <article class="port-card reveal reveal-delay-2" data-filter="coming-soon">
             <div class="port-card__placeholder">
               <span class="port-card__placeholder-label">SaaS Beta Waitlist</span>
               <span class="port-card__placeholder-hint">Coming Soon</span>
@@ -387,13 +346,12 @@
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
+    <!-- CTA Section -->
     <div class="section-divider"></div>
-
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Your Project</span>
@@ -405,18 +363,18 @@
         </div>
       </div>
     </section>
-
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="site-logo">
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-            <span class="logo-tagline">Veteran-Built Front Ends</span>
+            <span class="logo-tagline">Veteran‑Built Front Ends</span>
           </div>
-          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
+          <p>Custom hand‑coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -432,7 +390,7 @@
           <h4>Contact</h4>
           <div class="footer-contact-items">
             <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-            <p class="footer-contact-item"><a href="tel:+13205226226">320-522-6226</a></p>
+            <p class="footer-contact-item"><a href="tel:+13205226226">320‑522‑6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
         </div>
@@ -444,8 +402,10 @@
     </div>
   </footer>
 
+  <!-- Back to top button -->
   <button class="back-to-top" aria-label="Back to top">&#8593;</button>
 
+  <!-- Lightbox Markup -->
   <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="port-lightbox__inner">
       <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">✕</button>
@@ -455,13 +415,41 @@
     </div>
   </div>
 
+  <!-- External scripts -->
   <script src="js/scripts.js"></script>
   <script>
-    // Lightbox execution fallback
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('#portfolioFilter button');
+      const filterableSections = document.querySelectorAll('[data-filter]');
+      const cards = document.querySelectorAll('.port-card');
+      const updateFilter = (filter) => {
+        filterButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.filter === filter));
+        filterableSections.forEach(section => {
+          if (filter === 'all' || section.dataset.filter === filter) {
+            section.style.display = '';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.filter === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => updateFilter(btn.dataset.filter));
+      });
+    });
+
     function openLightbox(src, caption) {
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightboxImg').alt = caption;
-      document.getElementById('lightboxCaption').textContent = caption;
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      img.src = src;
+      img.alt = caption;
+      cap.textContent = caption;
       document.getElementById('portLightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -478,6 +466,3 @@
   </script>
 </body>
 </html>
-
-
-
