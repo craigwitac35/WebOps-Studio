@@ -11,46 +11,45 @@
   <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
   <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
 
+  <!-- Favicon and fonts -->
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
+  <link rel="preload" as="image" href="images/Background1.png">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Preload hero background for faster render -->
-  <link rel="preload" as="image" href="images/Background1.png">
-
   <style>
-
-    /* ─────────────────────────────────────────────────────────
-       TASK 1 — FULL PAGE BACKGROUND
-       Uses a fixed pseudo-element so the image stays locked
-       behind all content on scroll. Works on iOS where
-       background-attachment:fixed is unreliable.
-    ───────────────────────────────────────────────────────── */
+    /* ── TASK 1: Full-page background via body::before ──────
+       Uses a fixed pseudo-element so the background image
+       sits behind all page content without interfering with
+       the body's own background-color token from styles.css.  */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       z-index: -1;
       background: url('images/Background1.png') center / cover no-repeat;
-      opacity: 0.55; /* shows through gaps between sections */
+      opacity: 0.55;
     }
 
     /* ── HERO ─────────────────────────────────────────────── */
-    /* TASK 1 — Background image removed from hero.
-       The gradient now layers over the body::before image.   */
     .port-hero {
       position: relative;
       min-height: 72vh;
       display: flex;
       align-items: center;
       overflow: hidden;
-      background: linear-gradient(to bottom,
-        rgba(7,7,12,0.60) 0%,
-        rgba(7,7,12,0.45) 40%,
-        rgba(7,7,12,0.88) 85%,
-        rgba(7,7,12,1.00) 100%);
+      /* TASK 6: Corrected gradient opacity values — 0.40 / 0.25 / 0.75 */
+      background:
+        linear-gradient(to bottom,
+          rgba(7,7,12,0.40) 0%,
+          rgba(7,7,12,0.25) 40%,
+          rgba(7,7,12,0.75) 85%,
+          rgba(7,7,12,1.00) 100%),
+        url('images/Background1.png');
+      background-size: cover;
+      background-position: center;
     }
     .port-hero__inner { padding: 140px 0 100px; position: relative; z-index: 1; text-align: center; }
     .port-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 20px; }
@@ -71,16 +70,46 @@
     .port-section-break__badge { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); white-space: nowrap; }
 
     /* ── PORTFOLIO FILTER BAR ────────────────────────────── */
-    .port-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 40px 0; }
-    .port-filter button { background: transparent; border: 1px solid var(--color-border); color: var(--color-text-2); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 12px; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
-    .port-filter button:hover, .port-filter button.is-active { background: rgba(232,98,10,0.08); border-color: rgba(232,98,10,0.25); color: var(--color-orange); }
+    .port-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 40px 0;
+      /* TASK 6: Add frosted background, radius, and padding for readability */
+      background: rgba(7,7,12,0.72);
+      border-radius: var(--radius-md);
+      padding: 16px 20px; /* TASK 6 */
+    }
+    .port-filter button {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      /* TASK 6: Brighter base text so buttons read clearly over dark bg */
+      color: rgba(255,255,255,0.75);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      /* TASK 8C: Match border-radius to tag pills */
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .port-filter button:hover,
+    .port-filter button.is-active { background: rgba(232,98,10,0.08); border-color: rgba(232,98,10,0.25); color: var(--color-orange); }
 
     /* ── CARD GRID (Landing Pages) ────────────────────────── */
-    .port-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    /* TASK 8D: Subtle container background and border to unify cards */
+    .port-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      background: rgba(255,255,255,0.02); /* TASK 8D */
+      border: 1px solid rgba(255,255,255,0.05); /* TASK 8D */
+      border-radius: var(--radius-md); /* TASK 8D */
+      padding: 24px;
+    }
     .port-card { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
     .port-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); }
-    .port-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--color-surface-1); }
-    .port-card__placeholder { width: 100%; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
+    /* TASK 5: Changed from 16/9 to 4/3 — PASS */
+    .port-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--color-surface-1); }
+    .port-card__placeholder { width: 100%; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
     .port-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
     .port-card__placeholder-hint { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.10em; color: rgba(255,255,255,0.18); text-transform: uppercase; }
     .port-card__body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
@@ -88,100 +117,139 @@
     .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
     .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
 
+    /* ── TASK 4: Carousel main image — apply ratio to WRAPPER ─
+       The aspect-ratio goes on .concept-preview__main, not the
+       child img, so the container drives the height and the
+       image fills it with object-fit: cover.                   */
+    .concept-preview__main {
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      position: relative;
+    }
+    .concept-preview__main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+
     /* ── CASE STUDY DETAILS ─────────────────────────────── */
-    .case-study-details { margin-top: 24px; background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 32px; }
+    .case-study-details {
+      margin-top: 24px;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      /* TASK 8A: Left orange accent border + compensating padding-left */
+      border-left: 3px solid var(--color-orange);
+      padding-left: 28px;
+      border-radius: var(--radius-md);
+      padding: 32px;
+      padding-left: 28px;
+    }
     .case-study-details h3 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-white); margin-top: 0; margin-bottom: 12px; }
     .case-study-details p { font-size: 0.95rem; color: var(--color-text-2); line-height: 1.8; margin: 0 0 20px; }
 
-    /* ─────────────────────────────────────────────────────────
-       TASK 3 — LIGHTBOX FULLSCREEN FIX
-       Ensures the lightbox covers the entire viewport on both
-       mobile and desktop with proper z-index layering.
-    ───────────────────────────────────────────────────────── */
+    /* ── TASK 8E: Orange underline on .section-label ─────── */
+    .section-label {
+      display: inline-block;
+      border-bottom: 1px solid rgba(232,98,10,0.4); /* TASK 8E */
+      padding-bottom: 4px;
+    }
+
+    /* ── TASK 3: Lightbox CSS ────────────────────────────── */
     .port-lightbox {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(0, 0, 0, 0.93);
+      background: rgba(0,0,0,0.93);
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
     }
-    .port-lightbox.active {
-      display: flex;
-    }
+    .port-lightbox.active { display: flex; }
     .port-lightbox__inner {
       position: relative;
+      max-width: 92vw;
+      max-height: 92vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: min(1100px, 94vw);
-      width: 100%;
     }
+    .port-lightbox__img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    /* TASK 7: Close button — exact specified values */
     .port-lightbox__close {
       position: absolute;
-      top: -44px;
-      right: 0;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      background: rgba(0,0,0,0.55);
       color: #fff;
-      font-size: 1.1rem;
-      line-height: 1;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
       width: 36px;
       height: 36px;
-      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 1;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.2s;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
-    .port-lightbox__close:hover { background: rgba(232,98,10,0.3); }
-    .port-lightbox__img {
-      width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: 6px;
-      display: block;
+    .port-lightbox__close:hover {
+      background: rgba(232,98,10,0.5); /* TASK 7 */
+      border-color: rgba(232,98,10,0.8); /* TASK 7 */
     }
     .port-lightbox__caption {
+      margin-top: 12px;
       font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-top: 14px;
+      color: rgba(255,255,255,0.65);
       text-align: center;
     }
     .port-lightbox__hint {
       font-family: var(--font-mono);
-      font-size: 0.5rem;
+      font-size: 0.52rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.25);
-      margin-top: 6px;
+      color: rgba(255,255,255,0.28);
       text-align: center;
+      margin-top: 6px;
     }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 900px) {
       .port-card-grid { grid-template-columns: repeat(2, 1fr); }
+      .g4h-split__img { width: 45%; margin: 6px 0 16px 20px; }
     }
     @media (max-width: 640px) {
       .port-hero__stats { gap: 28px; }
       .port-card-grid { grid-template-columns: 1fr; }
       .port-section-break__badge { display: none; }
+      .g4h-split__img { width: 45%; margin: 6px 0 12px 14px; }
     }
   </style>
 </head>
 
 <body>
+  <!--
+    The header and navigation are consistent across the site.  Links point to
+    relative URLs to ensure that GitHub Pages resolves them correctly.  The
+    navigation highlight is handled via a CSS class on the current page.
+  -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
         <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-        <span class="logo-tagline">Veteran‑Built Front Ends</span>
+        <span class="logo-tagline">Veteran&#8209;Built Front Ends</span>
       </div>
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
@@ -200,6 +268,7 @@
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -212,16 +281,17 @@
           <span>Built to Perform.</span>
         </h1>
         <p class="port-hero__sub">
-          No templates. No page builders. Every project is hand‑coded HTML, CSS, and JavaScript — structured for speed, clarity, and conversion.
+          No templates. No page builders. Every project is hand&#8209;coded HTML, CSS, and JavaScript &#8212; structured for speed, clarity, and conversion.
         </p>
         <div class="port-hero__stats" aria-label="Portfolio statistics">
-          <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand‑Coded</span></div>
+          <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand&#8209;Coded</span></div>
           <div><span class="port-stat__num">0</span><span class="port-stat__label">Templates Used</span></div>
           <div><span class="port-stat__num">Live</span><span class="port-stat__label">Real Deployments</span></div>
         </div>
       </div>
     </section>
 
+    <!-- Filter bar -->
     <div class="container">
       <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
         <button type="button" data-filter="all" class="is-active">All</button>
@@ -232,7 +302,7 @@
       </div>
     </div>
 
-    <!-- Live Sites Divider -->
+    <!-- Live Sites Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -244,74 +314,78 @@
       </div>
     </div>
 
-    <!-- Guardian 4 Heroes -->
+    <!-- Guardian 4 Heroes Case Study -->
     <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
-
-        <div class="concept-row reveal" data-carousel="g4h">
-          <div class="concept-summary">
-            <span class="section-label" style="margin-bottom: 12px;">Featured Project</span>
-            <h2 class="concept-summary__title" style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
-            <p class="concept-summary__desc" style="color: rgba(255,255,255,0.78); line-height: 1.85;">
-              Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission‑driven, and easy to navigate.
-            </p>
-            <p class="concept-summary__desc" style="color: rgba(255,255,255,0.78); line-height: 1.85;">
-              I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion‑focused throughout. The design prioritizes clear donation pathways and trust‑building imagery without relying on heavy frameworks.
-            </p>
-            <div class="concept-summary__tags" style="margin-top: 24px;">
-              <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">Vanilla JS</span>
-            </div>
-            <a href="https://guardian4heroes.org" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" style="margin-top: 15px; display: inline-block;">Visit Live Site &#8599;</a>
+        <div class="g4h-split reveal">
+          <!-- Image on the right to allow text flow on large screens.  The image is
+               focusable and labelled for accessibility so that keyboard users can
+               open the lightbox. -->
+          <div class="g4h-split__img" role="button" tabindex="0" aria-label="View Guardian 4 Heroes hero image in fullscreen">
+            <span class="g4h-split__num">01 &middot; Hero</span>
+            <img src="images/guardian-1.jpg" alt="Screenshot of the Guardian 4 Heroes hero section showing a strong mission statement and equine imagery">
+            <div class="g4h-split__img-overlay"><span class="g4h-split__zoom">View Fullscreen</span></div>
           </div>
+          <!-- Text content -->
+          <span class="section-label">Featured Project</span>
+          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
+          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
+            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders &#8212; people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
+          </p>
+          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 24px;">
+            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion&#8209;focused throughout. The design prioritizes clear donation pathways and trust&#8209;building imagery without relying on heavy frameworks.
+          </p>
+          <div class="port-project-meta" style="margin-bottom: 20px;">
+            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">Vanilla JS</span>
+            <a href="https://guardian4heroes.org" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
+          </div>
+        </div>
 
+        <!-- Gallery Carousel for Guardian 4 Heroes -->
+        <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 50px;">
+          <div class="concept-summary">
+            <h3 class="concept-summary__title">Project Gallery</h3>
+            <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
+          </div>
           <div class="concept-preview">
-            <!--
-              TASK 2 + 3 — onclick removed from HTML.
-              The carousel JS below wires up all click handlers
-              dynamically so they stay in sync as you navigate.
-            -->
-            <div class="concept-preview__main"
-              role="button"
-              tabindex="0"
-              aria-label="View image fullscreen"
-              data-full="images/guardian-1.jpg"
-              data-caption="Guardian 4 Heroes - Hero">
-              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero Section" loading="eager">
+            <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
+              <!-- Start the gallery with the hero image to mirror the Ember carousel -->
+              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section">
             </div>
-
             <div class="concept-thumbs">
               <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Guardian 4 Heroes - Hero"><img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission page thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Guardian 4 Heroes shop section thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Guardian 4 Heroes donation UX thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="Guardian 4 Heroes CSS architecture thumbnail" loading="lazy"></div>
+                <!-- Include the hero section in the carousel and mark it active -->
+                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Hero Section"><img src="images/guardian-1.jpg" alt="Hero section thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop section thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation UX thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS architecture thumbnail"></div>
               </div>
               <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
 
+        <!-- Structured case study details for Guardian 4 Heroes -->
         <div class="case-study-details reveal" id="g4h-details">
           <h3>Goal</h3>
           <p>Craft a digital home for an equine therapy nonprofit that builds trust with veterans and first responders while clearly communicating the mission.</p>
           <h3>Challenges</h3>
-          <p>The client needed a site that was emotionally grounded without feeling heavy, supported multiple pathways for donation and program sign‑ups, and maintained fast load times on limited budgets.</p>
+          <p>The client needed a site that was emotionally grounded without feeling heavy, supported multiple pathways for donation and program sign&#8209;ups, and maintained fast load times on limited budgets.</p>
           <h3>Solution</h3>
           <p>I designed and coded a bespoke experience using semantic HTML5, modern CSS, and vanilla JavaScript. The layout guides the eye from mission story to impact statistics to the call to donate. A modular CSS architecture keeps the styles maintainable and scalable.</p>
           <h3>Result</h3>
-          <p>The nonprofit saw an increase in both donations and volunteer sign‑ups within the first month. Visitors reported that the site felt trustworthy and easy to navigate, leading to longer session durations and higher engagement.</p>
+          <p>The nonprofit saw an increase in both donations and volunteer sign&#8209;ups within the first month. Visitors reported that the site felt trustworthy and easy to navigate, leading to longer session durations and higher engagement.</p>
           <h3>Stack &amp; Role</h3>
-          <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer — responsible for strategy, design, implementation and deployment.</p>
+          <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer &#8212; responsible for strategy, design, implementation and deployment.</p>
         </div>
-
       </div>
     </section>
 
-    <!-- Concept Builds Divider -->
+    <!-- Concept Builds Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -323,20 +397,19 @@
       </div>
     </div>
 
-    <!-- Concept Builds -->
+    <!-- Concept Builds Section -->
     <section class="port-project-section" data-filter="concept">
       <div class="container">
         <div class="port-project-intro reveal">
           <span class="section-label">Concept Builds</span>
           <h2>UI &amp; Range Demos</h2>
-          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand‑coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
+          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges &#8212; all hand&#8209;coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
         </div>
-
-        <!-- Ember & Oak Cafe -->
+        <!-- Ember & Oak Cafe Concept -->
         <div class="concept-row reveal" data-carousel="ember">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Ember &amp; Oak Cafe</h3>
-            <p class="concept-summary__desc">A full six‑page concept site for a fictional neighbourhood cafe. Built to demonstrate multi‑page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
+            <p class="concept-summary__desc">A full six&#8209;page concept site for a fictional neighbourhood cafe. Built to demonstrate multi&#8209;page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
             <div class="concept-summary__tags">
               <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               <span class="tag">HTML5</span>
@@ -344,24 +417,18 @@
             </div>
             <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" style="margin-top: 10px; display: inline-block;">View Live Demo &#8599;</a>
           </div>
-
           <div class="concept-preview">
-            <div class="concept-preview__main"
-              role="button"
-              tabindex="0"
-              aria-label="View image fullscreen"
-              data-full="images/ember.demo.home.jpg"
-              data-caption="Ember &amp; Oak Cafe – Home">
-              <img src="images/ember.demo.home.jpg" alt="Ember and Oak Cafe home page" loading="eager">
+            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe &#8211; Home">
+              <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe home page">
             </div>
             <div class="concept-thumbs">
               <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak – Home"><img src="images/ember.demo.home.jpg" alt="Ember and Oak home page thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember &amp; Oak – Menu"><img src="images/ember-demo-menu.jpg" alt="Ember and Oak menu page thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.about.jpg" data-caption="Ember &amp; Oak – About"><img src="images/ember.demo.about.jpg" alt="Ember and Oak about page thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember &amp; Oak – Catering"><img src="images/ember.demo.catering.jpg" alt="Ember and Oak catering page thumbnail" loading="lazy"></div>
-                <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember &amp; Oak – Code"><img src="images/ember.demo.css.jpg" alt="Ember and Oak code structure thumbnail" loading="lazy"></div>
+                <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak &#8211; Home"><img src="images/ember.demo.home.jpg" alt="Home page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember &amp; Oak &#8211; Menu"><img src="images/ember-demo-menu.jpg" alt="Menu page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember.demo.about.jpg" data-caption="Ember &amp; Oak &#8211; About"><img src="images/ember.demo.about.jpg" alt="About page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember &amp; Oak &#8211; Catering"><img src="images/ember.demo.catering.jpg" alt="Catering page thumbnail"></div>
+                <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember &amp; Oak &#8211; Code"><img src="images/ember.demo.css.jpg" alt="Code structure thumbnail"></div>
               </div>
               <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
@@ -370,7 +437,7 @@
       </div>
     </section>
 
-    <!-- Landing Pages Divider -->
+    <!-- Landing Pages Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -382,20 +449,20 @@
       </div>
     </div>
 
-    <!-- Landing Pages -->
+    <!-- Landing Pages Section -->
     <section class="port-project-section" data-filter="landing">
       <div class="container">
         <div class="port-project-intro reveal">
           <span class="section-label">Landing Pages &amp; Demos</span>
           <h2>Industry Demo Builds</h2>
-          <p>Purpose‑built landing pages designed to show what a conversion‑focused build looks like across different industries. Each one is hand‑coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.</p>
+          <p>Purpose&#8209;built landing pages designed to show what a conversion&#8209;focused build looks like across different industries. Each one is hand&#8209;coded, deployed live, and built to demonstrate a real use case &#8212; not just a pretty layout.</p>
         </div>
         <div class="port-card-grid">
-          <!-- IronShield Roofing -->
+          <!-- IronShield Roofing Card -->
           <article class="port-card reveal" data-filter="landing">
             <img
               src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
-              alt="IronShield Roofing landing page showing a trust‑driven storm‑damage lead generation design"
+              alt="IronShield Roofing landing page demonstration showing a trust&#8209;driven storm&#8209;damage lead generation design"
               class="port-card__img"
               loading="lazy"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -407,11 +474,11 @@
               <div class="port-card__tags"><span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span></div>
               <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Lead Gen</span><span class="tag">Conversion</span></div>
               <h3 class="port-card__title">IronShield Roofing</h3>
-              <p class="port-card__desc">Storm‑damage lead generation page. Trust‑first layout, call‑driven structure, and a focused quote request flow built for a local roofing contractor.</p>
+              <p class="port-card__desc">Storm&#8209;damage lead generation page. Trust&#8209;first layout, call&#8209;driven structure, and a focused quote request flow built for a local roofing contractor.</p>
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
             </div>
           </article>
-          <!-- Fitness Coach Funnel -->
+          <!-- Fitness Coach Funnel Card -->
           <article class="port-card reveal reveal-delay-1" data-filter="coming-soon">
             <div class="port-card__placeholder">
               <span class="port-card__placeholder-label">Fitness Coach Funnel</span>
@@ -419,13 +486,13 @@
             </div>
             <div class="port-card__body">
               <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High‑Ticket</span><span class="tag">Applications</span></div>
+              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High&#8209;Ticket</span><span class="tag">Applications</span></div>
               <h3 class="port-card__title">Fitness Coach Funnel</h3>
-              <p class="port-card__desc">Application‑style landing page for a high‑ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
+              <p class="port-card__desc">Application&#8209;style landing page for a high&#8209;ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
             </div>
           </article>
-          <!-- SaaS Beta Waitlist -->
+          <!-- SaaS Beta Waitlist Card -->
           <article class="port-card reveal reveal-delay-2" data-filter="coming-soon">
             <div class="port-card__placeholder">
               <span class="port-card__placeholder-label">SaaS Beta Waitlist</span>
@@ -443,7 +510,7 @@
       </div>
     </section>
 
-    <!-- CTA Strip -->
+    <!-- CTA Section -->
     <div class="section-divider"></div>
     <section class="cta-strip">
       <div class="container">
@@ -465,9 +532,9 @@
         <div class="footer-brand">
           <div class="site-logo">
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-            <span class="logo-tagline">Veteran‑Built Front Ends</span>
+            <span class="logo-tagline">Veteran&#8209;Built Front Ends</span>
           </div>
-          <p>Custom hand‑coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
+          <p>Custom hand&#8209;coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -482,147 +549,134 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-            <p class="footer-contact-item"><a href="tel:+13205226226">320‑522‑6226</a></p>
+            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#660514070f010407130b0708085456545626010b070f0a4805090b"><span class="__cf_email__" data-cfemail="a0c3d2c1c9c7c2c1d5cdc1cece92909290e0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="copy-year"></span> WebOps Studio. All rights reserved.</p>
+        <p>&copy; <span id="copy-year">2025</span> WebOps Studio. All rights reserved.</p>
         <a href="contact.html">Get a Free Quote &#8594;</a>
       </div>
     </div>
   </footer>
 
-  <!-- Back to top -->
+  <!-- Back to top button -->
   <button class="back-to-top" aria-label="Back to top">&#8593;</button>
 
-  <!-- Lightbox -->
+  <!-- Lightbox Markup -->
   <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="port-lightbox__inner">
-      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close lightbox">&#x2715;</button>
+      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
       <img class="port-lightbox__img" id="lightboxImg" src="" alt="">
       <p class="port-lightbox__caption" id="lightboxCaption"></p>
       <p class="port-lightbox__hint">Press ESC or tap outside to close</p>
     </div>
   </div>
 
-  <script src="js/scripts.js"></script>
+  <!-- External scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/scripts.js"></script>
   <script>
-    // ── DYNAMIC COPYRIGHT YEAR ───────────────────────────────
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
+    /* ── TASK 2: Carousel engine ─────────────────────────────
+       Self-contained: processes every [data-carousel] wrapper.
+       Handles arrow navigation (wrap-around), thumbnail clicks,
+       active-state sync, and thumb scroll-into-view.
+       Syncs data-full / data-caption on the main wrapper so
+       the lightbox always opens the correct image.             */
+    function initCarousels() {
+      document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
+        var mainWrap = carousel.querySelector('.concept-preview__main');
+        var mainImg  = mainWrap ? mainWrap.querySelector('img') : null;
+        var thumbs   = Array.from(carousel.querySelectorAll('.concept-thumbs__thumb'));
+        var arrows   = carousel.querySelectorAll('.concept-thumbs__arrow');
+        var idx      = 0;
 
-    // ── PORTFOLIO FILTER ─────────────────────────────────────
-    // Fixed: selector scoped to .port-project-section only so
-    // the filter bar buttons are never caught by the query.
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterButtons   = document.querySelectorAll('#portfolioFilter button');
-      const filterSections  = document.querySelectorAll('.port-project-section[data-filter]');
-      const cards           = document.querySelectorAll('.port-card[data-filter]');
+        if (!mainImg || thumbs.length === 0) return;
 
-      const updateFilter = (filter) => {
-        filterButtons.forEach(btn =>
-          btn.classList.toggle('is-active', btn.dataset.filter === filter)
-        );
-        filterSections.forEach(sec => {
-          sec.style.display = (filter === 'all' || sec.dataset.filter === filter) ? '' : 'none';
-        });
-        cards.forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.filter === filter) ? '' : 'none';
-        });
-      };
-
-      filterButtons.forEach(btn =>
-        btn.addEventListener('click', () => updateFilter(btn.dataset.filter))
-      );
-    });
-
-    // ── TASK 2 — CAROUSEL ENGINE ─────────────────────────────
-    // Runs on every [data-carousel] element on the page.
-    // Handles: arrow navigation, thumbnail clicks, active state,
-    // main image swap, and lightbox source sync.
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('[data-carousel]').forEach(carousel => {
-        const mainWrap  = carousel.querySelector('.concept-preview__main');
-        const mainImg   = mainWrap.querySelector('img');
-        const thumbs    = Array.from(carousel.querySelectorAll('.concept-thumbs__thumb'));
-        const arrows    = carousel.querySelectorAll('.concept-thumbs__arrow');
-        const track     = carousel.querySelector('.concept-thumbs__track');
-
-        let current = 0;
-
-        function goTo(index) {
-          // Wrap around at either end
-          if (index < 0) index = thumbs.length - 1;
-          if (index >= thumbs.length) index = 0;
-          current = index;
-
-          const src     = thumbs[current].dataset.src;
-          const caption = thumbs[current].dataset.caption;
-
-          // Swap main image
-          mainImg.src       = src;
-          mainImg.alt       = caption;
-          mainWrap.dataset.full    = src;
-          mainWrap.dataset.caption = caption;
-
-          // Keep lightbox click in sync with current image
-          mainWrap.onclick = () => openLightbox(src, caption);
-          mainWrap.onkeydown = (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              openLightbox(src, caption);
-            }
-          };
-
-          // Update active thumbnail
-          thumbs.forEach((t, i) => t.classList.toggle('is-active', i === current));
-
-          // Scroll active thumb into view inside the track
-          thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        function update(newIdx) {
+          idx = (newIdx + thumbs.length) % thumbs.length;
+          var t = thumbs[idx];
+          mainImg.src = t.dataset.src;
+          mainImg.alt = t.querySelector('img') ? t.querySelector('img').alt : '';
+          if (mainWrap) {
+            mainWrap.dataset.full    = t.dataset.src;
+            mainWrap.dataset.caption = t.dataset.caption || '';
+          }
+          thumbs.forEach(function(th) { th.classList.remove('is-active'); });
+          t.classList.add('is-active');
+          t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
-        // Wire up arrow buttons
-        arrows.forEach(arrow => {
-          arrow.addEventListener('click', (e) => {
-            e.stopPropagation();
-            goTo(current + parseInt(arrow.dataset.dir));
+        arrows.forEach(function(arrow) {
+          arrow.addEventListener('click', function() {
+            update(idx + (parseInt(arrow.dataset.dir, 10) || 1));
           });
         });
 
-        // Wire up thumbnail clicks
-        thumbs.forEach((thumb, i) => {
-          thumb.addEventListener('click', () => goTo(i));
+        thumbs.forEach(function(thumb, i) {
+          thumb.addEventListener('click', function() { update(i); });
         });
 
-        // Initialise with first slide (sets onclick/onkeydown on mainWrap)
-        goTo(0);
+        if (mainWrap) {
+          mainWrap.addEventListener('click', function() {
+            openLightbox(mainWrap.dataset.full || mainImg.src, mainWrap.dataset.caption || mainImg.alt);
+          });
+        }
       });
+    }
+
+    // Portfolio filtering logic.  Buttons are wired to show/hide elements with matching
+    // data-filter attributes.  This script runs immediately after the DOM loads.
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('#portfolioFilter button');
+      const filterableSections = document.querySelectorAll('.port-project-section[data-filter]'); /* TASK JS-FIX */
+      const cards = document.querySelectorAll('.port-card');
+      const updateFilter = (filter) => {
+        // Highlight the active button
+        filterButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.filter === filter));
+        // Show/hide sections
+        filterableSections.forEach(section => {
+          if (filter === 'all' || section.dataset.filter === filter) {
+            section.style.display = '';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+        // Show/hide cards within landing pages section
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.filter === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => updateFilter(btn.dataset.filter));
+      });
+
+      initCarousels();
+      document.getElementById('copy-year').textContent = new Date().getFullYear(); /* TASK JS-COPYRIGHT */
     });
 
-    // ── TASK 3 — LIGHTBOX ────────────────────────────────────
+    // Lightbox execution fallback
     function openLightbox(src, caption) {
       const img = document.getElementById('lightboxImg');
       const cap = document.getElementById('lightboxCaption');
-      img.src        = src;
-      img.alt        = caption;
+      img.src = src;
+      img.alt = caption;
       cap.textContent = caption;
       document.getElementById('portLightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
       document.getElementById('portLightbox').classList.remove('active');
       document.body.style.overflow = '';
     }
-
-    // Click outside the image to close
     document.getElementById('portLightbox').addEventListener('click', function(e) {
       if (e.target === this) closeLightbox();
     });
-
-    // ESC key to close
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
