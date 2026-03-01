@@ -34,17 +34,17 @@
     }
 
     /* ── HERO ─────────────────────────────────────────────── */
-    /* ── TASK 1: Compact hero, no min-height, no duplicate bg image ── */
+    /* ── Hero: transparent top, soft bottom fade only, no dark box ── */
     .port-hero {
       position: relative;
       display: flex;
       align-items: center;
       overflow: hidden;
       background: linear-gradient(to bottom,
-          rgba(7,7,12,0.40) 0%,
-          rgba(7,7,12,0.25) 40%,
-          rgba(7,7,12,0.75) 85%,
-          rgba(7,7,12,1.00) 100%);
+          rgba(7,7,12,0.00) 0%,
+          rgba(7,7,12,0.00) 40%,
+          rgba(7,7,12,0.55) 80%,
+          rgba(7,7,12,0.85) 100%);
     }
     .port-hero__inner { padding: 60px 0 40px; position: relative; z-index: 1; text-align: center; }
     .port-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 20px; }
@@ -321,10 +321,12 @@
       letter-spacing: 0.2em;
     }
 
-    /* ── TASK 1/2/3: Filter wrap, static, clears fixed header, no frosted glass ── */
+    /* ── Filter wrap: static, flush below fixed header ── */
+    body {
+      padding-top: 70px;
+    }
     .port-filter-wrap {
       position: static;
-      margin-top: 70px; /* TASK 1: clear 70px fixed header */
       background: rgba(7,7,12,0.88);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       padding: 8px 0;
@@ -705,7 +707,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#c8abbaa9a1afaaa9bda5a9a6a6faf8faf888afa5a9a1a4e6aba7a5"><span class="__cf_email__" data-cfemail="cfacbdaea6a8adaebaa2aea1a1fdfffdff8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#2f4c5d4e46484d4e5a424e41411d1f1d1f6f48424e4643014c4042"><span class="__cf_email__" data-cfemail="177465767e707576627a7679792527252757707a767e7b3974787a">[email&#160;protected]</span></a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
