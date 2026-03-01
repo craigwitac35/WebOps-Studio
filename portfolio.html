@@ -20,10 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ── TASK 1: Full-page background via body::before ──────
-       Uses a fixed pseudo-element so the background image
-       sits behind all page content without interfering with
-       the body's own background-color token from styles.css.  */
+    /* ── TASK 1: Full-page background via body::before ────── */
     body::before {
       content: '';
       position: fixed;
@@ -33,23 +30,25 @@
       opacity: 0.55;
     }
 
+    body {
+      padding-top: 70px; /* Clears fixed header */
+    }
+
     /* ── HERO ─────────────────────────────────────────────── */
-    /* ── Hero: transparent top, soft bottom fade only, no dark box ── */
     .port-hero {
       position: relative;
       display: flex;
       align-items: center;
       overflow: hidden;
       background: linear-gradient(to bottom,
-          rgba(7,7,12,0.00) 0%,
-          rgba(7,7,12,0.00) 40%,
-          rgba(7,7,12,0.55) 80%,
-          rgba(7,7,12,0.85) 100%);
+          rgba(7,7,12,0.40) 0%,
+          rgba(7,7,12,0.25) 40%,
+          rgba(7,7,12,0.75) 85%,
+          rgba(7,7,12,1.00) 100%);
     }
     .port-hero__inner { padding: 60px 0 40px; position: relative; z-index: 1; text-align: center; }
     .port-hero__eyebrow { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-orange); margin-bottom: 20px; }
     .port-hero__line { display: block; width: 28px; height: 1px; background: var(--color-orange); opacity: 0.7; }
-    /* ── TASK 1+4: Smaller title clamp ── */
     .port-hero__title { font-family: var(--font-head); font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 700; line-height: 1.0; letter-spacing: 0.02em; text-transform: uppercase; color: var(--color-white); margin-bottom: 20px; }
     .port-hero__title span { color: var(--color-orange); text-shadow: 0 0 48px rgba(232,98,10,0.25); }
     .port-hero__sub { font-size: 1.05rem; color: var(--color-text-3); line-height: 1.7; max-width: 580px; margin: 0 auto 40px; }
@@ -65,45 +64,33 @@
     .port-section-break__label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--color-orange); white-space: nowrap; }
     .port-section-break__badge { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(232,98,10,0.25); background: rgba(232,98,10,0.07); color: var(--color-orange); white-space: nowrap; }
 
-    /* ── PORTFOLIO FILTER BAR ────────────────────────────── */
-    /* ── TASK 3: Remove large margin now filter sits above main ── */
-    .port-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0;
-      background: rgba(7,7,12,0.72);
-      border-radius: var(--radius-md);
-      padding: 10px 20px;
+    /* ── PORTFOLIO FILTER BAR (The "Tactical HUD") ───────── */
+    .port-filter-wrap {
+      position: sticky;
+      top: 54px; /* Docks exactly beneath the shrunk sticky nav */
+      z-index: 900;
+      background: rgba(7,7,12,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 0;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
-    .port-filter button {
-      background: transparent;
-      border: 1px solid var(--color-border);
-      /* TASK 6: Brighter base text so buttons read clearly over dark bg */
-      color: rgba(255,255,255,0.75);
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 8px 12px;
-      /* TASK 8C: Match border-radius to tag pills */
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    }
-    .port-filter button:hover,
-    .port-filter button.is-active { background: rgba(232,98,10,0.08); border-color: rgba(232,98,10,0.25); color: var(--color-orange); }
+    .port-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0; background: transparent; border-radius: var(--radius-md); padding: 10px 20px; }
+    .port-filter button { background: transparent; border: 1px solid var(--color-border); color: rgba(255,255,255,0.75); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 12px; border-radius: var(--radius-md); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    .port-filter button:hover, .port-filter button.is-active { background: rgba(232,98,10,0.08); border-color: rgba(232,98,10,0.25); color: var(--color-orange); }
 
-    /* ── CARD GRID (Landing Pages) ────────────────────────── */
-    /* TASK 8D: Subtle container background and border to unify cards */
+    /* ── CARD GRID (Self-Healing Grid) ────────────────────── */
     .port-card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
-      background: rgba(255,255,255,0.02); /* TASK 8D */
-      border: 1px solid rgba(255,255,255,0.05); /* TASK 8D */
-      border-radius: var(--radius-md); /* TASK 8D */
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-md);
       padding: 24px;
     }
     .port-card { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
     .port-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); }
-    /* TASK 5: Changed from 16/9 to 4/3, PASS */
     .port-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--color-surface-1); }
     .port-card__placeholder { width: 100%; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
     .port-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
@@ -113,297 +100,88 @@
     .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
     .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
 
-    /* ── TASK 4: Carousel main image, apply ratio to WRAPPER ─
-       The aspect-ratio goes on .concept-preview__main, not the
-       child img, so the container drives the height and the
-       image fills it with object-fit: cover.                   */
-    .concept-preview__main {
-      aspect-ratio: 9 / 16;
-      overflow: hidden;
-      position: relative;
-    }
-    .concept-preview__main img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      cursor: pointer;
-    }
-
+    /* ── CAROUSEL MAIN IMAGE ─────────────────────────────── */
+    .concept-preview__main { aspect-ratio: 9 / 16; overflow: hidden; position: relative; }
+    .concept-preview__main img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
 
     /* ── CASE STUDY DETAILS ─────────────────────────────── */
-    .case-study-details {
-      margin-top: 24px;
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      /* TASK 8A: Left orange accent border + compensating padding-left */
-      border-left: 3px solid var(--color-orange);
-      padding-left: 28px;
-      border-radius: var(--radius-md);
-      padding: 32px;
-      padding-left: 28px;
-    }
+    .case-study-details { margin-top: 24px; background: var(--color-surface-1); border: 1px solid var(--color-border); border-left: 3px solid var(--color-orange); border-radius: var(--radius-md); padding: 32px; padding-left: 28px; }
     .case-study-details h3 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-white); margin-top: 0; margin-bottom: 12px; }
     .case-study-details p { font-size: 0.95rem; color: var(--color-text-2); line-height: 1.8; margin: 0 0 20px; }
 
-    /* ── TASK 8E: Orange underline on .section-label ─────── */
-    .section-label {
-      display: inline-block;
-      border-bottom: 1px solid rgba(232,98,10,0.4); /* TASK 8E */
-      padding-bottom: 4px;
+    /* ── SECTION LABEL ───────────────────────────────────── */
+    .section-label { display: inline-block; border-bottom: 1px solid rgba(232,98,10,0.4); padding-bottom: 4px; }
+    .section-label--featured { color: var(--color-orange); font-size: 0.68rem; letter-spacing: 0.2em; }
+
+    /* ── LIGHTBOX & ANIMATIONS ──────────────────────────── */
+    @keyframes lightbox-in {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes lightbox-bg-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
-    /* ── TASK 3: Lightbox CSS ────────────────────────────── */
-    .port-lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(0,0,0,0.93);
-      align-items: center;
-      justify-content: center;
-    }
-    .port-lightbox.active { display: flex; }
-    .port-lightbox__inner {
-      position: relative;
-      max-width: 92vw;
-      max-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .port-lightbox__img {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: var(--radius-md);
-      display: block;
-    }
-    /* TASK 7: Close button, exact specified values */
-    .port-lightbox__close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      z-index: 10;
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      border: 1.5px solid rgba(255,255,255,0.45);
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-size: 1rem;
-      line-height: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-    .port-lightbox__close:hover {
-      background: rgba(232,98,10,0.5); /* TASK 7 */
-      border-color: rgba(232,98,10,0.8); /* TASK 7 */
-    }
-    .port-lightbox__caption {
-      margin-top: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      text-align: center;
-    }
-    .port-lightbox__hint {
-      font-family: var(--font-mono);
-      font-size: 0.52rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.28);
-      text-align: center;
-      margin-top: 6px;
-    }
+    .port-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.93); align-items: center; justify-content: center; }
+    .port-lightbox.active { display: flex; animation: lightbox-bg-in 0.25s ease forwards; }
+    .port-lightbox__inner { position: relative; max-width: 92vw; max-height: 92vh; display: flex; flex-direction: column; align-items: center; animation: lightbox-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .port-lightbox__img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius-md); display: block; }
+    .port-lightbox__close { position: absolute; top: 12px; right: 12px; z-index: 10; background: rgba(0,0,0,0.55); color: #fff; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 50%; width: 36px; height: 36px; font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; }
+    .port-lightbox__close:hover { background: rgba(232,98,10,0.5); border-color: rgba(232,98,10,0.8); }
+    .port-lightbox__caption { margin-top: 12px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-align: center; }
+    .port-lightbox__hint { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.28); text-align: center; margin-top: 6px; }
 
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 900px) {
-      .port-card-grid { grid-template-columns: repeat(2, 1fr); }
       .g4h-split__img { width: 45%; margin: 6px 0 16px 20px; }
     }
     @media (max-width: 640px) {
-      /* ── TASK 1+3: Tighter hero padding on mobile ── */
       .port-hero__inner { padding: 40px 0 30px; }
-      /* ── TASK 4: Tighter title + subtitle + stats on mobile ── */
       .port-hero__title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
       .port-hero__sub { font-size: 0.95rem; }
       .port-hero__stats { gap: 24px; }
-      .port-card-grid { grid-template-columns: 1fr; }
       .port-section-break__badge { display: none; }
       .g4h-split__img { width: 45%; margin: 6px 0 12px 14px; }
-      .concept-preview__main { max-height: 65vh; } /* TASK 5 */
+      .concept-preview__main { max-height: 65vh; }
 
-      /* ── MOBILE FILTER: Single scrollable row ───────────── */
-      .port-filter {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        justify-content: flex-start;
-        padding: 12px 16px;
-        margin: 24px 0;
-        gap: 8px;
-        /* Hide scrollbar visually but keep it functional */
-        scrollbar-width: none;       /* Firefox */
-        -ms-overflow-style: none;    /* IE/Edge */
-      }
-      .port-filter::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-      .port-filter button {
-        flex-shrink: 0;   /* Prevent buttons from squishing */
-        padding: 7px 11px;
-        font-size: 0.55rem;
-      }
+      .port-filter { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; justify-content: flex-start; padding: 12px 16px; margin: 0; gap: 8px; scrollbar-width: none; -ms-overflow-style: none; }
+      .port-filter::-webkit-scrollbar { display: none; }
+      .port-filter button { flex-shrink: 0; padding: 7px 11px; font-size: 0.55rem; }
     }
 
-
-    /* ── TASK 4: Two-column section intro on desktop ─────── */
+    /* ── TWO-COLUMN INTRO & ZIG-ZAG ──────────────────────── */
     @media (min-width: 901px) {
-      .port-project-intro {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        align-items: start;
-        gap: 24px 48px;
-        margin-bottom: 40px;
-      }
-      .port-project-intro .section-label,
-      .port-project-intro h2 {
-        grid-column: 1;
-      }
-      .port-project-intro p {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-        align-self: center;
-        font-size: 0.95rem;
-        margin: 0;
-      }
+      .port-project-intro { display: grid; grid-template-columns: 1fr 2fr; align-items: start; gap: 24px 48px; margin-bottom: 40px; }
+      .port-project-intro .section-label, .port-project-intro h2 { grid-column: 1; }
+      .port-project-intro p { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 0.95rem; margin: 0; }
+      .concept-row--reverse { flex-direction: row-reverse; }
     }
 
-    /* ── TASK 5: Zig-zag Ember & Oak on desktop ─────────── */
-    @media (min-width: 901px) {
-      .concept-row--reverse {
-        flex-direction: row-reverse;
-      }
-    }
+    /* ── GRIDIFY CASE STUDY ──────────────────────────────── */
+    .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .case-study-item { display: flex; flex-direction: column; }
+    .case-study-item h3 { margin-bottom: 8px; }
+    .case-study-item p { margin-bottom: 0; }
+    .case-study-item--full { grid-column: 1 / -1; }
+    @media (max-width: 640px) { .case-study-grid { grid-template-columns: 1fr; } }
 
-    /* ── TASK 6: Gridify case study details ──────────────── */
-    .case-study-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .case-study-item {
-      display: flex;
-      flex-direction: column;
-    }
-    .case-study-item h3 {
-      margin-bottom: 8px;
-    }
-    .case-study-item p {
-      margin-bottom: 0;
-    }
-    .case-study-item--full {
-      grid-column: 1 / -1;
-    }
-    @media (max-width: 640px) {
-      .case-study-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    /* ── IN THE PIPELINE ─────────────────────────────────── */
+    .port-card--pipeline { grid-column: 1 / -1; }
+    .port-card__body--pipeline { display: flex; flex-direction: column; gap: 16px; padding: 32px; }
+    .pipeline-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .pipeline-list li { display: flex; flex-direction: column; gap: 6px; padding: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-left: 2px solid rgba(232,98,10,0.35); border-radius: var(--radius-sm); }
+    .pipeline-list__name { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); }
+    .pipeline-list__tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .pipeline-list__desc { font-size: 0.82rem; color: var(--color-text-3); line-height: 1.6; }
+    @media (max-width: 640px) { .pipeline-list { grid-template-columns: 1fr; } }
 
-    /* ── VISUAL UPDATE: Featured label accent dot ─────────── */
-    .section-label--featured {
-      color: var(--color-orange);
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-    }
-
-    /* ── Filter wrap: static, flush below fixed header ── */
-    body {
-      padding-top: 70px;
-    }
-    .port-filter-wrap {
-      position: static;
-      background: rgba(7,7,12,0.88);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 8px 0;
-    }
-
-    /* TASK 2: Remove frosted glass on scrolled header */
-    #site-header.scrolled {
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-
-    /* TASK 3: Shrink nav on scroll */
-    #site-header .container { transition: height 0.35s ease; }
-    #site-header .site-logo a { transition: font-size 0.35s ease; }
-    #site-header.scrolled .container { height: 54px; }
-    #site-header.scrolled .site-logo a { font-size: 1.3rem; }
-
-
-    /* ── TASK 6: In the Pipeline full-width card ─────────────── */
-    .port-card--pipeline {
-      grid-column: 1 / -1;
-    }
-    .port-card__body--pipeline {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 32px;
-    }
-    .pipeline-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .pipeline-list li {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-left: 2px solid rgba(232,98,10,0.35);
-      border-radius: var(--radius-sm);
-    }
-    .pipeline-list__name {
-      font-family: var(--font-head);
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--color-white);
-    }
-    .pipeline-list__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-    .pipeline-list__desc {
-      font-size: 0.82rem;
-      color: var(--color-text-3);
-      line-height: 1.6;
-    }
-    @media (max-width: 640px) {
-      .pipeline-list { grid-template-columns: 1fr; }
-    }
-
+    /* ── SCROLLED HEADER: no frosted glass conflict ──────── */
+    #site-header.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; }
   </style>
 </head>
 
 <body>
-  <!--
-    The header and navigation are consistent across the site.  Links point to
-    relative URLs to ensure that GitHub Pages resolves them correctly.  The
-    navigation highlight is handled via a CSS class on the current page.
-  -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
@@ -426,7 +204,7 @@
     </div>
   </header>
 
-  <!-- TASK 2: Filter bar moved above main, directly below header -->
+  <!-- Filter bar: sticky, docks beneath shrunk nav -->
   <div class="port-filter-wrap">
     <div class="container"><div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
       <button type="button" data-filter="all" class="is-active">All</button>
@@ -438,7 +216,7 @@
   </div>
 
   <main>
-    <!-- TASK 1: Compact hero, background image via body::before only -->
+    <!-- HERO -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -477,7 +255,6 @@
     <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
         <div class="g4h-split reveal">
-          <!-- Text content -->
           <span class="section-label section-label--featured"><span class="status-dot"></span> Featured Project</span>
           <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
@@ -502,13 +279,11 @@
           </div>
           <div class="concept-preview">
             <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
-              <!-- Start the gallery with the hero image to mirror the Ember carousel -->
               <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section">
             </div>
             <div class="concept-thumbs">
               <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
-                <!-- Include the hero section in the carousel and mark it active -->
                 <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Hero Section"><img src="images/guardian-1.jpg" alt="Hero section thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission page thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop section thumbnail"></div>
@@ -707,7 +482,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#2f4c5d4e46484d4e5a424e41411d1f1d1f6f48424e4643014c4042"><span class="__cf_email__" data-cfemail="177465767e707576627a7679792527252757707a767e7b3974787a">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
@@ -733,15 +508,9 @@
     </div>
   </div>
 
-  <!-- External scripts -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/scripts.js"></script>
+  <script src="js/scripts.js"></script>
   <script>
-    /* ── TASK 2: Carousel engine ─────────────────────────────
-       Self-contained: processes every [data-carousel] wrapper.
-       Handles arrow navigation (wrap-around), thumbnail clicks,
-       active-state sync, and thumb scroll-into-view.
-       Syncs data-full / data-caption on the main wrapper so
-       the lightbox always opens the correct image.             */
+    /* ── CAROUSEL ENGINE ───────────────────────────────────── */
     function initCarousels() {
       document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
         var mainWrap = carousel.querySelector('.concept-preview__main');
@@ -784,42 +553,31 @@
       });
     }
 
-    // Portfolio filtering logic.  Buttons are wired to show/hide elements with matching
-    // data-filter attributes.  This script runs immediately after the DOM loads.
+    /* ── FILTER + INIT ─────────────────────────────────────── */
     document.addEventListener('DOMContentLoaded', () => {
       const filterButtons = document.querySelectorAll('#portfolioFilter button');
-      const filterableSections = document.querySelectorAll('.port-project-section[data-filter]'); /* TASK JS-FIX */
+      const filterableSections = document.querySelectorAll('.port-project-section[data-filter]');
       const cards = document.querySelectorAll('.port-card');
+
       const updateFilter = (filter) => {
-        // Highlight the active button
         filterButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.filter === filter));
-        // Show/hide sections
         filterableSections.forEach(section => {
-          if (filter === 'all' || section.dataset.filter === filter) {
-            section.style.display = '';
-          } else {
-            section.style.display = 'none';
-          }
+          section.style.display = (filter === 'all' || section.dataset.filter === filter) ? '' : 'none';
         });
-        // Show/hide cards within landing pages section
         cards.forEach(card => {
-          if (filter === 'all' || card.dataset.filter === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+          card.style.display = (filter === 'all' || card.dataset.filter === filter) ? '' : 'none';
         });
       };
+
       filterButtons.forEach(btn => {
         btn.addEventListener('click', () => updateFilter(btn.dataset.filter));
       });
 
       initCarousels();
-      document.getElementById('copy-year').textContent = new Date().getFullYear(); /* TASK JS-COPYRIGHT */
-
+      document.getElementById('copy-year').textContent = new Date().getFullYear();
     });
 
-    // Lightbox execution fallback
+    /* ── LIGHTBOX ──────────────────────────────────────────── */
     function openLightbox(src, caption) {
       const img = document.getElementById('lightboxImg');
       const cap = document.getElementById('lightboxCaption');
