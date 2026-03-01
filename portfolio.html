@@ -235,7 +235,79 @@
       .port-card-grid { grid-template-columns: 1fr; }
       .port-section-break__badge { display: none; }
       .g4h-split__img { width: 45%; margin: 6px 0 12px 14px; }
+      .concept-preview__main { max-height: 65vh; } /* TASK 5 */
     }
+
+    /* ── VISUAL UPDATE: Featured label accent dot ─────────── */
+    .section-label--featured {
+      color: var(--color-orange);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* ── VISUAL UPDATE: Sticky filter bar ────────────────── */
+    .port-filter-wrap {
+      position: sticky;
+      top: 80px;
+      z-index: 50;
+      background: rgba(7,7,12,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 4px 0;
+    }
+
+
+    /* ── TASK 6: In the Pipeline full-width card ─────────────── */
+    .port-card--pipeline {
+      grid-column: 1 / -1;
+    }
+    .port-card__body--pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 32px;
+    }
+    .pipeline-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .pipeline-list li {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-left: 2px solid rgba(232,98,10,0.35);
+      border-radius: var(--radius-sm);
+    }
+    .pipeline-list__name {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-white);
+    }
+    .pipeline-list__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .pipeline-list__desc {
+      font-size: 0.82rem;
+      color: var(--color-text-3);
+      line-height: 1.6;
+    }
+    @media (max-width: 640px) {
+      .pipeline-list { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 
@@ -286,20 +358,20 @@
         <div class="port-hero__stats" aria-label="Portfolio statistics">
           <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand&#8209;Coded</span></div>
           <div><span class="port-stat__num">0</span><span class="port-stat__label">Templates Used</span></div>
-          <div><span class="port-stat__num">Live</span><span class="port-stat__label">Real Deployments</span></div>
+          <div><span class="port-stat__num">4+</span><span class="port-stat__label">Live Deployments</span></div>
         </div>
       </div>
     </section>
 
-    <!-- Filter bar -->
-    <div class="container">
-      <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
+    <!-- Filter bar — sticky on scroll -->
+    <div class="port-filter-wrap">
+      <div class="container"><div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
         <button type="button" data-filter="all" class="is-active">All</button>
         <button type="button" data-filter="live">Live Sites</button>
         <button type="button" data-filter="concept">Concept Builds</button>
         <button type="button" data-filter="landing">Landing Pages</button>
         <button type="button" data-filter="coming-soon">Coming Soon</button>
-      </div>
+      </div></div>
     </div>
 
     <!-- Live Sites Section Divider -->
@@ -318,16 +390,8 @@
     <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
         <div class="g4h-split reveal">
-          <!-- Image on the right to allow text flow on large screens.  The image is
-               focusable and labelled for accessibility so that keyboard users can
-               open the lightbox. -->
-          <div class="g4h-split__img" role="button" tabindex="0" aria-label="View Guardian 4 Heroes hero image in fullscreen">
-            <span class="g4h-split__num">01 &middot; Hero</span>
-            <img src="images/guardian-1.jpg" alt="Screenshot of the Guardian 4 Heroes hero section showing a strong mission statement and equine imagery">
-            <div class="g4h-split__img-overlay"><span class="g4h-split__zoom">View Fullscreen</span></div>
-          </div>
           <!-- Text content -->
-          <span class="section-label">Featured Project</span>
+          <span class="section-label section-label--featured"><span class="status-dot"></span> Featured Project</span>
           <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
             Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders &#8212; people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
@@ -478,32 +542,27 @@
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
             </div>
           </article>
-          <!-- Fitness Coach Funnel Card -->
-          <article class="port-card reveal reveal-delay-1" data-filter="coming-soon">
-            <div class="port-card__placeholder">
-              <span class="port-card__placeholder-label">Fitness Coach Funnel</span>
-              <span class="port-card__placeholder-hint">Coming Soon</span>
-            </div>
-            <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">High&#8209;Ticket</span><span class="tag">Applications</span></div>
-              <h3 class="port-card__title">Fitness Coach Funnel</h3>
-              <p class="port-card__desc">Application&#8209;style landing page for a high&#8209;ticket coaching offer. Built to qualify leads and drive form submissions, not just traffic.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
-            </div>
-          </article>
-          <!-- SaaS Beta Waitlist Card -->
-          <article class="port-card reveal reveal-delay-2" data-filter="coming-soon">
-            <div class="port-card__placeholder">
-              <span class="port-card__placeholder-label">SaaS Beta Waitlist</span>
-              <span class="port-card__placeholder-hint">Coming Soon</span>
-            </div>
-            <div class="port-card__body">
-              <div class="port-card__tags"><span class="status-badge status-progress"><span class="status-dot"></span>Coming Soon</span></div>
-              <div class="port-card__tags"><span class="tag">Landing Page</span><span class="tag">Waitlist</span><span class="tag">Email Capture</span></div>
-              <h3 class="port-card__title">SaaS Beta Waitlist</h3>
-              <p class="port-card__desc">Clean waitlist page for a product launch. Focused layout, fast load, and a clear value stack built to convert visitors into signups.</p>
-              <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
+          <!-- In the Pipeline — full-width banner card -->
+          <article class="port-card port-card--pipeline reveal reveal-delay-1" data-filter="coming-soon">
+            <div class="port-card__body port-card__body--pipeline">
+              <div class="port-card__tags">
+                <span class="status-badge status-progress"><span class="status-dot"></span>In the Pipeline</span>
+              </div>
+              <h3 class="port-card__title">More Builds Coming</h3>
+              <p class="port-card__desc">Two more industry demo pages are currently in production. Each one is hand&#8209;coded from scratch and built to demonstrate a specific conversion pattern.</p>
+              <ul class="pipeline-list">
+                <li>
+                  <span class="pipeline-list__name">Fitness Coach Funnel</span>
+                  <span class="pipeline-list__tags"><span class="tag">High&#8209;Ticket</span><span class="tag">Applications</span></span>
+                  <span class="pipeline-list__desc">Application&#8209;style landing page for a high&#8209;ticket coaching offer. Qualify leads, drive form submissions.</span>
+                </li>
+                <li>
+                  <span class="pipeline-list__name">SaaS Beta Waitlist</span>
+                  <span class="pipeline-list__tags"><span class="tag">Waitlist</span><span class="tag">Email Capture</span></span>
+                  <span class="pipeline-list__desc">Clean waitlist page built to convert visitors into signups for a product launch.</span>
+                </li>
+              </ul>
+              <a href="contact.html" class="btn btn-ghost btn-sm" style="margin-top: auto;">Request a Custom Build &#8594;</a>
             </div>
           </article>
         </div>
@@ -549,7 +608,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#660514070f010407130b0708085456545626010b070f0a4805090b"><span class="__cf_email__" data-cfemail="a0c3d2c1c9c7c2c1d5cdc1cece92909290e0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#c9aabba8a0aeaba8bca4a8a7a7fbf9fbf989aea4a8a0a5e7aaa6a4"><span class="__cf_email__" data-cfemail="f093829199979291859d919e9ec2c0c2c0b0979d91999cde939f9d">[email&#160;protected]</span></a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
@@ -658,6 +717,7 @@
 
       initCarousels();
       document.getElementById('copy-year').textContent = new Date().getFullYear(); /* TASK JS-COPYRIGHT */
+
     });
 
     // Lightbox execution fallback
