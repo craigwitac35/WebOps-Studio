@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — WebOps Studio</title>
+  <title>Portfolio | WebOps Studio</title>
   <meta name="description" content="Hand‑coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
-  <meta property="og:title" content="WebOps Studio — Portfolio">
-  <meta property="og:description" content="Clean, custom, hand‑coded websites. No templates. No shortcuts. Veteran‑built front ends.">
+  <meta property="og:title" content="WebOps Studio | Portfolio">
+  <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
   <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
@@ -34,7 +34,7 @@
     }
 
     /* ── HERO ─────────────────────────────────────────────── */
-    /* ── TASK 1: Compact hero — no min-height, no duplicate bg image ── */
+    /* ── TASK 1: Compact hero, no min-height, no duplicate bg image ── */
     .port-hero {
       position: relative;
       display: flex;
@@ -103,7 +103,7 @@
     }
     .port-card { background: var(--gradient-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
     .port-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); }
-    /* TASK 5: Changed from 16/9 to 4/3 — PASS */
+    /* TASK 5: Changed from 16/9 to 4/3, PASS */
     .port-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--color-surface-1); }
     .port-card__placeholder { width: 100%; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: var(--color-surface-1); border-bottom: 1px solid var(--color-border); }
     .port-card__placeholder-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-text-3); }
@@ -113,7 +113,7 @@
     .port-card__title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-white); margin-bottom: 10px; }
     .port-card__desc { font-size: 0.88rem; color: var(--color-text-3); line-height: 1.65; flex: 1; margin-bottom: 20px; }
 
-    /* ── TASK 4: Carousel main image — apply ratio to WRAPPER ─
+    /* ── TASK 4: Carousel main image, apply ratio to WRAPPER ─
        The aspect-ratio goes on .concept-preview__main, not the
        child img, so the container drives the height and the
        image fills it with object-fit: cover.                   */
@@ -179,7 +179,7 @@
       border-radius: var(--radius-md);
       display: block;
     }
-    /* TASK 7: Close button — exact specified values */
+    /* TASK 7: Close button, exact specified values */
     .port-lightbox__close {
       position: absolute;
       top: 12px;
@@ -259,6 +259,61 @@
       }
     }
 
+
+    /* ── TASK 4: Two-column section intro on desktop ─────── */
+    @media (min-width: 901px) {
+      .port-project-intro {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: start;
+        gap: 24px 48px;
+        margin-bottom: 40px;
+      }
+      .port-project-intro .section-label,
+      .port-project-intro h2 {
+        grid-column: 1;
+      }
+      .port-project-intro p {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+        font-size: 0.95rem;
+        margin: 0;
+      }
+    }
+
+    /* ── TASK 5: Zig-zag Ember & Oak on desktop ─────────── */
+    @media (min-width: 901px) {
+      .concept-row--reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    /* ── TASK 6: Gridify case study details ──────────────── */
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .case-study-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .case-study-item h3 {
+      margin-bottom: 8px;
+    }
+    .case-study-item p {
+      margin-bottom: 0;
+    }
+    .case-study-item--full {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 640px) {
+      .case-study-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── VISUAL UPDATE: Featured label accent dot ─────────── */
     .section-label--featured {
       color: var(--color-orange);
@@ -266,13 +321,26 @@
       letter-spacing: 0.2em;
     }
 
-    /* ── TASK 2+5: Filter wrap — static, sits between header and main ── */
+    /* ── TASK 1/2/3: Filter wrap, static, clears fixed header, no frosted glass ── */
     .port-filter-wrap {
       position: static;
+      margin-top: 70px; /* TASK 1: clear 70px fixed header */
       background: rgba(7,7,12,0.88);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       padding: 8px 0;
     }
+
+    /* TASK 2: Remove frosted glass on scrolled header */
+    #site-header.scrolled {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    /* TASK 3: Shrink nav on scroll */
+    #site-header .container { transition: height 0.35s ease; }
+    #site-header .site-logo a { transition: font-size 0.35s ease; }
+    #site-header.scrolled .container { height: 54px; }
+    #site-header.scrolled .site-logo a { font-size: 1.3rem; }
 
 
     /* ── TASK 6: In the Pipeline full-width card ─────────────── */
@@ -368,7 +436,7 @@
   </div>
 
   <main>
-    <!-- TASK 1: Compact hero — background image via body::before only -->
+    <!-- TASK 1: Compact hero, background image via body::before only -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -381,7 +449,7 @@
           <span>Built to Perform.</span>
         </h1>
         <p class="port-hero__sub">
-          No templates. No page builders. Every project is hand&#8209;coded HTML, CSS, and JavaScript &#8212; structured for speed, clarity, and conversion.
+          No templates. No page builders. Every project is hand&#8209;coded HTML, CSS, and JavaScript, structured for speed, clarity, and conversion.
         </p>
         <div class="port-hero__stats" aria-label="Portfolio statistics">
           <div><span class="port-stat__num">100%</span><span class="port-stat__label">Hand&#8209;Coded</span></div>
@@ -411,7 +479,7 @@
           <span class="section-label section-label--featured"><span class="status-dot"></span> Featured Project</span>
           <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
-            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders &#8212; people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
+            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders, people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
           </p>
           <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 24px;">
             I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion&#8209;focused throughout. The design prioritizes clear donation pathways and trust&#8209;building imagery without relying on heavy frameworks.
@@ -452,16 +520,28 @@
 
         <!-- Structured case study details for Guardian 4 Heroes -->
         <div class="case-study-details reveal" id="g4h-details">
-          <h3>Goal</h3>
-          <p>Craft a digital home for an equine therapy nonprofit that builds trust with veterans and first responders while clearly communicating the mission.</p>
-          <h3>Challenges</h3>
-          <p>The client needed a site that was emotionally grounded without feeling heavy, supported multiple pathways for donation and program sign&#8209;ups, and maintained fast load times on limited budgets.</p>
-          <h3>Solution</h3>
-          <p>I designed and coded a bespoke experience using semantic HTML5, modern CSS, and vanilla JavaScript. The layout guides the eye from mission story to impact statistics to the call to donate. A modular CSS architecture keeps the styles maintainable and scalable.</p>
-          <h3>Result</h3>
-          <p>The nonprofit saw an increase in both donations and volunteer sign&#8209;ups within the first month. Visitors reported that the site felt trustworthy and easy to navigate, leading to longer session durations and higher engagement.</p>
-          <h3>Stack &amp; Role</h3>
-          <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer &#8212; responsible for strategy, design, implementation and deployment.</p>
+          <div class="case-study-grid">
+            <div class="case-study-item">
+              <h3>Goal</h3>
+              <p>Craft a digital home for an equine therapy nonprofit that builds trust with veterans and first responders while clearly communicating the mission.</p>
+            </div>
+            <div class="case-study-item">
+              <h3>Challenges</h3>
+              <p>The client needed a site that was emotionally grounded without feeling heavy, supported multiple pathways for donation and program sign-ups, and maintained fast load times on limited budgets.</p>
+            </div>
+            <div class="case-study-item">
+              <h3>Solution</h3>
+              <p>I designed and coded a bespoke experience using semantic HTML5, modern CSS, and vanilla JavaScript. The layout guides the eye from mission story to impact statistics to the call to donate. A modular CSS architecture keeps the styles maintainable and scalable.</p>
+            </div>
+            <div class="case-study-item">
+              <h3>Result</h3>
+              <p>The nonprofit saw an increase in both donations and volunteer sign-ups within the first month. Visitors reported that the site felt trustworthy and easy to navigate, leading to longer session durations and higher engagement.</p>
+            </div>
+            <div class="case-study-item case-study-item--full">
+              <h3>Stack &amp; Role</h3>
+              <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer, responsible for strategy, design, implementation and deployment.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -484,10 +564,10 @@
         <div class="port-project-intro reveal">
           <span class="section-label">Concept Builds</span>
           <h2>UI &amp; Range Demos</h2>
-          <p>These concept builds exist to show range. Different industries, different tones, different layout challenges &#8212; all hand&#8209;coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
+          <p>Range across industries, tones, and layout challenges. All hand-coded from scratch.</p>
         </div>
         <!-- Ember & Oak Cafe Concept -->
-        <div class="concept-row reveal" data-carousel="ember">
+        <div class="concept-row concept-row--reverse reveal" data-carousel="ember">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Ember &amp; Oak Cafe</h3>
             <p class="concept-summary__desc">A full six&#8209;page concept site for a fictional neighbourhood cafe. Built to demonstrate multi&#8209;page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
@@ -536,7 +616,7 @@
         <div class="port-project-intro reveal">
           <span class="section-label">Landing Pages &amp; Demos</span>
           <h2>Industry Demo Builds</h2>
-          <p>Purpose&#8209;built landing pages designed to show what a conversion&#8209;focused build looks like across different industries. Each one is hand&#8209;coded, deployed live, and built to demonstrate a real use case &#8212; not just a pretty layout.</p>
+          <p>Purpose-built demos showing conversion-focused builds across real industries. Hand-coded, deployed live.</p>
         </div>
         <div class="port-card-grid">
           <!-- IronShield Roofing Card -->
@@ -559,7 +639,7 @@
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
             </div>
           </article>
-          <!-- In the Pipeline — full-width banner card -->
+          <!-- In the Pipeline, full-width banner card -->
           <article class="port-card port-card--pipeline reveal reveal-delay-1" data-filter="coming-soon">
             <div class="port-card__body port-card__body--pipeline">
               <div class="port-card__tags">
@@ -625,7 +705,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#c2a1b0a3aba5a0a3b7afa3acacf0f2f0f282a5afa3abaeeca1adaf"><span class="__cf_email__" data-cfemail="ec8f9e8d858b8e8d99818d8282dedcdedcac8b818d8580c28f8381">[email&#160;protected]</span></a></p>
+            <p class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#c8abbaa9a1afaaa9bda5a9a6a6faf8faf888afa5a9a1a4e6aba7a5"><span class="__cf_email__" data-cfemail="cfacbdaea6a8adaebaa2aea1a1fdfffdff8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></a></p>
             <p class="footer-contact-item"><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></p>
             <p class="footer-contact-item">Minnesota, United States</p>
           </div>
