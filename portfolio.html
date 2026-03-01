@@ -11,7 +11,6 @@
   <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
   <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
 
-  <!-- Favicon and fonts -->
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,13 +79,11 @@
     /* ── RESPONSIVE ───────────────────────────────────────── */
     @media (max-width: 900px) {
       .port-card-grid { grid-template-columns: repeat(2, 1fr); }
-      .g4h-split__img { width: 45%; margin: 6px 0 16px 20px; }
     }
     @media (max-width: 640px) {
       .port-hero__stats { gap: 28px; }
       .port-card-grid { grid-template-columns: 1fr; }
       .port-section-break__badge { display: none; }
-      .g4h-split__img { width: 45%; margin: 6px 0 12px 14px; }
     }
   </style>
 </head>
@@ -115,7 +112,6 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -138,7 +134,6 @@
       </div>
     </section>
 
-    <!-- Filter bar -->
     <div class="container">
       <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
         <button type="button" data-filter="all" class="is-active">All</button>
@@ -149,7 +144,6 @@
       </div>
     </div>
 
-    <!-- Live Sites Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -161,55 +155,50 @@
       </div>
     </div>
 
-    <!-- Guardian 4 Heroes Case Study -->
     <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
-        <div class="g4h-split reveal">
-          <div class="g4h-split__img" role="button" onclick="openLightbox('images/guardian-1.jpg','Guardian 4 Heroes – Hero section')" tabindex="0" aria-label="View Guardian 4 Heroes hero image in fullscreen">
-            <span class="g4h-split__num">01 &middot; Hero</span>
-            <img src="images/guardian-1.jpg" alt="Screenshot of the Guardian 4 Heroes hero section showing a strong mission statement and equine imagery">
-            <div class="g4h-split__img-overlay"><span class="g4h-split__zoom">View Fullscreen</span></div>
-          </div>
-          <span class="section-label">Featured Project</span>
-          <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
-          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 20px;">
-            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission‑driven, and easy to navigate.
-          </p>
-          <p style="font-size: 1.05rem; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 24px;">
-            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion‑focused throughout. The design prioritizes clear donation pathways and trust‑building imagery without relying on heavy frameworks.
-          </p>
-          <div class="port-project-meta" style="margin-bottom: 20px;">
-            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">Vanilla JS</span>
-            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Visit Live Site &#8599;</a>
-          </div>
-        </div>
-
-        <!-- Gallery Carousel for Guardian 4 Heroes -->
-        <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 50px;">
+        
+        <div class="concept-row reveal" data-carousel="g4h">
+          
           <div class="concept-summary">
-            <h3 class="concept-summary__title">Project Gallery</h3>
-            <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
-          </div>
-          <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/guardian-2.jpg" data-caption="Mission &amp; Content">
-              <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes mission page with compelling content"> 
+            <span class="section-label" style="margin-bottom: 12px;">Featured Project</span>
+            <h2 class="concept-summary__title" style="font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 16px; color: #fff;">Guardian 4 Heroes</h2>
+            
+            <p class="concept-summary__desc" style="color: rgba(255,255,255,0.78); line-height: 1.85;">
+              Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders — people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission‑driven, and easy to navigate.
+            </p>
+            <p class="concept-summary__desc" style="color: rgba(255,255,255,0.78); line-height: 1.85;">
+              I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion‑focused throughout. The design prioritizes clear donation pathways and trust‑building imagery without relying on heavy frameworks.
+            </p>
+            
+            <div class="concept-summary__tags" style="margin-top: 24px;">
+              <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">Vanilla JS</span>
             </div>
+            
+            <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="margin-top: 15px; display: inline-block;">Visit Live Site &#8599;</a>
+          </div>
+
+          <div class="concept-preview">
+            <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Guardian 4 Heroes - Hero" tabindex="0" onclick="openLightbox('images/guardian-1.jpg', 'Guardian 4 Heroes - Hero')">
+              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes Hero Section">
+            </div>
+            
             <div class="concept-thumbs">
               <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
-                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission page thumbnail"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop section thumbnail"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation UX thumbnail"></div>
-                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS architecture thumbnail"></div>
+                <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Guardian 4 Heroes - Hero"><img src="images/guardian-1.jpg" alt="Hero"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-3.jpg" data-caption="Shop Section"><img src="images/guardian-3.jpg" alt="Shop"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation"></div>
+                <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS"></div>
               </div>
               <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
 
-        <!-- Structured case study details for Guardian 4 Heroes -->
         <div class="case-study-details reveal" id="g4h-details">
           <h3>Goal</h3>
           <p>Craft a digital home for an equine therapy nonprofit that builds trust with veterans and first responders while clearly communicating the mission.</p>
@@ -222,10 +211,10 @@
           <h3>Stack &amp; Role</h3>
           <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer — responsible for strategy, design, implementation and deployment.</p>
         </div>
+
       </div>
     </section>
 
-    <!-- Concept Builds Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -237,7 +226,6 @@
       </div>
     </div>
 
-    <!-- Concept Builds Section -->
     <section class="port-project-section" data-filter="concept">
       <div class="container">
         <div class="port-project-intro reveal">
@@ -245,7 +233,6 @@
           <h2>UI &amp; Range Demos</h2>
           <p>These concept builds exist to show range. Different industries, different tones, different layout challenges — all hand‑coded from scratch to demonstrate that the skill set goes well beyond any single niche.</p>
         </div>
-        <!-- Ember & Oak Cafe Concept -->
         <div class="concept-row reveal" data-carousel="ember">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Ember &amp; Oak Cafe</h3>
@@ -258,7 +245,7 @@
             <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="margin-top: 10px; display: inline-block;">View Live Demo &#8599;</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe – Home">
+            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe – Home" onclick="openLightbox('images/ember.demo.home.jpg', 'Ember &amp; Oak Cafe – Home')">
               <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe home page">
             </div>
             <div class="concept-thumbs">
@@ -277,7 +264,6 @@
       </div>
     </section>
 
-    <!-- Landing Pages Section Divider -->
     <div class="port-section-break">
       <div class="container">
         <div class="port-section-break__inner">
@@ -289,7 +275,6 @@
       </div>
     </div>
 
-    <!-- Landing Pages Section -->
     <section class="port-project-section" data-filter="landing">
       <div class="container">
         <div class="port-project-intro reveal">
@@ -298,7 +283,6 @@
           <p>Purpose‑built landing pages designed to show what a conversion‑focused build looks like across different industries. Each one is hand‑coded, deployed live, and built to demonstrate a real use case — not just a pretty layout.</p>
         </div>
         <div class="port-card-grid">
-          <!-- IronShield Roofing Card -->
           <article class="port-card reveal" data-filter="landing">
             <img
               src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
@@ -318,7 +302,6 @@
               <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Demo &#8594;</a>
             </div>
           </article>
-          <!-- Fitness Coach Funnel Card -->
           <article class="port-card reveal reveal-delay-1" data-filter="coming-soon">
             <div class="port-card__placeholder">
               <span class="port-card__placeholder-label">Fitness Coach Funnel</span>
@@ -332,7 +315,6 @@
               <a href="contact.html" class="btn btn-ghost btn-sm">Request This Build &#8594;</a>
             </div>
           </article>
-          <!-- SaaS Beta Waitlist Card -->
           <article class="port-card reveal reveal-delay-2" data-filter="coming-soon">
             <div class="port-card__placeholder">
               <span class="port-card__placeholder-label">SaaS Beta Waitlist</span>
@@ -350,7 +332,6 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
     <div class="section-divider"></div>
     <section class="cta-strip">
       <div class="container">
@@ -365,7 +346,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -402,10 +382,8 @@
     </div>
   </footer>
 
-  <!-- Back to top button -->
   <button class="back-to-top" aria-label="Back to top">&#8593;</button>
 
-  <!-- Lightbox Markup -->
   <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="port-lightbox__inner">
       <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">✕</button>
@@ -415,15 +393,18 @@
     </div>
   </div>
 
-  <!-- External scripts -->
   <script src="js/scripts.js"></script>
   <script>
+    // Portfolio filtering logic.  Buttons are wired to show/hide elements with matching
+    // data-filter attributes.  This script runs immediately after the DOM loads.
     document.addEventListener('DOMContentLoaded', () => {
       const filterButtons = document.querySelectorAll('#portfolioFilter button');
       const filterableSections = document.querySelectorAll('[data-filter]');
       const cards = document.querySelectorAll('.port-card');
       const updateFilter = (filter) => {
+        // Highlight the active button
         filterButtons.forEach(btn => btn.classList.toggle('is-active', btn.dataset.filter === filter));
+        // Show/hide sections
         filterableSections.forEach(section => {
           if (filter === 'all' || section.dataset.filter === filter) {
             section.style.display = '';
@@ -431,6 +412,7 @@
             section.style.display = 'none';
           }
         });
+        // Show/hide cards within landing pages section
         cards.forEach(card => {
           if (filter === 'all' || card.dataset.filter === filter) {
             card.style.display = '';
@@ -443,7 +425,7 @@
         btn.addEventListener('click', () => updateFilter(btn.dataset.filter));
       });
     });
-
+    // Lightbox execution fallback
     function openLightbox(src, caption) {
       const img = document.getElementById('lightboxImg');
       const cap = document.getElementById('lightboxCaption');
