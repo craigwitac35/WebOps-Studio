@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- =========================================================
-  WebOps Studio | index.html v9
-  Purpose: Home page — explain the offer, build trust, route to
-  Contact (primary) or Portfolio (secondary).
-  ========================================================== -->
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>WebOps Studio &#8212; Veteran-Built Custom Websites</title>
+  <title>WebOps Studio — Veteran-Built Custom Websites</title>
   <meta name="description" content="WebOps Studio builds clean, custom, hand-coded websites from scratch. No templates. No shortcuts. Veteran-built front ends with military precision.">
-  <meta property="og:title" content="WebOps Studio &#8212; Veteran-Built Custom Websites">
+  <meta property="og:title" content="WebOps Studio">
   <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://web-ops-studio.com/">
@@ -25,72 +18,218 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- MailerLite — async, non-blocking -->
-  <script>
-    (function (w, d, e, u, f, l, n) {
-      w[f] = w[f] || function () { (w[f].q = w[f].q || []).push(arguments); };
-      l = d.createElement(e); l.async = 1; l.src = u;
-      n = d.getElementsByTagName(e)[0]; n.parentNode.insertBefore(l, n);
-    })(window, document, "script", "https://assets.mailerlite.com/js/universal.js", "ml");
-    ml("account", "2121003");
-  </script>
-
   <style>
-  /* ============================================================
-     INDEX PAGE — SCOPED STYLES v9
-     Consistent with portfolio Phase 3 design language.
-  ============================================================ */
+    /* ============================================================
+       HOME PAGE — CONSISTENCY WITH PORTFOLIO
+       - body::before background image
+       - header scroll shrink
+       - hero with stats
+       - section label system
+       - project card meta & action buttons
+    ============================================================ */
 
-  /* ── Project card images — aspect-ratio based ────────── */
-  .project-card-img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-  }
+    /* Full‑page background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url('images/Background1.png') center / cover no-repeat;
+      opacity: 0.55;
+    }
 
-  .project-card-img[src=""] { display: none; }
+    /* Header scroll shrink */
+    #site-header.scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    #site-header .container { transition: height 0.35s ease; }
+    #site-header .site-logo a { transition: font-size 0.35s ease; }
+    #site-header.scrolled .container { height: 54px; }
+    #site-header.scrolled .site-logo a { font-size: 1.3rem; }
+    body { padding-top: 70px; }
 
-  /* ── Placeholder for missing images ──────────────────── */
-  .project-card-img-placeholder {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-surface-1);
-    border-bottom: 1px solid var(--color-border);
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-text-3);
-  }
+    /* ===== Hero (matches portfolio .port-hero) ===== */
+    .port-hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: transparent;
+    }
+    .port-hero__inner {
+      padding: 56px 0 20px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .port-hero__eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin-bottom: 16px;
+    }
+    .port-hero__line {
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--color-orange);
+      opacity: 0.7;
+    }
+    .port-hero__title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5.5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      margin-bottom: 14px;
+    }
+    .port-hero__title span {
+      color: var(--color-orange);
+      text-shadow: 0 0 48px rgba(232,98,10,0.25);
+    }
+    .port-hero__sub {
+      font-size: 0.95rem;
+      color: var(--color-text-3);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+    .port-hero__stats {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .port-stat__num {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--color-white);
+      line-height: 1;
+      display: block;
+    }
+    .port-stat__label {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-3);
+      display: block;
+      margin-top: 4px;
+    }
 
-  /* ── Work section intro text ─────────────────────────── */
-  .work-section-intro {
-    font-size: 0.92rem;
-    color: var(--color-text-2);
-    line-height: 1.8;
-    max-width: 640px;
-    margin-bottom: 20px;
-  }
+    /* ===== Section label system ===== */
+    .port-section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 40px;
+      padding-top: 8px;
+    }
+    .port-section-label__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-orange);
+      flex-shrink: 0;
+    }
+    .port-section-label__text {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      white-space: nowrap;
+    }
+    .port-section-label__rule {
+      flex: 1;
+      height: 1px;
+      background: var(--gradient-divider);
+    }
 
-  /* ── Section intro paragraph ─────────────────────────── */
-  .section-intro {
-    font-size: 0.95rem;
-    color: var(--color-text-2);
-    line-height: 1.8;
-    max-width: 640px;
-    margin-bottom: 32px;
-  }
+    /* ===== Project card consistency ===== */
+    .port-project-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+    .port-project-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .port-project-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 12px 0 16px;
+    }
+    .port-project-meta .tag,
+    .port-project-meta .status-badge {
+      font-size: 0.5rem;
+      padding: 4px 8px;
+      line-height: 1;
+      vertical-align: middle;
+    }
+    .port-action-btn {
+      font-family: var(--font-mono);
+      font-size: 0.54rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid rgba(232,98,10,0.50);
+      color: var(--color-orange);
+      background: rgba(232,98,10,0.06);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      margin-top: 4px;
+    }
+    .port-action-btn:hover {
+      background: rgba(232,98,10,0.14);
+      border-color: var(--color-orange);
+      color: var(--color-white);
+    }
+
+    /* Override global card hover (reduce effects) */
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,98,10,0.25);
+      box-shadow: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+      .port-hero__inner { padding: 36px 0 16px; }
+      .port-hero__title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+      .port-hero__stats { gap: 20px; }
+      .port-stat__num { font-size: 1.3rem; }
+      .port-stat__label { font-size: 0.46rem; }
+      .port-section-label { margin-bottom: 28px; }
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- ═══ HEADER ════════════════════════════════════════════ -->
+  <!-- ═══ HEADER ══════════════════════════════════════════ -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
@@ -115,287 +254,218 @@
 
   <main>
 
-    <!-- ═══ HERO ══════════════════════════════════════════════ -->
-    <section class="hero-section" id="home">
-      <div class="container">
-        <div class="hero-content">
-
-          <div class="hero-eyebrow">
-            <span class="eyebrow-line"></span>
-            <span class="eyebrow-text">U.S. Army Veteran &middot; Self&#8209;Taught Developer &middot; Minnesota</span>
+    <!-- ═══ HERO ═══════════════════════════════════════════ -->
+    <section class="port-hero">
+      <div class="container port-hero__inner">
+        <p class="port-hero__eyebrow">
+          <span class="port-hero__line"></span>
+          WebOps Studio · Home
+          <span class="port-hero__line"></span>
+        </p>
+        <h1 class="port-hero__title">
+          Veteran&#8209;Built<br>
+          <span>Front Ends.</span>
+        </h1>
+        <p class="port-hero__sub">
+          Hand-coded HTML, CSS, and JavaScript. No templates. No page builders.
+          Built for speed, clarity, and long&#8209;term reliability.
+        </p>
+        <div class="port-hero__stats">
+          <div>
+            <span class="port-stat__num">100%</span>
+            <span class="port-stat__label">Hand&#8209;Coded</span>
           </div>
-
-          <h1 class="hero-title">
-            <span class="hero-title-line1">Veteran-Built</span>
-            <span class="hero-title-accent">Front Ends.</span>
-            <span class="hero-title-line2">Custom Websites Built From Scratch.</span>
-          </h1>
-
-          <p class="hero-sub">
-            Hand&#8209;coded HTML, CSS, and JavaScript. No templates. No page builders.
-            Built for speed, clarity, and long&#8209;term reliability.
-          </p>
-
-          <div class="hero-ctas">
-            <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-            <a href="portfolio.html" class="btn btn-ghost">View My Work</a>
+          <div>
+            <span class="port-stat__num">0</span>
+            <span class="port-stat__label">Templates</span>
           </div>
-
-          <div class="hero-proof-strip" aria-label="Build specifications">
-            <span class="proof-pill">
-              <span class="pill-label">Stack</span>
-              <span class="pill-value">HTML / CSS / JS</span>
-            </span>
-            <span class="proof-pill">
-              <span class="pill-label">Build</span>
-              <span class="pill-value">Mobile&#8209;First</span>
-            </span>
-            <span class="proof-pill">
-              <span class="pill-label">Perf</span>
-              <span class="pill-value">Fast Load Times</span>
-            </span>
-            <span class="proof-pill">
-              <span class="pill-label">Ownership</span>
-              <span class="pill-value">You Own the Code</span>
-            </span>
+          <div>
+            <span class="port-stat__num">4+</span>
+            <span class="port-stat__label">Live Deployments</span>
           </div>
-
         </div>
-      </div>
-
-      <div class="scroll-indicator" aria-hidden="true">
-        <span class="scroll-line"></span>
-        <span>Scroll</span>
       </div>
     </section>
 
-    <!-- ═══ VALUE PROPS ════════════════════════════════════════ -->
-    <section class="value-props-section">
+    <!-- ═══ VALUE PROPS ═══════════════════════════════════ -->
+    <section class="port-project-section">
       <div class="container">
-        <span class="section-label">How I Build</span>
-        <h2>Clean. Fast. Intentional.</h2>
+        <div class="port-section-label">
+          <span class="port-section-label__dot"></span>
+          <span class="port-section-label__text">How I Build</span>
+          <span class="port-section-label__rule"></span>
+        </div>
 
         <div class="value-grid">
-
           <div class="value-item reveal">
             <div class="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
-            <h3>Hand&#8209;Coded</h3>
-            <p>Every line is written deliberately. No bloated themes, no hidden plugins, no framework overhead you did not ask for.</p>
+            <h3>Hand-Coded</h3>
+            <p>Every line written deliberately. No bloated themes, no hidden plugins, no framework overhead.</p>
           </div>
-
           <div class="value-item reveal reveal-delay-1">
             <div class="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
             </div>
-            <h3>Mobile&#8209;First</h3>
-            <p>Designed for small screens first, then scaled up. The layout works everywhere because it was built that way from the start.</p>
+            <h3>Mobile-First</h3>
+            <p>Designed for small screens first, then scaled up. The layout works everywhere.</p>
           </div>
-
           <div class="value-item reveal reveal-delay-2">
             <div class="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </div>
-            <h3>Performance&#8209;Minded</h3>
-            <p>Lightweight structure, clean code, optimized assets. Fast load times are not a feature. They are the baseline.</p>
+            <h3>Performance-Minded</h3>
+            <p>Lightweight structure, clean code, optimized assets. Fast load times are the baseline.</p>
           </div>
-
           <div class="value-item reveal reveal-delay-3">
             <div class="value-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             </div>
-            <h3>Client&#8209;Owned</h3>
-            <p>You own the code outright. No subscriptions, no lock&#8209;in, and no dependency on me just to keep the lights on.</p>
+            <h3>Client-Owned</h3>
+            <p>You own the code outright. No subscriptions, no lock‑in, no dependency on me.</p>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ═══ SELECTED WORK ══════════════════════════════════════ -->
-    <section class="featured-work-section">
+    <!-- ═══ BUILD STANDARDS ═══════════════════════════════ -->
+    <section class="port-project-section">
       <div class="container">
+        <div class="port-section-label">
+          <span class="port-section-label__dot"></span>
+          <span class="port-section-label__text">Build Standards</span>
+          <span class="port-section-label__rule"></span>
+        </div>
 
-        <div class="section-head">
-          <div>
-            <span class="section-label">Selected Work</span>
-            <h2>What I Build</h2>
-          </div>
-          <a href="portfolio.html" class="btn btn-ghost btn-sm">View Full Portfolio &#8594;</a>
+        <p class="port-project-desc" style="max-width: 680px;">
+          Every project leaves my hands deployment‑ready. This is the baseline, not a premium add‑on.
+        </p>
+
+        <div class="standards-grid">
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Semantic HTML foundation</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Responsive, mobile‑first layout</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Organized file structure</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Conversion‑focused hierarchy</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Strong visual hierarchy</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Optimized asset loading</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Deploy‑ready on handoff</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SELECTED WORK ═════════════════════════════════ -->
+    <section class="port-project-section">
+      <div class="container">
+        <div class="port-section-label">
+          <span class="port-section-label__dot"></span>
+          <span class="port-section-label__text">Selected Work</span>
+          <span class="port-section-label__rule"></span>
         </div>
 
         <div class="project-grid">
-
-          <!-- ── Card 1: Guardian 4 Heroes — Live Site ── -->
+          <!-- Guardian 4 Heroes -->
           <article class="project-card reveal">
-            <img
-              src="images/guardian-1.jpg"
-              alt="Guardian 4 Heroes website hero section showing equine therapy nonprofit"
-              class="project-card-img"
-              loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-            />
-            <div class="project-card-img-placeholder" style="display:none;">Guardian 4 Heroes</div>
+            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes" class="project-card-img" loading="lazy" onerror="this.style.display='none';">
             <div class="project-card-body">
-              <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Nonprofit</span>
-                <span class="spec-badge badge-type">Multi&#8209;Page</span>
-                <span class="spec-badge badge-live">Live</span>
+              <h3 class="port-project-title">Guardian 4 Heroes</h3>
+              <p class="port-project-desc">Full nonprofit site for an equine therapy organization serving veterans and first responders. Hand‑coded from scratch.</p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Live</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Vanilla JS</span>
               </div>
-              <h3>Guardian 4 Heroes</h3>
-              <p class="work-section-intro">
-                A full multi&#8209;page nonprofit site for an equine therapy organization serving veterans and first responders. Hand&#8209;coded navigation, donation flow, shop section, contact form, and mobile layout.
-              </p>
-              <a href="portfolio.html#guardian4heroes" class="btn btn-ghost btn-sm">See the Full Breakdown &#8594;</a>
+              <a href="portfolio.html#guardian4heroes" class="port-action-btn">View Case Study →</a>
             </div>
           </article>
 
-          <!-- ── Card 2: Ember & Oak Cafe — Concept Build ── -->
+          <!-- IronShield Roofing -->
           <article class="project-card reveal reveal-delay-1">
-            <img
-              src="images/ember.demo.home.jpg"
-              alt="Ember and Oak Cafe concept demo showing warm espresso themed homepage"
-              class="project-card-img"
-              loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-            />
-            <div class="project-card-img-placeholder" style="display:none;">Ember &amp; Oak Cafe</div>
+            <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing" class="project-card-img" loading="lazy" onerror="this.style.display='none';">
             <div class="project-card-body">
-              <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Concept Build</span>
-                <span class="spec-badge badge-type">Multi&#8209;Page</span>
-                <span class="spec-badge badge-concept">Demo</span>
+              <h3 class="port-project-title">IronShield Roofing</h3>
+              <p class="port-project-desc">Storm‑damage lead generation page. Trust‑first layout, call‑driven structure, focused quote flow.</p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
+                <span class="tag">Landing Page</span>
+                <span class="tag">Lead Gen</span>
               </div>
-              <h3>Ember &amp; Oak Cafe</h3>
-              <p class="work-section-intro">
-                A six&#8209;page concept site for a fictional neighbourhood cafe. Multi&#8209;page architecture, menu layout, event listings, catering page, and a cohesive brand system. Built to show range beyond the dark aesthetic.
-              </p>
-              <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">View Live Demo &#8599;</a>
+              <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
             </div>
           </article>
 
-          <!-- ── Card 3: IronShield Roofing — Landing Page ── -->
+          <!-- Ember & Oak Cafe (concept) -->
           <article class="project-card reveal reveal-delay-2">
-            <img
-              src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg"
-              alt="IronShield Roofing landing page showing storm damage lead generation design"
-              class="project-card-img"
-              loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-            />
-            <div class="project-card-img-placeholder" style="display:none;">IronShield Roofing</div>
+            <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe" class="project-card-img" loading="lazy" onerror="this.style.display='none';">
             <div class="project-card-body">
-              <div class="spec-badge-row">
-                <span class="spec-badge badge-type">Landing Page</span>
-                <span class="spec-badge badge-type">Lead Gen</span>
-                <span class="spec-badge badge-live">Demo Live</span>
+              <h3 class="port-project-title">Ember & Oak Cafe</h3>
+              <p class="port-project-desc">Six‑page concept site for a neighbourhood cafe. Multi‑page architecture, menu, catering, cohesive brand system.</p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
+                <span class="tag">Concept</span>
+                <span class="tag">Multi‑Page</span>
               </div>
-              <h3>IronShield Roofing</h3>
-              <p class="work-section-intro">
-                Storm&#8209;damage lead generation page for a local roofing contractor. Trust&#8209;first layout, call&#8209;driven structure, and a focused quote request flow designed to convert.
-              </p>
-              <a href="landing-pages/ironshield-roofing/" class="btn btn-ghost btn-sm">View Live Demo &#8594;</a>
+              <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="port-action-btn">Live Demo &#8599;</a>
             </div>
           </article>
+        </div>
 
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="portfolio.html" class="btn btn-ghost">View Full Portfolio →</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══ SERVICES TEASER ════════════════════════════════════ -->
-    <section class="services-teaser-section">
+    <!-- ═══ SERVICES TEASER ═══════════════════════════════ -->
+    <section class="port-project-section">
       <div class="container">
-
-        <div class="section-head">
-          <div>
-            <span class="section-label reveal">Services</span>
-            <h2 class="reveal">What I Can Build For You</h2>
-          </div>
-          <a href="services.html" class="btn btn-ghost btn-sm">See All Services &#8594;</a>
+        <div class="port-section-label">
+          <span class="port-section-label__dot"></span>
+          <span class="port-section-label__text">Services</span>
+          <span class="port-section-label__rule"></span>
         </div>
-
-        <p class="section-intro reveal">
-          Whether you are starting from zero or rebuilding what you have, I will structure and code the front end cleanly and professionally.
-        </p>
 
         <div class="services-grid">
-
           <div class="service-tile reveal">
-            <div class="service-tile-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <h3>Custom Multi&#8209;Page Websites</h3>
-            <p>Full site builds from scratch. Unique layout, clean code, mobile&#8209;first structure, designed around your goals.</p>
+            <div class="service-tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <h3>Custom Websites</h3>
+            <p>Full multi‑page sites built from scratch. Unique layout, clean code, designed around your goals.</p>
           </div>
-
           <div class="service-tile reveal reveal-delay-1">
-            <div class="service-tile-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <circle cx="12" cy="12" r="6"></circle>
-                <circle cx="12" cy="12" r="2"></circle>
-              </svg>
-            </div>
+            <div class="service-tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
             <h3>Landing Pages</h3>
-            <p>Single&#8209;page builds focused on one clear goal. Fast, focused, and built to convert without distraction.</p>
+            <p>Single‑page builds focused on one clear goal. Fast, focused, built to convert.</p>
           </div>
-
           <div class="service-tile reveal reveal-delay-2">
-            <div class="service-tile-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="23 4 23 10 17 10"></polyline>
-                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-              </svg>
-            </div>
-            <h3>Website Redesign</h3>
-            <p>Strip the bloat and rebuild it right. Modern layout, improved performance, and a cleaner structure.</p>
+            <div class="service-tile-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+            <h3>Redesign & Cleanup</h3>
+            <p>Strip the bloat and rebuild it right. Modern layout, improved performance, cleaner structure.</p>
           </div>
-
         </div>
-
-        <div class="text-center" style="margin-top: 44px;">
-          <a href="services.html" class="btn btn-primary">Explore Services</a>
-        </div>
-
       </div>
     </section>
 
-    <!-- ═══ TESTIMONIAL ════════════════════════════════════════ -->
+    <!-- ═══ TESTIMONIAL ═══════════════════════════════════ -->
     <section class="testimonial-section">
       <div class="container">
         <div class="testimonial-block reveal">
           <blockquote>
-            &#8220;Craig went above and beyond. He did not just build us a website, he brought our mission to life. We get compliments on it constantly.&#8221;
+            “Craig went above and beyond. He didn't just build us a website,
+            he brought our mission to life. We get compliments on it constantly.”
           </blockquote>
           <cite>Guardian 4 Heroes Team</cite>
         </div>
       </div>
     </section>
 
-    <!-- ═══ EMAIL SIGNUP ════════════════════════════════════════ -->
+    <!-- ═══ EMAIL SIGNUP ══════════════════════════════════ -->
     <section class="email-signup-section">
       <div class="container">
         <span class="section-label">Stay Updated</span>
         <h2>Build Updates and Project Drops</h2>
         <p class="email-signup-sub">
-          I share project launches, build breakdowns, and behind&#8209;the&#8209;scenes updates. No spam.
+          I share project launches, build breakdowns, and behind‑the‑scenes updates. No spam.
         </p>
         <div class="email-embed-wrap">
           <div class="ml-embedded" data-form="Pfx24D"></div>
@@ -404,14 +474,15 @@
       </div>
     </section>
 
-    <!-- ═══ FINAL CTA ══════════════════════════════════════════ -->
+    <!-- ═══ FINAL CTA ═════════════════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
         <span class="section-label reveal">Ready?</span>
-        <h2 class="reveal">Let&#8217;s Build Something Solid</h2>
+        <h2 class="reveal">Let's Build Something Solid</h2>
         <p class="reveal">
-          Tell me what you need. I will structure and code it cleanly from the ground up.
+          Tell me what you need. I'll structure and code it cleanly from the ground up.
         </p>
+        <p class="cta-pipeline-note reveal"><span>●</span> More industry demos in development — Fitness Coach Funnel & SaaS Beta Waitlist</p>
         <div class="cta-btns reveal">
           <a href="contact.html" class="btn btn-primary">Get a Quote</a>
           <a href="portfolio.html" class="btn btn-ghost">View My Work</a>
@@ -421,7 +492,7 @@
 
   </main>
 
-  <!-- ═══ FOOTER ════════════════════════════════════════════ -->
+  <!-- ═══ FOOTER ══════════════════════════════════════════ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -430,7 +501,7 @@
             <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran&#8209;Built Front Ends</span>
           </div>
-          <p>Custom hand&#8209;coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
+          <p>Custom hand‑coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -453,15 +524,29 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="copy-year">2025</span> WebOps Studio. All rights reserved.</p>
-        <a href="contact.html">Get a Free Quote &#8594;</a>
+        <a href="contact.html">Get a Free Quote →</a>
       </div>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">&#8593;</button>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
 
+  <!-- ═══ SCRIPTS ═════════════════════════════════════════ -->
   <script src="js/scripts.js"></script>
-  <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
+  <script>
+    // Dynamic copyright year
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    // (Optional) ensure header scroll class is applied if scripts.js fails
+    window.addEventListener('scroll', function() {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
+
+  <!-- MailerLite Universal (keep only once) -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account', '2121003');
+  </script>
 
 </body>
 </html>
