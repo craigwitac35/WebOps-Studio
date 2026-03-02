@@ -25,7 +25,7 @@
        - header scroll shrink
        - hero with stats
        - section label system
-       - project card meta & action buttons
+       - featured project + text cards
     ============================================================ */
 
     /* Full‑page background */
@@ -209,14 +209,78 @@
       color: var(--color-white);
     }
 
-    /* Override global card hover (reduce effects) */
-    .project-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(232,98,10,0.25);
-      box-shadow: none;
+    /* ===== Featured project (image + text) ===== */
+    .featured-project {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+      align-items: center;
+    }
+    .featured-project__img img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    .featured-project__content {
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Responsive tweaks */
+    /* ===== Text project cards ===== */
+    .other-projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .text-project-card {
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .text-project-card:hover {
+      border-color: rgba(232,98,10,0.25);
+    }
+    .text-project-title {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+    .text-project-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-3);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .text-project-card .port-project-meta {
+      margin-top: auto;
+      margin-bottom: 16px;
+    }
+    .text-project-card .port-action-btn {
+      align-self: flex-start;
+      margin-top: 0;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .featured-project {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .other-projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 640px) {
       .port-hero__inner { padding: 36px 0 16px; }
       .port-hero__title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
@@ -323,7 +387,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             </div>
             <h3>Client-Owned</h3>
-            <p>You own the code outright. No subscriptions, no lock‑in, no dependency on me.</p>
+            <p>You own the code outright. No subscriptions, no lock&#8209;in, no dependency on me.</p>
           </div>
         </div>
       </div>
@@ -354,7 +418,7 @@
       </div>
     </section>
 
-    <!-- ═══ SELECTED WORK ═════════════════════════════════ -->
+    <!-- ═══ SELECTED WORK (Option 3) ═════════════════════════════ -->
     <section class="port-project-section">
       <div class="container">
         <div class="port-section-label">
@@ -363,55 +427,55 @@
           <span class="port-section-label__rule"></span>
         </div>
 
-        <div class="project-grid">
-          <!-- Guardian 4 Heroes -->
-          <article class="project-card reveal">
-            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes" class="project-card-img" loading="lazy" onerror="this.style.display='none';">
-            <div class="project-card-body">
-              <h3 class="port-project-title">Guardian 4 Heroes</h3>
-              <p class="port-project-desc">Full nonprofit site for an equine therapy organization serving veterans and first responders. Hand‑coded from scratch.</p>
-              <div class="port-project-meta">
-                <span class="status-badge status-live"><span class="status-dot"></span>Live</span>
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">Vanilla JS</span>
-              </div>
-              <a href="portfolio.html#guardian4heroes" class="port-action-btn">View Case Study →</a>
+        <!-- Featured project: Guardian 4 Heroes (with image) -->
+        <div class="featured-project">
+          <div class="featured-project__img">
+            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" loading="lazy">
+          </div>
+          <div class="featured-project__content">
+            <h3 class="port-project-title">Guardian 4 Heroes</h3>
+            <p class="port-project-desc">
+              Full nonprofit website for an equine therapy organization serving veterans and first responders. Hand‑coded from scratch with a mobile‑first, donation‑focused UX.
+            </p>
+            <div class="port-project-meta">
+              <span class="status-badge status-live"><span class="status-dot"></span>Live</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Vanilla JS</span>
             </div>
-          </article>
-
-          <!-- IronShield Roofing -->
-          <article class="project-card reveal reveal-delay-1">
-            <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing" class="project-card-img" loading="lazy" onerror="this.style.display='none';">
-            <div class="project-card-body">
-              <h3 class="port-project-title">IronShield Roofing</h3>
-              <p class="port-project-desc">Storm‑damage lead generation page. Trust‑first layout, call‑driven structure, focused quote flow.</p>
-              <div class="port-project-meta">
-                <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
-                <span class="tag">Landing Page</span>
-                <span class="tag">Lead Gen</span>
-              </div>
-              <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
-            </div>
-          </article>
-
-          <!-- Ember & Oak Cafe (concept) -->
-          <article class="project-card reveal reveal-delay-2">
-            <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe" class="project-card-img" loading="lazy" onerror="this.style.display='none';">
-            <div class="project-card-body">
-              <h3 class="port-project-title">Ember & Oak Cafe</h3>
-              <p class="port-project-desc">Six‑page concept site for a neighbourhood cafe. Multi‑page architecture, menu, catering, cohesive brand system.</p>
-              <div class="port-project-meta">
-                <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
-                <span class="tag">Concept</span>
-                <span class="tag">Multi‑Page</span>
-              </div>
-              <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="port-action-btn">Live Demo &#8599;</a>
-            </div>
-          </article>
+            <a href="portfolio.html#guardian4heroes" class="port-action-btn">View Case Study →</a>
+          </div>
         </div>
 
-        <div style="text-align: center; margin-top: 32px;">
+        <!-- Other projects (text cards) -->
+        <div class="other-projects">
+          <!-- IronShield Roofing -->
+          <div class="text-project-card">
+            <h4 class="text-project-title">IronShield Roofing</h4>
+            <p class="text-project-desc">Storm‑damage lead generation landing page. Trust‑first layout, call‑driven structure, focused quote request flow.</p>
+            <div class="port-project-meta">
+              <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
+              <span class="tag">Landing Page</span>
+              <span class="tag">Lead Gen</span>
+            </div>
+            <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
+          </div>
+
+          <!-- Ember & Oak Cafe -->
+          <div class="text-project-card">
+            <h4 class="text-project-title">Ember & Oak Cafe</h4>
+            <p class="text-project-desc">Six‑page concept site for a fictional neighborhood cafe. Multi‑page architecture, menu layout, event listings, catering page, cohesive brand system.</p>
+            <div class="port-project-meta">
+              <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
+              <span class="tag">Concept</span>
+              <span class="tag">Multi-Page</span>
+            </div>
+            <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="port-action-btn">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <!-- Link to full portfolio -->
+        <div style="text-align: center; margin-top: 48px;">
           <a href="portfolio.html" class="btn btn-ghost">View Full Portfolio →</a>
         </div>
       </div>
@@ -537,7 +601,7 @@
     // Dynamic copyright year
     document.getElementById('copy-year').textContent = new Date().getFullYear();
 
-    // (Optional) ensure header scroll class is applied if scripts.js fails
+    // Fallback header scroll class
     window.addEventListener('scroll', function() {
       document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 40);
     });
