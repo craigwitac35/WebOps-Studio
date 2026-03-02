@@ -20,11 +20,10 @@
 
   <style>
     /* ============================================================
-       HOME PAGE — FINAL TWEAKS
-       - Taller project images (200px)
-       - Orange outlines on value & service cards
-       - Refined footer layout
-       - No em dashes
+       HOME PAGE — FINAL ADJUSTMENTS
+       - "View Full Portfolio" button now orange (primary)
+       - Footer background transparent (shows background image)
+       - Build standards description brighter for readability
     ============================================================ */
 
     /* Full‑page background */
@@ -285,6 +284,13 @@
       color: var(--color-white);
     }
 
+    /* ===== Build Standards — brighter description text ===== */
+    .build-standards-desc {
+      color: var(--color-text-2) !important; /* brighter than default */
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
     /* ===== Services teaser with orange outline ===== */
     .services-grid {
       display: grid;
@@ -313,10 +319,10 @@
       margin: 0;
     }
 
-    /* ===== Footer (redesigned) ===== */
+    /* ===== Footer — now transparent to show background ===== */
     footer {
-      background: var(--color-bg);
-      border-top: 1px solid rgba(232,98,10,0.15);
+      background: transparent;
+      border-top: 1px solid rgba(232,98,10,0.2);
       padding: 48px 0 24px;
       margin-top: 48px;
     }
@@ -333,7 +339,7 @@
     }
     .footer-brand p {
       font-size: 0.85rem;
-      color: var(--color-text-3);
+      color: var(--color-text-2); /* brighter for readability */
       max-width: 280px;
       line-height: 1.6;
     }
@@ -352,7 +358,7 @@
     }
     .footer-col ul a {
       font-size: 0.85rem;
-      color: var(--color-text-3);
+      color: var(--color-text-2);
       transition: color 0.2s ease;
     }
     .footer-col ul a:hover {
@@ -365,10 +371,10 @@
     }
     .footer-contact-item {
       font-size: 0.85rem;
-      color: var(--color-text-3);
+      color: var(--color-text-2);
     }
     .footer-contact-item a {
-      color: var(--color-text-3);
+      color: var(--color-text-2);
     }
     .footer-contact-item a:hover {
       color: var(--color-orange);
@@ -401,6 +407,24 @@
         flex-direction: column;
         text-align: center;
       }
+    }
+
+    /* ===== "View Full Portfolio" button — now orange primary ===== */
+    .btn-view-all {
+      margin-top: 36px;
+      text-align: center;
+    }
+    .btn-view-all .btn-primary {
+      background: var(--color-orange);
+      border-color: var(--color-orange);
+      color: var(--color-white);
+      padding: 12px 28px; /* slightly larger */
+      font-size: 0.85rem;
+    }
+    .btn-view-all .btn-primary:hover {
+      background: var(--color-orange-lt);
+      border-color: var(--color-orange-lt);
+      box-shadow: 0 4px 20px var(--color-orange-glow);
     }
 
     /* ===== Responsive ===== */
@@ -568,7 +592,7 @@
           <span class="port-section-label__rule"></span>
         </div>
 
-        <p class="port-project-desc" style="max-width: 680px;">
+        <p class="build-standards-desc">
           Every project leaves my hands deployment‑ready. This is the baseline, not a premium add‑on.
         </p>
 
@@ -644,8 +668,9 @@
           </article>
         </div>
 
-        <div style="text-align: center; margin-top: 36px;">
-          <a href="portfolio.html" class="btn btn-ghost">View Full Portfolio →</a>
+        <!-- View Full Portfolio button — now orange primary -->
+        <div class="btn-view-all">
+          <a href="portfolio.html" class="btn btn-primary">View Full Portfolio →</a>
         </div>
       </div>
     </section>
@@ -725,7 +750,7 @@
 
   </main>
 
-  <!-- ═══ FOOTER (redesigned) ══════════════════════════════════════ -->
+  <!-- ═══ FOOTER (transparent, shows background) ═══════════════════ -->
   <footer>
     <div class="container">
       <div class="footer-grid">
