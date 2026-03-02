@@ -20,7 +20,7 @@
 
   <style>
     /* ============================================================
-       HOME PAGE — TIGHTER SPACING & MOBILE OPTIMIZATION
+       HOME PAGE — IMAGE CARDS WITH SMALLER IMAGES
     ============================================================ */
 
     /* Full‑page background */
@@ -41,7 +41,7 @@
     #site-header.scrolled .site-logo a { font-size: 1.3rem; }
     body { padding-top: 70px; }
 
-    /* Reduce section padding globally for this page */
+    /* Section padding */
     .port-project-section {
       padding: 48px 0;
     }
@@ -51,7 +51,7 @@
       }
     }
 
-    /* ===== Hero (tighter) ===== */
+    /* ===== Hero ===== */
     .port-hero {
       position: relative;
       display: flex;
@@ -161,7 +161,7 @@
       background: var(--gradient-divider);
     }
 
-    /* ===== Value props - more compact ===== */
+    /* ===== Value props ===== */
     .value-grid {
       gap: 1px;
     }
@@ -177,10 +177,42 @@
       line-height: 1.5;
     }
 
-    /* ===== Project card consistency ===== */
+    /* ===== Project cards (3‑column grid with smaller images) ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .project-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232,98,10,0.25);
+    }
+    .project-card-img {
+      width: 100%;
+      height: 160px; /* smaller than before */
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .project-card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
     .port-project-title {
       font-family: var(--font-head);
-      font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+      font-size: 1.2rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -188,10 +220,11 @@
       margin-bottom: 6px;
     }
     .port-project-desc {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.6;
+      font-size: 0.85rem;
+      color: var(--color-text-3);
+      line-height: 1.5;
       margin-bottom: 10px;
+      flex: 1;
     }
     .port-project-meta {
       display: flex;
@@ -221,6 +254,7 @@
       align-items: center;
       gap: 4px;
       transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      align-self: flex-start;
       margin-top: 4px;
     }
     .port-action-btn:hover {
@@ -229,73 +263,15 @@
       color: var(--color-white);
     }
 
-    /* ===== Featured project ===== */
-    .featured-project {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 40px;
-      align-items: center;
-    }
-    .featured-project__img img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border);
-    }
-
-    /* ===== Text project cards ===== */
-    .other-projects {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .text-project-card {
-      background: var(--color-surface-1);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      transition: border-color 0.2s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .text-project-card:hover {
-      border-color: rgba(232,98,10,0.25);
-    }
-    .text-project-title {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      color: var(--color-white);
-      margin-bottom: 6px;
-    }
-    .text-project-desc {
-      font-size: 0.85rem;
-      color: var(--color-text-3);
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-    .text-project-card .port-project-meta {
-      margin-top: auto;
-      margin-bottom: 12px;
-    }
-    .text-project-card .port-action-btn {
-      align-self: flex-start;
-      margin-top: 0;
-    }
-
-    /* ===== Responsive (mobile) ===== */
-    @media (max-width: 768px) {
-      .featured-project {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-bottom: 32px;
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .other-projects {
+    }
+    @media (max-width: 640px) {
+      .project-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
       }
       .port-hero__inner {
         padding: 24px 0 16px;
@@ -324,15 +300,7 @@
       .value-item p {
         font-size: 0.75rem;
       }
-      .text-project-card {
-        padding: 20px;
-      }
-      .port-project-title {
-        font-size: 1.2rem;
-      }
     }
-
-    /* Extra small devices */
     @media (max-width: 480px) {
       .port-hero__stats {
         flex-direction: column;
@@ -473,7 +441,7 @@
       </div>
     </section>
 
-    <!-- ═══ SELECTED WORK (Option 3) ═════════════════════════════ -->
+    <!-- ═══ SELECTED WORK (3 cards with smaller images) ═══════ -->
     <section class="port-project-section">
       <div class="container">
         <div class="port-section-label">
@@ -482,54 +450,54 @@
           <span class="port-section-label__rule"></span>
         </div>
 
-        <!-- Featured project: Guardian 4 Heroes (with image) -->
-        <div class="featured-project">
-          <div class="featured-project__img">
-            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" loading="lazy">
-          </div>
-          <div class="featured-project__content">
-            <h3 class="port-project-title">Guardian 4 Heroes</h3>
-            <p class="port-project-desc">
-              Full nonprofit website for an equine therapy organization serving veterans and first responders. Hand‑coded from scratch with a mobile‑first, donation‑focused UX.
-            </p>
-            <div class="port-project-meta">
-              <span class="status-badge status-live"><span class="status-dot"></span>Live</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Vanilla JS</span>
+        <div class="project-grid">
+          <!-- Guardian 4 Heroes -->
+          <article class="project-card reveal">
+            <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" class="project-card-img" loading="lazy">
+            <div class="project-card-body">
+              <h3 class="port-project-title">Guardian 4 Heroes</h3>
+              <p class="port-project-desc">Full nonprofit website for an equine therapy organization serving veterans and first responders. Hand‑coded, donation‑focused UX.</p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Live</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">Vanilla JS</span>
+              </div>
+              <a href="portfolio.html#guardian4heroes" class="port-action-btn">View Case Study →</a>
             </div>
-            <a href="portfolio.html#guardian4heroes" class="port-action-btn">View Case Study →</a>
-          </div>
-        </div>
+          </article>
 
-        <!-- Other projects (text cards) -->
-        <div class="other-projects">
           <!-- IronShield Roofing -->
-          <div class="text-project-card">
-            <h4 class="text-project-title">IronShield Roofing</h4>
-            <p class="text-project-desc">Storm‑damage lead generation landing page. Trust‑first layout, call‑driven structure, focused quote request flow.</p>
-            <div class="port-project-meta">
-              <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
-              <span class="tag">Landing Page</span>
-              <span class="tag">Lead Gen</span>
+          <article class="project-card reveal reveal-delay-1">
+            <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page" class="project-card-img" loading="lazy">
+            <div class="project-card-body">
+              <h3 class="port-project-title">IronShield Roofing</h3>
+              <p class="port-project-desc">Storm‑damage lead generation landing page. Trust‑first layout, call‑driven structure, focused quote request flow.</p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
+                <span class="tag">Landing Page</span>
+                <span class="tag">Lead Gen</span>
+              </div>
+              <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
             </div>
-            <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
-          </div>
+          </article>
 
           <!-- Ember & Oak Cafe -->
-          <div class="text-project-card">
-            <h4 class="text-project-title">Ember & Oak Cafe</h4>
-            <p class="text-project-desc">Six‑page concept site for a fictional neighborhood cafe. Multi‑page architecture, menu layout, event listings, catering page, cohesive brand system.</p>
-            <div class="port-project-meta">
-              <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
-              <span class="tag">Concept</span>
-              <span class="tag">Multi-Page</span>
+          <article class="project-card reveal reveal-delay-2">
+            <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe home page" class="project-card-img" loading="lazy">
+            <div class="project-card-body">
+              <h3 class="port-project-title">Ember & Oak Cafe</h3>
+              <p class="port-project-desc">Six‑page concept site for a fictional neighborhood cafe. Multi‑page architecture, menu, events, catering, cohesive brand system.</p>
+              <div class="port-project-meta">
+                <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
+                <span class="tag">Concept</span>
+                <span class="tag">Multi-Page</span>
+              </div>
+              <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="port-action-btn">Live Demo ↗</a>
             </div>
-            <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="port-action-btn">Live Demo ↗</a>
-          </div>
+          </article>
         </div>
 
-        <!-- Link to full portfolio -->
         <div style="text-align: center; margin-top: 36px;">
           <a href="portfolio.html" class="btn btn-ghost">View Full Portfolio →</a>
         </div>
