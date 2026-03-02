@@ -20,12 +20,7 @@
 
   <style>
     /* ============================================================
-       HOME PAGE — CONSISTENCY WITH PORTFOLIO
-       - body::before background image
-       - header scroll shrink
-       - hero with stats
-       - section label system
-       - featured project + text cards
+       HOME PAGE — TIGHTER SPACING & MOBILE OPTIMIZATION
     ============================================================ */
 
     /* Full‑page background */
@@ -46,7 +41,17 @@
     #site-header.scrolled .site-logo a { font-size: 1.3rem; }
     body { padding-top: 70px; }
 
-    /* ===== Hero (matches portfolio .port-hero) ===== */
+    /* Reduce section padding globally for this page */
+    .port-project-section {
+      padding: 48px 0;
+    }
+    @media (max-width: 768px) {
+      .port-project-section {
+        padding: 32px 0;
+      }
+    }
+
+    /* ===== Hero (tighter) ===== */
     .port-hero {
       position: relative;
       display: flex;
@@ -55,7 +60,7 @@
       background: transparent;
     }
     .port-hero__inner {
-      padding: 56px 0 20px;
+      padding: 40px 0 20px;
       position: relative;
       z-index: 1;
       text-align: center;
@@ -70,7 +75,7 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--color-orange);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .port-hero__line {
       display: block;
@@ -87,7 +92,7 @@
       letter-spacing: 0.02em;
       text-transform: uppercase;
       color: var(--color-white);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .port-hero__title span {
       color: var(--color-orange);
@@ -96,20 +101,20 @@
     .port-hero__sub {
       font-size: 0.95rem;
       color: var(--color-text-3);
-      line-height: 1.7;
+      line-height: 1.6;
       max-width: 560px;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
     }
     .port-hero__stats {
       display: flex;
-      gap: 36px;
+      gap: 28px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
     .port-stat__num {
       font-family: var(--font-head);
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--color-white);
       line-height: 1;
@@ -117,7 +122,7 @@
     }
     .port-stat__label {
       font-family: var(--font-mono);
-      font-size: 0.5rem;
+      font-size: 0.48rem;
       font-weight: 500;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -131,8 +136,8 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 40px;
-      padding-top: 8px;
+      margin-bottom: 28px;
+      padding-top: 0;
     }
     .port-section-label__dot {
       width: 6px;
@@ -156,42 +161,57 @@
       background: var(--gradient-divider);
     }
 
+    /* ===== Value props - more compact ===== */
+    .value-grid {
+      gap: 1px;
+    }
+    .value-item {
+      padding: 28px 20px;
+    }
+    .value-item h3 {
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+    }
+    .value-item p {
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
     /* ===== Project card consistency ===== */
     .port-project-title {
       font-family: var(--font-head);
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-size: clamp(1.2rem, 2.8vw, 1.6rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.03em;
       color: var(--color-white);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .port-project-desc {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: rgba(255,255,255,0.78);
-      line-height: 1.7;
-      margin-bottom: 12px;
+      line-height: 1.6;
+      margin-bottom: 10px;
     }
     .port-project-meta {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
       align-items: center;
-      margin: 12px 0 16px;
+      margin: 8px 0 12px;
     }
     .port-project-meta .tag,
     .port-project-meta .status-badge {
-      font-size: 0.5rem;
+      font-size: 0.48rem;
       padding: 4px 8px;
       line-height: 1;
-      vertical-align: middle;
     }
     .port-action-btn {
       font-family: var(--font-mono);
-      font-size: 0.54rem;
+      font-size: 0.52rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border: 1px solid rgba(232,98,10,0.50);
       color: var(--color-orange);
       background: rgba(232,98,10,0.06);
@@ -199,7 +219,7 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
       margin-top: 4px;
     }
@@ -209,12 +229,12 @@
       color: var(--color-white);
     }
 
-    /* ===== Featured project (image + text) ===== */
+    /* ===== Featured project ===== */
     .featured-project {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-bottom: 48px;
+      gap: 24px;
+      margin-bottom: 40px;
       align-items: center;
     }
     .featured-project__img img {
@@ -223,22 +243,18 @@
       border-radius: var(--radius-md);
       border: 1px solid var(--color-border);
     }
-    .featured-project__content {
-      display: flex;
-      flex-direction: column;
-    }
 
     /* ===== Text project cards ===== */
     .other-projects {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 20px;
     }
     .text-project-card {
       background: var(--color-surface-1);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
-      padding: 28px;
+      padding: 24px;
       transition: border-color 0.2s ease;
       display: flex;
       flex-direction: column;
@@ -248,46 +264,85 @@
     }
     .text-project-title {
       font-family: var(--font-head);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.03em;
       color: var(--color-white);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .text-project-desc {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--color-text-3);
-      line-height: 1.6;
-      margin-bottom: 12px;
+      line-height: 1.5;
+      margin-bottom: 10px;
     }
     .text-project-card .port-project-meta {
       margin-top: auto;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .text-project-card .port-action-btn {
       align-self: flex-start;
       margin-top: 0;
     }
 
-    /* ===== Responsive ===== */
+    /* ===== Responsive (mobile) ===== */
     @media (max-width: 768px) {
       .featured-project {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
+        margin-bottom: 32px;
       }
       .other-projects {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .port-hero__inner {
+        padding: 24px 0 16px;
+      }
+      .port-hero__title {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+      }
+      .port-hero__stats {
+        gap: 16px;
+      }
+      .port-stat__num {
+        font-size: 1.2rem;
+      }
+      .port-stat__label {
+        font-size: 0.44rem;
+      }
+      .port-section-label {
+        margin-bottom: 20px;
+      }
+      .value-item {
+        padding: 20px 16px;
+      }
+      .value-item h3 {
+        font-size: 0.75rem;
+      }
+      .value-item p {
+        font-size: 0.75rem;
+      }
+      .text-project-card {
+        padding: 20px;
+      }
+      .port-project-title {
+        font-size: 1.2rem;
       }
     }
 
-    @media (max-width: 640px) {
-      .port-hero__inner { padding: 36px 0 16px; }
-      .port-hero__title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-      .port-hero__stats { gap: 20px; }
-      .port-stat__num { font-size: 1.3rem; }
-      .port-stat__label { font-size: 0.46rem; }
-      .port-section-label { margin-bottom: 28px; }
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .port-hero__stats {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      .port-stat__num, .port-stat__label {
+        display: inline-block;
+        margin: 0 4px;
+      }
     }
   </style>
 </head>
@@ -475,7 +530,7 @@
         </div>
 
         <!-- Link to full portfolio -->
-        <div style="text-align: center; margin-top: 48px;">
+        <div style="text-align: center; margin-top: 36px;">
           <a href="portfolio.html" class="btn btn-ghost">View Full Portfolio →</a>
         </div>
       </div>
