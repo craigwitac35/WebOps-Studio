@@ -20,7 +20,7 @@
 
   <style>
     /* ============================================================
-       HOME PAGE — IMAGE CARDS WITH SMALLER IMAGES
+       HOME PAGE — ENHANCED PROJECT CARDS WITH SUBHEADERS
     ============================================================ */
 
     /* Full‑page background */
@@ -199,7 +199,7 @@
     }
     .project-card-img {
       width: 100%;
-      height: 160px; /* smaller than before */
+      height: 160px;
       object-fit: cover;
       display: block;
       border-bottom: 1px solid var(--color-border);
@@ -210,14 +210,26 @@
       display: flex;
       flex-direction: column;
     }
+    .project-card-subheader {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
     .port-project-title {
       font-family: var(--font-head);
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
       color: var(--color-white);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      word-break: break-word;
     }
     .port-project-desc {
       font-size: 0.85rem;
@@ -299,6 +311,9 @@
       }
       .value-item p {
         font-size: 0.75rem;
+      }
+      .port-project-title {
+        font-size: 1.3rem;
       }
     }
     @media (max-width: 480px) {
@@ -441,7 +456,7 @@
       </div>
     </section>
 
-    <!-- ═══ SELECTED WORK (3 cards with smaller images) ═══════ -->
+    <!-- ═══ SELECTED WORK (enhanced cards with subheaders) ═══════ -->
     <section class="port-project-section">
       <div class="container">
         <div class="port-section-label">
@@ -455,6 +470,7 @@
           <article class="project-card reveal">
             <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" class="project-card-img" loading="lazy">
             <div class="project-card-body">
+              <!-- No subheader for Guardian (or you could add one like "Supporting Those Who Served") -->
               <h3 class="port-project-title">Guardian 4 Heroes</h3>
               <p class="port-project-desc">Full nonprofit website for an equine therapy organization serving veterans and first responders. Hand‑coded, donation‑focused UX.</p>
               <div class="port-project-meta">
@@ -471,6 +487,7 @@
           <article class="project-card reveal reveal-delay-1">
             <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page" class="project-card-img" loading="lazy">
             <div class="project-card-body">
+              <div class="project-card-subheader">Sorry! Damage? We handle everything.</div>
               <h3 class="port-project-title">IronShield Roofing</h3>
               <p class="port-project-desc">Storm‑damage lead generation landing page. Trust‑first layout, call‑driven structure, focused quote request flow.</p>
               <div class="port-project-meta">
@@ -486,6 +503,7 @@
           <article class="project-card reveal reveal-delay-2">
             <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe home page" class="project-card-img" loading="lazy">
             <div class="project-card-body">
+              <div class="project-card-subheader">Coffee & Community.</div>
               <h3 class="port-project-title">Ember & Oak Cafe</h3>
               <p class="port-project-desc">Six‑page concept site for a fictional neighborhood cafe. Multi‑page architecture, menu, events, catering, cohesive brand system.</p>
               <div class="port-project-meta">
