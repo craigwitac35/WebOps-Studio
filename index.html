@@ -675,6 +675,115 @@
         margin: 0 4px;
       }
     }
+
+    /* ---------- ADDED CUSTOM OVERRIDES (based on user requests) ---------- */
+    /* 1. Remove black background from Build Standards section */
+    .build-standards-section {
+      background: transparent !important;
+    }
+    .build-standards-section::before {
+      display: none !important;
+    }
+
+    /* 2. Larger header & footer logos */
+    #site-header .container {
+      height: 100px !important;
+    }
+    #site-header.scrolled .container {
+      height: 80px !important;
+    }
+    body {
+      padding-top: 100px !important;
+    }
+    .logo-img {
+      max-height: 80px !important;
+    }
+    #site-header.scrolled .logo-img {
+      max-height: 64px !important;
+    }
+    .footer-logo-img {
+      max-height: 80px !important;
+    }
+
+    /* 3. Newsletter form text black */
+    .email-signup-section .ml-embedded,
+    .email-signup-section .ml-embedded * {
+      color: #000000 !important;
+    }
+    .email-signup-section .ml-embedded input,
+    .email-signup-section .ml-embedded textarea {
+      background-color: #ffffff !important;
+      border: 1px solid #ccc !important;
+      color: #000000 !important;
+      padding: 8px 12px !important;
+      border-radius: 4px;
+    }
+    .email-signup-section .ml-embedded button {
+      background-color: var(--color-orange) !important;
+      color: #ffffff !important;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .email-signup-section .ml-embedded {
+      text-shadow: none !important;
+    }
+
+    /* 4. Larger & brighter body text */
+    .port-hero__sub,
+    .build-standards-desc,
+    .email-signup-sub,
+    .cta-strip p,
+    .port-project-desc {
+      font-size: 1.2rem !important;
+      color: rgba(255, 255, 255, 0.98) !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+    .standard-item {
+      font-size: 1.1rem !important;
+      color: rgba(255, 255, 255, 0.98) !important;
+    }
+    .footer-brand p,
+    .footer-col ul a,
+    .footer-contact-item {
+      font-size: 1rem !important;
+      color: rgba(255, 255, 255, 0.98) !important;
+    }
+
+    /* 5. Make "View My Work" button match "Get a Quote" (orange primary) */
+    .cta-btns .btn-ghost {
+      background: var(--color-orange) !important;
+      border-color: var(--color-orange) !important;
+      color: var(--color-white) !important;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-btns .btn-ghost:hover {
+      background: var(--color-orange-lt) !important;
+      border-color: var(--color-orange-lt) !important;
+      box-shadow: 0 4px 20px var(--color-orange-glow) !important;
+      transform: translateY(-1px);
+    }
+    /* Optional arrow – uncomment if desired */
+    /*
+    .cta-btns .btn-ghost::after {
+      content: " →";
+      font-size: 1.2em;
+      margin-left: 6px;
+    }
+    */
+
+    /* 6. (Optional) Larger hero stats numbers */
+    .port-stat__num {
+      font-size: 1.8rem !important;
+    }
   </style>
 </head>
 <body>
@@ -992,4 +1101,4 @@
   </script>
 
 </body>
-</html>
+                                                                                                      </html>
