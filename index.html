@@ -27,15 +27,15 @@
     ============================================================ */
 
     /* Full‑page background */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: url('images/Background1.png') center / cover no-repeat;
-      opacity: 0.55;
-    }
-
+    
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('images/Background1.png') center / cover no-repeat;
+  opacity: 0.15; /* was 0.55 */
+}
     /* Header with larger logo */
     #site-header .container {
       height: 80px;
