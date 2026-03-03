@@ -591,6 +591,64 @@
   .port-hero__sub {
     margin-bottom: 40px !important;
   }
+
+  /* ============================================================
+     CTA RESTRUCTURE – centered card
+  ============================================================ */
+  .cta-strip {
+    background: transparent;
+    padding: 60px 0;
+    text-align: center;
+  }
+  .cta-headline {
+    font-family: var(--font-head);
+    font-size: 2.2rem;
+    color: var(--color-white);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .cta-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 40px 32px;
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+  .cta-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin-bottom: 16px;
+  }
+  /* Remove underline from this specific label */
+  .cta-label::after {
+    display: none !important;
+  }
+  .cta-text {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.98);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .cta-card .cta-pipeline-note {
+    font-size: 0.5rem;
+    margin-bottom: 24px;
+  }
+  .cta-card .cta-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   </style>
 </head>
 
@@ -810,17 +868,21 @@
       </div>
     </section>
 
-    <!-- ═══ CTA STRIP ═════════════════════════════════════ -->
-    <div class="section-divider"></div>
+    <!-- ═══ RESTRUCTURED CTA STRIP ════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
-        <span class="section-label reveal">Your Project</span>
-        <h2 class="reveal">Want a Build Like This?</h2>
-        <p class="reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
-        <p class="cta-pipeline-note reveal"><span>&#9679;</span> More industry demos in development &mdash; Fitness Coach Funnel &amp; SaaS Beta Waitlist</p>
-        <div class="cta-btns reveal">
-          <a href="contact.html" class="btn btn-primary">Start a Project</a>
-          <a href="services.html" class="btn btn-ghost">See My Services</a>
+        <!-- Headline above the card -->
+        <h2 class="cta-headline reveal">Want a Build Like This?</h2>
+
+        <!-- Centered card panel -->
+        <div class="cta-card">
+          <span class="section-label cta-label reveal">Your Project</span>
+          <p class="cta-text reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
+          <p class="cta-pipeline-note reveal"><span>&#9679;</span> More industry demos in development &mdash; Fitness Coach Funnel &amp; SaaS Beta Waitlist</p>
+          <div class="cta-btns reveal">
+            <a href="contact.html" class="btn btn-primary">Start a Project</a>
+            <a href="services.html" class="btn btn-ghost">See My Services</a>
+          </div>
         </div>
       </div>
     </section>
@@ -968,4 +1030,4 @@
   </script>
 
 </body>
-              </html>
+</html>
