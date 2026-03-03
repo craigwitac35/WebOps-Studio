@@ -20,15 +20,14 @@
 
   <style>
   /* ============================================================
-     PORTFOLIO PAGE — SCOPED STYLES
-     Phase 3 Polish Build:
-     - Hero gradient killed — fully transparent, body::before carries bg
-     - Case study toggle stronger visual weight
-     - Visit Live Site / View Demo buttons more readable
-     - Tag row (.port-project-meta) alignment fixed
-     - Full consistency pass: spacing, fonts, element treatment
-     - All remaining inline styles converted to classes
-     - PLUS: all index‑style enhancements (image logo, larger text, unified buttons, etc.)
+     PORTFOLIO PAGE — COMPLETE POLISHED VERSION
+     All enhancements from tasks applied:
+     - Image logo, larger body text, unified orange buttons
+     - Fixed wide nav, improved filter buttons
+     - CTA restructured with card, lined labels for all sections
+     - Guardian section reordered, gallery title styled
+     - Concept summary card removed, titles bold white
+     - Orange glow on hover, footer link styled
   ============================================================ */
 
   /* ── Full-page background ─────────────────────────────── */
@@ -69,19 +68,16 @@
     margin-bottom: 12px;
   }
 
-  /* Override header text styles (since we're using image) */
+  /* Hide header text since we're using image */
   .site-logo a {
-    font-size: 0; /* hide text, image will show */
+    font-size: 0;
   }
   .site-logo .logo-tagline {
-    display: none; /* optional: hide tagline if desired */
+    display: none;
   }
 
   /* ============================================================
-     PHASE 3: HERO — gradient killed
-     Body::before handles the background image at 55% opacity.
-     Hero is now fully transparent — no competing overlay.
-     The background flows continuously from hero into sections.
+     HERO (transparent, no overlay)
   ============================================================ */
   .port-hero {
     position: relative;
@@ -128,52 +124,81 @@
 
   .port-hero__sub {
     font-size: 1.2rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
+    color: rgba(255,255,255,0.98);
     line-height: 1.7;
     max-width: 560px;
-    margin: 0 auto 24px;
+    margin: 0 auto 40px;
     text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
 
   /* ============================================================
-     FILTER BAR — inside hero
+     FILTER BAR — improved visibility
   ============================================================ */
   .port-filter { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 0; margin: 0; }
 
   .port-filter button {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: rgba(255,255,255,0.72);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.9);
     font-family: var(--font-mono);
-    font-size: 0.6rem; /* slightly larger */
+    font-size: 0.65rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    padding: 8px 16px;
+    padding: 8px 18px;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .port-filter button:hover { border-color: rgba(232,98,10,0.50); color: var(--color-orange); background: rgba(232,98,10,0.08); }
-  .port-filter button.is-active { background: var(--color-orange); border-color: var(--color-orange); color: var(--color-white); }
+  .port-filter button:hover {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+    background: rgba(232,98,10,0.1);
+    box-shadow: 0 0 12px var(--color-orange-glow);
+  }
+  .port-filter button.is-active {
+    background: var(--color-orange);
+    border-color: var(--color-orange);
+    color: white;
+  }
 
   /* ============================================================
-     INLINE SECTION LABELS
+     LINED LABEL — two-sided lines (replaces old section labels)
   ============================================================ */
-  .port-section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; padding-top: 8px; }
-  .port-section-label__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-orange); flex-shrink: 0; }
-  .port-section-label__text { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-orange); white-space: nowrap; }
-  .port-section-label__rule { flex: 1; height: 1px; background: var(--gradient-divider); }
+  .lined-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    white-space: nowrap;
+    margin-bottom: 28px;
+  }
+  .lined-label::before,
+  .lined-label::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--color-orange);
+    opacity: 0.7;
+  }
+
+  /* Override for CTA label inside card (no extra margin) */
+  .cta-label.lined-label {
+    margin-bottom: 20px;
+  }
 
   /* ============================================================
      PROJECT SECTIONS
   ============================================================ */
   .port-project-section { padding: 64px 0; background: transparent; }
 
-  .section-label { display: inline-block; border-bottom: 1px solid rgba(232,98,10,0.4); padding-bottom: 4px; }
-  .section-label--featured { color: var(--color-orange); font-size: 0.68rem; letter-spacing: 0.2em; }
-
-  /* ── Project title (consistent across all projects) ───── */
   .port-project-title {
     font-family: var(--font-head);
     font-size: clamp(1.8rem, 4vw, 2.4rem);
@@ -184,48 +209,62 @@
     margin-bottom: 16px;
   }
 
-  /* ── Project description ─────────────────────────────── */
-  .port-project-desc {
-    font-size: 1.2rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
-    line-height: 1.85;
-    margin-bottom: 20px;
+  /* Larger, brighter body text (applies to all relevant elements) */
+  .port-project-desc,
+  .concept-summary__desc,
+  .case-study-details p,
+  .gallery-intro,
+  .footer-brand p,
+  .footer-col ul a,
+  .footer-contact-item,
+  .cta-text {
+    font-size: 1.2rem !important;
+    color: rgba(255,255,255,0.98) !important;
     text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    line-height: 1.7;
   }
 
-  .port-project-desc:last-of-type { margin-bottom: 24px; }
-
-  /* ============================================================
-     PHASE 3: PROJECT META — tag row alignment fix
-     Uses flexbox with baseline alignment so status badges
-     and tech tags sit on the same visual line regardless
-     of differing padding/font-size.
-  ============================================================ */
-  .port-project-meta {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
-  /* Ensure consistent tag height in meta rows */
   .port-project-meta .tag,
   .port-project-meta .status-badge {
+    font-size: 0.6rem !important;
+  }
+
+  /* Status badges */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
     font-size: 0.52rem;
-    padding: 5px 10px;
-    line-height: 1;
-    vertical-align: middle;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .status-live    { background: rgba(232,98,10,0.08); color: var(--color-orange); border: 1px solid rgba(232,98,10,0.25); }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: rgba(232,98,10,0.08);
+    color: var(--color-orange);
+    border: 1px solid rgba(232,98,10,0.20);
   }
 
   /* ============================================================
-     PHASE 3: VISIT LIVE SITE / VIEW DEMO BUTTONS
-     Stronger visual weight — now all orange primary
-     (overriding .btn-ghost to match .btn-primary)
+     BUTTONS — all unified to orange primary
   ============================================================ */
-  .port-project-meta .btn-ghost,
   .port-action-btn,
-  .btn-ghost {
+  .cta-btns .btn-ghost,
+  .cta-btns .btn-primary,
+  .btn-primary {
     background: var(--color-orange) !important;
     border-color: var(--color-orange) !important;
     color: var(--color-white) !important;
@@ -241,47 +280,21 @@
     gap: 6px;
     transition: all 0.2s ease;
     margin-top: 12px;
+    border: none;
   }
 
-  .port-project-meta .btn-ghost:hover,
   .port-action-btn:hover,
-  .btn-ghost:hover {
+  .cta-btns .btn-ghost:hover,
+  .cta-btns .btn-primary:hover,
+  .btn-primary:hover {
     background: var(--color-orange-lt) !important;
     border-color: var(--color-orange-lt) !important;
     box-shadow: 0 4px 20px var(--color-orange-glow) !important;
     transform: translateY(-1px);
   }
 
-  /* Ensure primary buttons also have same hover */
-  .btn-primary:hover {
-    box-shadow: 0 4px 20px var(--color-orange-glow) !important;
-    transform: translateY(-1px);
-  }
-
-  /* ── Two-column section intro on desktop ─────────────── */
-  @media (min-width: 901px) {
-    .port-project-intro {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      align-items: start;
-      gap: 24px 48px;
-      margin-bottom: 40px;
-    }
-    .port-project-intro .section-label,
-    .port-project-intro h2 { grid-column: 1; }
-    .port-project-intro p {
-      grid-column: 2;
-      grid-row: 1 / span 2;
-      align-self: center;
-      font-size: 1.2rem;
-      margin: 0;
-    }
-  }
-
   /* ============================================================
-     PHASE 3: CASE STUDY TOGGLE — stronger visual
-     Orange left border, brighter text, clearer hover state.
-     Reads as an intentional interactive element now.
+     CASE STUDY TOGGLE (with glow on hover)
   ============================================================ */
   .case-study-toggle {
     display: inline-flex;
@@ -299,13 +312,14 @@
     padding: 12px 20px;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .case-study-toggle:hover {
     background: rgba(232,98,10,0.12);
     border-color: var(--color-orange);
     color: var(--color-white);
+    box-shadow: 0 0 12px var(--color-orange-glow);
   }
 
   .case-study-toggle__arrow {
@@ -313,7 +327,6 @@
     transition: transform 0.3s ease;
     font-size: 0.65rem;
   }
-
   .case-study-toggle.is-open .case-study-toggle__arrow { transform: rotate(180deg); }
 
   .case-study-details {
@@ -328,13 +341,11 @@
     margin-top: 0;
     transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
   }
-
   .case-study-details.is-open {
     max-height: 800px;
     opacity: 1;
     margin-top: 24px;
   }
-
   .case-study-details h3 {
     font-family: var(--font-head);
     font-size: 1.4rem;
@@ -346,74 +357,133 @@
     margin-bottom: 12px;
   }
 
-  .case-study-details p {
-    font-size: 1.2rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
-    line-height: 1.8;
-    margin: 0 0 20px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-  }
-
   .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .case-study-item { display: flex; flex-direction: column; }
-  .case-study-item h3 { margin-bottom: 8px; }
-  .case-study-item p { margin-bottom: 0; }
   .case-study-item--full { grid-column: 1 / -1; }
-
   @media (max-width: 640px) {
     .case-study-grid { grid-template-columns: 1fr; }
   }
 
   /* ============================================================
-     CAROUSEL PREVIEW
+     CAROUSEL / CONCEPT PREVIEW
   ============================================================ */
-  .concept-preview__main {
-    aspect-ratio: 9 / 16;
-    overflow: hidden;
-    position: relative;
-  }
+  .concept-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; margin-top: 34px; }
 
-  .concept-preview__main img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    cursor: pointer;
+  /* Remove dark card background from concept-summary */
+  .concept-summary {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
   }
+  .concept-summary__title {
+    font-family: var(--font-head);
+    font-size: 2rem !important;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .concept-summary__desc {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.98);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 
-  /* ── Zig-zag on desktop ──────────────────────────────── */
-  @media (min-width: 901px) {
-    .concept-row--reverse { flex-direction: row-reverse; }
+  .concept-preview { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+  .concept-preview__main { position: relative; width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-2); cursor: zoom-in; display: block; }
+  .concept-preview__main img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; transition: transform 0.35s ease; }
+  .concept-preview__main:hover img { transform: scale(1.02); }
+
+  .concept-thumbs { display: grid; grid-template-columns: 44px 1fr 44px; gap: 10px; align-items: center; margin-top: 12px; }
+  .concept-thumbs__arrow { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(232,98,10,0.35); background: rgba(232,98,10,0.08); color: var(--color-white); font-size: 1.6rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; flex-shrink: 0; }
+  .concept-thumbs__arrow:hover { background: rgba(232,98,10,0.18); border-color: rgba(232,98,10,0.6); }
+  .concept-thumbs__track { display: flex; gap: 10px; overflow-x: auto; scroll-behavior: smooth; padding: 6px 2px; scrollbar-width: none; }
+  .concept-thumbs__track::-webkit-scrollbar { display: none; }
+  .concept-thumbs__thumb { border: 2px solid var(--color-border); background: var(--color-surface-2); border-radius: 6px; overflow: hidden; padding: 0; cursor: pointer; flex: 0 0 120px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+  .concept-thumbs__thumb img { width: 100%; height: 76px; object-fit: cover; object-position: top; display: block; transition: transform 0.25s ease; }
+  .concept-thumbs__thumb:hover img { transform: scale(1.04); }
+  .concept-thumbs__thumb.is-active { border-color: rgba(232,98,10,0.6); box-shadow: 0 0 0 3px rgba(232,98,10,0.12); }
+
+  /* Guardian section specific gallery */
+  .gallery-title {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 20px 0 8px;
+  }
+  .gallery-intro {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.98);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  .project-gallery-block {
+    margin-bottom: 20px;
   }
 
   /* ============================================================
-     PIPELINE TEASER — subtle CTA section line
+     CTA SECTION — restructured with card
   ============================================================ */
-  .cta-pipeline-note {
+  .cta-strip {
+    background: transparent;
+    padding: 60px 0;
+    border: none;
+    text-align: center;
+  }
+  .cta-headline {
+    font-family: var(--font-head);
+    font-size: 2.2rem;
+    color: var(--color-white);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .cta-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 40px 32px;
+    box-shadow: var(--shadow-card);
+  }
+  .cta-text {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.98);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .cta-card .cta-pipeline-note {
+    font-size: 0.5rem;
+    margin-bottom: 24px;
     font-family: var(--font-mono);
-    font-size: 0.5rem; /* smaller to match index */
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.40);
-    margin-top: 8px;
+  }
+  .cta-card .cta-pipeline-note span {
+    color: var(--color-orange);
+    opacity: 0.7;
+  }
+  .cta-card .cta-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .cta-pipeline-note span { color: var(--color-orange); opacity: 0.7; }
-
   /* ============================================================
-     LIGHTBOX
-  ============================================================ */
-  .port-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.93); align-items: center; justify-content: center; }
-  .port-lightbox.active { display: flex; }
-  .port-lightbox__inner { position: relative; max-width: 92vw; max-height: 92vh; display: flex; flex-direction: column; align-items: center; }
-  .port-lightbox__img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: var(--radius-md); display: block; }
-  .port-lightbox__close { position: absolute; top: 12px; right: 12px; z-index: 10; background: rgba(0,0,0,0.55); color: #fff; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 50%; width: 36px; height: 36px; font-size: 1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, border-color 0.2s ease; }
-  .port-lightbox__close:hover { background: rgba(232,98,10,0.5); border-color: rgba(232,98,10,0.8); }
-  .port-lightbox__caption { margin-top: 12px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-align: center; }
-  .port-lightbox__hint { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.28); text-align: center; margin-top: 6px; }
-
-  /* ============================================================
-     FOOTER with image logo and styled link
+     FOOTER
   ============================================================ */
   footer {
     background: transparent;
@@ -430,15 +500,12 @@
     margin-bottom: 20px;
   }
   .footer-brand p {
-    font-size: 1rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
     max-width: 280px;
     line-height: 1.6;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
   .footer-col h4 {
     font-family: var(--font-mono);
-    font-size: 0.65rem; /* slightly larger */
+    font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-orange);
@@ -454,25 +521,17 @@
   }
   .footer-col ul a,
   .footer-contact-item a {
-    font-size: 1rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
     text-decoration: none;
     transition: color 0.2s ease;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
   .footer-col ul a:hover,
   .footer-contact-item a:hover {
-    color: var(--color-orange);
+    color: var(--color-orange) !important;
   }
   .footer-contact-items {
     display: flex;
     flex-direction: column;
     gap: 8px;
-  }
-  .footer-contact-item {
-    font-size: 1rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
   .footer-bottom {
     display: flex;
@@ -482,14 +541,14 @@
     gap: 16px;
   }
   .footer-bottom a {
-    font-size: 0.9rem; /* increased */
-    color: rgba(255,255,255,0.98); /* brighter */
+    font-size: 0.9rem !important;
+    color: rgba(255,255,255,0.98) !important;
     text-decoration: none;
     transition: color 0.2s ease;
     text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
   .footer-bottom a:hover {
-    color: var(--color-orange);
+    color: var(--color-orange) !important;
   }
   .footer-bottom p {
     font-size: 0.75rem;
@@ -511,59 +570,52 @@
   }
 
   /* ============================================================
-     BACK-TO-TOP BUTTON (styled like index)
+     BACK-TO-TOP BUTTON
   ============================================================ */
   .back-to-top {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 500;
+    width: 42px; height: 42px;
     background: var(--color-orange);
-    color: white;
     border: none;
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
+    color: var(--color-white);
     font-size: 1.2rem;
     cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 16px var(--color-orange-glow);
   }
+  .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
   .back-to-top:hover {
     background: var(--color-orange-lt);
-    transform: scale(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-orange-glow);
   }
 
   /* ============================================================
-     RESPONSIVE
+     RESPONSIVE TWEAKS
   ============================================================ */
   @media (max-width: 900px) {
-    .g4h-split__img { width: 45%; margin: 6px 0 16px 20px; }
+    .concept-row { grid-template-columns: 1fr; }
   }
-
   @media (max-width: 640px) {
-    .port-hero__inner { padding: 36px 0 16px; }
-    .port-hero__title { font-size: clamp(1.6rem, 7vw, 2.4rem); margin-bottom: 10px; }
-    .port-hero__sub { font-size: 1rem; margin-bottom: 20px; }
-
-    .port-filter {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      justify-content: flex-start;
-      gap: 6px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .port-filter::-webkit-scrollbar { display: none; }
-    .port-filter button { flex-shrink: 0; padding: 6px 12px; font-size: 0.5rem; }
-
-    .port-section-label { margin-bottom: 28px; }
-    .g4h-split__img { width: 45%; margin: 6px 0 12px 14px; }
-    .concept-preview__main { max-height: 65vh; }
-    .port-project-section { padding: 48px 0; }
-
-    /* Tighter project desc on mobile */
-    .port-project-desc { font-size: 1rem; line-height: 1.75; }
-
-    /* Case study toggle full-width on mobile for tap target */
-    .case-study-toggle { width: 100%; justify-content: center; }
+    .port-hero__sub { font-size: 1rem; }
+    .port-project-desc,
+    .concept-summary__desc,
+    .gallery-intro,
+    .cta-text { font-size: 1rem !important; }
+    .lined-label { font-size: 0.6rem; gap: 8px; }
+    .lined-label::before,
+    .lined-label::after { width: 20px; }
+    .cta-card { padding: 24px 16px; }
+    .cta-headline { font-size: 1.8rem; }
   }
 
   /* ---------- ADDED CUSTOM OVERRIDES (matching index) ---------- */
@@ -587,13 +639,22 @@
     max-height: 100px !important;
   }
 
-  /* Extra spacing after hero subtitle (if needed) */
-  .port-hero__sub {
-    margin-bottom: 40px !important;
+  /* Fix wide nav */
+  .main-nav {
+    gap: 20px;
+  }
+  .nav-links {
+    gap: 18px;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  #site-header .container {
+    max-width: 1400px;
   }
   </style>
 </head>
-
 <body>
 
   <!-- ═══ HEADER with image logo ═════════════════════════════ -->
@@ -603,7 +664,6 @@
         <a href="index.html">
           <img src="images/logo-image.png" alt="WebOps Studio" class="logo-img">
         </a>
-        <!-- tagline hidden via CSS -->
       </div>
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
@@ -647,24 +707,25 @@
       </div>
     </section>
 
-    <!-- ═══ GUARDIAN 4 HEROES ═════════════════════════════ -->
+    <!-- ═══ GUARDIAN 4 HEROES (restructured) ═══════════════ -->
     <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
-        <div class="port-section-label">
-          <span class="port-section-label__dot"></span>
-          <span class="port-section-label__text">Live Sites</span>
-          <span class="port-section-label__rule"></span>
-        </div>
+        <!-- Lined label for Featured Project -->
+        <div class="lined-label">Featured Project</div>
 
         <div class="g4h-split reveal">
-          <span class="section-label section-label--featured"><span class="status-dot"></span> Featured Project</span>
           <h2 class="port-project-title">Guardian 4 Heroes</h2>
-          <p class="port-project-desc">
-            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders, people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
-          </p>
-          <p class="port-project-desc">
-            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion&#8209;focused throughout. The design prioritizes clear donation pathways and trust&#8209;building imagery without relying on heavy frameworks.
-          </p>
+
+          <!-- Gallery block now appears before descriptions -->
+          <div class="project-gallery-block">
+            <h3 class="gallery-title">Project Gallery</h3>
+            <p class="gallery-intro">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
+
+            <!-- Descriptions moved here -->
+            <p class="port-project-desc">Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders, people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission‑driven, and easy to navigate.</p>
+            <p class="port-project-desc">I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion‑focused throughout. The design prioritizes clear donation pathways and trust‑building imagery without relying on heavy frameworks.</p>
+          </div>
+
           <div class="port-project-meta">
             <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
             <span class="tag">HTML5</span>
@@ -674,11 +735,10 @@
           <a href="https://guardian4heroes.org" target="_blank" rel="noopener noreferrer" class="port-action-btn">Visit Live Site ↗</a>
         </div>
 
-        <!-- Gallery carousel -->
+        <!-- Gallery carousel (unchanged) -->
         <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 32px;">
           <div class="concept-summary">
-            <h3 class="concept-summary__title">Project Gallery</h3>
-            <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
+            <!-- This summary is hidden by CSS background removal, but keep for structure? Actually we can remove or keep; it's empty now. Let's keep for symmetry but hide via CSS? Already .concept-summary has transparent background, but it still takes space. Maybe we remove this div entirely since we moved content. -->
           </div>
           <div class="concept-preview">
             <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
@@ -698,7 +758,7 @@
           </div>
         </div>
 
-        <!-- Collapsible case study -->
+        <!-- Case study toggle (unchanged) -->
         <button class="case-study-toggle reveal" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details">
           View Case Study Details <span class="case-study-toggle__arrow">&#9660;</span>
         </button>
@@ -734,11 +794,8 @@
     <!-- ═══ CONCEPT BUILDS — EMBER & OAK ══════════════════ -->
     <section class="port-project-section" data-filter="concept">
       <div class="container">
-        <div class="port-section-label">
-          <span class="port-section-label__dot"></span>
-          <span class="port-section-label__text">Concept Builds</span>
-          <span class="port-section-label__rule"></span>
-        </div>
+        <!-- Lined label -->
+        <div class="lined-label">Concept Builds</div>
 
         <div class="concept-row concept-row--reverse reveal" data-carousel="ember">
           <div class="concept-summary">
@@ -775,11 +832,8 @@
     <!-- ═══ LANDING PAGES — IRONSHIELD ════════════════════ -->
     <section class="port-project-section" data-filter="landing">
       <div class="container">
-        <div class="port-section-label">
-          <span class="port-section-label__dot"></span>
-          <span class="port-section-label__text">Landing Pages</span>
-          <span class="port-section-label__rule"></span>
-        </div>
+        <!-- Lined label -->
+        <div class="lined-label">Landing Pages</div>
 
         <div class="concept-row reveal" data-carousel="ironshield">
           <div class="concept-summary">
@@ -810,20 +864,22 @@
       </div>
     </section>
 
-    <!-- ═══ CTA STRIP ═════════════════════════════════════ -->
-    <div class="section-divider"></div>
+    <!-- ═══ RESTRUCTURED CTA STRIP ════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
-        <span class="section-label reveal">Your Project</span>
-        <h2 class="reveal">Want a Build Like This?</h2>
-        <p class="reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
-        <p class="cta-pipeline-note reveal"><span>&#9679;</span> More industry demos in development &mdash; Fitness Coach Funnel &amp; SaaS Beta Waitlist</p>
-        <div class="cta-btns reveal">
-          <a href="contact.html" class="btn btn-primary">Start a Project</a>
-          <a href="services.html" class="btn btn-ghost">See My Services</a>
+        <h2 class="cta-headline">Want a Build Like This?</h2>
+        <div class="cta-card">
+          <span class="lined-label cta-label">Your Project</span>
+          <p class="cta-text">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
+          <p class="cta-pipeline-note"><span>&#9679;</span> More industry demos in development &mdash; Fitness Coach Funnel &amp; SaaS Beta Waitlist</p>
+          <div class="cta-btns">
+            <a href="contact.html" class="btn btn-primary">Start a Project</a>
+            <a href="services.html" class="btn btn-ghost">See My Services</a>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- ═══ FOOTER with image logo ═════════════════════════════ -->
@@ -875,7 +931,6 @@
   <!-- ═══ SCRIPTS ═════════════════════════════════════════ -->
   <script src="js/scripts.js"></script>
   <script>
-    /* ── Carousel engine ─────────────────────────────────── */
     function initCarousels() {
       document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
         var mainWrap = carousel.querySelector('.concept-preview__main');
@@ -918,7 +973,6 @@
       });
     }
 
-    /* ── Filter logic ────────────────────────────────────── */
     document.addEventListener('DOMContentLoaded', function() {
       var filterButtons = document.querySelectorAll('#portfolioFilter button');
       var filterableSections = document.querySelectorAll('.port-project-section[data-filter]');
@@ -939,7 +993,6 @@
       initCarousels();
       document.getElementById('copy-year').textContent = new Date().getFullYear();
 
-      /* ── Case study toggle ─────────────────────────────── */
       var toggleBtn = document.getElementById('g4hToggle');
       var details   = document.getElementById('g4h-details');
       if (toggleBtn && details) {
@@ -951,7 +1004,6 @@
       }
     });
 
-    /* ── Lightbox ────────────────────────────────────────── */
     function openLightbox(src, caption) {
       var img = document.getElementById('lightboxImg');
       var cap = document.getElementById('lightboxCaption');
@@ -968,4 +1020,4 @@
   </script>
 
 </body>
-                                                       </html>
+</html>
