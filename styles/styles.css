@@ -329,7 +329,7 @@ section { padding: var(--section-pad) 0; }
 
 .site-logo a {
   font-family: var(--font-head);
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: 0.04em;
@@ -337,11 +337,11 @@ section { padding: var(--section-pad) 0; }
   transition: font-size 0.35s ease;
 }
 
-#site-header.scrolled .site-logo a { font-size: 1.3rem; }
+#site-header.scrolled .site-logo a { font-size: 1.6rem; }
 
 .site-logo a:hover { color: var(--color-white); }
 
-.logo-ops { color: var(--color-purple); }
+.logo-ops { color: var(--color-orange); }
 
 .logo-tagline {
   font-family: var(--font-mono);
@@ -1527,4 +1527,4 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 @media (max-width: 900px) {
   .g4h-split__img { float: none; width: 100%; margin: 0 0 24px 0; }
   .concept-row    { grid-template-columns: 1fr; }
-}
+                      }
