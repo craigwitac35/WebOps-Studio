@@ -69,14 +69,6 @@ body::before {
     margin-bottom: 12px;
   }
 
-  /* Override header text styles (since we're using image) */
-  .site-logo a {
-    font-size: 0; /* hide text, image will show */
-  }
-  .site-logo .logo-tagline {
-    display: none; /* optional: hide tagline if desired */
-  }
-
   /* ============================================================
      PHASE 3: HERO — gradient killed
      Body::before handles the background image at 55% opacity.
@@ -658,10 +650,8 @@ body::before {
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
-        <a href="index.html">
-          <img src="images/logo-image.png" alt="WebOps Studio" class="logo-img">
-        </a>
-        <!-- tagline hidden via CSS -->
+        <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+        <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
@@ -893,7 +883,10 @@ body::before {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-image.png" alt="WebOps Studio" class="footer-logo-img">
+          <div class="site-logo">
+            <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+            <span class="logo-tagline">Veteran-Built Front Ends</span>
+          </div>
           <p>Custom hand&#8209;coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
         </div>
         <div class="footer-col">
