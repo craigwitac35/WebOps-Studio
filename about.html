@@ -18,6 +18,15 @@
   <!-- FIX 1: Added Roboto Mono to match index and portfolio font imports -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: url('images/Background1.png') center / cover no-repeat;
+      opacity: 0.15;
+    }
+
     .port-hero {
       position: relative;
       min-height: 72vh;
