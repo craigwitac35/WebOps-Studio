@@ -355,8 +355,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 WebOps Studio. All rights reserved.</p>
-        <a href="contact.html">Get a Free Quote →</a>
+        <p>&copy; <span id="copy-year">2025</span> WebOps Studio. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="contact.html">Get a Free Quote →</a>
+          <a href="portfolio.html">View My Work →</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -374,6 +377,10 @@
   ml('account', '2121003');
   </script>
   <!-- End MailerLite Universal -->
+
+  <script>
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
