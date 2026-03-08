@@ -848,7 +848,7 @@
     lightbox.querySelector('.lightbox-prev').addEventListener('click', prev);
     lightbox.querySelector('.lightbox-next').addEventListener('click', next);
     lightbox.addEventListener('click', function(e) {
-      if (e.target === lightbox) close();
+      if (e.target === lightbox || e.target === lbImg) close();
     });
 
     document.addEventListener('keydown', function(e) {
