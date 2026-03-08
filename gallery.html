@@ -21,7 +21,7 @@
   <style>
     /* ============================================================
        GALLERY PAGE - SCOPED STYLES
-       Full-bleed wallpaper gallery with lightbox
+       Full wallpaper gallery with lightbox - 113 images
     ============================================================ */
 
     body::before {
@@ -35,7 +35,7 @@
 
     footer { background: transparent; }
 
-    /* ── Hero (compact) ────────────────────────────────────── */
+    /* -- Hero (compact) ---------------------------------------- */
     .port-hero {
       position: relative;
       display: flex;
@@ -102,7 +102,7 @@
       color: var(--color-white);
     }
 
-    /* ── Gallery grid ──────────────────────────────────────── */
+    /* -- Gallery grid ------------------------------------------ */
     .gallery-section {
       padding: 32px 0 60px;
     }
@@ -127,8 +127,6 @@
       transform: scale(1.03);
       filter: brightness(1.1);
     }
-
-    /* Subtle border glow on hover */
     .gallery-item::after {
       content: '';
       position: absolute;
@@ -142,7 +140,7 @@
       border-color: rgba(232,98,10,0.3);
     }
 
-    /* ── Lightbox ──────────────────────────────────────────── */
+    /* -- Lightbox ----------------------------------------------- */
     .gallery-lightbox {
       display: none;
       position: fixed;
@@ -217,7 +215,7 @@
       z-index: 10001;
     }
 
-    /* ── Responsive ────────────────────────────────────────── */
+    /* -- Responsive -------------------------------------------- */
     @media (max-width: 900px) {
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -244,7 +242,7 @@
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══════════════════════════════════════════ -->
+  <!-- HEADER -->
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
@@ -270,7 +268,7 @@
 
   <main>
 
-    <!-- ═══ HERO ═══════════════════════════════════════════ -->
+    <!-- HERO -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -284,57 +282,472 @@
         <p class="port-hero__sub">
           Original digital artwork and designs. Bold visuals, built for screens.
         </p>
-        <a href="https://www.zedge.net/find/wallpapers/" target="_blank" rel="noopener" class="gallery-zedge-link">Available as wallpapers on Zedge ↗</a>
+        <a href="https://www.zedge.net/find/wallpapers/" target="_blank" rel="noopener" class="gallery-zedge-link">Available as wallpapers on Zedge &#8599;</a>
       </div>
     </section>
 
-    <!-- ═══ GALLERY GRID ═══════════════════════════════════ -->
+    <!-- GALLERY GRID -->
     <section class="gallery-section">
       <div class="container">
         <div class="gallery-grid">
-
-          <!--
-            ┌─────────────────────────────────────────────┐
-            │  IMAGE SLOTS                                │
-            │  To add images:                             │
-            │  1. Drop files into images/gallery/         │
-            │  2. Copy the template below for each image  │
-            │  3. Update the src and alt                  │
-            └─────────────────────────────────────────────┘
-          -->
-
-          <!-- TEMPLATE (copy this block for each new image):
           <div class="gallery-item">
-            <img src="images/gallery/YOUR-FILENAME.jpg" alt="Description" loading="lazy">
-          </div>
-          -->
-
-          <div class="gallery-item">
-            <img src="images/gallery/elephant-street-art.jpg" alt="Elephant street art with pink and yellow paint splashes" loading="lazy">
+            <img src="images/gallery/big-cat1.jpg" alt="Digital wallpaper art - big cat 1" loading="lazy">
           </div>
 
           <div class="gallery-item">
-            <img src="images/gallery/rhino-red-ink.jpg" alt="Rhinoceros in bold red ink splash style" loading="lazy">
+            <img src="images/gallery/art21.jpg" alt="Digital wallpaper art - art 21" loading="lazy">
           </div>
 
           <div class="gallery-item">
-            <img src="images/gallery/bear-glitch-fire.jpg" alt="Roaring bear with glitch effects and fire" loading="lazy">
+            <img src="images/gallery/big-cat6.jpg" alt="Digital wallpaper art - big cat 6" loading="lazy">
           </div>
 
           <div class="gallery-item">
-            <img src="images/gallery/golden-pup-paint.jpg" alt="Golden doodle puppy in oil paint style with color splashes" loading="lazy">
+            <img src="images/gallery/art30.jpg" alt="Digital wallpaper art - art 30" loading="lazy">
           </div>
 
-          <!-- ADD MORE IMAGES BELOW THIS LINE -->
+          <div class="gallery-item">
+            <img src="images/gallery/fish1.jpg" alt="Digital wallpaper art - fish 1" loading="lazy">
+          </div>
 
+          <div class="gallery-item">
+            <img src="images/gallery/samurai1.jpg" alt="Digital wallpaper art - samurai 1" loading="lazy">
+          </div>
 
+          <div class="gallery-item">
+            <img src="images/gallery/art15.jpg" alt="Digital wallpaper art - art 15" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier1.jpg" alt="Digital wallpaper art - undead soldier 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art22.jpg" alt="Digital wallpaper art - art 22" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf2.jpg" alt="Digital wallpaper art - wolf 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dragon1.jpg" alt="Digital wallpaper art - dragon 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier2.jpg" alt="Digital wallpaper art - undead soldier 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature6.jpg" alt="Digital wallpaper art - nature 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/shark2.jpg" alt="Digital wallpaper art - shark 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature12.jpg" alt="Digital wallpaper art - nature 12" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature13.jpg" alt="Digital wallpaper art - nature 13" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art3.jpg" alt="Digital wallpaper art - art 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/flag6.jpg" alt="Digital wallpaper art - flag 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space6.jpg" alt="Digital wallpaper art - space 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai6.jpg" alt="Digital wallpaper art - samurai 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/deer1.jpg" alt="Digital wallpaper art - deer 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art12.jpg" alt="Digital wallpaper art - art 12" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/flag5.jpg" alt="Digital wallpaper art - flag 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/elephant1.jpg" alt="Digital wallpaper art - elephant 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier14.jpg" alt="Digital wallpaper art - undead soldier 14" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature5.jpg" alt="Digital wallpaper art - nature 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space1.jpg" alt="Digital wallpaper art - space 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/big-cat8.jpg" alt="Digital wallpaper art - big cat 8" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai3.jpg" alt="Digital wallpaper art - samurai 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/shark1.jpg" alt="Digital wallpaper art - shark 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai7.jpg" alt="Digital wallpaper art - samurai 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space4.jpg" alt="Digital wallpaper art - space 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/gorilla1.jpg" alt="Digital wallpaper art - gorilla 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space7.jpg" alt="Digital wallpaper art - space 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bear1.jpg" alt="Digital wallpaper art - bear 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bird6.jpg" alt="Digital wallpaper art - bird 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art16.jpg" alt="Digital wallpaper art - art 16" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/flag7.jpg" alt="Digital wallpaper art - flag 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier4.jpg" alt="Digital wallpaper art - undead soldier 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/whale3.jpg" alt="Digital wallpaper art - whale 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature4.jpg" alt="Digital wallpaper art - nature 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art8.jpg" alt="Digital wallpaper art - art 8" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/flag4.jpg" alt="Digital wallpaper art - flag 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature8.jpg" alt="Digital wallpaper art - nature 8" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/gorilla2.jpg" alt="Digital wallpaper art - gorilla 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf6.jpg" alt="Digital wallpaper art - wolf 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dragon2.jpg" alt="Digital wallpaper art - dragon 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art4.jpg" alt="Digital wallpaper art - art 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier8.jpg" alt="Digital wallpaper art - undead soldier 8" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/rhino1.jpg" alt="Digital wallpaper art - rhino 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/rhino3.jpg" alt="Digital wallpaper art - rhino 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bird5.jpg" alt="Digital wallpaper art - bird 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bear2.jpg" alt="Digital wallpaper art - bear 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dog1.jpg" alt="Digital wallpaper art - dog 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dog2.jpg" alt="Digital wallpaper art - dog 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space3.jpg" alt="Digital wallpaper art - space 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art24.jpg" alt="Digital wallpaper art - art 24" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf7.jpg" alt="Digital wallpaper art - wolf 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier3.jpg" alt="Digital wallpaper art - undead soldier 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bear3.jpg" alt="Digital wallpaper art - bear 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature3.jpg" alt="Digital wallpaper art - nature 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art9.jpg" alt="Digital wallpaper art - art 9" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bird2.jpg" alt="Digital wallpaper art - bird 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature2.jpg" alt="Digital wallpaper art - nature 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art7.jpg" alt="Digital wallpaper art - art 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bird1.jpg" alt="Digital wallpaper art - bird 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dragon4.jpg" alt="Digital wallpaper art - dragon 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dragon5.jpg" alt="Digital wallpaper art - dragon 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art18.jpg" alt="Digital wallpaper art - art 18" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/flag1.jpg" alt="Digital wallpaper art - flag 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier13.jpg" alt="Digital wallpaper art - undead soldier 13" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/whale1.jpg" alt="Digital wallpaper art - whale 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai9.jpg" alt="Digital wallpaper art - samurai 9" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier5.jpg" alt="Digital wallpaper art - undead soldier 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art25.jpg" alt="Digital wallpaper art - art 25" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/shark3.jpg" alt="Digital wallpaper art - shark 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/dragon3.jpg" alt="Digital wallpaper art - dragon 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier9.jpg" alt="Digital wallpaper art - undead soldier 9" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art26.jpg" alt="Digital wallpaper art - art 26" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art2.jpg" alt="Digital wallpaper art - art 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf3.jpg" alt="Digital wallpaper art - wolf 3" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier10.jpg" alt="Digital wallpaper art - undead soldier 10" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/lizard1.jpg" alt="Digital wallpaper art - lizard 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf1.jpg" alt="Digital wallpaper art - wolf 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/girl1.jpg" alt="Digital wallpaper art - girl 1" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier12.jpg" alt="Digital wallpaper art - undead soldier 12" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space2.jpg" alt="Digital wallpaper art - space 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bear4.jpg" alt="Digital wallpaper art - bear 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai2.jpg" alt="Digital wallpaper art - samurai 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier7.jpg" alt="Digital wallpaper art - undead soldier 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai12.jpg" alt="Digital wallpaper art - samurai 12" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/nature11.jpg" alt="Digital wallpaper art - nature 11" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/big-cat5.jpg" alt="Digital wallpaper art - big cat 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/big-cat2.jpg" alt="Digital wallpaper art - big cat 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier11.jpg" alt="Digital wallpaper art - undead soldier 11" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf5.jpg" alt="Digital wallpaper art - wolf 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art6.jpg" alt="Digital wallpaper art - art 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/girl2.jpg" alt="Digital wallpaper art - girl 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/samurai8.jpg" alt="Digital wallpaper art - samurai 8" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art17.jpg" alt="Digital wallpaper art - art 17" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/rhino4.jpg" alt="Digital wallpaper art - rhino 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/whale2.jpg" alt="Digital wallpaper art - whale 2" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/space5.jpg" alt="Digital wallpaper art - space 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art19.jpg" alt="Digital wallpaper art - art 19" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/wolf4.jpg" alt="Digital wallpaper art - wolf 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art23.jpg" alt="Digital wallpaper art - art 23" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/big-cat4.jpg" alt="Digital wallpaper art - big cat 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/big-cat7.jpg" alt="Digital wallpaper art - big cat 7" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/bird4.jpg" alt="Digital wallpaper art - bird 4" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/undead-soldier6.jpg" alt="Digital wallpaper art - undead soldier 6" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art5.jpg" alt="Digital wallpaper art - art 5" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/art20.jpg" alt="Digital wallpaper art - art 20" loading="lazy">
+          </div>
+
+          <div class="gallery-item">
+            <img src="images/gallery/soldier1.jpg" alt="Digital wallpaper art - soldier 1" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ═══ LIGHTBOX ═════════════════════════════════════════ -->
+  <!-- LIGHTBOX -->
   <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button class="lightbox-close" aria-label="Close">&times;</button>
     <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button>
@@ -343,7 +756,7 @@
     <span class="lightbox-counter" id="lightboxCounter"></span>
   </div>
 
-  <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -386,7 +799,7 @@
 
   <button class="back-to-top" aria-label="Back to top">&uarr;</button>
 
-  <!-- ═══ SCRIPTS ═════════════════════════════════════════ -->
+  <!-- SCRIPTS -->
   <script src="js/scripts.js"></script>
   <script>
     document.getElementById('copy-year').textContent = new Date().getFullYear();
@@ -395,34 +808,31 @@
   <!-- Gallery Lightbox JS -->
   <script>
   (function() {
-    const lightbox  = document.getElementById('galleryLightbox');
-    const lbImg     = document.getElementById('lightboxImg');
-    const lbCounter = document.getElementById('lightboxCounter');
-    const items     = document.querySelectorAll('.gallery-item img');
-    let current     = 0;
+    var lightbox  = document.getElementById('galleryLightbox');
+    var lbImg     = document.getElementById('lightboxImg');
+    var lbCounter = document.getElementById('lightboxCounter');
+    var items     = document.querySelectorAll('.gallery-item img');
+    var current   = 0;
 
-    function open(index) {
-      current = index;
+    function open(i) {
+      current = i;
       lbImg.src = items[current].src;
       lbImg.alt = items[current].alt;
       lbCounter.textContent = (current + 1) + ' / ' + items.length;
       lightbox.classList.add('is-open');
       document.body.style.overflow = 'hidden';
     }
-
     function close() {
       lightbox.classList.remove('is-open');
       document.body.style.overflow = '';
       lbImg.src = '';
     }
-
     function prev() {
       current = (current - 1 + items.length) % items.length;
       lbImg.src = items[current].src;
       lbImg.alt = items[current].alt;
       lbCounter.textContent = (current + 1) + ' / ' + items.length;
     }
-
     function next() {
       current = (current + 1) % items.length;
       lbImg.src = items[current].src;
@@ -437,7 +847,6 @@
     lightbox.querySelector('.lightbox-close').addEventListener('click', close);
     lightbox.querySelector('.lightbox-prev').addEventListener('click', prev);
     lightbox.querySelector('.lightbox-next').addEventListener('click', next);
-
     lightbox.addEventListener('click', function(e) {
       if (e.target === lightbox) close();
     });
@@ -449,7 +858,6 @@
       if (e.key === 'ArrowRight') next();
     });
 
-    /* Touch swipe support */
     var touchStartX = 0;
     lightbox.addEventListener('touchstart', function(e) {
       touchStartX = e.changedTouches[0].screenX;
@@ -457,8 +865,7 @@
     lightbox.addEventListener('touchend', function(e) {
       var diff = e.changedTouches[0].screenX - touchStartX;
       if (Math.abs(diff) > 50) {
-        if (diff > 0) prev();
-        else next();
+        if (diff > 0) prev(); else next();
       }
     }, { passive: true });
   })();
