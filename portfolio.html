@@ -8,7 +8,7 @@
   <meta property="og:title" content="WebOps Studio | Portfolio">
   <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://web-ops-studio.com/portfolio.html">
+  <meta property="og:url" content="https://web-ops-studio.com/portfolio">
   <meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
 
   <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
@@ -623,7 +623,7 @@ body::before {
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
-        <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+        <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
       <nav class="main-nav" aria-label="Primary">
@@ -631,14 +631,14 @@ body::before {
           <span class="hamburger"></span>
         </button>
         <ul class="nav-links" id="primary-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html" class="active">Portfolio</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio" class="active">Portfolio</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-        <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
+        <a href="/contact" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
   </header>
@@ -933,8 +933,8 @@ body::before {
           <span class="section-label cta-label reveal">Your Project</span>
           <p class="cta-text reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
           <div class="cta-btns reveal">
-            <a href="contact.html" class="btn btn-primary">Start a Project</a>
-            <a href="services.html" class="btn btn-ghost">See My Services</a>
+            <a href="/contact" class="btn btn-primary">Start a Project</a>
+            <a href="/services" class="btn btn-ghost">See My Services</a>
           </div>
         </div>
       </div>
@@ -947,7 +947,7 @@ body::before {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="site-logo">
-            <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+            <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
           <p>Custom hand&#8209;coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
@@ -955,12 +955,12 @@ body::before {
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -975,8 +975,8 @@ body::before {
       <div class="footer-bottom">
         <p>&copy; <span id="copy-year">2025</span> WebOps Studio. All rights reserved.</p>
         <div class="footer-bottom-links">
-          <a href="contact.html">Get a Free Quote →</a>
-          <a href="portfolio.html">View My Work →</a>
+          <a href="/contact">Get a Free Quote →</a>
+          <a href="/portfolio">View My Work →</a>
         </div>
       </div>
     </div>
@@ -1059,7 +1059,6 @@ body::before {
       });
 
       initCarousels();
-      document.getElementById('copy-year').textContent = new Date().getFullYear();
 
       /* ── Case study toggle ─────────────────────────────── */
       var toggleBtn = document.getElementById('g4hToggle');
@@ -1085,9 +1084,4 @@ body::before {
       document.getElementById('portLightbox').classList.remove('active');
       document.body.style.overflow = '';
     }
-    document.getElementById('portLightbox').addEventListener('click', function(e) { if (e.target === this) closeLightbox(); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
-  </script>
-
-</body>
-                </html>
+    document.get
