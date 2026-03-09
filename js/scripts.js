@@ -50,10 +50,10 @@
   }
 
   /* ── ACTIVE NAV LINK ──────────────────────────────────────────── */
-  const currentPage = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const currentPath = location.pathname.replace(/\.html$/, '').replace(/\/$/, '').toLowerCase();
   document.querySelectorAll('.nav-links a').forEach((link) => {
-    const href = (link.getAttribute('href') || '').toLowerCase();
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    const href = (link.getAttribute('href') || '').replace(/\.html$/, '').replace(/\/$/, '').toLowerCase();
+    if (href === currentPath || (currentPath === '' && href === '')) {
       link.classList.add('active');
     }
   });
@@ -220,6 +220,10 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  /* ── DYNAMIC YEAR ───────────────────────────────────────────── */
+  const yearEl = document.getElementById('copy-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ── MAILERLITE POPUP TIMER (OPTIONAL) ────────────────────────── */
   // MailerLite universal script goes in HTML just before </body>.
