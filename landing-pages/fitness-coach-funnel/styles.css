@@ -1,44 +1,44 @@
 /* =========================================================
-   FitForge Coaching — Landing Page CSS v1
-   File: landing-pages/ironshield-roofing/styles.css
-   Design: Full-width hero overlay, alternating dark sections,
-           orange accent borders, high-energy fitness aesthetic
+   Vanguard Fitness — Landing Page CSS v1
+   File: landing-pages/fitness-coach-funnel/styles.css
+   Design: Deep black base, gold accents, premium silhouette
+           hero, cinematic overlay, elite coaching aesthetic
 ========================================================= */
 
 /* =========================================================
-   0) THEME TOKENS
+   1) THEME TOKENS
 ========================================================= */
 :root {
-  --bg:           #0c0c0c;
-  --bg-alt:       #111111;
-  --bg-card:      rgba(255, 255, 255, 0.04);
-  --bg-card-hover:rgba(255, 255, 255, 0.07);
+  --bg:            #0e0e0e;
+  --bg-alt:        #141414;
+  --bg-card:       rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.07);
 
-  --text:         #f1f5f9;
-  --muted:        #94a3b8;
-  --muted-2:      #64748b;
-  --line:         rgba(255, 255, 255, 0.08);
+  --text:          #f5f5f5;
+  --muted:         #9ca3af;
+  --muted-2:       #6b7280;
+  --line:          rgba(255, 255, 255, 0.08);
 
-  --cta:          #22c55e;
-  --cta-hover:    #16a34a;
-  --cta-dark:     #0c0c0c;
-  --cta-glow:     rgba(34, 197, 94, 0.25);
-  --cta-border:   rgba(34, 197, 94, 0.4);
+  --cta:           #d4af37;
+  --cta-hover:     #e6c866;
+  --cta-dark:      #111111;
+  --cta-glow:      rgba(212, 175, 55, 0.22);
+  --cta-border:    rgba(212, 175, 55, 0.35);
 
-  --accent-line:  3px solid #22c55e;
-  --radius:       10px;
-  --radius-lg:    16px;
+  --accent-line:   3px solid #d4af37;
+  --radius:        10px;
+  --radius-lg:     16px;
 
-  --font-display: 'Oswald', sans-serif;
-  --font-body:    system-ui, -apple-system, sans-serif;
+  --font-display:  'Oswald', sans-serif;
+  --font-body:     system-ui, -apple-system, sans-serif;
 
-  --container:    1140px;
-  --section-pad:  96px 0;
+  --container:     1140px;
+  --section-pad:   96px 0;
   --section-pad-sm: 64px 0;
 }
 
 /* =========================================================
-   1) RESET & BASE
+   2) RESET & BASE
 ========================================================= */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -74,27 +74,8 @@ a:hover {
   color: var(--cta-hover);
 }
 
-ul {
+ul, ol {
   list-style: none;
-}
-
-/* =========================================================
-   2) SKIP LINK
-========================================================= */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 1rem;
-  background: var(--cta);
-  color: var(--cta-dark);
-  padding: 0.5rem 1rem;
-  font-weight: 700;
-  border-radius: var(--radius);
-  z-index: 9999;
-}
-
-.skip-link:focus {
-  top: 1rem;
 }
 
 /* =========================================================
@@ -143,17 +124,12 @@ ul {
 .btn--outline {
   background: transparent;
   color: var(--text);
-  border-color: rgba(255,255,255,0.3);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn--outline:hover {
-  border-color: rgba(255,255,255,0.7);
+  border-color: rgba(255, 255, 255, 0.7);
   color: #fff;
-}
-
-.btn--sm {
-  padding: 10px 20px;
-  font-size: 0.85rem;
 }
 
 .btn--lg {
@@ -166,79 +142,15 @@ ul {
 }
 
 /* =========================================================
-   5) TOP BAR
-========================================================= */
-.topbar {
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--cta-border);
-  padding: 10px 24px;
-}
-
-.topbar__inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: nowrap;
-}
-
-.topbar__message {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.topbar__dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: var(--cta);
-  border-radius: 50%;
-  flex-shrink: 0;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.topbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.topbar__phone {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--cta);
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.topbar__phone:hover {
-  color: var(--cta-hover);
-}
-
-/* =========================================================
-   6) HEADER
+   5) HEADER
 ========================================================= */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(12, 12, 12, 0.95);
+  background: rgba(14, 14, 14, 0.92);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -254,32 +166,17 @@ ul {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
 }
 
-.brand__icon {
-  font-size: 1.6rem;
-  color: var(--cta);
-  line-height: 1;
+.brand__logo {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
-.brand__name {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-}
-
-.brand__sub {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.brand__logo--footer {
+  height: 36px;
 }
 
 .nav {
@@ -319,7 +216,7 @@ ul {
 }
 
 /* =========================================================
-   7) HERO — Full-width image with dark overlay
+   6) HERO
 ========================================================= */
 .hero {
   position: relative;
@@ -339,49 +236,30 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center;
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
-    105deg,
-    rgba(12, 12, 12, 0.93) 0%,
-    rgba(12, 12, 12, 0.80) 50%,
-    rgba(12, 12, 12, 0.50) 100%
+    110deg,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.80) 45%,
+    rgba(10, 10, 10, 0.45) 100%
   );
 }
 
 .hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-top: 80px;
   padding-bottom: 80px;
 }
 
 .hero__content {
   max-width: 680px;
-}
-
-.hero__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cta);
-  margin-bottom: 24px;
-}
-
-.eyebrow__line {
-  display: block;
-  width: 32px;
-  height: 2px;
-  background: var(--cta);
-  flex-shrink: 0;
 }
 
 .hero__title {
@@ -395,7 +273,7 @@ ul {
   text-transform: uppercase;
 }
 
-.hero__title--accent {
+.hero__accent {
   color: var(--cta);
   display: block;
 }
@@ -412,56 +290,10 @@ ul {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.hero__trust {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hero__trust li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
-}
-
-.trust__check {
-  color: var(--cta);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.hero__scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero__scroll-line {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--cta), transparent);
-  animation: scrollDrop 2s ease infinite;
-}
-
-@keyframes scrollDrop {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
 /* =========================================================
-   8) TRUST STRIP
+   7) TRUST STRIP
 ========================================================= */
 .trust-strip {
   background: var(--bg-alt);
@@ -495,6 +327,7 @@ ul {
 
 .trust-strip__icon {
   font-size: 1rem;
+  color: var(--cta);
 }
 
 .trust-strip__divider {
@@ -504,7 +337,7 @@ ul {
 }
 
 /* =========================================================
-   9) SECTION SYSTEM
+   8) SECTION SYSTEM
 ========================================================= */
 .section {
   padding: var(--section-pad);
@@ -525,7 +358,7 @@ ul {
 }
 
 .section__label--light {
-  color: rgba(34, 197, 94, 0.8);
+  color: rgba(212, 175, 55, 0.7);
 }
 
 .section__title {
@@ -554,204 +387,8 @@ ul {
 }
 
 /* =========================================================
-   10) HERO CARDS
+   9) BENEFITS / PROGRAM CARDS
 ========================================================= */
-.cards-section {
-  padding: var(--section-pad-sm);
-}
-
-.cards-section__inner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-top: var(--accent-line);
-  border-radius: var(--radius-lg);
-  padding: 36px 28px;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.card:hover {
-  background: var(--bg-card-hover);
-  transform: translateY(-3px);
-}
-
-.card__number {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--cta);
-  opacity: 0.3;
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.card__title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-.card__text {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* =========================================================
-   11) PROBLEM SECTION (Two-col)
-========================================================= */
-.section__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.section__text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.check-list {
-  margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.check-list li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
-  color: var(--muted);
-  padding-left: 4px;
-}
-
-.check-list li::before {
-  content: '';
-  display: block;
-  width: 6px;
-  height: 6px;
-  background: var(--cta);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.media-placeholder {
-  background: var(--bg-card);
-  border: 1px dashed rgba(34, 197, 94, 0.3);
-  border-radius: var(--radius-lg);
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 24px;
-}
-
-.media-placeholder__label {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--muted-2);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.media-placeholder__sub {
-  font-size: 0.82rem;
-  color: var(--muted-2);
-}
-
-/* =========================================================
-   12) PROCESS STEPS
-========================================================= */
-.process {
-  text-align: center;
-}
-
-.process .section__title,
-.process .section__lead {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  list-style: none;
-  margin-top: 56px;
-  text-align: left;
-  counter-reset: none;
-}
-
-.step {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-top: var(--accent-line);
-  border-radius: var(--radius-lg);
-  padding: 32px 24px;
-  position: relative;
-  transition: background 0.2s;
-}
-
-.step:hover {
-  background: var(--bg-card-hover);
-}
-
-.step__num {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--cta);
-  opacity: 0.25;
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.step__title {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-.step__text {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* =========================================================
-   13) BENEFITS GRID
-========================================================= */
-.benefits {
-  text-align: center;
-}
-
-.benefits .section__title,
-.benefits .section__lead {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -800,66 +437,59 @@ ul {
 }
 
 /* =========================================================
-   14) BEFORE / AFTER
+   10) PROCESS / STEP CARDS
 ========================================================= */
-.before-after {
-  text-align: center;
-}
-
-.before-after .section__title {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ba {
-  display: flex;
-  align-items: center;
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  margin-top: 48px;
+  list-style: none;
+  margin-top: 56px;
+  text-align: left;
 }
 
-.ba__item {
-  flex: 1;
-  position: relative;
+.step {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-top: var(--accent-line);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  transition: background 0.2s;
 }
 
-.ba__label {
-  display: inline-block;
+.step:hover {
+  background: var(--bg-card-hover);
+}
+
+.step__num {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  color: var(--cta);
+  opacity: 0.25;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.step__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: rgba(255,255,255,0.1);
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.step__text {
+  font-size: 0.88rem;
   color: var(--muted);
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
-
-.ba__label--after {
-  background: var(--cta-glow);
-  color: var(--cta);
-}
-
-.ba__arrow {
-  font-size: 2rem;
-  color: var(--cta);
-  flex-shrink: 0;
+  line-height: 1.65;
 }
 
 /* =========================================================
-   15) TESTIMONIALS
+   11) TESTIMONIAL CARDS
 ========================================================= */
-.testimonials {
-  text-align: center;
-}
-
-.testimonials .section__title {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .quotes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -900,82 +530,7 @@ ul {
 }
 
 /* =========================================================
-   16) FAQ
-========================================================= */
-.faq__inner {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.faq__list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.faq__item {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-
-.faq__item[open] {
-  border-color: var(--cta-border);
-}
-
-.faq__item summary {
-  padding: 20px 24px;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--text);
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: color 0.2s;
-}
-
-.faq__item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq__item summary::after {
-  content: '+';
-  color: var(--cta);
-  font-size: 1.2rem;
-  line-height: 1;
-  transition: transform 0.2s;
-}
-
-.faq__item[open] summary::after {
-  transform: rotate(45deg);
-}
-
-.faq__item summary:hover {
-  color: var(--cta);
-}
-
-.faq__content {
-  padding: 0 24px 20px;
-  border-top: 1px solid var(--line);
-}
-
-.faq__content p {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.7;
-  padding-top: 16px;
-}
-
-/* =========================================================
-   17) FINAL CTA
+   12) FINAL CTA
 ========================================================= */
 .final-cta {
   position: relative;
@@ -987,7 +542,7 @@ ul {
 .final-cta__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
   border-top: 1px solid var(--cta-border);
   border-bottom: 1px solid var(--cta-border);
 }
@@ -1022,7 +577,7 @@ ul {
 }
 
 /* =========================================================
-   18) CONTACT FORM
+   13) CONTACT / APPLICATION FORM
 ========================================================= */
 .contact {
   background: var(--bg-alt);
@@ -1039,37 +594,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0;
-}
-
-.contact__info {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.contact__info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.contact__info-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-
-.contact__info-item a {
-  font-size: 1rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.contact__info-item a:hover {
-  color: var(--cta);
 }
 
 .contact__formwrap {
@@ -1101,7 +625,8 @@ ul {
 }
 
 .form__row input,
-.form__row textarea {
+.form__row textarea,
+.form__row select {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1119,14 +644,25 @@ ul {
 }
 
 .form__row input:focus,
-.form__row textarea:focus {
+.form__row textarea:focus,
+.form__row select:focus {
   border-color: var(--cta);
-  background: rgba(34, 197, 94, 0.05);
+  background: rgba(212, 175, 55, 0.04);
 }
 
 .form__row textarea {
   resize: vertical;
   min-height: 110px;
+}
+
+.form__row select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.form__row select option {
+  background: var(--bg-alt);
+  color: var(--text);
 }
 
 .form__note {
@@ -1137,7 +673,7 @@ ul {
 }
 
 /* =========================================================
-   19) FOOTER
+   14) FOOTER
 ========================================================= */
 .footer {
   background: var(--bg-alt);
@@ -1156,12 +692,7 @@ ul {
 .footer__brand {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.footer__brand .brand__icon {
-  color: var(--cta);
-  font-size: 1.2rem;
+  gap: 10px;
 }
 
 .footer__name {
@@ -1188,13 +719,9 @@ ul {
 }
 
 /* =========================================================
-   20) MOBILE RESPONSIVE
+   15) RESPONSIVE
 ========================================================= */
 @media (max-width: 900px) {
-  .cards-section__inner {
-    grid-template-columns: 1fr;
-  }
-
   .steps {
     grid-template-columns: 1fr 1fr;
   }
@@ -1207,16 +734,6 @@ ul {
     grid-template-columns: 1fr;
   }
 
-  .section__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .faq__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .contact__inner {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1224,14 +741,6 @@ ul {
 
   .contact__formwrap {
     padding: 28px 20px;
-  }
-
-  .ba {
-    flex-direction: column;
-  }
-
-  .ba__arrow {
-    transform: rotate(90deg);
   }
 
   .footer__inner {
@@ -1246,12 +755,8 @@ ul {
     --section-pad-sm: 48px 0;
   }
 
-  .topbar__inner {
-    gap: 8px;
-  }
-
-  .topbar__message {
-    font-size: 0.75rem;
+  .brand__logo {
+    height: 38px;
   }
 
   .hero {
@@ -1296,27 +801,4 @@ ul {
     flex-direction: column;
     align-items: center;
   }
-}
-
-/* Select dropdown styling */
-.form__row select {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 13px 16px;
-  color: var(--text);
-  font-size: 0.95rem;
-  font-family: var(--font-body);
-  transition: border-color 0.2s, background 0.2s;
-  outline: none;
-  appearance: none;
-  cursor: pointer;
-}
-.form__row select:focus {
-  border-color: var(--cta);
-  background: rgba(34, 197, 94, 0.05);
-}
-.form__row select option {
-  background: #111;
-  color: #f1f5f9;
 }
