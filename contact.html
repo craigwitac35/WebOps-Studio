@@ -31,7 +31,55 @@
     .testimonial-section { background: transparent; }
     footer { background: transparent; }
 
-  </style></head>
+    /* ===== Hero styles (compact, matching gallery) ===== */
+    .port-hero__inner {
+      padding: 40px 0 20px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .port-hero__eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin-bottom: 12px;
+    }
+    .port-hero__line {
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--color-orange);
+      opacity: 0.7;
+    }
+    .port-hero__title {
+      font-family: var(--font-head);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--color-white);
+      margin-bottom: 10px;
+    }
+    .port-hero__title span {
+      color: var(--color-orange);
+      text-shadow: 0 0 48px rgba(232,98,10,0.25);
+    }
+    .port-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 12px;
+    }
+  </style>
+</head>
 <body>
 
   <!-- ═══ HEADER ════════════════════════════════════════════ -->
@@ -61,12 +109,13 @@
 
   <main>
 
-    <!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
-    <section class="port-hero port-hero--cinematic">
+    <!-- ═══ PAGE HERO (compact) ════════════════════════════════════════ -->
+    <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
           WebOps Studio · Contact
+          <span class="port-hero__line"></span>
         </p>
         <h1 class="port-hero__title">Let's Build<br><span>Something Real.</span></h1>
         <p class="port-hero__sub">
@@ -272,4 +321,10 @@
   <!-- MailerLite Universal -->
   <script>
   (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-  .
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'scri
+  </script>
+
+</body>
+</html>
