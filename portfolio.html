@@ -631,10 +631,6 @@ body::before {
     margin: 0 auto 28px;
     line-height: 1.7;
   }
-  .cta-card .cta-pipeline-note {
-    font-size: 0.5rem;
-    margin-bottom: 24px;
-  }
   .cta-card .cta-btns {
     display: flex;
     gap: 14px;
@@ -892,6 +888,39 @@ body::before {
       </div>
     </section>
 
+    <!-- ═══ LANDING PAGES — LAUNCHDECK SAAS ═══════════════ -->
+    <section class="port-project-section" data-filter="landing">
+      <div class="container">
+
+        <div class="concept-row reveal" data-carousel="launchdeck">
+          <div class="concept-summary">
+            <h3 class="concept-summary__title">LaunchDeck</h3>
+            <p class="concept-summary__desc">SaaS beta waitlist landing page for a fictional dev-focused project management tool. Indigo-on-black tech aesthetic, centered hero, feature grid, FAQ accordion, and a streamlined waitlist signup flow.</p>
+            <div class="concept-summary__tags">
+              <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
+              <span class="tag">Landing Page</span>
+              <span class="tag">SaaS</span>
+              <span class="tag">Waitlist</span>
+            </div>
+            <a href="landing-pages/saas-beta-waitlist/" class="port-action-btn">View Demo &rarr;</a>
+          </div>
+          <div class="concept-preview">
+            <div class="concept-preview__main" role="button" data-full="landing-pages/saas-beta-waitlist/images/saas-hero.png" data-caption="LaunchDeck &#8211; Hero">
+              <img src="landing-pages/saas-beta-waitlist/images/saas-hero.png" alt="LaunchDeck SaaS landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
+            </div>
+            <div class="concept-thumbs">
+              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <div class="concept-thumbs__track">
+                <div class="concept-thumbs__thumb is-active" data-src="landing-pages/saas-beta-waitlist/images/saas-hero.png" data-caption="LaunchDeck &#8211; Hero"><img src="landing-pages/saas-beta-waitlist/images/saas-hero.png" alt="LaunchDeck hero thumbnail"></div>
+              </div>
+              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ═══ RESTRUCTURED CTA STRIP ════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
@@ -902,7 +931,6 @@ body::before {
         <div class="cta-card">
           <span class="section-label cta-label reveal">Your Project</span>
           <p class="cta-text reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
-          <p class="cta-pipeline-note reveal"><span>&#9679;</span> More industry demos in development &mdash; SaaS Beta Waitlist</p>
           <div class="cta-btns reveal">
             <a href="contact.html" class="btn btn-primary">Start a Project</a>
             <a href="services.html" class="btn btn-ghost">See My Services</a>
@@ -1061,4 +1089,4 @@ body::before {
   </script>
 
 </body>
-                </html>
+</html>
