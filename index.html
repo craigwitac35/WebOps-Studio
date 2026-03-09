@@ -72,7 +72,7 @@ body::before {
       pointer-events: none;
     }
     p, .port-project-desc, .build-standards-desc, .email-signup-sub, .cta-strip p {
-      color: rgba(255,255,255,0.85) !important;
+      color: rgba(255,255,255,0.98);
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
     /* Headings and labels unaffected */
@@ -438,7 +438,7 @@ body::before {
     }
     .cta-pipeline-note {
       font-family: var(--font-mono);
-      font-size: 0.75rem !important;
+      font-size: 0.75rem;
       line-height: 1.5;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -637,13 +637,13 @@ body::before {
     /* ---------- ADDED CUSTOM OVERRIDES (based on user requests) ---------- */
     /* 1. Remove black background from Build Standards section */
     .build-standards-section {
-      background: transparent !important;
+      background: transparent;
     }
     .build-standards-section::before {
-      display: none !important;
+      display: none;
     }
 
-    /* 3. Newsletter form text black */
+    /* 3. Newsletter form text black — KEEP !important */
     .email-signup-section .ml-embedded,
     .email-signup-section .ml-embedded * {
       color: #000000 !important;
@@ -674,26 +674,26 @@ body::before {
     .email-signup-sub,
     .cta-strip p,
     .port-project-desc {
-      font-size: 1.2rem !important;
-      color: rgba(255, 255, 255, 0.98) !important;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.98);
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
     .standard-item {
-      font-size: 1.1rem !important;
-      color: rgba(255, 255, 255, 0.98) !important;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.98);
     }
     .footer-brand p,
     .footer-col ul a,
     .footer-contact-item {
-      font-size: 1rem !important;
-      color: rgba(255, 255, 255, 0.98) !important;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.98);
     }
 
     /* 5. Make "View My Work" button match "Get a Quote" (orange primary) */
     .cta-btns .btn-ghost {
-      background: var(--color-orange) !important;
-      border-color: var(--color-orange) !important;
-      color: var(--color-white) !important;
+      background: var(--color-orange);
+      border-color: var(--color-orange);
+      color: var(--color-white);
       font-family: var(--font-mono);
       font-size: 0.85rem;
       letter-spacing: 0.1em;
@@ -704,32 +704,32 @@ body::before {
       transition: all 0.2s ease;
     }
     .cta-btns .btn-ghost:hover {
-      background: var(--color-orange-lt) !important;
-      border-color: var(--color-orange-lt) !important;
-      box-shadow: 0 4px 20px var(--color-orange-glow) !important;
+      background: var(--color-orange-lt);
+      border-color: var(--color-orange-lt);
+      box-shadow: 0 4px 20px var(--color-orange-glow);
       transform: translateY(-1px);
     }
 
     /* 7. Extra spacing after hero subtitle (stats removed) */
     .port-hero__sub {
-      margin-bottom: 40px !important;
+      margin-bottom: 40px;
     }
 
     /* 9. Footer bottom links – match body text */
     .footer-bottom-links a {
-      font-size: 0.9rem !important;
-      color: rgba(255, 255, 255, 0.98) !important;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.98);
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
     .footer-bottom-links a:hover {
-      color: var(--color-orange) !important;
+      color: var(--color-orange);
     }
 
     /* 10. Consistent hover effect for all orange buttons */
     .btn-primary:hover,
     .cta-btns .btn-ghost:hover,
     .btn-view-all .btn-primary:hover {
-      box-shadow: 0 4px 20px var(--color-orange-glow) !important;
+      box-shadow: 0 4px 20px var(--color-orange-glow);
       transform: translateY(-1px);
       transition: all 0.2s ease;
     }
@@ -737,7 +737,7 @@ body::before {
     /* 11. Mobile project description size adjustment (if needed) */
     @media (max-width: 640px) {
       .port-project-desc {
-        font-size: 1rem !important;
+        font-size: 1rem;
       }
     }
 
