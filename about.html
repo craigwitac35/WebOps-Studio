@@ -33,66 +33,6 @@
     .cta-strip { background: transparent; }
     footer { background: transparent; }
 
-    .port-hero {
-      position: relative;
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(7,7,12,0.65) 0%,
-          rgba(7,7,12,0.50) 40%,
-          rgba(7,7,12,0.85) 85%,
-          rgba(7,7,12,1.00) 100%
-        ),
-        url('images/Background1.png');
-      background-size: cover;
-      background-position: center;
-    }
-    .port-hero__inner {
-      padding: 140px 0 100px;
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-    .port-hero__eyebrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #E8620A;
-      margin-bottom: 20px !important;
-    }
-    .port-hero__line {
-      display: block;
-      width: 28px; height: 1px;
-      background: #E8620A;
-      opacity: 0.7;
-    }
-    .port-hero__title {
-      font-family: 'Oswald', sans-serif !important;
-      font-size: clamp(3.5rem, 9vw, 7rem) !important;
-      font-weight: 700;
-      line-height: 1.0 !important;
-      letter-spacing: 0.02em !important;
-      text-transform: uppercase;
-      color: #ffffff;
-      margin-bottom: 20px !important;
-    }
-    .port-hero__title span { color: #E8620A; text-shadow: 0 0 48px rgba(232,98,10,0.25); }
-    .port-hero__sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-      max-width: 580px;
-      margin: 0 auto;
-    }
   </style>
 </head>
 <body>
@@ -101,7 +41,7 @@
   <header id="site-header">
     <div class="container">
       <div class="site-logo">
-        <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+        <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
       <!-- FIX 2 & 3: Added aria-expanded, aria-controls, and id="primary-nav" to match scripts.js -->
@@ -110,14 +50,14 @@
           <span class="hamburger"></span>
         </button>
         <ul class="nav-links" id="primary-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about" class="active">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-        <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
+        <a href="/contact" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
       </nav>
     </div>
   </header>
@@ -125,7 +65,7 @@
   <main>
 
     <!-- ═══ PAGE HERO ══════════════════════════════════════════════════════ -->
-    <section class="port-hero">
+    <section class="port-hero port-hero--cinematic">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
@@ -332,8 +272,8 @@
           Let's talk about what you need.
         </p>
         <div class="cta-btns reveal">
-          <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
-          <a href="services.html" class="btn btn-ghost">See My Services</a>
+          <a href="/contact" class="btn btn-primary">Start a Conversation</a>
+          <a href="/services" class="btn btn-ghost">See My Services</a>
         </div>
       </div>
     </section>
@@ -346,7 +286,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="site-logo">
-            <a href="index.html">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
+            <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
           <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean, performant code that works.</p>
@@ -354,12 +294,12 @@
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -374,8 +314,8 @@
       <div class="footer-bottom">
         <p>&copy; <span id="copy-year">2025</span> WebOps Studio. All rights reserved.</p>
         <div class="footer-bottom-links">
-          <a href="contact.html">Get a Free Quote →</a>
-          <a href="portfolio.html">View My Work →</a>
+          <a href="/contact">Get a Free Quote →</a>
+          <a href="/portfolio">View My Work →</a>
         </div>
       </div>
     </div>
@@ -390,14 +330,4 @@
   (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
   .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
   n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '2121003');
-  </script>
-  <!-- End MailerLite Universal -->
-
-  <script>
-    document.getElementById('copy-year').textContent = new Date().getFullYear();
-  </script>
-
-</body>
-</html>
+  (window,document,'scri
