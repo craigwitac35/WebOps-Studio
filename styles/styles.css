@@ -640,6 +640,78 @@ section { padding: var(--section-pad) 0; }
 .page-hero p  { color: var(--color-text-3); max-width: 560px; font-size: 1.05rem; position: relative; z-index: 1; }
 .page-hero .container { position: relative; z-index: 1; }
 
+/* ── Tier 2: Cinematic Interior Hero (About, Services, Contact) ── */
+.port-hero--cinematic {
+  position: relative;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7,7,12,0.65) 0%,
+      rgba(7,7,12,0.50) 40%,
+      rgba(7,7,12,0.85) 85%,
+      rgba(7,7,12,1.00) 100%
+    ),
+    url('../images/Background1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.port-hero--cinematic .port-hero__inner {
+  padding: 140px 0 100px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.port-hero--cinematic .port-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 20px;
+}
+
+.port-hero--cinematic .port-hero__line {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-orange);
+  opacity: 0.7;
+}
+
+.port-hero--cinematic .port-hero__title {
+  font-family: var(--font-head);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin-bottom: 20px;
+}
+
+.port-hero--cinematic .port-hero__title span {
+  color: var(--color-orange);
+  text-shadow: 0 0 48px rgba(232,98,10,0.25);
+}
+
+.port-hero--cinematic .port-hero__sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
 /*
 ─────────────────────────────────────────────────────────────────────────
    9) ICON SYSTEM
