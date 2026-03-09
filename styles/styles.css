@@ -1497,14 +1497,37 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 .g4h-split__img:hover .g4h-split__zoom { opacity: 1; }
 .g4h-split__num { position: absolute; top: 14px; left: 14px; font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-orange); background: rgba(7,7,12,0.85); border: 1px solid rgba(232,98,10,0.25); padding: 4px 10px; border-radius: 3px; z-index: 2; }
 
-/* Concept Build Rows */
-.concept-row { display: grid; grid-template-columns: 1fr 1.15fr; gap: 28px; align-items: start; margin-top: 34px; }
-.concept-summary { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 26px; }
-.concept-summary__title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px; color: var(--color-white); }
-.concept-summary__desc { color: var(--color-text-2); line-height: 1.8; margin: 0 0 18px; font-size: 0.95rem; }
-.concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+/* Concept Build Rows — Unified Card Layout */
+.concept-row { 
+  display: grid; 
+  grid-template-columns: 1fr 1.15fr; 
+  align-items: stretch; 
+  margin-top: 34px; 
+  background: var(--gradient-card); /* Applies the card look to the whole row */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden; 
+}
 
-.concept-preview { background: var(--color-surface-1); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+/* Remove individual borders/backgrounds, rely on the parent */
+.concept-summary { 
+  padding: 36px 32px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.concept-summary__title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 14px; color: var(--color-white); }
+.concept-summary__desc { color: var(--color-text-2); line-height: 1.8; margin: 0 0 24px; font-size: 0.95rem; }
+.concept-summary__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+
+/* The image side gets a subtle darker inset and a dividing line */
+.concept-preview { 
+  padding: 32px; 
+  background: rgba(0, 0, 0, 0.15); 
+  border-left: 1px solid var(--color-border); /* Desktop divider */
+}
+
 .concept-preview__main { position: relative; width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; background: var(--color-surface-2); cursor: zoom-in; display: block; }
 .concept-preview__main img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; object-position: top; display: block; transition: transform 0.35s ease; }
 .concept-preview__main:hover img { transform: scale(1.02); }
@@ -1522,4 +1545,12 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 @media (max-width: 900px) {
   .g4h-split__img { float: none; width: 100%; margin: 0 0 24px 0; }
   .concept-row    { grid-template-columns: 1fr; }
+  
+  /* Mobile padding and divider adjustments */
+  .concept-summary { padding: 24px 20px; }
+  .concept-preview { 
+    padding: 24px 20px; 
+    border-left: none; 
+    border-top: 1px solid var(--color-border); /* Mobile divider */
+  }
    }
