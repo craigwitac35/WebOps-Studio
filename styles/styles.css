@@ -124,12 +124,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--font-body);
-  background-image:
-    linear-gradient(rgba(7, 7, 12, 0.80), rgba(7, 7, 12, 0.85)),
-    url('../images/background-new-image.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: var(--color-bg); /* Solid base underneath everything */
   color: var(--color-text-2);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -1527,4 +1522,4 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 @media (max-width: 900px) {
   .g4h-split__img { float: none; width: 100%; margin: 0 0 24px 0; }
   .concept-row    { grid-template-columns: 1fr; }
-                      }
+   }
