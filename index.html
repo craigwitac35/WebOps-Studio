@@ -89,7 +89,7 @@ body::before {
       background: transparent;
     }
     .port-hero__inner {
-      padding: 40px 0 20px; /* compact */
+      padding: 40px 0 20px;
       position: relative;
       z-index: 1;
       text-align: center;
@@ -132,7 +132,7 @@ body::before {
       color: rgba(255,255,255,0.85);
       line-height: 1.6;
       max-width: 560px;
-      margin: 0 auto 12px;
+      margin: 0 auto 20px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
     /* Hero stats have been removed from HTML – no need for styling */
@@ -707,6 +707,11 @@ body::before {
       transform: translateY(-1px);
     }
 
+    /* 7. Extra spacing after hero subtitle (stats removed) */
+    .port-hero__sub {
+      margin-bottom: 40px;
+    }
+
     /* 9. Footer bottom links – match body text */
     .footer-bottom-links a {
       font-size: 0.9rem;
@@ -787,8 +792,8 @@ body::before {
 
   <main>
 
-    <!-- ═══ HERO (cinematic overlay, compact spacing) ═══════════════════ -->
-    <section class="port-hero port-hero--cinematic">
+    <!-- ═══ HERO (stats removed) ═══════════════════════════════════════════ -->
+    <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
