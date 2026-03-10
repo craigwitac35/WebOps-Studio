@@ -70,7 +70,11 @@ body::before {
   }
 
   /* ============================================================
-     PHASE 3: HERO — cinematic overlay + compact spacing
+     PHASE 3: HERO — gradient killed
+     Body::before handles the background image at 55% opacity.
+     Hero is now fully transparent — no competing overlay.
+     The background flows continuously from hero into sections.
+     (Compact spacing applied)
   ============================================================ */
   .port-hero {
     position: relative;
@@ -81,7 +85,7 @@ body::before {
   }
 
   .port-hero__inner {
-    padding: 40px 0 20px; /* compact */
+    padding: 40px 0 20px; /* FIXED: changed from 56px to 40px */
     position: relative;
     z-index: 1;
     text-align: center;
@@ -526,7 +530,7 @@ body::before {
   }
 
   @media (max-width: 640px) {
-    .port-hero__inner { padding: 36px 0 16px; }
+    .port-hero__inner { padding: 24px 0 16px; } /* adjusted to match index mobile */
     .port-hero__sub { font-size: 1rem; margin-bottom: 20px; }
 
     .port-filter {
@@ -641,8 +645,8 @@ body::before {
 
   <main>
 
-    <!-- ═══ COMPACT HERO + INTEGRATED FILTERS (cinematic) ═════════════ -->
-    <section class="port-hero port-hero--cinematic">
+    <!-- ═══ COMPACT HERO + INTEGRATED FILTERS ═════════════ -->
+    <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
@@ -674,22 +678,30 @@ body::before {
           <span class="port-section-label__rule"></span>
         </div>
 
-        <div class="concept-row reveal" data-carousel="g4h">
-          <div class="concept-summary">
-            <span class="section-label section-label--featured" style="margin-bottom: 12px; display: inline-block; align-self: flex-start;"><span class="status-dot"></span> Featured Project</span>
-            <h3 class="concept-summary__title">Guardian 4 Heroes</h3>
-            <p class="concept-summary__desc">
-              An equine therapy nonprofit serving veterans and first responders. Built from scratch to feel emotionally grounded while remaining fast and accessible. The custom layout prioritizes clear donation pathways and trust&#8209;building imagery without relying on bloated templates.
-            </p>
-            <div class="concept-summary__tags">
-              <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">Vanilla JS</span>
-            </div>
-            <a href="https://guardian4heroes.org" target="_blank" rel="noopener noreferrer" class="port-action-btn" style="align-self: flex-start;">Visit Live Site ↗</a>
+        <div class="g4h-split reveal">
+          <span class="section-label section-label--featured"><span class="status-dot"></span> Featured Project</span>
+          <h2 class="port-project-title">Guardian 4 Heroes</h2>
+          <p class="port-project-desc">
+            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders, people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
+          </p>
+          <p class="port-project-desc">
+            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion&#8209;focused throughout. The design prioritizes clear donation pathways and trust&#8209;building imagery without relying on heavy frameworks.
+          </p>
+          <div class="port-project-meta">
+            <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Vanilla JS</span>
           </div>
+          <a href="https://guardian4heroes.org" target="_blank" rel="noopener noreferrer" class="port-action-btn">Visit Live Site ↗</a>
+        </div>
 
+        <!-- Gallery carousel -->
+        <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 32px;">
+          <div class="concept-summary">
+            <h3 class="concept-summary__title">Project Gallery</h3>
+            <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
+          </div>
           <div class="concept-preview">
             <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
               <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section">
@@ -708,7 +720,8 @@ body::before {
           </div>
         </div>
 
-        <button class="case-study-toggle reveal" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details" style="margin-top: 24px;">
+        <!-- Collapsible case study -->
+        <button class="case-study-toggle reveal" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details">
           View Case Study Details <span class="case-study-toggle__arrow">&#9660;</span>
         </button>
 
@@ -1077,4 +1090,4 @@ body::before {
   </script>
 
 </body>
-</html>
+                </html>
