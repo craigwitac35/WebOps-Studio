@@ -53,7 +53,7 @@
       text-align: center;
     }
     .port-hero__eyebrow {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
@@ -62,14 +62,17 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--color-orange);
-      margin-bottom: 12px;
+      margin: 0 auto 12px;
+      white-space: nowrap;
+      text-align: center;
     }
     .port-hero__line {
-      display: block;
+      display: inline-block;
       width: 28px;
       height: 1px;
       background: var(--color-orange);
       opacity: 0.7;
+      flex: 0 0 28px;
     }
     .port-hero__title {
       font-family: var(--font-head);
@@ -82,6 +85,7 @@
       margin-bottom: 10px;
     }
     .port-hero__title span {
+      display: block;
       color: var(--color-orange);
       text-shadow: 0 0 48px rgba(232,98,10,0.25);
     }
@@ -90,7 +94,7 @@
       color: rgba(255,255,255,0.85);
       line-height: 1.6;
       max-width: 560px;
-      margin: 0 auto 12px;
+      margin: 0 auto 40px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
@@ -99,9 +103,9 @@
       padding: 0 0 32px;
     }
     .intro-card {
-      max-width: 720px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 24px 28px;
+      padding: 28px;
       background: var(--gradient-card);
       border: 1px solid var(--color-border);
       border-top: 2px solid rgba(232,98,10,0.35);
@@ -109,10 +113,10 @@
       text-align: center;
     }
     .intro-card p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.95);
-      line-height: 1.7;
       margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.88);
     }
 
     /* ===== Centered section labels ===== */
@@ -201,7 +205,8 @@
       border-bottom: 1px solid var(--color-border);
     }
     .standard-check {
-      width: 18px; height: 18px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: rgba(232,98,10,0.08);
       border: 1px solid rgba(232,98,10,0.25);
@@ -212,7 +217,8 @@
       margin-top: 2px;
     }
     .standard-check svg {
-      width: 9px; height: 9px;
+      width: 9px;
+      height: 9px;
       stroke: var(--color-orange);
       fill: none;
       stroke-width: 1.5;
@@ -451,11 +457,12 @@
     }
     .footer-col h4 {
       font-family: var(--font-mono);
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--color-orange);
       margin-bottom: 16px;
+      opacity: 0.9;
     }
     .footer-col ul {
       list-style: none;
@@ -546,12 +553,14 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 900px) {
-      .project-grid, .services-grid {
+      .project-grid,
+      .services-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 640px) {
-      .project-grid, .services-grid {
+      .project-grid,
+      .services-grid {
         grid-template-columns: 1fr;
       }
       .port-hero__inner {
@@ -613,18 +622,6 @@
       text-shadow: none !important;
     }
 
-    /* 7. Extra spacing after hero subtitle (stats removed) */
-    .port-hero__sub {
-      margin-bottom: 40px;
-    }
-
-    /* 12. Footer heading contrast */
-    .footer-col h4 {
-      color: var(--color-orange);
-      opacity: 0.9;
-      font-size: 0.65rem;
-    }
-
     /* 13. Back-to-top button styling (global fallback) */
     .back-to-top {
       background: var(--color-orange);
@@ -667,9 +664,24 @@
         line-height: 1.45;
       }
       .port-hero__eyebrow {
-        font-size: 0.78rem;
-        letter-spacing: 0.22em;
-        margin-bottom: 1.1rem;
+        font-size: 0.74rem;
+        letter-spacing: 0.20em;
+        gap: 0.65rem;
+        margin-bottom: 1rem;
+      }
+      .port-hero__line {
+        width: 24px;
+        flex: 0 0 24px;
+      }
+      .intro-section {
+        padding: 0 0 32px;
+      }
+      .intro-card {
+        padding: 22px 18px;
+      }
+      .intro-card p {
+        font-size: 0.92rem;
+        line-height: 1.7;
       }
     }
   </style>
@@ -702,31 +714,30 @@
 
   <main>
 
-    <!-- ═══ HERO (optimized) ═══════════════════════════════════════════ -->
+    <!-- ═══ HERO ═══════════════════════════════════════════ -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
-          WebOps Studio · Home
+          WebOps Studio
           <span class="port-hero__line"></span>
         </p>
         <h1 class="port-hero__title">
-          Veteran&#8209;Built<br>
+          Veteran&#8209;Built
           <span>Front Ends.</span>
         </h1>
         <p class="port-hero__sub">
-          Hand-coded websites built for speed, clarity, and conversion.
+          Veteran-built websites. Clean code. No shortcuts.
         </p>
       </div>
     </section>
 
-    <!-- ═══ INTRO BLOCK (moved long text) ══════════════════════════════ -->
+    <!-- ═══ INTRO BLOCK ══════════════════════════════════════ -->
     <section class="intro-section">
       <div class="container">
         <div class="intro-card">
           <p>
-            Hand-coded HTML, CSS, and JavaScript. No templates. No page builders.
-            Built for speed, clarity, and long&#8209;term reliability.
+            WebOps Studio builds custom front-end websites from the ground up using clean HTML, CSS, and JavaScript. No templates, no frameworks, and no shortcuts. Every project is designed with precision, performance, and long-term reliability in mind. Whether you're a small business, nonprofit, or entrepreneur, the goal is simple: create a website that looks professional, loads fast, and works flawlessly across every device.
           </p>
         </div>
       </div>
@@ -785,17 +796,17 @@
 
         <h2 class="build-standards-heading">EVERY BUILD STARTS HERE</h2>
         <p class="build-standards-desc">
-          Every project leaves my hands deployment‑ready. This is the baseline, not a premium add‑on.
+          Every project leaves my hands deployment-ready. This is the baseline, not a premium add-on.
         </p>
 
         <div class="standards-grid">
           <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Semantic HTML foundation</div>
-          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Responsive, mobile‑first layout</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Responsive, mobile-first layout</div>
           <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Organized file structure</div>
-          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Conversion‑focused hierarchy</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Conversion-focused hierarchy</div>
           <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Strong visual hierarchy</div>
           <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Optimized asset loading</div>
-          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Deploy‑ready on handoff</div>
+          <div class="standard-item"><span class="standard-check"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,3"/></svg></span>Deploy-ready on handoff</div>
         </div>
       </div>
     </section>
@@ -810,12 +821,11 @@
         </div>
 
         <div class="project-grid">
-          <!-- Guardian 4 Heroes -->
           <article class="project-card reveal">
             <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section" class="project-card-img" loading="lazy">
             <div class="project-card-body">
               <h3 class="port-project-title">Guardian 4 Heroes</h3>
-              <p class="port-project-desc">Full nonprofit website for an equine therapy organization serving veterans and first responders. Hand‑coded, donation‑focused UX.</p>
+              <p class="port-project-desc">Full nonprofit website for an equine therapy organization serving veterans and first responders. Hand-coded, donation-focused UX.</p>
               <div class="port-project-meta">
                 <span class="status-badge status-live"><span class="status-dot"></span>Live</span>
                 <span class="tag">HTML5</span>
@@ -826,12 +836,11 @@
             </div>
           </article>
 
-          <!-- IronShield Roofing -->
           <article class="project-card reveal reveal-delay-1">
             <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page" class="project-card-img" loading="lazy">
             <div class="project-card-body">
               <h3 class="port-project-title">IronShield Roofing</h3>
-              <p class="port-project-desc">Storm‑damage lead generation landing page. Trust‑first layout, call‑driven structure, focused quote request flow.</p>
+              <p class="port-project-desc">Storm-damage lead generation landing page. Trust-first layout, call-driven structure, focused quote request flow.</p>
               <div class="port-project-meta">
                 <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
                 <span class="tag">Landing Page</span>
@@ -841,12 +850,11 @@
             </div>
           </article>
 
-          <!-- Ember & Oak Cafe -->
           <article class="project-card reveal reveal-delay-2">
             <img src="images/ember.demo.home.jpg" alt="Ember & Oak Cafe home page" class="project-card-img" loading="lazy">
             <div class="project-card-body">
               <h3 class="port-project-title">Ember & Oak Cafe</h3>
-              <p class="port-project-desc">Six‑page concept site for a fictional neighborhood cafe. Multi‑page architecture, menu, events, catering, cohesive brand system.</p>
+              <p class="port-project-desc">Six-page concept site for a fictional neighborhood cafe. Multi-page architecture, menu, events, catering, cohesive brand system.</p>
               <div class="port-project-meta">
                 <span class="status-badge status-live"><span class="status-dot"></span>Demo</span>
                 <span class="tag">Concept</span>
@@ -876,12 +884,12 @@
           <div class="service-tile reveal">
             <div class="service-tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
             <h3>Custom Websites</h3>
-            <p>Full multi‑page sites built from scratch. Unique layout, clean code, designed around your goals.</p>
+            <p>Full multi-page sites built from scratch. Unique layout, clean code, designed around your goals.</p>
           </div>
           <div class="service-tile reveal reveal-delay-1">
             <div class="service-tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
             <h3>Landing Pages</h3>
-            <p>Single‑page builds focused on one clear goal. Fast, focused, built to convert.</p>
+            <p>Single-page builds focused on one clear goal. Fast, focused, built to convert.</p>
           </div>
           <div class="service-tile reveal reveal-delay-2">
             <div class="service-tile-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
@@ -902,7 +910,7 @@
         </div>
         <h2>Build Updates and Project Drops</h2>
         <p class="email-signup-sub">
-          I share project launches, build breakdowns, and behind‑the‑scenes updates. No spam.
+          I share project launches, build breakdowns, and behind-the-scenes updates. No spam.
         </p>
         <div class="ml-embedded" data-form="Pfx24D"></div>
         <p class="email-microcopy">Unsubscribe anytime.</p>
@@ -939,7 +947,7 @@
             <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
-          <p>Custom hand‑coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
+          <p>Custom hand-coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
