@@ -47,13 +47,6 @@
       color: var(--color-orange);
       margin-bottom: 12px;
     }
-    .port-hero__line {
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--color-orange);
-      opacity: 0.7;
-    }
     .port-hero__title {
       font-family: var(--font-head);
       font-size: clamp(3.5rem, 9vw, 7rem);
@@ -254,14 +247,10 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- HERO (fixed eyebrow: removed hardcoded spans) -->
     <section class="port-hero">
       <div class="container port-hero__inner">
-        <p class="port-hero__eyebrow">
-          <span class="port-hero__line"></span>
-          WebOps Studio
-          <span class="port-hero__line"></span>
-        </p>
+        <p class="port-hero__eyebrow">WebOps Studio</p>
         <h1 class="port-hero__title">
           The <span>Gallery</span>
         </h1>
