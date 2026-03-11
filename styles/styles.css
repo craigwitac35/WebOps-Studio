@@ -1,14 +1,12 @@
 /*
 =========================================================================
-   WEBOPS STUDIO — styles.css v6.3
-   Changes from v6.2:
-   - Refined global section spacing with clamp (Task: Spacing Rhythm)
-   - Enhanced hero section spacing (Task: Premium Hero Typography)
-   - Added .card-section utility for tighter card layouts
-   - Standardized container side padding to 1.25rem
-   - Added .section-title and .section-subtitle margin controls
-   - Tightened hero title letter-spacing, line-height, and max-width
-   - Forced hero title spans to display:block for controlled line breaks
+   WEBOPS STUDIO — styles.css v6.4
+   Changes from v6.3:
+   - Restored global background image using body::after (cinematic overlay + Background1.png)
+   - Standardized hero eyebrow styling across all pages to match Gallery
+   - Added pseudo-element accent lines for eyebrows
+   - Refined hero subtitle width and alignment
+   - Retained film grain overlay (body::before)
 
    CSS SOURCE OF TRUTH:
    Portfolio styles live in styles.css sections 16 and 26.
@@ -126,8 +124,9 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
+  position: relative;
   font-family: var(--font-body);
-  background-color: var(--color-bg); /* Solid base underneath everything */
+  background-color: var(--color-bg); /* fallback if image fails */
   color: var(--color-text-2);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -147,7 +146,23 @@ ul { list-style: none; }
 
 button, input, textarea, select { font: inherit; }
 
-/* Subtle film grain overlay */
+/* Fixed background image + cinematic overlay (behind content) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at center, rgba(10,10,15,0.2) 0%, rgba(10,10,15,0.65) 70%, rgba(5,5,10,0.9) 100%),
+    url("images/Background1.png");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+  pointer-events: none;
+}
+
+/* Subtle film grain overlay (on top of everything) */
 body::before {
   content: "";
   position: fixed;
@@ -489,30 +504,34 @@ section {
   text-align: center;
 }
 
-.hero-eyebrow {
+/* Unified eyebrow styling — matches Gallery refinement */
+.hero-eyebrow,
+.port-hero__eyebrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-bottom: 32px;
-  opacity: 0;
-  animation: fade-up 0.7s 0.1s forwards;
-}
-
-.eyebrow-line {
-  width: 32px; height: 1px;
-  background: var(--color-orange);
-  opacity: 0.7;
-  flex-shrink: 0;
-}
-
-.eyebrow-text {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 400;
+  gap: 0.85rem;
+  width: fit-content;
+  margin: 0 auto 1.1rem;
+  font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-orange);
+  white-space: normal;
+  text-align: center;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after,
+.port-hero__eyebrow::before,
+.port-hero__eyebrow::after {
+  content: "";
+  display: block;
+  width: 3.25rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.85;
+  flex-shrink: 0;
 }
 
 .hero-title {
@@ -525,7 +544,9 @@ section {
   line-height: 0.92;
   letter-spacing: -0.03em;
   max-width: 14ch;
-  margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
   opacity: 0;
   animation: fade-up 0.7s 0.25s forwards;
 }
@@ -554,16 +575,22 @@ section {
   display: block;
 }
 
-.hero-sub {
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+/* Controlled line breaks for hero titles */
+.hero-title span,
+.port-hero__title span {
+  display: block;
+}
+
+.hero-subtitle,
+.port-hero__sub {
+  max-width: 26ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1rem, 2.8vw, 1.08rem);
+  line-height: 1.45;
+  text-align: center;
   color: rgba(255,255,255,0.85);
   font-weight: 300;
-  max-width: 580px;
-  margin: 0 auto 40px;
-  line-height: 1.85;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.60);
-  opacity: 0;
-  animation: fade-up 0.7s 0.38s forwards;
 }
 
 .hero-ctas {
@@ -639,12 +666,6 @@ section {
   animation: scroll-pulse 2s ease-in-out infinite;
 }
 
-/* Controlled line breaks for hero titles */
-.hero-title span,
-.port-hero__title span {
-  display: block;
-}
-
 /*
 ─────────────────────────────────────────────────────────────────────────
    8) PAGE HERO (About / Services / Portfolio / Contact)
@@ -660,24 +681,8 @@ section {
   border-bottom: 1px solid var(--color-border);
 }
 
-.page-hero__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-orange);
-  margin-bottom: 20px;
-}
-
-.page-hero__eyebrow-line {
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--color-orange);
-  opacity: 0.7;
+.page-hero .port-hero__eyebrow {
+  /* Already styled above, inherits unified rules */
 }
 
 .page-hero h1 { margin-bottom: 16px; position: relative; z-index: 1; }
@@ -712,27 +717,6 @@ section {
   position: relative;
   z-index: 1;
   text-align: center;
-}
-
-.port-hero--cinematic .port-hero__eyebrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-orange);
-  margin-bottom: 20px;
-}
-
-.port-hero--cinematic .port-hero__line {
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--color-orange);
-  opacity: 0.7;
 }
 
 .port-hero--cinematic .port-hero__title {
@@ -1555,6 +1539,21 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-title-accent { font-size: clamp(2rem, 10vw, 3rem); }
   .hero-title-line2  { font-size: clamp(0.8rem, 3.5vw, 1.1rem); margin-top: 10px; }
 
+  .hero-eyebrow,
+  .port-hero__eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after,
+  .port-hero__eyebrow::before,
+  .port-hero__eyebrow::after {
+    width: 3rem;
+  }
+
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; text-align: center; }
 
@@ -1585,6 +1584,20 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 }
 
 @media (max-width: 480px) {
+  .hero-eyebrow,
+  .port-hero__eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.20em;
+    gap: 0.65rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after,
+  .port-hero__eyebrow::before,
+  .port-hero__eyebrow::after {
+    width: 2.5rem;
+  }
+
   .value-grid        { grid-template-columns: 1fr; }
   .portfolio-filters { gap: 8px; }
   .filter-btn        { font-size: 0.62rem; padding: 7px 14px; }
