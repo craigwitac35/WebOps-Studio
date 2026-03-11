@@ -6,12 +6,60 @@
 (function () {
   'use strict';
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (document.body) {
+    document.body.classList.add('flare-mode');
+
+    if (!document.querySelector('.grain-overlay')) {
+      const grain = document.createElement('div');
+      grain.className = 'grain-overlay';
+      grain.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(grain);
+    }
+  }
+
+  const setScrollProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    document.documentElement.style.setProperty('--scroll-progress', `${Math.min(100, Math.max(0, pct)).toFixed(2)}%`);
+  };
+
+  if (!prefersReducedMotion && supportsFinePointer) {
+    let rafPending = false;
+    let px = window.innerWidth / 2;
+    let py = window.innerHeight / 2;
+
+    const writePointerVars = () => {
+      const xOffset = ((px / window.innerWidth) - 0.5) * 36;
+      const yOffset = ((py / window.innerHeight) - 0.5) * 36;
+      document.documentElement.style.setProperty('--flare-shift-x', `${xOffset.toFixed(2)}px`);
+      document.documentElement.style.setProperty('--flare-shift-y', `${yOffset.toFixed(2)}px`);
+      rafPending = false;
+    };
+
+    window.addEventListener('pointermove', (e) => {
+      px = e.clientX;
+      py = e.clientY;
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(writePointerVars);
+      }
+    }, { passive: true });
+  }
+
   /* ── STICKY HEADER ────────────────────────────────────────────── */
   const header = document.getElementById('site-header');
   if (header) {
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    const onScroll = () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+      setScrollProgress();
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  } else {
+    setScrollProgress();
   }
 
   /* ── MOBILE MENU ──────────────────────────────────────────────── */
@@ -60,6 +108,12 @@
 
   /* ── SCROLL REVEAL ────────────────────────────────────────────── */
   const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach((el, i) => {
+    if (!/reveal-delay-\d+/.test(el.className)) {
+      el.style.transitionDelay = `${Math.min((i % 6) * 0.08, 0.40).toFixed(2)}s`;
+    }
+  });
+
   if (reveals.length && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -73,6 +127,50 @@
     reveals.forEach((el) => io.observe(el));
   } else {
     reveals.forEach((el) => el.classList.add('visible'));
+  }
+
+  /* ── PREMIUM TILT INTERACTIONS (POINTER DEVICES) ──────────────── */
+  const tiltTargets = Array.from(document.querySelectorAll(
+    '.project-card, .service-card, .portfolio-card, .service-tile, .intro-card, .about-card, .bio-block, .contact-form-wrap, .contact-info-panel, .pricing-note, .testimonial-block, .concept-row, .case-study, .case-study-details'
+  ));
+
+  tiltTargets.forEach((el) => el.classList.add('tilt-card'));
+
+  if (!prefersReducedMotion && supportsFinePointer && tiltTargets.length) {
+    const maxTilt = 5;
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+    tiltTargets.forEach((card) => {
+      const resetCard = () => {
+        card.classList.remove('is-tilting');
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '50%');
+      };
+
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const xPct = clamp(x / rect.width, 0, 1);
+        const yPct = clamp(y / rect.height, 0, 1);
+        const tiltY = (xPct - 0.5) * (maxTilt * 2);
+        const tiltX = (0.5 - yPct) * (maxTilt * 2);
+
+        card.classList.add('is-tilting');
+        card.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
+        card.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
+        card.style.setProperty('--mouse-x', `${(xPct * 100).toFixed(1)}%`);
+        card.style.setProperty('--mouse-y', `${(yPct * 100).toFixed(1)}%`);
+      });
+
+      card.addEventListener('pointerleave', resetCard);
+      card.addEventListener('pointercancel', resetCard);
+      card.addEventListener('blur', resetCard);
+    });
   }
 
   /* ── SMOOTH ANCHOR SCROLL ─────────────────────────────────────── */
@@ -212,7 +310,10 @@
   /* ── BACK TO TOP ──────────────────────────────────────────────── */
   const btt = document.querySelector('.back-to-top');
   if (btt) {
-    const onScrollBtt = () => btt.classList.toggle('visible', window.scrollY > 400);
+    const onScrollBtt = () => {
+      btt.classList.toggle('visible', window.scrollY > 400);
+      setScrollProgress();
+    };
     window.addEventListener('scroll', onScrollBtt, { passive: true });
     onScrollBtt();
 
