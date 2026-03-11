@@ -15,24 +15,9 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Roboto Mono added to match site-wide font system -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: url('images/Background1.png') center / cover no-repeat;
-      opacity: 0.15;
-    }
-
-    .services-page-section { background: transparent; }
-    .faq-section { background: transparent; }
-    .cta-strip { background: transparent; }
-    footer { background: transparent; }
-
-    /* ===== Hero styles (compact, matching gallery) ===== */
+    /* ===== Hero styles (compact spacing) ===== */
     .port-hero__inner {
       padding: 40px 0 20px;
       position: relative;
@@ -68,10 +53,6 @@
       color: var(--color-white);
       margin-bottom: 10px;
     }
-    .port-hero__title span {
-      color: var(--color-orange);
-      text-shadow: 0 0 48px rgba(232,98,10,0.25);
-    }
     .port-hero__sub {
       font-size: 1.05rem;
       color: rgba(255,255,255,0.75);
@@ -90,7 +71,6 @@
         <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
-      <!-- aria-expanded, aria-controls, id="primary-nav" added to match scripts.js -->
       <nav class="main-nav" aria-label="Primary">
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
