@@ -64,6 +64,57 @@
       max-width: 520px;
       margin: 0 auto 12px;
     }
+
+    /* ===== Intro block ===== */
+    .intro-section {
+      padding: 0 0 32px;
+    }
+    .intro-card {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      background: var(--gradient-card);
+      border: 1px solid var(--color-border);
+      border-top: 2px solid rgba(232,98,10,0.35);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .intro-card p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.95);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ===== Mobile Hero Optimization ===== */
+    @media (max-width: 768px) {
+      .port-hero__inner {
+        max-width: 34rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .port-hero {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .port-hero__title {
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+      }
+      .port-hero__sub {
+        max-width: 26ch;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: clamp(1rem, 2.8vw, 1.08rem);
+        line-height: 1.45;
+      }
+      .port-hero__eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.22em;
+        margin-bottom: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -94,7 +145,7 @@
 
   <main>
 
-    <!-- ═══ PAGE HERO (compact) ════════════════════════════════════════ -->
+    <!-- ═══ PAGE HERO (optimized) ════════════════════════════════════════ -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
@@ -104,10 +155,21 @@
         </p>
         <h1 class="port-hero__title">What I Build.<br><span>How I Build It.</span></h1>
         <p class="port-hero__sub">
-          Built for founders, small businesses, and nonprofits who need a real
-          web presence, not a template. Every service is scoped, quoted, and
-          delivered with a clear process and direct communication.
+          Custom web builds with clear scope and clean execution.
         </p>
+      </div>
+    </section>
+
+    <!-- ═══ INTRO BLOCK (moved long text) ══════════════════════════════ -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-card">
+          <p>
+            Built for founders, small businesses, and nonprofits who need a real
+            web presence, not a template. Every service is scoped, quoted, and
+            delivered with a clear process and direct communication.
+          </p>
+        </div>
       </div>
     </section>
 
