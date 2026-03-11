@@ -1,12 +1,11 @@
 /*
 =========================================================================
-   WEBOPS STUDIO — styles.css v6.5
-   Changes from v6.4:
-   - Fixed double‑eyebrow glitch: unified eyebrow styles, hid hardcoded spans
-   - Corrected background image path for /styles/ folder location
-   - Reorganised body pseudo‑elements for proper stacking and opacity
-   - Removed solid backgrounds from primary sections; added semi‑transparent
-     backgrounds to alternating sections to reveal the global texture
+   WEBOPS STUDIO — styles.css v6.6
+   Changes from v6.5:
+   - Fixed hero vertical alignment: replaced clamp() padding with 80px
+     on .hero-section and .port-hero--cinematic .port-hero__inner
+   - Strengthened eyebrow line fix: hide ANY span inside eyebrow containers
+     (nuclear option) to eliminate double lines regardless of class name
 
    CSS SOURCE OF TRUTH:
    Portfolio styles live in styles.css sections 16 and 26.
@@ -487,8 +486,8 @@ section {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding-top: clamp(6rem, 12vw, 10rem);
-  padding-bottom: clamp(5rem, 10vw, 8rem);
+  padding-top: 80px;        /* FIXED: replaced clamp() to allow flex centering */
+  padding-bottom: 80px;     /* FIXED: replaced clamp() to allow flex centering */
   overflow: hidden;
   background:
     var(--gradient-hero),
@@ -547,10 +546,10 @@ section {
   display: inline-block;
 }
 
-/* Hide hardcoded eyebrow-line spans to prevent duplication */
-.hero-eyebrow .eyebrow-line,
-.port-hero__eyebrow .eyebrow-line,
-.gallery-hero__eyebrow .eyebrow-line {
+/* Hide ANY hardcoded spans inside the eyebrows to prevent duplication */
+.hero-eyebrow span,
+.port-hero__eyebrow span,
+.gallery-hero__eyebrow span {
   display: none !important;
 }
 
@@ -730,8 +729,8 @@ section {
 }
 
 .port-hero--cinematic .port-hero__inner {
-  padding-top: clamp(6rem, 12vw, 10rem);
-  padding-bottom: clamp(5rem, 10vw, 8rem);
+  padding-top: 80px;        /* FIXED: replaced clamp() to allow flex centering */
+  padding-bottom: 80px;     /* FIXED: replaced clamp() to allow flex centering */
   padding-left: 0;
   padding-right: 0;
   position: relative;
@@ -1754,4 +1753,4 @@ footer {
   background: rgba(14, 14, 26, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-                                                                                                                    }
+                  }
