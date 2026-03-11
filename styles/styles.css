@@ -1813,3 +1813,383 @@ footer {
   color: var(--color-bg);
   text-shadow: none;
    }
+
+/*
+─────────────────────────────────────────────────────────────────────────
+   29) CINEMATIC FLARE MODE (global visual upgrade)
+─────────────────────────────────────────────────────────────────────────
+*/
+
+:root {
+  --flare-shift-x: 0px;
+  --flare-shift-y: 0px;
+  --scroll-progress: 0%;
+}
+
+body.flare-mode::after {
+  background:
+    radial-gradient(circle at 22% 20%, rgba(232,98,10,0.16), transparent 46%),
+    radial-gradient(circle at 80% 12%, rgba(59,30,109,0.20), transparent 42%),
+    radial-gradient(circle at 52% 78%, rgba(232,98,10,0.10), transparent 44%),
+    radial-gradient(
+      circle at center,
+      rgba(10,10,15,0.12) 0%,
+      rgba(10,10,15,0.62) 68%,
+      rgba(7,7,12,0.88) 100%
+    );
+  animation: aurora-drift 24s ease-in-out infinite alternate;
+}
+
+body.flare-mode #site-header {
+  background: linear-gradient(to bottom, rgba(8,8,14,0.88), rgba(8,8,14,0.55));
+  border-bottom-color: rgba(232,98,10,0.24);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+body.flare-mode #site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: var(--scroll-progress);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(59,30,109,0.85), rgba(232,98,10,0.95));
+  box-shadow: 0 0 18px rgba(232,98,10,0.5);
+  transition: width 0.12s linear;
+}
+
+body.flare-mode .site-logo a {
+  text-shadow: 0 0 14px rgba(255,255,255,0.1);
+}
+
+body.flare-mode .nav-links a {
+  color: rgba(255,255,255,0.86);
+  text-shadow: 0 0 12px rgba(59,30,109,0.22);
+}
+
+body.flare-mode .nav-links a::after {
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(59,30,109,0.7), var(--color-orange));
+  box-shadow: 0 0 10px rgba(232,98,10,0.45);
+}
+
+body.flare-mode .port-hero,
+body.flare-mode .hero-section {
+  position: relative;
+  isolation: isolate;
+}
+
+body.flare-mode .port-hero::before,
+body.flare-mode .port-hero::after {
+  content: "";
+  position: absolute;
+  width: min(52vw, 620px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(82px);
+}
+
+body.flare-mode .port-hero::before {
+  top: -18%;
+  left: -16%;
+  background: radial-gradient(circle, rgba(59,30,109,0.40) 0%, rgba(59,30,109,0.00) 72%);
+  transform: translate3d(calc(var(--flare-shift-x) * -0.12), calc(var(--flare-shift-y) * -0.12), 0);
+}
+
+body.flare-mode .port-hero::after {
+  bottom: -24%;
+  right: -20%;
+  background: radial-gradient(circle, rgba(232,98,10,0.28) 0%, rgba(232,98,10,0.00) 72%);
+  transform: translate3d(calc(var(--flare-shift-x) * 0.10), calc(var(--flare-shift-y) * 0.10), 0);
+}
+
+body.flare-mode .port-hero > *,
+body.flare-mode .hero-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.flare-mode .port-hero__title,
+body.flare-mode .hero-title-line1,
+body.flare-mode .hero-title-accent {
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.07),
+    0 0 38px rgba(232,98,10,0.20);
+}
+
+body.flare-mode .port-hero__sub,
+body.flare-mode .hero-subtitle {
+  color: rgba(255,255,255,0.88);
+}
+
+body.flare-mode main > section {
+  position: relative;
+}
+
+body.flare-mode main > section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 3rem));
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(59,30,109,0.45) 24%,
+    rgba(232,98,10,0.34) 50%,
+    rgba(59,30,109,0.45) 76%,
+    transparent 100%
+  );
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+body.flare-mode main > section:first-child::before {
+  display: none;
+}
+
+body.flare-mode .section-label,
+body.flare-mode .port-section-label__text,
+body.flare-mode .section-label-centered__text {
+  color: #ff974f;
+  text-shadow: 0 0 16px rgba(232,98,10,0.25);
+}
+
+body.flare-mode .project-card,
+body.flare-mode .service-card,
+body.flare-mode .portfolio-card,
+body.flare-mode .service-tile,
+body.flare-mode .intro-card,
+body.flare-mode .about-card,
+body.flare-mode .bio-block,
+body.flare-mode .contact-form-wrap,
+body.flare-mode .contact-info-panel,
+body.flare-mode .pricing-note,
+body.flare-mode .testimonial-block,
+body.flare-mode .concept-row,
+body.flare-mode .case-study,
+body.flare-mode .case-study-details,
+body.flare-mode .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(255,255,255,0.12);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00) 38%),
+    var(--gradient-card);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 16px 42px rgba(0,0,0,0.30);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+    border-color 0.3s ease,
+    box-shadow 0.35s ease;
+}
+
+body.flare-mode .project-card::before,
+body.flare-mode .service-card::before,
+body.flare-mode .portfolio-card::before,
+body.flare-mode .service-tile::before,
+body.flare-mode .intro-card::before,
+body.flare-mode .about-card::before,
+body.flare-mode .bio-block::before,
+body.flare-mode .contact-form-wrap::before,
+body.flare-mode .contact-info-panel::before,
+body.flare-mode .pricing-note::before,
+body.flare-mode .testimonial-block::before,
+body.flare-mode .concept-row::before,
+body.flare-mode .case-study::before,
+body.flare-mode .case-study-details::before,
+body.flare-mode .gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 18%, rgba(255,255,255,0.09) 48%, transparent 72%);
+  transform: translateX(-140%);
+  transition: transform 0.9s ease;
+  pointer-events: none;
+}
+
+body.flare-mode .project-card:hover,
+body.flare-mode .service-card:hover,
+body.flare-mode .portfolio-card:hover,
+body.flare-mode .service-tile:hover,
+body.flare-mode .intro-card:hover,
+body.flare-mode .about-card:hover,
+body.flare-mode .bio-block:hover,
+body.flare-mode .contact-form-wrap:hover,
+body.flare-mode .contact-info-panel:hover,
+body.flare-mode .pricing-note:hover,
+body.flare-mode .testimonial-block:hover,
+body.flare-mode .concept-row:hover,
+body.flare-mode .case-study:hover,
+body.flare-mode .case-study-details:hover,
+body.flare-mode .gallery-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232,98,10,0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    0 20px 46px rgba(0,0,0,0.40),
+    0 0 0 1px rgba(232,98,10,0.18);
+}
+
+body.flare-mode .project-card:hover::before,
+body.flare-mode .service-card:hover::before,
+body.flare-mode .portfolio-card:hover::before,
+body.flare-mode .service-tile:hover::before,
+body.flare-mode .intro-card:hover::before,
+body.flare-mode .about-card:hover::before,
+body.flare-mode .bio-block:hover::before,
+body.flare-mode .contact-form-wrap:hover::before,
+body.flare-mode .contact-info-panel:hover::before,
+body.flare-mode .pricing-note:hover::before,
+body.flare-mode .testimonial-block:hover::before,
+body.flare-mode .concept-row:hover::before,
+body.flare-mode .case-study:hover::before,
+body.flare-mode .case-study-details:hover::before,
+body.flare-mode .gallery-item:hover::before {
+  transform: translateX(140%);
+}
+
+body.flare-mode .btn {
+  position: relative;
+  overflow: hidden;
+}
+
+body.flare-mode .btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 24%, rgba(255,255,255,0.34) 50%, transparent 76%);
+  transform: translateX(-160%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+
+body.flare-mode .btn:hover::before {
+  transform: translateX(155%);
+}
+
+body.flare-mode .btn-primary {
+  background: linear-gradient(135deg, #e8620a 0%, #ff7c2a 52%, #ff974f 100%);
+  border-color: rgba(255,255,255,0.24);
+  box-shadow:
+    0 10px 26px rgba(232,98,10,0.32),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+body.flare-mode .btn-ghost {
+  background: linear-gradient(135deg, rgba(59,30,109,0.28), rgba(59,30,109,0.05));
+  border-color: rgba(232,98,10,0.35);
+}
+
+body.flare-mode .reveal {
+  transform: translateY(36px) scale(0.985);
+  filter: blur(8px);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s ease;
+}
+
+body.flare-mode .reveal.visible {
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+body.flare-mode .tilt-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --tilt-lift: 0px;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  transform:
+    perspective(1100px)
+    rotateX(var(--tilt-x))
+    rotateY(var(--tilt-y))
+    translateY(var(--tilt-lift));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+body.flare-mode .tilt-card.is-tilting {
+  --tilt-lift: -6px;
+}
+
+body.flare-mode .tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(232,98,10,0.24), transparent 42%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+body.flare-mode .tilt-card.is-tilting::after {
+  opacity: 1;
+}
+
+body.flare-mode .back-to-top {
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ff9a5a, #e8620a 70%);
+  box-shadow:
+    0 8px 26px rgba(232,98,10,0.48),
+    0 0 0 1px rgba(255,255,255,0.14);
+}
+
+body.flare-mode .back-to-top:hover {
+  transform: translateY(-4px) scale(1.06);
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -2%, 0) scale(1.03);
+    filter: hue-rotate(6deg);
+  }
+  100% {
+    transform: translate3d(0, 2%, 0) scale(1.04);
+    filter: hue-rotate(-5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.flare-mode::after,
+  body.flare-mode .btn-primary::after {
+    animation: none !important;
+  }
+
+  body.flare-mode .reveal,
+  body.flare-mode .tilt-card,
+  body.flare-mode .project-card,
+  body.flare-mode .service-card,
+  body.flare-mode .portfolio-card,
+  body.flare-mode .service-tile,
+  body.flare-mode .intro-card,
+  body.flare-mode .about-card,
+  body.flare-mode .bio-block,
+  body.flare-mode .contact-form-wrap,
+  body.flare-mode .contact-info-panel,
+  body.flare-mode .pricing-note,
+  body.flare-mode .testimonial-block,
+  body.flare-mode .concept-row,
+  body.flare-mode .case-study,
+  body.flare-mode .case-study-details,
+  body.flare-mode .gallery-item,
+  body.flare-mode .btn {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
