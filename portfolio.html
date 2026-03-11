@@ -80,12 +80,24 @@
     padding: 0 0 32px;
     text-align: center;
   }
-  .intro-section p {
-    max-width: 640px;
+  .intro-card {
+    max-width: 720px;
     margin: 0 auto;
+    padding: 24px 28px;
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-top: 2px solid rgba(232,98,10,0.35);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+  .intro-card p {
     font-size: 1.1rem;
     color: rgba(255,255,255,0.95);
     line-height: 1.7;
+    margin: 0 0 1em;
+  }
+  .intro-card p:last-child {
+    margin-bottom: 0;
   }
 
   /* ===== FILTER BAR ===== */
@@ -543,12 +555,12 @@
 
   <main>
 
-    <!-- ═══ COMPACT HERO (optimized) ════════════════════════ -->
+    <!-- ═══ COMPACT HERO (updated) ═══════════════════════════════════════ -->
     <section class="port-hero">
       <div class="container port-hero__inner">
         <p class="port-hero__eyebrow">
           <span class="port-hero__line"></span>
-          WebOps Studio &middot; Selected Work
+          WebOps Studio
           <span class="port-hero__line"></span>
         </p>
         <h1 class="port-hero__title">
@@ -556,21 +568,26 @@
           <span>Built to Perform.</span>
         </h1>
         <p class="port-hero__sub">
-          Real projects. Hand-coded from scratch.
+          Real projects. Real code. Real results.
         </p>
       </div>
     </section>
 
-    <!-- ═══ INTRO BLOCK (moved long text) ═══════════════════ -->
+    <!-- ═══ INTRO CARD (new) ════════════════════════════════════════════ -->
     <section class="intro-section">
       <div class="container">
-        <p>
-          No templates. No page builders. Every project is hand&#8209;coded HTML, CSS, and JavaScript, structured for speed, clarity, and conversion.
-        </p>
+        <div class="intro-card">
+          <p>
+            The projects in this portfolio represent real websites designed and built by WebOps Studio. Each build focuses on performance, clean layout structure, responsive design, and strong visual hierarchy. Instead of relying on templates or frameworks, every page is written by hand using modern HTML, CSS, and JavaScript.
+          </p>
+          <p>
+            The goal is simple: build websites that look sharp, load fast, and feel solid on every device.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- ═══ FILTER BAR ═══════════════════════════════════════ -->
+    <!-- ═══ FILTER BAR ═══════════════════════════════════════════════════ -->
     <div class="container">
       <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
         <button type="button" data-filter="all" class="is-active">All</button>
@@ -580,7 +597,7 @@
       </div>
     </div>
 
-    <!-- ═══ GUARDIAN 4 HEROES ═════════════════════════════ -->
+    <!-- ═══ GUARDIAN 4 HEROES (existing) ═════════════════════════════════ -->
     <section class="port-project-section" id="guardian4heroes" data-filter="live">
       <div class="container">
         <div class="port-section-label">
@@ -664,7 +681,7 @@
       </div>
     </section>
 
-    <!-- ═══ CONCEPT BUILDS — EMBER & OAK ══════════════════ -->
+    <!-- ═══ CONCEPT BUILDS — EMBER & OAK (existing) ═════════════════════ -->
     <section class="port-project-section" data-filter="concept">
       <div class="container">
         <div class="port-section-label">
@@ -705,7 +722,7 @@
       </div>
     </section>
 
-    <!-- ═══ LANDING PAGES — IRONSHIELD ════════════════════ -->
+    <!-- ═══ LANDING PAGES — IRONSHIELD (existing) ═══════════════════════ -->
     <section class="port-project-section" data-filter="landing">
       <div class="container">
         <div class="port-section-label">
@@ -751,7 +768,7 @@
       </div>
     </section>
 
-    <!-- ═══ LANDING PAGES — VANGUARD FITNESS ══════════════ -->
+    <!-- ═══ LANDING PAGES — VANGUARD FITNESS (existing) ═════════════════ -->
     <section class="port-project-section" data-filter="landing">
       <div class="container">
 
@@ -792,7 +809,7 @@
       </div>
     </section>
 
-    <!-- ═══ LANDING PAGES — LAUNCHDECK SAAS ═══════════════ -->
+    <!-- ═══ LANDING PAGES — LAUNCHDECK SAAS (existing) ══════════════════ -->
     <section class="port-project-section" data-filter="landing">
       <div class="container">
 
@@ -833,7 +850,7 @@
       </div>
     </section>
 
-    <!-- ═══ RESTRUCTURED CTA STRIP ════════════════════════ -->
+    <!-- ═══ RESTRUCTURED CTA STRIP (existing) ═══════════════════════════ -->
     <section class="cta-strip">
       <div class="container">
         <h2 class="cta-headline reveal">Want a Build Like This?</h2>
@@ -997,4 +1014,4 @@
   </script>
 
 </body>
-</html>
+                  </html>
