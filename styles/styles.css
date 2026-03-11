@@ -1,12 +1,12 @@
 /*
 =========================================================================
-   WEBOPS STUDIO — styles.css v6.4
-   Changes from v6.3:
-   - Restored global background image using body::after (cinematic overlay + Background1.png)
-   - Standardized hero eyebrow styling across all pages to match Gallery
-   - Added pseudo-element accent lines for eyebrows
-   - Refined hero subtitle width and alignment
-   - Retained film grain overlay (body::before)
+   WEBOPS STUDIO — styles.css v6.5
+   Changes from v6.4:
+   - Fixed double‑eyebrow glitch: unified eyebrow styles, hid hardcoded spans
+   - Corrected background image path for /styles/ folder location
+   - Reorganised body pseudo‑elements for proper stacking and opacity
+   - Removed solid backgrounds from primary sections; added semi‑transparent
+     backgrounds to alternating sections to reveal the global texture
 
    CSS SOURCE OF TRUTH:
    Portfolio styles live in styles.css sections 16 and 26.
@@ -131,6 +131,7 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  z-index: 0; /* Establishes stacking context for pseudo-elements */
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -146,24 +147,34 @@ ul { list-style: none; }
 
 button, input, textarea, select { font: inherit; }
 
-/* Fixed background image + cinematic overlay (behind content) */
+/* Fixed background image (behind content) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("../images/Background1.png") center center / cover no-repeat;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+/* Cinematic radial gradient overlay */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background:
-    radial-gradient(circle at center, rgba(10,10,15,0.2) 0%, rgba(10,10,15,0.65) 70%, rgba(5,5,10,0.9) 100%),
-    url("images/Background1.png");
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
+  background: radial-gradient(
+    circle at center,
+    rgba(10, 10, 15, 0.18) 0%,
+    rgba(10, 10, 15, 0.62) 70%,
+    rgba(7, 7, 12, 0.88) 100%
+  );
   pointer-events: none;
 }
 
 /* Subtle film grain overlay (on top of everything) */
-body::before {
+body .grain-overlay {
   content: "";
   position: fixed;
   inset: 0;
@@ -504,34 +515,43 @@ section {
   text-align: center;
 }
 
-/* Unified eyebrow styling — matches Gallery refinement */
+/* Unified eyebrow styling — fixes double‑line glitch */
 .hero-eyebrow,
-.port-hero__eyebrow {
-  display: flex;
+.port-hero__eyebrow,
+.gallery-hero__eyebrow {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.85rem;
-  width: fit-content;
-  margin: 0 auto 1.1rem;
+  gap: 0.75rem;
+  margin: 0 auto 1rem;
   font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-orange);
-  white-space: normal;
+  white-space: nowrap;
   text-align: center;
 }
 
 .hero-eyebrow::before,
 .hero-eyebrow::after,
 .port-hero__eyebrow::before,
-.port-hero__eyebrow::after {
+.port-hero__eyebrow::after,
+.gallery-hero__eyebrow::before,
+.gallery-hero__eyebrow::after {
   content: "";
-  display: block;
-  width: 3.25rem;
+  width: 2.5rem;
   height: 1px;
   background: currentColor;
   opacity: 0.85;
-  flex-shrink: 0;
+  flex: 0 0 2.5rem;
+  display: inline-block;
+}
+
+/* Hide hardcoded eyebrow-line spans to prevent duplication */
+.hero-eyebrow .eyebrow-line,
+.port-hero__eyebrow .eyebrow-line,
+.gallery-hero__eyebrow .eyebrow-line {
+  display: none !important;
 }
 
 .hero-title {
@@ -1540,7 +1560,8 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-title-line2  { font-size: clamp(0.8rem, 3.5vw, 1.1rem); margin-top: 10px; }
 
   .hero-eyebrow,
-  .port-hero__eyebrow {
+  .port-hero__eyebrow,
+  .gallery-hero__eyebrow {
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     gap: 0.75rem;
@@ -1550,8 +1571,11 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-eyebrow::before,
   .hero-eyebrow::after,
   .port-hero__eyebrow::before,
-  .port-hero__eyebrow::after {
+  .port-hero__eyebrow::after,
+  .gallery-hero__eyebrow::before,
+  .gallery-hero__eyebrow::after {
     width: 3rem;
+    flex: 0 0 3rem;
   }
 
   .hero-ctas { flex-direction: column; }
@@ -1585,7 +1609,8 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 
 @media (max-width: 480px) {
   .hero-eyebrow,
-  .port-hero__eyebrow {
+  .port-hero__eyebrow,
+  .gallery-hero__eyebrow {
     font-size: 0.74rem;
     letter-spacing: 0.20em;
     gap: 0.65rem;
@@ -1594,8 +1619,11 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-eyebrow::before,
   .hero-eyebrow::after,
   .port-hero__eyebrow::before,
-  .port-hero__eyebrow::after {
+  .port-hero__eyebrow::after,
+  .gallery-hero__eyebrow::before,
+  .gallery-hero__eyebrow::after {
     width: 2.5rem;
+    flex: 0 0 2.5rem;
   }
 
   .value-grid        { grid-template-columns: 1fr; }
@@ -1695,4 +1723,35 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
     border-left: none; 
     border-top: 1px solid var(--color-border); /* Mobile divider */
   }
-   }
+}
+
+/*
+─────────────────────────────────────────────────────────────────────────
+   27) SECTION BACKGROUND TRANSPARENCY (global texture reveal)
+─────────────────────────────────────────────────────────────────────────
+*/
+
+/* Strip solid backgrounds from primary sections so the body background shows through */
+.build-standards-section,
+.services-teaser-section,
+.services-page-section,
+.portfolio-section,
+.about-section,
+.contact-section,
+footer {
+  background: transparent;
+}
+
+/* Make alternate sections semi‑transparent to keep layout contrast without blocking the texture */
+.page-hero,
+.value-props-section,
+.featured-work-section,
+.faq-section,
+.bio-section,
+.testimonial-section,
+.email-signup-section,
+.cta-strip {
+  background: rgba(14, 14, 26, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                                                                                                                    }
