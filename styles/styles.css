@@ -1,11 +1,12 @@
 /*
 =========================================================================
-   WEBOPS STUDIO — styles.css v6.6
-   Changes from v6.5:
-   - Fixed hero vertical alignment: replaced clamp() padding with 80px
-     on .hero-section and .port-hero--cinematic .port-hero__inner
-   - Strengthened eyebrow line fix: hide ANY span inside eyebrow containers
-     (nuclear option) to eliminate double lines regardless of class name
+   WEBOPS STUDIO — styles.css v6.5
+   Changes from v6.4:
+   - Hero alignment: changed align-items to flex-start on .hero-section 
+     and .port-hero--cinematic to anchor content to top (matches Gallery).
+   - Replaced fixed 80px padding with clamp() values for consistent spacing.
+   - Added Premium UI Flair (Section 28): custom scrollbar, card glow,
+     button pulse, branded text selection.
 
    CSS SOURCE OF TRUTH:
    Portfolio styles live in styles.css sections 16 and 26.
@@ -130,7 +131,7 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  z-index: 0; /* Establishes stacking context for pseudo-elements */
+  z-index: 0;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -485,9 +486,9 @@ section {
   position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: center;
-  padding-top: 80px;        /* FIXED: replaced clamp() to allow flex centering */
-  padding-bottom: 80px;     /* FIXED: replaced clamp() to allow flex centering */
+  align-items: flex-start;      /* FIX: anchor to top */
+  padding-top: clamp(6rem, 12vw, 10rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
   overflow: hidden;
   background:
     var(--gradient-hero),
@@ -514,43 +515,34 @@ section {
   text-align: center;
 }
 
-/* Unified eyebrow styling — fixes double‑line glitch */
+/* Unified eyebrow styling — matches Gallery refinement */
 .hero-eyebrow,
-.port-hero__eyebrow,
-.gallery-hero__eyebrow {
-  display: inline-flex;
+.port-hero__eyebrow {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  margin: 0 auto 1rem;
+  gap: 0.85rem;
+  width: fit-content;
+  margin: 0 auto 1.1rem;
   font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-orange);
-  white-space: nowrap;
+  white-space: normal;
   text-align: center;
 }
 
 .hero-eyebrow::before,
 .hero-eyebrow::after,
 .port-hero__eyebrow::before,
-.port-hero__eyebrow::after,
-.gallery-hero__eyebrow::before,
-.gallery-hero__eyebrow::after {
+.port-hero__eyebrow::after {
   content: "";
-  width: 2.5rem;
+  display: block;
+  width: 3.25rem;
   height: 1px;
   background: currentColor;
   opacity: 0.85;
-  flex: 0 0 2.5rem;
-  display: inline-block;
-}
-
-/* Hide ANY hardcoded spans inside the eyebrows to prevent duplication */
-.hero-eyebrow span,
-.port-hero__eyebrow span,
-.gallery-hero__eyebrow span {
-  display: none !important;
+  flex-shrink: 0;
 }
 
 .hero-title {
@@ -713,7 +705,7 @@ section {
   position: relative;
   min-height: 72vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;      /* FIX: anchor to top */
   overflow: hidden;
   background:
     linear-gradient(
@@ -729,13 +721,14 @@ section {
 }
 
 .port-hero--cinematic .port-hero__inner {
-  padding-top: 80px;        /* FIXED: replaced clamp() to allow flex centering */
-  padding-bottom: 80px;     /* FIXED: replaced clamp() to allow flex centering */
+  padding-top: clamp(6rem, 12vw, 10rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
   padding-left: 0;
   padding-right: 0;
   position: relative;
   z-index: 1;
   text-align: center;
+  width: 100%;
 }
 
 .port-hero--cinematic .port-hero__title {
@@ -1195,7 +1188,11 @@ section {
   flex-direction: column;
 }
 
-.portfolio-card:hover { transform: translateY(-4px); border-color: rgba(232,98,10,0.25); border-top-color: var(--color-orange); }
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232,98,10,0.25);
+  border-top-color: var(--color-orange);
+}
 .portfolio-card[data-hidden="true"] { display: none; }
 
 .portfolio-card-img-placeholder {
@@ -1559,8 +1556,7 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-title-line2  { font-size: clamp(0.8rem, 3.5vw, 1.1rem); margin-top: 10px; }
 
   .hero-eyebrow,
-  .port-hero__eyebrow,
-  .gallery-hero__eyebrow {
+  .port-hero__eyebrow {
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     gap: 0.75rem;
@@ -1570,11 +1566,8 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-eyebrow::before,
   .hero-eyebrow::after,
   .port-hero__eyebrow::before,
-  .port-hero__eyebrow::after,
-  .gallery-hero__eyebrow::before,
-  .gallery-hero__eyebrow::after {
+  .port-hero__eyebrow::after {
     width: 3rem;
-    flex: 0 0 3rem;
   }
 
   .hero-ctas { flex-direction: column; }
@@ -1608,8 +1601,7 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
 
 @media (max-width: 480px) {
   .hero-eyebrow,
-  .port-hero__eyebrow,
-  .gallery-hero__eyebrow {
+  .port-hero__eyebrow {
     font-size: 0.74rem;
     letter-spacing: 0.20em;
     gap: 0.65rem;
@@ -1618,11 +1610,8 @@ footer { background: var(--color-bg); border-top: 1px solid rgba(59,30,109,0.15)
   .hero-eyebrow::before,
   .hero-eyebrow::after,
   .port-hero__eyebrow::before,
-  .port-hero__eyebrow::after,
-  .gallery-hero__eyebrow::before,
-  .gallery-hero__eyebrow::after {
+  .port-hero__eyebrow::after {
     width: 2.5rem;
-    flex: 0 0 2.5rem;
   }
 
   .value-grid        { grid-template-columns: 1fr; }
@@ -1754,3 +1743,73 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
+
+/*
+─────────────────────────────────────────────────────────────────────────
+   28) PREMIUM UI FLAIR (Tactical Enhancements)
+─────────────────────────────────────────────────────────────────────────
+*/
+
+/* Custom Tactical Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg); 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 30, 109, 0.4); 
+  border-radius: 6px;
+  border: 2px solid var(--color-bg); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange); 
+}
+
+/* Ambient Hover Glow for Cards */
+.project-card, 
+.service-card, 
+.portfolio-card,
+.service-tile {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease !important;
+}
+.project-card:hover, 
+.service-card:hover, 
+.portfolio-card:hover,
+.service-tile:hover {
+  box-shadow: 0 15px 35px rgba(232, 98, 10, 0.12), 
+              0 5px 15px rgba(59, 30, 109, 0.2) !important;
+}
+
+/* Tactical Button Pulse */
+.btn-primary {
+  position: relative;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 0 0 rgba(232, 98, 10, 0.6);
+  animation: pulse-ring 3s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  z-index: -1;
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(232, 98, 10, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(232, 98, 10, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 98, 10, 0); }
+}
+
+/* Branded Text Selection */
+::selection {
+  background: var(--color-orange);
+  color: var(--color-bg);
+  text-shadow: none;
+}
+::-moz-selection {
+  background: var(--color-orange);
+  color: var(--color-bg);
+  text-shadow: none;
+   }
