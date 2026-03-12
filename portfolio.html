@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | WebOps Studio</title>
   <meta name="description" content="Hand&#8209;coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#07070c">
+  <link rel="canonical" href="https://web-ops-studio.com/portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio | WebOps Studio">
+  <meta name="twitter:description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
+  <meta name="twitter:image" content="https://web-ops-studio.com/images/share-link.jpg">
   <meta property="og:title" content="WebOps Studio | Portfolio">
   <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
   <meta property="og:type" content="website">
@@ -266,6 +273,13 @@
     aspect-ratio: 9 / 16;
     overflow: hidden;
     position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    text-align: left;
   }
   .concept-preview__main img {
     width: 100%;
@@ -273,6 +287,9 @@
     object-fit: cover;
     display: block;
     cursor: pointer;
+  }
+  .concept-row--spaced {
+    margin-top: 32px;
   }
   @media (min-width: 901px) {
     .concept-row--reverse { flex-direction: row-reverse; }
@@ -534,7 +551,7 @@
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
       <nav class="main-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
         <ul class="nav-links" id="primary-nav">
@@ -579,7 +596,7 @@
 
     <!-- ═══ FILTER BAR ═══════════════════════════════════════════════════ -->
     <div class="container">
-      <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
+      <div class="port-filter" id="portfolioFilter" role="group" aria-label="Portfolio filter">
         <button type="button" data-filter="all" class="is-active">All</button>
         <button type="button" data-filter="live">Live Sites</button>
         <button type="button" data-filter="concept">Concept Builds</button>
@@ -615,17 +632,17 @@
         </div>
 
         <!-- Gallery carousel -->
-        <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 32px;">
+        <div class="concept-row concept-row--spaced reveal" data-carousel="g4h">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Project Gallery</h3>
             <p class="concept-summary__desc">A closer look at mission pages, shop layouts, donation flow, and the underlying CSS structure.</p>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
+            <button class="concept-preview__main" type="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
               <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Hero Section"><img src="images/guardian-1.jpg" alt="Hero section thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission page thumbnail"></div>
@@ -633,13 +650,13 @@
                 <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation UX thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS architecture thumbnail"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
 
         <!-- Collapsible case study -->
-        <button class="case-study-toggle reveal" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details">
+        <button class="case-study-toggle reveal" type="button" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details">
           View Case Study Details <span class="case-study-toggle__arrow">&#9660;</span>
         </button>
 
@@ -692,11 +709,11 @@
             <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener noreferrer" class="port-action-btn">View Live Demo ↗</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe &#8211; Home">
+            <button class="concept-preview__main" type="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe &#8211; Home">
               <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe home page">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak &#8211; Home"><img src="images/ember.demo.home.jpg" alt="Home page thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember &amp; Oak &#8211; Menu"><img src="images/ember-demo-menu.jpg" alt="Menu page thumbnail"></div>
@@ -704,7 +721,7 @@
                 <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember &amp; Oak &#8211; Catering"><img src="images/ember.demo.catering.jpg" alt="Catering page thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember &amp; Oak &#8211; Code"><img src="images/ember.demo.css.jpg" alt="Code structure thumbnail"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -734,11 +751,11 @@
             <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" data-caption="IronShield Roofing &#8211; Hero">
+            <button class="concept-preview__main" type="button" data-full="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" data-caption="IronShield Roofing &#8211; Hero">
               <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" data-caption="IronShield – Hero">
                   <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield hero thumbnail">
@@ -750,7 +767,7 @@
                   <img src="images/roofing-screenshot3.jpg" alt="IronShield screenshot 3 thumbnail">
                 </div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -775,11 +792,11 @@
             <a href="landing-pages/fitness-coach-funnel/" class="port-action-btn">View Demo &rarr;</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/vanguard-screenshot.jpg" data-caption="Vanguard Fitness &#8211; Hero">
+            <button class="concept-preview__main" type="button" data-full="images/vanguard-screenshot.jpg" data-caption="Vanguard Fitness &#8211; Hero">
               <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/vanguard-screenshot.jpg" data-caption="Vanguard Fitness – Hero">
                   <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness hero thumbnail">
@@ -791,7 +808,7 @@
                   <img src="images/vanguard-screenshot3.jpg" alt="Vanguard Fitness screenshot 3 thumbnail">
                 </div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -816,11 +833,11 @@
             <a href="landing-pages/saas-beta-waitlist/" class="port-action-btn">View Demo &rarr;</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/launch-deck-screenshot.jpg" data-caption="LaunchDeck &#8211; Hero">
+            <button class="concept-preview__main" type="button" data-full="images/launch-deck-screenshot.jpg" data-caption="LaunchDeck &#8211; Hero">
               <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck SaaS landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/launch-deck-screenshot.jpg" data-caption="LaunchDeck – Hero">
                   <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck hero thumbnail">
@@ -832,7 +849,7 @@
                   <img src="images/launch-desk-screenshot3.jpg" alt="LaunchDeck screenshot 3 thumbnail">
                 </div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -897,13 +914,13 @@
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
   <!-- ═══ LIGHTBOX ════════════════════════════════════════ -->
   <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="port-lightbox__inner">
-      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
-      <img class="port-lightbox__img" id="lightboxImg" src="" alt="">
+      <button class="port-lightbox__close" type="button" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+      <img class="port-lightbox__img" id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
       <p class="port-lightbox__caption" id="lightboxCaption"></p>
       <p class="port-lightbox__hint">Press ESC or tap outside to close</p>
     </div>
@@ -959,6 +976,15 @@
     document.addEventListener('DOMContentLoaded', function() {
       var filterButtons = document.querySelectorAll('#portfolioFilter button');
       var filterableSections = document.querySelectorAll('.port-project-section[data-filter]');
+      var carouselImages = document.querySelectorAll('.concept-preview__main img, .concept-thumbs__thumb img');
+
+      carouselImages.forEach(function(img, index) {
+        img.decoding = 'async';
+        if (index > 0) {
+          img.loading = 'lazy';
+          img.setAttribute('fetchpriority', 'low');
+        }
+      });
 
       function updateFilter(filter) {
         filterButtons.forEach(function(btn) {

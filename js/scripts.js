@@ -8,11 +8,19 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const isConstrainedDevice =
+    window.innerWidth < 1024 ||
+    (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4) ||
+    (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4) ||
+    !!(connection && (connection.saveData || /(^|slow-)2g/.test(connection.effectiveType || '')));
+  const enableEnhancedFx = !prefersReducedMotion && supportsFinePointer && !isConstrainedDevice;
 
   if (document.body) {
-    document.body.classList.add('flare-mode');
+    document.body.classList.toggle('flare-mode', enableEnhancedFx);
+    document.body.classList.toggle('perf-lite', !enableEnhancedFx);
 
-    if (!document.querySelector('.grain-overlay')) {
+    if (enableEnhancedFx && !document.querySelector('.grain-overlay')) {
       const grain = document.createElement('div');
       grain.className = 'grain-overlay';
       grain.setAttribute('aria-hidden', 'true');
@@ -26,7 +34,7 @@
     document.documentElement.style.setProperty('--scroll-progress', `${Math.min(100, Math.max(0, pct)).toFixed(2)}%`);
   };
 
-  if (!prefersReducedMotion && supportsFinePointer) {
+  if (enableEnhancedFx) {
     let rafPending = false;
     let px = window.innerWidth / 2;
     let py = window.innerHeight / 2;
@@ -136,7 +144,7 @@
 
   tiltTargets.forEach((el) => el.classList.add('tilt-card'));
 
-  if (!prefersReducedMotion && supportsFinePointer && tiltTargets.length) {
+  if (enableEnhancedFx && tiltTargets.length) {
     const maxTilt = 5;
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
