@@ -6,18 +6,65 @@
 (function () {
   'use strict';
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const supportsFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  let resetTiltState = () => {};
 
-  if (document.body) {
-    document.body.classList.add('flare-mode');
+  const computeEnhancedFxMode = () => {
+    const isConstrainedDevice =
+      window.innerWidth < 1024 ||
+      (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4) ||
+      (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4) ||
+      !!(connection && (connection.saveData || /(^|slow-)2g/.test(connection.effectiveType || '')));
 
-    if (!document.querySelector('.grain-overlay')) {
+    return !reducedMotionQuery.matches && finePointerQuery.matches && !isConstrainedDevice;
+  };
+
+  let enableEnhancedFx = false;
+  const applyPerformanceMode = () => {
+    enableEnhancedFx = computeEnhancedFxMode();
+    if (!document.body) return;
+
+    document.body.classList.toggle('flare-mode', enableEnhancedFx);
+    document.body.classList.toggle('perf-lite', !enableEnhancedFx);
+
+    if (enableEnhancedFx && !document.querySelector('.grain-overlay')) {
       const grain = document.createElement('div');
       grain.className = 'grain-overlay';
       grain.setAttribute('aria-hidden', 'true');
       document.body.appendChild(grain);
     }
+
+    if (!enableEnhancedFx) {
+      const grain = document.querySelector('.grain-overlay');
+      if (grain) grain.remove();
+    }
+
+    resetTiltState();
+  };
+  applyPerformanceMode();
+
+  let modeRafPending = false;
+  const schedulePerformanceModeRefresh = () => {
+    if (modeRafPending) return;
+    modeRafPending = true;
+    requestAnimationFrame(() => {
+      modeRafPending = false;
+      applyPerformanceMode();
+    });
+  };
+
+  window.addEventListener('resize', schedulePerformanceModeRefresh, { passive: true });
+  if (typeof reducedMotionQuery.addEventListener === 'function') {
+    reducedMotionQuery.addEventListener('change', schedulePerformanceModeRefresh);
+    finePointerQuery.addEventListener('change', schedulePerformanceModeRefresh);
+  } else if (typeof reducedMotionQuery.addListener === 'function') {
+    reducedMotionQuery.addListener(schedulePerformanceModeRefresh);
+    finePointerQuery.addListener(schedulePerformanceModeRefresh);
+  }
+  if (connection && typeof connection.addEventListener === 'function') {
+    connection.addEventListener('change', schedulePerformanceModeRefresh);
   }
 
   const setScrollProgress = () => {
@@ -26,28 +73,27 @@
     document.documentElement.style.setProperty('--scroll-progress', `${Math.min(100, Math.max(0, pct)).toFixed(2)}%`);
   };
 
-  if (!prefersReducedMotion && supportsFinePointer) {
-    let rafPending = false;
-    let px = window.innerWidth / 2;
-    let py = window.innerHeight / 2;
+  let rafPending = false;
+  let px = window.innerWidth / 2;
+  let py = window.innerHeight / 2;
 
-    const writePointerVars = () => {
-      const xOffset = ((px / window.innerWidth) - 0.5) * 36;
-      const yOffset = ((py / window.innerHeight) - 0.5) * 36;
-      document.documentElement.style.setProperty('--flare-shift-x', `${xOffset.toFixed(2)}px`);
-      document.documentElement.style.setProperty('--flare-shift-y', `${yOffset.toFixed(2)}px`);
-      rafPending = false;
-    };
+  const writePointerVars = () => {
+    const xOffset = ((px / window.innerWidth) - 0.5) * 36;
+    const yOffset = ((py / window.innerHeight) - 0.5) * 36;
+    document.documentElement.style.setProperty('--flare-shift-x', `${xOffset.toFixed(2)}px`);
+    document.documentElement.style.setProperty('--flare-shift-y', `${yOffset.toFixed(2)}px`);
+    rafPending = false;
+  };
 
-    window.addEventListener('pointermove', (e) => {
-      px = e.clientX;
-      py = e.clientY;
-      if (!rafPending) {
-        rafPending = true;
-        requestAnimationFrame(writePointerVars);
-      }
-    }, { passive: true });
-  }
+  window.addEventListener('pointermove', (e) => {
+    if (!enableEnhancedFx) return;
+    px = e.clientX;
+    py = e.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(writePointerVars);
+    }
+  }, { passive: true });
 
   /* ── STICKY HEADER ────────────────────────────────────────────── */
   const header = document.getElementById('site-header');
@@ -136,20 +182,24 @@
 
   tiltTargets.forEach((el) => el.classList.add('tilt-card'));
 
-  if (!prefersReducedMotion && supportsFinePointer && tiltTargets.length) {
+  if (tiltTargets.length) {
     const maxTilt = 5;
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    const resetCard = (card) => {
+      card.classList.remove('is-tilting');
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    };
 
     tiltTargets.forEach((card) => {
-      const resetCard = () => {
-        card.classList.remove('is-tilting');
-        card.style.setProperty('--tilt-x', '0deg');
-        card.style.setProperty('--tilt-y', '0deg');
-        card.style.setProperty('--mouse-x', '50%');
-        card.style.setProperty('--mouse-y', '50%');
-      };
-
       card.addEventListener('pointermove', (e) => {
+        if (!enableEnhancedFx) {
+          resetCard(card);
+          return;
+        }
+
         const rect = card.getBoundingClientRect();
         if (!rect.width || !rect.height) return;
 
@@ -167,10 +217,14 @@
         card.style.setProperty('--mouse-y', `${(yPct * 100).toFixed(1)}%`);
       });
 
-      card.addEventListener('pointerleave', resetCard);
-      card.addEventListener('pointercancel', resetCard);
-      card.addEventListener('blur', resetCard);
+      card.addEventListener('pointerleave', () => resetCard(card));
+      card.addEventListener('pointercancel', () => resetCard(card));
+      card.addEventListener('blur', () => resetCard(card));
     });
+
+    resetTiltState = () => {
+      tiltTargets.forEach((card) => resetCard(card));
+    };
   }
 
   /* ── SMOOTH ANCHOR SCROLL ─────────────────────────────────────── */

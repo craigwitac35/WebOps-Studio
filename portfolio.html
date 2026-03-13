@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | WebOps Studio</title>
   <meta name="description" content="Hand&#8209;coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#07070c">
+  <link rel="canonical" href="https://web-ops-studio.com/portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio | WebOps Studio">
+  <meta name="twitter:description" content="Hand-coded websites and landing pages built from scratch by WebOps Studio. Real builds, real clients, real results.">
+  <meta name="twitter:image" content="https://web-ops-studio.com/images/share-link.jpg">
   <meta property="og:title" content="WebOps Studio | Portfolio">
   <meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
   <meta property="og:type" content="website">
@@ -266,6 +273,13 @@
     aspect-ratio: 9 / 16;
     overflow: hidden;
     position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    text-align: left;
   }
   .concept-preview__main img {
     width: 100%;
@@ -273,6 +287,9 @@
     object-fit: cover;
     display: block;
     cursor: pointer;
+  }
+  .concept-row--spaced {
+    margin-top: 32px;
   }
   @media (min-width: 901px) {
     .concept-row--reverse { flex-direction: row-reverse; }
@@ -534,7 +551,7 @@
         <span class="logo-tagline">Veteran-Built Front Ends</span>
       </div>
       <nav class="main-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span class="hamburger"></span>
         </button>
         <ul class="nav-links" id="primary-nav">
@@ -568,10 +585,10 @@
       <div class="container">
         <div class="intro-card">
           <p>
-            The projects in this portfolio represent real websites designed and built by WebOps Studio. Each build focuses on performance, clean layout structure, responsive design, and strong visual hierarchy. Instead of relying on templates or frameworks, every page is written by hand using modern HTML, CSS, and JavaScript.
+            This portfolio features real websites designed and built by WebOps Studio. Each project emphasizes speed, responsive structure, and clear visual hierarchy.
           </p>
           <p>
-            The goal is simple: build websites that look sharp, load fast, and feel solid on every device.
+            Every page is hand-coded to look sharp, load fast, and perform reliably across devices.
           </p>
         </div>
       </div>
@@ -579,7 +596,7 @@
 
     <!-- ═══ FILTER BAR ═══════════════════════════════════════════════════ -->
     <div class="container">
-      <div class="port-filter" id="portfolioFilter" aria-label="Portfolio filter">
+      <div class="port-filter" id="portfolioFilter" role="group" aria-label="Portfolio filter">
         <button type="button" data-filter="all" class="is-active">All</button>
         <button type="button" data-filter="live">Live Sites</button>
         <button type="button" data-filter="concept">Concept Builds</button>
@@ -600,10 +617,10 @@
           <span class="section-label section-label--featured"><span class="status-dot"></span> Featured Project</span>
           <h2 class="port-project-title">Guardian 4 Heroes</h2>
           <p class="port-project-desc">
-            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders, people I have a deep connection with as a veteran myself. They needed a site that felt emotionally grounded, mission&#8209;driven, and easy to navigate.
+            Guardian 4 Heroes is an equine therapy nonprofit serving veterans and first responders. They needed a mission-focused site that felt trustworthy and easy to navigate.
           </p>
           <p class="port-project-desc">
-            I built everything from scratch in HTML, CSS, and vanilla JavaScript, keeping it lightweight, accessible, and conversion&#8209;focused throughout. The design prioritizes clear donation pathways and trust&#8209;building imagery without relying on heavy frameworks.
+            I built the site from scratch in HTML, CSS, and vanilla JavaScript with a lightweight, accessible structure and clear donation pathways.
           </p>
           <div class="port-project-meta">
             <span class="status-badge status-live"><span class="status-dot"></span>Live Site</span>
@@ -615,17 +632,17 @@
         </div>
 
         <!-- Gallery carousel -->
-        <div class="concept-row reveal" data-carousel="g4h" style="margin-top: 32px;">
+        <div class="concept-row concept-row--spaced reveal" data-carousel="g4h">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Project Gallery</h3>
-            <p class="concept-summary__desc">A deeper look into the mission statement pages, product card layouts for the shop, the streamlined donation flow, and the underlying CSS structure.</p>
+            <p class="concept-summary__desc">A closer look at mission pages, shop layouts, donation flow, and the underlying CSS structure.</p>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
+            <button class="concept-preview__main" type="button" data-full="images/guardian-1.jpg" data-caption="Hero Section">
               <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes hero section">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/guardian-1.jpg" data-caption="Hero Section"><img src="images/guardian-1.jpg" alt="Hero section thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-2.jpg" data-caption="Mission &amp; Content"><img src="images/guardian-2.jpg" alt="Mission page thumbnail"></div>
@@ -633,13 +650,13 @@
                 <div class="concept-thumbs__thumb" data-src="images/guardian-4.jpg" data-caption="Donation UX"><img src="images/guardian-4.jpg" alt="Donation UX thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/guardian-5.jpg" data-caption="CSS Architecture"><img src="images/guardian-5.jpg" alt="CSS architecture thumbnail"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
 
         <!-- Collapsible case study -->
-        <button class="case-study-toggle reveal" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details">
+        <button class="case-study-toggle reveal" type="button" id="g4hToggle" aria-expanded="false" aria-controls="g4h-details">
           View Case Study Details <span class="case-study-toggle__arrow">&#9660;</span>
         </button>
 
@@ -647,23 +664,23 @@
           <div class="case-study-grid">
             <div class="case-study-item">
               <h3>Goal</h3>
-              <p>Craft a digital home for an equine therapy nonprofit that builds trust with veterans and first responders while clearly communicating the mission.</p>
+              <p>Create a trusted digital home that clearly communicates the nonprofit mission.</p>
             </div>
             <div class="case-study-item">
               <h3>Challenges</h3>
-              <p>The client needed a site that was emotionally grounded without feeling heavy, supported multiple pathways for donation and program sign-ups, and maintained fast load times on limited budgets.</p>
+              <p>Balance emotional storytelling with clarity, support donations and sign-ups, and keep performance high on a limited budget.</p>
             </div>
             <div class="case-study-item">
               <h3>Solution</h3>
-              <p>I designed and coded a bespoke experience using semantic HTML5, modern CSS, and vanilla JavaScript. The layout guides the eye from mission story to impact statistics to the call to donate. A modular CSS architecture keeps the styles maintainable and scalable.</p>
+              <p>I delivered a custom build using semantic HTML5, modern CSS, and vanilla JavaScript with a layout that guides visitors from mission to donation.</p>
             </div>
             <div class="case-study-item">
               <h3>Result</h3>
-              <p>The nonprofit saw an increase in both donations and volunteer sign-ups within the first month. Visitors reported that the site felt trustworthy and easy to navigate, leading to longer session durations and higher engagement.</p>
+              <p>The organization saw stronger donations and volunteer interest, with improved engagement from a clearer user journey.</p>
             </div>
             <div class="case-study-item case-study-item--full">
               <h3>Stack &amp; Role</h3>
-              <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer &amp; developer, responsible for strategy, design, implementation and deployment.</p>
+              <p><strong>Technologies:</strong> HTML5, CSS3, Vanilla JavaScript. <strong>Role:</strong> Lead designer and developer from strategy through deployment.</p>
             </div>
           </div>
         </div>
@@ -683,7 +700,7 @@
         <div class="concept-row concept-row--reverse reveal" data-carousel="ember">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Ember &amp; Oak Cafe</h3>
-            <p class="concept-summary__desc">A full six&#8209;page concept site for a fictional neighbourhood cafe. Built to demonstrate multi&#8209;page architecture, menu layout, event listings, catering page structure, and a cohesive brand system across pages.</p>
+            <p class="concept-summary__desc">A six-page concept site showcasing multi-page structure, menu layout, events, catering, and brand consistency.</p>
             <div class="concept-summary__tags">
               <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               <span class="tag">HTML5</span>
@@ -692,11 +709,11 @@
             <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener noreferrer" class="port-action-btn">View Live Demo ↗</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe &#8211; Home">
+            <button class="concept-preview__main" type="button" data-full="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak Cafe &#8211; Home">
               <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe home page">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/ember.demo.home.jpg" data-caption="Ember &amp; Oak &#8211; Home"><img src="images/ember.demo.home.jpg" alt="Home page thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/ember-demo-menu.jpg" data-caption="Ember &amp; Oak &#8211; Menu"><img src="images/ember-demo-menu.jpg" alt="Menu page thumbnail"></div>
@@ -704,7 +721,7 @@
                 <div class="concept-thumbs__thumb" data-src="images/ember.demo.catering.jpg" data-caption="Ember &amp; Oak &#8211; Catering"><img src="images/ember.demo.catering.jpg" alt="Catering page thumbnail"></div>
                 <div class="concept-thumbs__thumb" data-src="images/ember.demo.css.jpg" data-caption="Ember &amp; Oak &#8211; Code"><img src="images/ember.demo.css.jpg" alt="Code structure thumbnail"></div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -724,7 +741,7 @@
         <div class="concept-row reveal" data-carousel="ironshield">
           <div class="concept-summary">
             <h3 class="concept-summary__title">IronShield Roofing</h3>
-            <p class="concept-summary__desc">Storm&#8209;damage lead generation page built for a local roofing contractor. Trust&#8209;first layout, call&#8209;driven structure, and a focused quote request flow designed to convert homeowners dealing with storm damage into qualified leads.</p>
+            <p class="concept-summary__desc">Storm-damage lead generation page with a trust-first layout and focused quote request flow.</p>
             <div class="concept-summary__tags">
               <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               <span class="tag">Landing Page</span>
@@ -734,11 +751,11 @@
             <a href="landing-pages/ironshield-roofing/" class="port-action-btn">View Demo →</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" data-caption="IronShield Roofing &#8211; Hero">
+            <button class="concept-preview__main" type="button" data-full="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" data-caption="IronShield Roofing &#8211; Hero">
               <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" data-caption="IronShield – Hero">
                   <img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield hero thumbnail">
@@ -750,7 +767,7 @@
                   <img src="images/roofing-screenshot3.jpg" alt="IronShield screenshot 3 thumbnail">
                 </div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -765,7 +782,7 @@
         <div class="concept-row concept-row--reverse reveal" data-carousel="vanguard">
           <div class="concept-summary">
             <h3 class="concept-summary__title">Vanguard Fitness</h3>
-            <p class="concept-summary__desc">Elite online coaching funnel with a premium gold-on-black aesthetic. Application-driven flow, program breakdowns, social proof, and a cinematic hero built to convert high-ticket coaching leads.</p>
+            <p class="concept-summary__desc">Premium coaching funnel with an application-driven flow, social proof, and conversion-focused structure.</p>
             <div class="concept-summary__tags">
               <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               <span class="tag">Landing Page</span>
@@ -775,11 +792,11 @@
             <a href="landing-pages/fitness-coach-funnel/" class="port-action-btn">View Demo &rarr;</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/vanguard-screenshot.jpg" data-caption="Vanguard Fitness &#8211; Hero">
+            <button class="concept-preview__main" type="button" data-full="images/vanguard-screenshot.jpg" data-caption="Vanguard Fitness &#8211; Hero">
               <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/vanguard-screenshot.jpg" data-caption="Vanguard Fitness – Hero">
                   <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness hero thumbnail">
@@ -791,7 +808,7 @@
                   <img src="images/vanguard-screenshot3.jpg" alt="Vanguard Fitness screenshot 3 thumbnail">
                 </div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -806,7 +823,7 @@
         <div class="concept-row reveal" data-carousel="launchdeck">
           <div class="concept-summary">
             <h3 class="concept-summary__title">LaunchDeck</h3>
-            <p class="concept-summary__desc">SaaS beta waitlist landing page for a fictional dev-focused project management tool. Indigo-on-black tech aesthetic, centered hero, feature grid, FAQ accordion, and a streamlined waitlist signup flow.</p>
+            <p class="concept-summary__desc">SaaS beta waitlist page with a centered hero, feature grid, FAQ, and streamlined signup flow.</p>
             <div class="concept-summary__tags">
               <span class="status-badge status-live"><span class="status-dot"></span>Demo Live</span>
               <span class="tag">Landing Page</span>
@@ -816,11 +833,11 @@
             <a href="landing-pages/saas-beta-waitlist/" class="port-action-btn">View Demo &rarr;</a>
           </div>
           <div class="concept-preview">
-            <div class="concept-preview__main" role="button" data-full="images/launch-deck-screenshot.jpg" data-caption="LaunchDeck &#8211; Hero">
+            <button class="concept-preview__main" type="button" data-full="images/launch-deck-screenshot.jpg" data-caption="LaunchDeck &#8211; Hero">
               <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck SaaS landing page hero" onerror="this.parentElement.style.background='var(--color-surface-1)';">
-            </div>
+            </button>
             <div class="concept-thumbs">
-              <button class="concept-thumbs__arrow" data-dir="-1" aria-label="Previous image">&#8249;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="-1" aria-label="Previous image">&#8249;</button>
               <div class="concept-thumbs__track">
                 <div class="concept-thumbs__thumb is-active" data-src="images/launch-deck-screenshot.jpg" data-caption="LaunchDeck – Hero">
                   <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck hero thumbnail">
@@ -832,7 +849,7 @@
                   <img src="images/launch-desk-screenshot3.jpg" alt="LaunchDeck screenshot 3 thumbnail">
                 </div>
               </div>
-              <button class="concept-thumbs__arrow" data-dir="1" aria-label="Next image">&#8250;</button>
+              <button class="concept-thumbs__arrow" type="button" data-dir="1" aria-label="Next image">&#8250;</button>
             </div>
           </div>
         </div>
@@ -846,7 +863,7 @@
         <h2 class="cta-headline reveal">Want a Build Like This?</h2>
         <div class="cta-card">
           <span class="section-label cta-label reveal">Your Project</span>
-          <p class="cta-text reveal">Tell me what you need and I will map out the build and the best path to ship it clean.</p>
+          <p class="cta-text reveal">Tell me what you need, and I will outline the cleanest path to launch.</p>
           <div class="cta-btns reveal">
             <a href="/contact" class="btn btn-primary">Start a Project</a>
             <a href="/services" class="btn btn-ghost">See My Services</a>
@@ -865,7 +882,7 @@
             <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
             <span class="logo-tagline">Veteran-Built Front Ends</span>
           </div>
-          <p>Custom hand&#8209;coded websites built with military precision. No templates, no shortcuts, just clean code that works.</p>
+          <p>Custom hand-coded websites built with precision, clarity, and clean performance-focused code.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -897,13 +914,13 @@
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
   <!-- ═══ LIGHTBOX ════════════════════════════════════════ -->
   <div class="port-lightbox" id="portLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
     <div class="port-lightbox__inner">
-      <button class="port-lightbox__close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
-      <img class="port-lightbox__img" id="lightboxImg" src="" alt="">
+      <button class="port-lightbox__close" type="button" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+      <img class="port-lightbox__img" id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="">
       <p class="port-lightbox__caption" id="lightboxCaption"></p>
       <p class="port-lightbox__hint">Press ESC or tap outside to close</p>
     </div>
@@ -959,6 +976,15 @@
     document.addEventListener('DOMContentLoaded', function() {
       var filterButtons = document.querySelectorAll('#portfolioFilter button');
       var filterableSections = document.querySelectorAll('.port-project-section[data-filter]');
+      var carouselImages = document.querySelectorAll('.concept-preview__main img, .concept-thumbs__thumb img');
+
+      carouselImages.forEach(function(img, index) {
+        img.decoding = 'async';
+        if (index > 0) {
+          img.loading = 'lazy';
+          img.setAttribute('fetchpriority', 'low');
+        }
+      });
 
       function updateFilter(filter) {
         filterButtons.forEach(function(btn) {
