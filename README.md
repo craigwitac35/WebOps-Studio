@@ -33,3 +33,10 @@ WebOps-Studio/
 ├── js/
 │   └── scripts.js        # Main JavaScript file
 └── images/               # Images, favicon, assets
+```
+
+## 🌐 URL Routing Notes
+
+- Source files are stored as `.html` (for example `about.html`).
+- Production navigation and canonical URLs use clean, extensionless paths (for example `/about`), which resolve correctly on the deployed GitHub Pages site.
+- Local development should use a server that supports clean URL rewrites (such as `npx serve`).
