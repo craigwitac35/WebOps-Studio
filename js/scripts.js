@@ -117,7 +117,8 @@
     navToggle.classList.remove('active');
     navToggle.setAttribute('aria-expanded', 'false');
     navLinks.classList.remove('active');
-    document.body.style.overflow = '';
+    document.documentElement.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
   };
 
   if (navToggle && navLinks) {
@@ -127,7 +128,8 @@
       const open = navToggle.classList.toggle('active');
       navLinks.classList.toggle('active', open);
       navToggle.setAttribute('aria-expanded', String(open));
-      document.body.style.overflow = open ? 'hidden' : '';
+      document.documentElement.classList.toggle('menu-open', open);
+      document.body.classList.toggle('menu-open', open);
     });
 
     navLinks.addEventListener('click', (e) => {
