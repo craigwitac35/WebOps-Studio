@@ -121,7 +121,11 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
 
 html.menu-open,
 body.menu-open {
@@ -387,6 +391,7 @@ section {
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  min-width: 0;
   transition: height 0.35s ease;
 }
 
@@ -396,6 +401,7 @@ section {
   display: flex;
   flex-direction: column;
   line-height: 1;
+  min-width: 0;
   flex-shrink: 0;
 }
 
@@ -405,6 +411,7 @@ section {
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: 0.04em;
+  white-space: nowrap;
   text-transform: uppercase;
   transition: font-size 0.35s ease;
 }
@@ -424,7 +431,7 @@ section {
   margin-top: 4px;
 }
 
-.main-nav { display: flex; align-items: center; gap: 32px; }
+.main-nav { display: flex; align-items: center; gap: 32px; min-width: 0; }
 
 .nav-links { display: flex; align-items: center; gap: 28px; }
 
@@ -1644,12 +1651,31 @@ body.perf-lite .btn {
 @media (max-width: 768px) {
   :root { --section-pad: 64px; }
 
-  #site-header .container { gap: 10px; }
-  .site-logo a { font-size: clamp(1.45rem, 8vw, 1.9rem); }
-  .logo-tagline { letter-spacing: 0.12em; }
+  #site-header .container {
+    gap: 8px;
+    padding-left: max(0.85rem, env(safe-area-inset-left));
+    padding-right: max(0.85rem, env(safe-area-inset-right));
+  }
+  .site-logo {
+    max-width: calc(100% - 56px);
+    flex-shrink: 1;
+  }
+  .site-logo a {
+    font-size: clamp(1.18rem, 5.8vw, 1.55rem);
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .logo-tagline {
+    font-size: 0.47rem;
+    letter-spacing: 0.10em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .nav-toggle { display: block; }
   .nav-cta    { display: none; }
-  .main-nav   { gap: 16px; }
+  .main-nav   { gap: 8px; margin-left: auto; }
 
   .nav-links {
     display: none;
@@ -1739,6 +1765,12 @@ body.perf-lite .btn {
   .portfolio-filters { gap: 8px; }
   .filter-btn        { font-size: 0.62rem; padding: 7px 14px; }
   .hero-proof-strip  { flex-direction: column; gap: 10px; }
+}
+
+@media (max-width: 400px) {
+  .site-logo a { font-size: clamp(1.06rem, 5.1vw, 1.28rem); }
+  .logo-tagline { letter-spacing: 0.08em; }
+  #site-header .container { gap: 6px; }
 }
 
 @media (min-width: 769px) {
