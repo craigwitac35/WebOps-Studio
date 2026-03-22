@@ -1,1299 +1,428 @@
-/* =========================================================
-   IronShield Roofing — Landing Page CSS v2
-   File: landing-pages/ironshield-roofing/styles.css
-   Design: Full-width hero overlay, alternating dark sections,
-           orange accent borders, elevated contractor aesthetic
-========================================================= */
-
-/* =========================================================
-   0) THEME TOKENS
-========================================================= */
-:root {
-  --bg:           #0a1628;
-  --bg-alt:       #06101e;
-  --bg-card:      rgba(255, 255, 255, 0.04);
-  --bg-card-hover:rgba(255, 255, 255, 0.07);
-
-  --text:         #f1f5f9;
-  --muted:        #94a3b8;
-  --muted-2:      #64748b;
-  --line:         rgba(255, 255, 255, 0.08);
-
-  --cta:          #f97316;
-  --cta-hover:    #ea580c;
-  --cta-dark:     #0a1628;
-  --cta-glow:     rgba(249, 115, 22, 0.25);
-  --cta-border:   rgba(249, 115, 22, 0.4);
-
-  --accent-line:  3px solid #f97316;
-  --radius:       10px;
-  --radius-lg:    16px;
-
-  --font-display: 'Oswald', sans-serif;
-  --font-body:    system-ui, -apple-system, sans-serif;
-
-  --container:    1140px;
-  --section-pad:  96px 0;
-  --section-pad-sm: 64px 0;
-}
-
-/* =========================================================
-   1) RESET & BASE
-========================================================= */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: var(--cta);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--cta-hover);
-}
-
-ul {
-  list-style: none;
-}
-
-/* =========================================================
-   2) SKIP LINK
-========================================================= */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 1rem;
-  background: var(--cta);
-  color: var(--cta-dark);
-  padding: 0.5rem 1rem;
-  font-weight: 700;
-  border-radius: var(--radius);
-  z-index: 9999;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
-
-/* =========================================================
-   3) CONTAINER
-========================================================= */
-.container {
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* =========================================================
-   4) BUTTONS
-========================================================= */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 14px 28px;
-  border-radius: var(--radius);
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.btn--cta {
-  background: var(--cta);
-  color: var(--cta-dark);
-  border-color: var(--cta);
-  font-weight: 700;
-}
-
-.btn--cta:hover {
-  background: var(--cta-hover);
-  border-color: var(--cta-hover);
-  color: var(--cta-dark);
-  box-shadow: 0 0 24px var(--cta-glow);
-}
-
-.btn--outline {
-  background: transparent;
-  color: var(--text);
-  border-color: rgba(255,255,255,0.3);
-}
-
-.btn--outline:hover {
-  border-color: rgba(255,255,255,0.7);
-  color: #fff;
-}
-
-.btn--sm {
-  padding: 10px 20px;
-  font-size: 0.85rem;
-}
-
-.btn--lg {
-  padding: 16px 36px;
-  font-size: 1rem;
-}
-
-.btn--full {
-  width: 100%;
-}
-
-/* =========================================================
-   5) TOP BAR
-========================================================= */
-.topbar {
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--cta-border);
-  padding: 10px 24px;
-}
-
-.topbar__inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: nowrap;
-}
-
-.topbar__message {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.topbar__dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background: var(--cta);
-  border-radius: 50%;
-  flex-shrink: 0;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.topbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.topbar__phone {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--cta);
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.topbar__phone:hover {
-  color: var(--cta-hover);
-}
-
-/* =========================================================
-   6) HEADER
-========================================================= */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(10, 22, 40, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-
-.header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  gap: 24px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.brand__icon {
-  font-size: 1.6rem;
-  color: var(--cta);
-  line-height: 1;
-}
-
-.brand__name {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-}
-
-.brand__sub {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.nav__link {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--muted);
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-
-.nav__link:hover {
-  color: var(--text);
-}
-
-.nav__link--cta {
-  background: var(--cta);
-  color: var(--cta-dark);
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  font-size: 0.82rem;
-  padding: 9px 16px;
-}
-
-.nav__link--cta:hover {
-  background: var(--cta-hover);
-  color: var(--cta-dark);
-}
-
-/* =========================================================
-   7) HERO — Full-width image with dark overlay
-========================================================= */
-.hero {
-  position: relative;
-  min-height: 92vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.hero__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.hero__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-}
-
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(6, 12, 28, 0.93) 0%,
-    rgba(6, 12, 28, 0.82) 50%,
-    rgba(6, 12, 28, 0.55) 100%
-  );
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 1;
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-.hero__content {
-  max-width: 680px;
-}
-
-.hero__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cta);
-  margin-bottom: 24px;
-}
-
-.eyebrow__line {
-  display: block;
-  width: 32px;
-  height: 2px;
-  background: var(--cta);
-  flex-shrink: 0;
-}
-
-.hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7vw, 5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  color: #fff;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-}
-
-.hero__title--accent {
-  color: var(--cta);
-  display: block;
-}
-
-.hero__subhead {
-  font-size: 1.1rem;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 540px;
-}
-
-.hero__cta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.hero__trust {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hero__trust li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
-}
-
-.trust__check {
-  color: var(--cta);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.hero__scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hero__scroll-line {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--cta), transparent);
-  animation: scrollDrop 2s ease infinite;
-}
-
-@keyframes scrollDrop {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
-
-/* =========================================================
-   8) TRUST STRIP
-========================================================= */
-.trust-strip {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--cta-border);
-  border-bottom: 1px solid var(--line);
-  padding: 20px 24px;
-}
-
-.trust-strip__inner {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-
-.trust-strip__item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 28px;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
-.trust-strip__icon {
-  font-size: 1rem;
-}
-
-.trust-strip__divider {
-  width: 1px;
-  height: 24px;
-  background: var(--line);
-}
-
-/* =========================================================
-   9) SECTION SYSTEM
-========================================================= */
-.section {
-  padding: var(--section-pad);
-}
-
-.section--alt {
-  background: var(--bg-alt);
-}
-
-.section__label {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--cta);
-  margin-bottom: 12px;
-}
-
-.section__label--light {
-  color: rgba(249, 115, 22, 0.8);
-}
-
-.section__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--text);
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-
-.section__lead {
-  font-size: 1.05rem;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 580px;
-  margin-bottom: 40px;
-}
-
-.section__lead--center {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-/* =========================================================
-   10) HERO CARDS
-========================================================= */
-.cards-section {
-  padding: var(--section-pad-sm);
-}
-
-.cards-section__inner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-top: var(--accent-line);
-  border-radius: var(--radius-lg);
-  padding: 36px 28px;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.card:hover {
-  background: var(--bg-card-hover);
-  transform: translateY(-3px);
-}
-
-.card__number {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--cta);
-  opacity: 0.3;
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.card__title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-.card__text {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* =========================================================
-   11) PROBLEM SECTION (Two-col)
-========================================================= */
-.section__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.section__text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.check-list {
-  margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.check-list li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
-  color: var(--muted);
-  padding-left: 4px;
-}
-
-.check-list li::before {
-  content: '';
-  display: block;
-  width: 6px;
-  height: 6px;
-  background: var(--cta);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.media-placeholder {
-  background: var(--bg-card);
-  border: 1px dashed rgba(249, 115, 22, 0.3);
-  border-radius: var(--radius-lg);
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 24px;
-}
-
-.media-placeholder__label {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--muted-2);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.media-placeholder__sub {
-  font-size: 0.82rem;
-  color: var(--muted-2);
-}
-
-/* =========================================================
-   12) PROCESS STEPS
-========================================================= */
-.process {
-  text-align: center;
-}
-
-.process .section__title,
-.process .section__lead {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  list-style: none;
-  margin-top: 56px;
-  text-align: left;
-  counter-reset: none;
-}
-
-.step {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-top: var(--accent-line);
-  border-radius: var(--radius-lg);
-  padding: 32px 24px;
-  position: relative;
-  transition: background 0.2s;
-}
-
-.step:hover {
-  background: var(--bg-card-hover);
-}
-
-.step__num {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--cta);
-  opacity: 0.25;
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.step__title {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-.step__text {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.65;
-}
-
-/* =========================================================
-   13) BENEFITS GRID
-========================================================= */
-.benefits {
-  text-align: center;
-}
-
-.benefits .section__title,
-.benefits .section__lead {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: left;
-}
-
-.benefit {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px 28px 32px;
-  position: relative;
-  transition: background 0.2s, transform 0.2s;
-  overflow: hidden;
-}
-
-.benefit:hover {
-  background: var(--bg-card-hover);
-  transform: translateY(-2px);
-}
-
-.benefit__accent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--cta);
-}
-
-.benefit__title {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.benefit__text {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* =========================================================
-   14) BEFORE / AFTER
-========================================================= */
-.before-after {
-  text-align: center;
-}
-
-.before-after .section__title {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ba {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 48px;
-}
-
-.ba__item {
-  flex: 1;
-  position: relative;
-}
-
-.ba__label {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: rgba(255,255,255,0.1);
-  color: var(--muted);
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
-
-.ba__label--after {
-  background: var(--cta-glow);
-  color: var(--cta);
-}
-
-.ba__arrow {
-  font-size: 2rem;
-  color: var(--cta);
-  flex-shrink: 0;
-}
-
-/* =========================================================
-   15) TESTIMONIALS
-========================================================= */
-.testimonials {
-  text-align: center;
-}
-
-.testimonials .section__title {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.quotes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  text-align: left;
-  margin-top: 48px;
-}
-
-.quote {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-left: var(--accent-line);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-}
-
-.quote__stars {
-  font-size: 0.9rem;
-  color: var(--cta);
-  margin-bottom: 14px;
-  letter-spacing: 0.1em;
-}
-
-.quote blockquote {
-  font-size: 0.95rem;
-  color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 16px;
-  font-style: italic;
-}
-
-.quote figcaption {
-  font-size: 0.8rem;
-  color: var(--muted-2);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* =========================================================
-   16) FAQ
-========================================================= */
-.faq__inner {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.faq__list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.faq__item {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-
-.faq__item[open] {
-  border-color: var(--cta-border);
-}
-
-.faq__item summary {
-  padding: 20px 24px;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--text);
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: color 0.2s;
-}
-
-.faq__item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq__item summary::after {
-  content: '+';
-  color: var(--cta);
-  font-size: 1.2rem;
-  line-height: 1;
-  transition: transform 0.2s;
-}
-
-.faq__item[open] summary::after {
-  transform: rotate(45deg);
-}
-
-.faq__item summary:hover {
-  color: var(--cta);
-}
-
-.faq__content {
-  padding: 0 24px 20px;
-  border-top: 1px solid var(--line);
-}
-
-.faq__content p {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.7;
-  padding-top: 16px;
-}
-
-/* =========================================================
-   17) FINAL CTA
-========================================================= */
-.final-cta {
-  position: relative;
-  padding: 100px 0;
-  text-align: center;
-  overflow: hidden;
-}
-
-.final-cta__bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
-  border-top: 1px solid var(--cta-border);
-  border-bottom: 1px solid var(--cta-border);
-}
-
-.final-cta__inner {
-  position: relative;
-  z-index: 1;
-}
-
-.final-cta__title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--text);
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-
-.final-cta__text {
-  font-size: 1.05rem;
-  color: var(--muted);
-  margin-bottom: 40px;
-}
-
-.final-cta__actions {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* =========================================================
-   18) CONTACT FORM
-========================================================= */
-.contact {
-  background: var(--bg-alt);
-}
-
-.contact__inner {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.contact__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.contact__info {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.contact__info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.contact__info-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-
-.contact__info-item a {
-  font-size: 1rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.contact__info-item a:hover {
-  color: var(--cta);
-}
-
-.contact__formwrap {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-top: var(--accent-line);
-  border-radius: var(--radius-lg);
-  padding: 40px 36px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form__row {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form__row label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.form__row input,
-.form__row textarea {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 13px 16px;
-  color: var(--text);
-  font-size: 0.95rem;
-  font-family: var(--font-body);
-  transition: border-color 0.2s, background 0.2s;
-  outline: none;
-}
-
-.form__row input::placeholder,
-.form__row textarea::placeholder {
-  color: var(--muted-2);
-}
-
-.form__row input:focus,
-.form__row textarea:focus {
-  border-color: var(--cta);
-  background: rgba(249, 115, 22, 0.05);
-}
-
-.form__row textarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-.form__note {
-  font-size: 0.75rem;
-  color: var(--muted-2);
-  line-height: 1.5;
-  text-align: center;
-}
-
-/* =========================================================
-   19) FOOTER
-========================================================= */
-.footer {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--line);
-  padding: 32px 0;
-}
-
-.footer__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.footer__brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer__brand .brand__icon {
-  color: var(--cta);
-  font-size: 1.2rem;
-}
-
-.footer__name {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.04em;
-}
-
-.footer__small {
-  font-size: 0.8rem;
-  color: var(--muted-2);
-}
-
-.footer__link {
-  font-size: 0.82rem;
-  color: var(--cta);
-  font-weight: 500;
-}
-
-.footer__link:hover {
-  color: var(--cta-hover);
-}
-
-/* =========================================================
-   20) MOBILE RESPONSIVE
-========================================================= */
-@media (max-width: 900px) {
-  .cards-section__inner {
-    grid-template-columns: 1fr;
-  }
-
-  .steps {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .benefits-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .quotes {
-    grid-template-columns: 1fr;
-  }
-
-  .section__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .faq__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .contact__inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .contact__formwrap {
-    padding: 28px 20px;
-  }
-
-  .ba {
-    flex-direction: column;
-  }
-
-  .ba__arrow {
-    transform: rotate(90deg);
-  }
-
-  .footer__inner {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 640px) {
-  :root {
-    --section-pad: 64px 0;
-    --section-pad-sm: 48px 0;
-  }
-
-  .topbar__inner {
-    gap: 8px;
-  }
-
-  .topbar__message {
-    font-size: 0.75rem;
-  }
-
-  .hero {
-    min-height: 100svh;
-  }
-
-  .hero__cta {
-    flex-direction: column;
-  }
-
-  .hero__cta .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .nav .nav__link:not(.nav__link--cta) {
-    display: none;
-  }
-
-  .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-strip__inner {
-    gap: 8px;
-  }
-
-  .trust-strip__item {
-    padding: 8px 14px;
-    font-size: 0.75rem;
-  }
-
-  .trust-strip__divider {
-    display: none;
-  }
-
-  .final-cta__actions {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IronShield Roofing | Free Storm Damage Roof Inspection</title>
+  <meta name="description" content="Storm damage roof inspections, fast repairs, and insurance claim assistance. Call 320-555-5555 or request a free inspection today." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#07070c" />
+  <link rel="canonical" href="https://web-ops-studio.com/landing-pages/ironshield-roofing/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IronShield Roofing | Free Storm Damage Roof Inspection" />
+  <meta property="og:description" content="Free roof inspections + insurance claim assistance. Fast storm response. Call 320-555-5555." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- SKIP LINK -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- TOP BAR -->
+  <div class="topbar" role="region" aria-label="Emergency contact bar">
+    <div class="container topbar__inner">
+      <p class="topbar__message">
+        <span class="topbar__dot"></span>
+        <strong>Emergency Storm Response Available</strong>
+      </p>
+
+      <div class="topbar__actions">
+        <a class="topbar__phone" href="tel:13205555555" aria-label="Call IronShield Roofing at 320-555-5555">
+          320-555-5555
+        </a>
+        <a class="btn btn--cta btn--sm" href="tel:13205555555">Call Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="#main" aria-label="IronShield Roofing home">
+        <span class="brand__name">IronShield Roofing</span>
+        <span class="brand__sub">Storm Damage Specialists</span>
+      </a>
+
+      <nav class="nav" aria-label="Page sections">
+        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="#process">Process</a>
+        <a class="nav__link" href="#reviews">Reviews</a>
+        <a class="nav__link nav__link--cta" href="#contact">Request Inspection</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO — Full-width background image with overlay -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg">
+        <img class="hero__img" src="images/roofing-hero.jpeg" alt="Roofing crew replacing a residential roof" />
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">
+            <span class="eyebrow__line"></span>
+            Licensed &amp; Insured · Insurance Claim Specialists
+          </p>
+
+          <h1 id="hero-title" class="hero__title">
+            Storm Damage?
+            <span class="hero__title--accent">We Handle Everything.</span>
+          </h1>
+
+          <p class="hero__subhead">
+            Free inspections. Photo documentation. Insurance claim guidance. We complete the work clean and stand behind it.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--cta btn--lg" href="#contact">Request Free Inspection</a>
+            <a class="btn btn--outline btn--lg" href="tel:13205555555">Call 320-555-5555</a>
+          </div>
+
+          <ul class="hero__trust" aria-label="Quick trust points">
+            <li><span class="trust__check">✓</span> Free roof inspections</li>
+            <li><span class="trust__check">✓</span> Fast storm-response scheduling</li>
+            <li><span class="trust__check">✓</span> Workmanship warranty</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- HERO CARDS -->
+    <section class="cards-section" aria-label="Top service highlights">
+      <div class="container cards-section__inner">
+        <div class="card">
+          <span class="card__number">01</span>
+          <h2 class="card__title">Free Inspection</h2>
+          <p class="card__text">Straight answers, clear photos, and a written summary of what we find.</p>
+        </div>
+
+        <div class="card">
+          <span class="card__number">02</span>
+          <h2 class="card__title">Insurance Claim Help</h2>
+          <p class="card__text">We help you understand the steps and document the damage properly.</p>
+        </div>
+
+        <div class="card">
+          <span class="card__number">03</span>
+          <h2 class="card__title">Fast Turnaround</h2>
+          <p class="card__text">Storm season moves fast. We schedule quickly and keep the job moving.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-strip" aria-label="Company trust highlights">
+      <div class="container trust-strip__inner">
+        <div class="trust-strip__item"><span class="trust-strip__icon">🛡</span> Licensed &amp; Insured</div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__item"><span class="trust-strip__icon">📍</span> Locally Owned</div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__item"><span class="trust-strip__icon">⭐</span> 5-Star Rated</div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__item"><span class="trust-strip__icon">📋</span> Claim Specialists</div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container section__inner">
+        <div class="section__text">
+          <span class="section__label">The Hidden Risk</span>
+          <h2 id="problem-title" class="section__title">Storm Damage Isn't Always Visible.</h2>
+          <p class="section__lead">
+            A roof can look fine from the ground while hidden damage spreads. A quick inspection now can prevent leaks and expensive interior repairs later.
+          </p>
+
+          <ul class="check-list">
+            <li>Missing or lifted shingles</li>
+            <li>Hail bruising and granule loss</li>
+            <li>Flashing damage around vents and chimneys</li>
+            <li>Hidden leaks that show up weeks later</li>
+            <li>Insurance paperwork confusion and delays</li>
+          </ul>
+        </div>
+
+        <div aria-label="Storm damage placeholder">
+          <div class="media-placeholder">
+            <span class="media-placeholder__label">Storm Damage Photo</span>
+            <span class="media-placeholder__sub">Replace with actual image</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION / PROCESS -->
+    <section id="process" class="section section--alt process" aria-labelledby="solution-title">
+      <div class="container">
+        <span class="section__label section__label--light">Our Process</span>
+        <h2 id="solution-title" class="section__title">We Handle It From Inspection to Insurance.</h2>
+        <p class="section__lead section__lead--center">
+          You don't need a contractor who disappears after the quote. You need a team that documents the damage, explains options, and finishes the job clean.
+        </p>
+
+        <ol class="steps" aria-label="IronShield Roofing process steps">
+          <li class="step">
+            <span class="step__num">01</span>
+            <h3 class="step__title">Free Inspection</h3>
+            <p class="step__text">We inspect your roof and identify storm-related issues, including subtle damage.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">02</span>
+            <h3 class="step__title">Photo Documentation</h3>
+            <p class="step__text">Clear photos and notes so you have evidence for the claim process.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">03</span>
+            <h3 class="step__title">Insurance Assistance</h3>
+            <p class="step__text">We help you understand next steps so you are not guessing.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">04</span>
+            <h3 class="step__title">Professional Installation</h3>
+            <p class="step__text">Quality materials, clean job sites, and a finished result you can trust.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BENEFITS / SERVICES -->
+    <section id="services" class="section benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <span class="section__label">What We Deliver</span>
+        <h2 id="benefits-title" class="section__title">What You Get With IronShield</h2>
+        <p class="section__lead section__lead--center">Clear benefits. No fluff. Built for storm response and real homeowners.</p>
+
+        <div class="benefits-grid" role="list" aria-label="Benefits grid">
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Free Roof Inspection</h3>
+            <p class="benefit__text">No pressure. Just clarity on what is going on up there.</p>
+          </div>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Fast Turnaround</h3>
+            <p class="benefit__text">Storm season moves fast. We schedule quickly and communicate clearly.</p>
+          </div>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Insurance Claim Assistance</h3>
+            <p class="benefit__text">We help document damage and explain the process without confusion.</p>
+          </div>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">High-Quality Materials</h3>
+            <p class="benefit__text">Proven products built for durability and weather performance.</p>
+          </div>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Workmanship Warranty</h3>
+            <p class="benefit__text">We stand behind the work, not just the invoice.</p>
+          </div>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Clean Job Sites</h3>
+            <p class="benefit__text">Respect your property. Clean lines. Clean finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <section class="section section--alt before-after" aria-labelledby="beforeafter-title">
+      <div class="container">
+        <h2 id="beforeafter-title" class="section__title">Before &amp; After</h2>
+        <p class="section__lead section__lead--center">Storm damage hits hard. A proper repair should look like it never happened.</p>
+
+        <div class="ba" aria-label="Before and after images">
+          <div class="ba__item">
+            <span class="ba__label">Before</span>
+            <div class="media-placeholder">
+              <span class="media-placeholder__label">Storm Damage</span>
+              <span class="media-placeholder__sub">Replace with actual image</span>
+            </div>
+          </div>
+          <div class="ba__arrow">→</div>
+          <div class="ba__item">
+            <span class="ba__label ba__label--after">After</span>
+            <div class="media-placeholder">
+              <span class="media-placeholder__label">Repaired Roof</span>
+              <span class="media-placeholder__sub">Replace with actual image</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reviews" class="section testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <span class="section__label">Reviews</span>
+        <h2 id="testimonials-title" class="section__title">Homeowners Trust IronShield</h2>
+        <p class="section__lead section__lead--center">Real-world feedback. Claim help, fast installs, and clean work.</p>
+
+        <div class="quotes" aria-label="Customer testimonials">
+          <figure class="quote">
+            <div class="quote__stars">★★★★★</div>
+            <blockquote>"They handled everything with our insurance and replaced our roof in two days."</blockquote>
+            <figcaption>Local Homeowner</figcaption>
+          </figure>
+
+          <figure class="quote">
+            <div class="quote__stars">★★★★★</div>
+            <blockquote>"Professional, fast, and honest. The inspection was thorough and the crew was respectful."</blockquote>
+            <figcaption>Local Homeowner</figcaption>
+          </figure>
+
+          <figure class="quote">
+            <div class="quote__stars">★★★★★</div>
+            <blockquote>"They documented everything with photos, explained the process, and the roof looks brand new."</blockquote>
+            <figcaption>Local Homeowner</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt" aria-labelledby="faq-title">
+      <div class="container faq__inner">
+        <div class="section__text">
+          <span class="section__label">FAQ</span>
+          <h2 id="faq-title" class="section__title">Common Questions</h2>
+          <p class="section__lead">Quick answers to the questions most homeowners ask before booking.</p>
+        </div>
+
+        <div class="faq__list" aria-label="Frequently asked questions">
+          <details class="faq__item">
+            <summary>How long does a roof replacement take?</summary>
+            <div class="faq__content">
+              <p>Most residential replacements can be completed quickly depending on size, weather, and material availability.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Do you work with insurance?</summary>
+            <div class="faq__content">
+              <p>Yes. We help document damage and guide you through the claim process so you are not left guessing.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Is the inspection really free?</summary>
+            <div class="faq__content">
+              <p>Yes. We provide a no-pressure inspection and share what we find with clear documentation.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>How soon can you start?</summary>
+            <div class="faq__content">
+              <p>Storm response timelines vary. Submit the form or call and we will give you the fastest available slot.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" aria-labelledby="finalcta-title">
+      <div class="final-cta__bg"></div>
+      <div class="container final-cta__inner">
+        <h2 id="finalcta-title" class="final-cta__title">Don't Wait Until the Leak Gets Worse.</h2>
+        <p class="final-cta__text">Book a free inspection today and get clear answers fast.</p>
+
+        <div class="final-cta__actions">
+          <a class="btn btn--cta btn--lg" href="#contact">Request Free Inspection</a>
+          <a class="btn btn--outline btn--lg" href="tel:13205555555">Call 320-555-5555</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+        <div class="contact__content">
+          <span class="section__label">Get Started</span>
+          <h2 id="contact-title" class="section__title">Request a Free Inspection</h2>
+          <p class="section__lead">
+            Fill this out and we will reach out ASAP. Prefer a call? Dial
+            <a href="tel:13205555555">320-555-5555</a>.
+          </p>
+
+          <div class="contact__info" aria-label="Business contact info">
+            <div class="contact__info-item">
+              <span class="contact__info-label">Phone</span>
+              <a href="tel:13205555555">320-555-5555</a>
+            </div>
+            <div class="contact__info-item">
+              <span class="contact__info-label">Email</span>
+              <a href="mailto:info@ironshieldroofing.com">info@ironshieldroofing.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__formwrap">
+          <div class="form" aria-label="Free inspection request form">
+            <div class="form__row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="form__row">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+
+            <div class="form__row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="form__row">
+              <label for="address">Address</label>
+              <input id="address" name="address" type="text" autocomplete="street-address" required />
+            </div>
+
+            <div class="form__row">
+              <label for="message">Brief Description</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us what happened (hail, wind, leak, missing shingles, etc.)"></textarea>
+            </div>
+
+            <button class="btn btn--cta btn--full" type="submit">Request Free Inspection</button>
+
+            <p class="form__note">
+              By submitting, you agree to be contacted about your inspection request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__name">IronShield Roofing</span>
+      </div>
+      <p class="footer__small">© 2026 IronShield Roofing. All rights reserved.</p>
+      <p class="footer__small">
+        <a class="footer__link" href="../../portfolio.html">← Back to Portfolio</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
