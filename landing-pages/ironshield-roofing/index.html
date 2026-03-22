@@ -26,6 +26,7 @@
   <div class="topbar" role="region" aria-label="Emergency contact bar">
     <div class="container topbar__inner">
       <p class="topbar__message">
+        <span class="topbar__dot"></span>
         <strong>Emergency Storm Response Available</strong>
       </p>
 
@@ -33,7 +34,7 @@
         <a class="topbar__phone" href="tel:13205555555" aria-label="Call IronShield Roofing at 320-555-5555">
           320-555-5555
         </a>
-        <a class="btn btn--primary btn--sm" href="tel:13205555555">Call Now</a>
+        <a class="btn btn--cta btn--sm" href="tel:13205555555">Call Now</a>
       </div>
     </div>
   </div>
@@ -43,7 +44,7 @@
     <div class="container header__inner">
       <a class="brand" href="#main" aria-label="IronShield Roofing home">
         <span class="brand__name">IronShield Roofing</span>
-        <span class="brand__tagline">Storm Damage Specialists</span>
+        <span class="brand__sub">Storm Damage Specialists</span>
       </a>
 
       <nav class="nav" aria-label="Page sections">
@@ -57,54 +58,64 @@
 
   <main id="main">
 
-    <!-- HERO (Split Layout) -->
+    <!-- HERO — Full-width background image with overlay -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__inner">
+      <div class="hero__bg">
+        <img class="hero__img" src="images/roofing-hero.jpeg" alt="Roofing crew replacing a residential roof" />
+        <div class="hero__overlay"></div>
+      </div>
 
+      <div class="container hero__inner">
         <div class="hero__content">
-          <p class="hero__eyebrow">Licensed &amp; Insured • Insurance Claim Specialists</p>
+          <p class="hero__eyebrow">
+            <span class="eyebrow__line"></span>
+            Licensed &amp; Insured · Insurance Claim Specialists
+          </p>
 
           <h1 id="hero-title" class="hero__title">
-            Storm Damage? Get Your Roof Inspected Today.
+            Storm Damage?
+            <span class="hero__title--accent">We Handle Everything.</span>
           </h1>
 
           <p class="hero__subhead">
-            Free inspections with photo documentation and claim support. We guide you through the process and complete the work clean.
+            Free inspections. Photo documentation. Insurance claim guidance. We complete the work clean and stand behind it.
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#contact">Request Free Inspection</a>
-            <a class="btn btn--secondary" href="tel:13205555555">Call 320-555-5555</a>
+            <a class="btn btn--cta btn--lg" href="#contact">Request Free Inspection</a>
+            <a class="btn btn--outline btn--lg" href="tel:13205555555">Call 320-555-5555</a>
           </div>
 
           <ul class="hero__trust" aria-label="Quick trust points">
-            <li>Free roof inspections</li>
-            <li>Fast storm-response scheduling</li>
-            <li>Workmanship warranty</li>
+            <li><span class="trust__check">✓</span> Free roof inspections</li>
+            <li><span class="trust__check">✓</span> Fast storm-response scheduling</li>
+            <li><span class="trust__check">✓</span> Workmanship warranty</li>
           </ul>
         </div>
+      </div>
 
-        <div class="hero__media" aria-label="Roofing crew hero image">
-          <img src="images/roofing-hero.jpeg" alt="Roofing crew replacing a residential roof" />
-        </div>
-
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
       </div>
     </section>
 
-    <!-- HERO CARDS (Below Hero) -->
-    <section class="hero-cards" aria-label="Top service highlights">
-      <div class="container hero-cards__inner">
-        <div class="card card--tight">
+    <!-- HERO CARDS -->
+    <section class="cards-section" aria-label="Top service highlights">
+      <div class="container cards-section__inner">
+        <div class="card">
+          <span class="card__number">01</span>
           <h2 class="card__title">Free Inspection</h2>
           <p class="card__text">Straight answers, clear photos, and a written summary of what we find.</p>
         </div>
 
-        <div class="card card--tight">
+        <div class="card">
+          <span class="card__number">02</span>
           <h2 class="card__title">Insurance Claim Help</h2>
           <p class="card__text">We help you understand the steps and document the damage properly.</p>
         </div>
 
-        <div class="card card--tight">
+        <div class="card">
+          <span class="card__number">03</span>
           <h2 class="card__title">Fast Turnaround</h2>
           <p class="card__text">Storm season moves fast. We schedule quickly and keep the job moving.</p>
         </div>
@@ -112,25 +123,29 @@
     </section>
 
     <!-- TRUST STRIP -->
-    <section class="trust" aria-label="Company trust highlights">
-      <div class="container trust__inner">
-        <div class="trust__item">Licensed &amp; Insured</div>
-        <div class="trust__item">Locally Owned</div>
-        <div class="trust__item">5-Star Rated</div>
-        <div class="trust__item">Claim Specialists</div>
+    <section class="trust-strip" aria-label="Company trust highlights">
+      <div class="container trust-strip__inner">
+        <div class="trust-strip__item"><span class="trust-strip__icon">🛡</span> Licensed &amp; Insured</div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__item"><span class="trust-strip__icon">📍</span> Locally Owned</div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__item"><span class="trust-strip__icon">⭐</span> 5-Star Rated</div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__item"><span class="trust-strip__icon">📋</span> Claim Specialists</div>
       </div>
     </section>
 
     <!-- PROBLEM -->
-    <section class="section problem" aria-labelledby="problem-title">
-      <div class="container section__inner two-col">
-        <div class="two-col__content">
-          <h2 id="problem-title" class="section__title">Storm Damage Isn’t Always Visible.</h2>
+    <section class="section" aria-labelledby="problem-title">
+      <div class="container section__inner">
+        <div class="section__text">
+          <span class="section__label">The Hidden Risk</span>
+          <h2 id="problem-title" class="section__title">Storm Damage Isn't Always Visible.</h2>
           <p class="section__lead">
             A roof can look fine from the ground while hidden damage spreads. A quick inspection now can prevent leaks and expensive interior repairs later.
           </p>
 
-          <ul class="list">
+          <ul class="check-list">
             <li>Missing or lifted shingles</li>
             <li>Hail bruising and granule loss</li>
             <li>Flashing damage around vents and chimneys</li>
@@ -139,36 +154,42 @@
           </ul>
         </div>
 
-        <div class="two-col__media" aria-label="Storm damage placeholder">
+        <div aria-label="Storm damage placeholder">
           <div class="media-placeholder">
-            <p><strong>Placeholder:</strong> Storm damage photo</p>
+            <span class="media-placeholder__label">Storm Damage Photo</span>
+            <span class="media-placeholder__sub">Replace with actual image</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SOLUTION / PROCESS -->
-    <section id="process" class="section solution" aria-labelledby="solution-title">
-      <div class="container section__inner">
+    <section id="process" class="section section--alt process" aria-labelledby="solution-title">
+      <div class="container">
+        <span class="section__label section__label--light">Our Process</span>
         <h2 id="solution-title" class="section__title">We Handle It From Inspection to Insurance.</h2>
-        <p class="section__lead">
-          You don’t need a contractor who disappears after the quote. You need a team that documents the damage, explains options, and finishes the job clean.
+        <p class="section__lead section__lead--center">
+          You don't need a contractor who disappears after the quote. You need a team that documents the damage, explains options, and finishes the job clean.
         </p>
 
         <ol class="steps" aria-label="IronShield Roofing process steps">
           <li class="step">
+            <span class="step__num">01</span>
             <h3 class="step__title">Free Inspection</h3>
             <p class="step__text">We inspect your roof and identify storm-related issues, including subtle damage.</p>
           </li>
           <li class="step">
+            <span class="step__num">02</span>
             <h3 class="step__title">Photo Documentation</h3>
             <p class="step__text">Clear photos and notes so you have evidence for the claim process.</p>
           </li>
           <li class="step">
+            <span class="step__num">03</span>
             <h3 class="step__title">Insurance Assistance</h3>
             <p class="step__text">We help you understand next steps so you are not guessing.</p>
           </li>
           <li class="step">
+            <span class="step__num">04</span>
             <h3 class="step__title">Professional Installation</h3>
             <p class="step__text">Quality materials, clean job sites, and a finished result you can trust.</p>
           </li>
@@ -178,54 +199,66 @@
 
     <!-- BENEFITS / SERVICES -->
     <section id="services" class="section benefits" aria-labelledby="benefits-title">
-      <div class="container section__inner">
+      <div class="container">
+        <span class="section__label">What We Deliver</span>
         <h2 id="benefits-title" class="section__title">What You Get With IronShield</h2>
-        <p class="section__lead">Clear benefits. No fluff. Built for storm response and real homeowners.</p>
+        <p class="section__lead section__lead--center">Clear benefits. No fluff. Built for storm response and real homeowners.</p>
 
-        <div class="grid" role="list" aria-label="Benefits grid">
-          <div class="card" role="listitem">
-            <h3 class="card__title">Free Roof Inspection</h3>
-            <p class="card__text">No pressure. Just clarity on what is going on up there.</p>
+        <div class="benefits-grid" role="list" aria-label="Benefits grid">
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Free Roof Inspection</h3>
+            <p class="benefit__text">No pressure. Just clarity on what is going on up there.</p>
           </div>
-          <div class="card" role="listitem">
-            <h3 class="card__title">Fast Turnaround</h3>
-            <p class="card__text">Storm season moves fast. We schedule quickly and communicate clearly.</p>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Fast Turnaround</h3>
+            <p class="benefit__text">Storm season moves fast. We schedule quickly and communicate clearly.</p>
           </div>
-          <div class="card" role="listitem">
-            <h3 class="card__title">Insurance Claim Assistance</h3>
-            <p class="card__text">We help document damage and explain the process without confusion.</p>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Insurance Claim Assistance</h3>
+            <p class="benefit__text">We help document damage and explain the process without confusion.</p>
           </div>
-          <div class="card" role="listitem">
-            <h3 class="card__title">High-Quality Materials</h3>
-            <p class="card__text">Proven products built for durability and weather performance.</p>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">High-Quality Materials</h3>
+            <p class="benefit__text">Proven products built for durability and weather performance.</p>
           </div>
-          <div class="card" role="listitem">
-            <h3 class="card__title">Workmanship Warranty</h3>
-            <p class="card__text">We stand behind the work, not just the invoice.</p>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Workmanship Warranty</h3>
+            <p class="benefit__text">We stand behind the work, not just the invoice.</p>
           </div>
-          <div class="card" role="listitem">
-            <h3 class="card__title">Clean Job Sites</h3>
-            <p class="card__text">Respect your property. Clean lines. Clean finish.</p>
+          <div class="benefit" role="listitem">
+            <div class="benefit__accent"></div>
+            <h3 class="benefit__title">Clean Job Sites</h3>
+            <p class="benefit__text">Respect your property. Clean lines. Clean finish.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- BEFORE / AFTER -->
-    <section class="section before-after" aria-labelledby="beforeafter-title">
-      <div class="container section__inner">
+    <section class="section section--alt before-after" aria-labelledby="beforeafter-title">
+      <div class="container">
         <h2 id="beforeafter-title" class="section__title">Before &amp; After</h2>
-        <p class="section__lead">Storm damage hits hard. A proper repair should look like it never happened.</p>
+        <p class="section__lead section__lead--center">Storm damage hits hard. A proper repair should look like it never happened.</p>
 
         <div class="ba" aria-label="Before and after images">
           <div class="ba__item">
+            <span class="ba__label">Before</span>
             <div class="media-placeholder">
-              <p><strong>Before:</strong> Storm damage</p>
+              <span class="media-placeholder__label">Storm Damage</span>
+              <span class="media-placeholder__sub">Replace with actual image</span>
             </div>
           </div>
+          <div class="ba__arrow">→</div>
           <div class="ba__item">
+            <span class="ba__label ba__label--after">After</span>
             <div class="media-placeholder">
-              <p><strong>After:</strong> Repaired roof</p>
+              <span class="media-placeholder__label">Repaired Roof</span>
+              <span class="media-placeholder__sub">Replace with actual image</span>
             </div>
           </div>
         </div>
@@ -234,23 +267,27 @@
 
     <!-- TESTIMONIALS -->
     <section id="reviews" class="section testimonials" aria-labelledby="testimonials-title">
-      <div class="container section__inner">
+      <div class="container">
+        <span class="section__label">Reviews</span>
         <h2 id="testimonials-title" class="section__title">Homeowners Trust IronShield</h2>
-        <p class="section__lead">Real-world feedback. Claim help, fast installs, and clean work.</p>
+        <p class="section__lead section__lead--center">Real-world feedback. Claim help, fast installs, and clean work.</p>
 
         <div class="quotes" aria-label="Customer testimonials">
           <figure class="quote">
-            <blockquote>★★★★★ “They handled everything with our insurance and replaced our roof in two days.”</blockquote>
+            <div class="quote__stars">★★★★★</div>
+            <blockquote>"They handled everything with our insurance and replaced our roof in two days."</blockquote>
             <figcaption>Local Homeowner</figcaption>
           </figure>
 
           <figure class="quote">
-            <blockquote>★★★★★ “Professional, fast, and honest. The inspection was thorough and the crew was respectful.”</blockquote>
+            <div class="quote__stars">★★★★★</div>
+            <blockquote>"Professional, fast, and honest. The inspection was thorough and the crew was respectful."</blockquote>
             <figcaption>Local Homeowner</figcaption>
           </figure>
 
           <figure class="quote">
-            <blockquote>★★★★★ “They documented everything with photos, explained the process, and the roof looks brand new.”</blockquote>
+            <div class="quote__stars">★★★★★</div>
+            <blockquote>"They documented everything with photos, explained the process, and the roof looks brand new."</blockquote>
             <figcaption>Local Homeowner</figcaption>
           </figure>
         </div>
@@ -258,10 +295,13 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section faq" aria-labelledby="faq-title">
-      <div class="container section__inner">
-        <h2 id="faq-title" class="section__title">FAQ</h2>
-        <p class="section__lead">Quick answers to the questions most homeowners ask before booking.</p>
+    <section class="section section--alt" aria-labelledby="faq-title">
+      <div class="container faq__inner">
+        <div class="section__text">
+          <span class="section__label">FAQ</span>
+          <h2 id="faq-title" class="section__title">Common Questions</h2>
+          <p class="section__lead">Quick answers to the questions most homeowners ask before booking.</p>
+        </div>
 
         <div class="faq__list" aria-label="Frequently asked questions">
           <details class="faq__item">
@@ -297,21 +337,23 @@
 
     <!-- FINAL CTA -->
     <section class="final-cta" aria-labelledby="finalcta-title">
+      <div class="final-cta__bg"></div>
       <div class="container final-cta__inner">
-        <h2 id="finalcta-title" class="final-cta__title">Don’t Wait Until the Leak Gets Worse.</h2>
+        <h2 id="finalcta-title" class="final-cta__title">Don't Wait Until the Leak Gets Worse.</h2>
         <p class="final-cta__text">Book a free inspection today and get clear answers fast.</p>
 
         <div class="final-cta__actions">
-          <a class="btn btn--primary" href="#contact">Request Free Inspection</a>
-          <a class="btn btn--secondary" href="tel:13205555555">Call 320-555-5555</a>
+          <a class="btn btn--cta btn--lg" href="#contact">Request Free Inspection</a>
+          <a class="btn btn--outline btn--lg" href="tel:13205555555">Call 320-555-5555</a>
         </div>
       </div>
     </section>
 
     <!-- CONTACT FORM -->
     <section id="contact" class="section contact" aria-labelledby="contact-title">
-      <div class="container section__inner contact__inner">
+      <div class="container contact__inner">
         <div class="contact__content">
+          <span class="section__label">Get Started</span>
           <h2 id="contact-title" class="section__title">Request a Free Inspection</h2>
           <p class="section__lead">
             Fill this out and we will reach out ASAP. Prefer a call? Dial
@@ -319,13 +361,19 @@
           </p>
 
           <div class="contact__info" aria-label="Business contact info">
-            <p><strong>Phone:</strong> <a href="tel:13205555555">320-555-5555</a></p>
-            <p><strong>Email:</strong> <a href="mailto:info@ironshieldroofing.com">info@ironshieldroofing.com</a></p>
+            <div class="contact__info-item">
+              <span class="contact__info-label">Phone</span>
+              <a href="tel:13205555555">320-555-5555</a>
+            </div>
+            <div class="contact__info-item">
+              <span class="contact__info-label">Email</span>
+              <a href="mailto:info@ironshieldroofing.com">info@ironshieldroofing.com</a>
+            </div>
           </div>
         </div>
 
         <div class="contact__formwrap">
-          <form class="form" action="#" method="post" aria-label="Free inspection request form">
+          <div class="form" aria-label="Free inspection request form">
             <div class="form__row">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" required />
@@ -351,12 +399,12 @@
               <textarea id="message" name="message" rows="4" placeholder="Tell us what happened (hail, wind, leak, missing shingles, etc.)"></textarea>
             </div>
 
-            <button class="btn btn--primary btn--full" type="submit">Request Free Inspection</button>
+            <button class="btn btn--cta btn--full" type="submit">Request Free Inspection</button>
 
             <p class="form__note">
               By submitting, you agree to be contacted about your inspection request.
             </p>
-          </form>
+          </div>
         </div>
       </div>
     </section>
@@ -366,6 +414,9 @@
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__name">IronShield Roofing</span>
+      </div>
       <p class="footer__small">© 2026 IronShield Roofing. All rights reserved.</p>
       <p class="footer__small">
         <a class="footer__link" href="../../portfolio.html">← Back to Portfolio</a>
