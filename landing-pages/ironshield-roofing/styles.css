@@ -53,9 +53,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -190,7 +192,7 @@ ul {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .topbar__message {
@@ -403,6 +405,8 @@ ul {
   color: #fff;
   margin-bottom: 24px;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .hero__title--accent {
@@ -624,6 +628,10 @@ ul {
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+}
+
+.section__inner > * {
+  min-width: 0;
 }
 
 .section__text {
@@ -1262,6 +1270,16 @@ ul {
 
   .topbar__message {
     font-size: 0.75rem;
+    white-space: normal;
+  }
+
+  .topbar__phone {
+    font-size: 0.82rem;
+  }
+
+  .topbar__actions .btn--sm {
+    padding: 8px 14px;
+    font-size: 0.78rem;
   }
 
   /* Hero mobile: ensure overlay is heavy enough for readability */
