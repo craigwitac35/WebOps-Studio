@@ -3,420 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Craig Baumann — WebOps Studio</title>
-  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
-  <link rel="preload" as="image" href="images/Background1.png">
-  <meta name="description" content="Meet Craig Baumann, U.S. Army veteran and founder of WebOps Studio. Clear process, clean code, and custom websites built to perform.">
+  <title>About &ndash;ndash; WebOps Studio</title>
+  <meta name="description" content="Meet Craig Baumann, U.S. Army veteran and self-taught developer behind WebOps Studio. Hand-coded websites built with discipline and care.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#07070c">
+  <meta name="theme-color" content="#FAF7F0">
   <link rel="canonical" href="https://web-ops-studio.com/about">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Craig Baumann — WebOps Studio">
-  <meta name="twitter:description" content="Meet Craig Baumann, U.S. Army veteran and founder of WebOps Studio. Clear process, clean code, and custom websites built to perform.">
-  <meta name="twitter:image" content="https://web-ops-studio.com/images/share-link.jpg">
-  <!-- Open Graph / Social Sharing -->
-<meta property="og:title" content="WebOps Studio — Veteran-Built Custom Websites">
-<meta property="og:description" content="Clean, custom, hand-coded websites. No templates. No shortcuts. Veteran-built front ends.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://web-ops-studio.com/">
-<meta property="og:image" content="https://web-ops-studio.com/images/Faveicon.jpg">
+
+  <meta property="og:title" content="About &ndash;ndash; WebOps Studio">
+  <meta property="og:description" content="Meet Craig Baumann, U.S. Army veteran and founder of WebOps Studio.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://web-ops-studio.com/about">
+
+  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles/styles.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    /* ===== Hero styles (compact spacing) ===== */
-    .port-hero__inner {
-      padding: 40px 0 20px;
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-    .port-hero__eyebrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--color-orange);
-      margin-bottom: 12px;
-    }
-    .port-hero__title {
-      font-family: var(--font-head);
-      font-size: clamp(3.5rem, 9vw, 7rem);
-      font-weight: 700;
-      line-height: 1.0;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--color-white);
-      margin-bottom: 10px;
-    }
-    .port-hero__title span {
-      color: var(--color-orange);
-      text-shadow: 0 0 48px rgba(232,98,10,0.25);
-    }
-    .port-hero__sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-      max-width: 520px;
-      margin: 0 auto 12px;
-    }
-
-    /* ===== Intro block ===== */
-    .intro-section {
-      padding: 0 0 32px;
-    }
-    .intro-card {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 24px 28px;
-      background: var(--gradient-card);
-      border: 1px solid var(--color-border);
-      border-top: 2px solid rgba(232,98,10,0.35);
-      border-radius: var(--radius-md);
-      text-align: center;
-    }
-    .intro-card p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.95);
-      line-height: 1.7;
-      margin: 0 0 1em;
-    }
-    .intro-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ===== Mobile Hero Optimization ===== */
-    @media (max-width: 768px) {
-      .port-hero__inner {
-        max-width: 34rem;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .port-hero {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-      }
-      .port-hero__title {
-        line-height: 0.94;
-        letter-spacing: -0.02em;
-        margin-bottom: 1rem;
-      }
-      .port-hero__sub {
-        max-width: 26ch;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: clamp(1rem, 2.8vw, 1.08rem);
-        line-height: 1.45;
-      }
-      .port-hero__eyebrow {
-        font-size: 0.58rem;
-        letter-spacing: 0.22em;
-        margin-bottom: 12px;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ═══ HEADER ════════════════════════════════════════════════════════ -->
-  <header id="site-header">
-    <div class="container">
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="site-header-inner">
       <div class="site-logo">
-        <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-        <span class="logo-tagline">Veteran-Built Front Ends</span>
+        <a href="index.html">WebOps <em>Studio</em></a>
       </div>
-      <nav class="main-nav" aria-label="Primary">
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-          <span class="hamburger"></span>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
+          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0" y1="8" x2="22" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
         </button>
-        <ul class="nav-links" id="primary-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about" class="active">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li><a href="/contact">Contact</a></li>
+        <ul class="site-nav-links" id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="about.html" class="is-active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a href="/contact" class="btn btn-primary btn-sm nav-cta">Get a Quote</a>
+        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- ═══ PAGE HERO (updated) ═════════════════════════════════════════ -->
-    <section class="port-hero">
-      <div class="container port-hero__inner">
-        <p class="port-hero__eyebrow">WebOps Studio</p>
-        <h1 class="port-hero__title">ABOUT<br><span>THE PROCESS</span></h1>
-        <p class="port-hero__sub">
-          A clear process built on discipline, structure, and clean code.
-        </p>
-      </div>
-    </section>
-
-    <!-- ═══ INTRO CARD (new) ════════════════════════════════════════════ -->
-    <section class="intro-section">
-      <div class="container">
-        <div class="intro-card">
-          <p>
-            WebOps Studio is led by Craig Baumann, a U.S. Army veteran and self-taught front-end developer based in Minnesota. What began as curiosity became a focused approach to building websites with structure, clarity, and strong fundamentals.
-          </p>
-          <p>
-            The mission is simple: build custom websites with precision, discipline, and attention to detail.
+    <!-- ============ ABOUT HERO ============ -->
+    <section class="container">
+      <div class="about-hero">
+        <img src="images/photo-me.jpg" alt="Craig Baumann" class="about-photo">
+        <div class="about-hero-content">
+          <span class="eyebrow">About</span>
+          <h1>Craig Baumann</h1>
+          <p class="lead">
+            U.S. Army veteran, self-taught developer, and the person behind WebOps Studio. Based in Minnesota, working with clients across the country.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ═══ ABOUT MAIN (existing content) ═══════════════════════════════ -->
-    <section class="about-section">
+    <!-- ============ STORY ============ -->
+    <section class="section">
       <div class="container">
-        <div class="about-two-col">
+        <div class="about-story">
 
-          <!-- Left: Story + Process -->
-          <div>
-            <span class="section-label reveal">My Story</span>
-            <h2 class="reveal">Built Through Discipline</h2>
-            <p class="reveal">
-              I did not take a traditional path through design school or a CS degree.
-              I learned by building, testing, and refining real projects from scratch.
-            </p>
-            <p class="reveal">
-              After the Army, that same mindset carried into web development:
-              disciplined execution, adaptability, and focus on the mission.
-            </p>
-            <p class="reveal">
-              WebOps Studio is the result: hand-coded websites built with care,
-              clarity, and long-term maintainability.
-            </p>
+          <h2>How I got here</h2>
+          <p>
+            I didn't take the traditional path. No design school, no computer science degree. I learned by building &mdash; taking on real projects, breaking things, fixing them, and refining until the work held up.
+          </p>
+          <p>
+            After the Army, that same mindset carried into web development: clear execution, attention to detail, and a focus on actually finishing the job. WebOps Studio is the result &mdash; hand-coded websites and full-stack applications, built with care.
+          </p>
 
-            <!-- Process steps -->
-            <div class="about-process reveal">
-              <h3>How I Work</h3>
-              <div class="process-steps">
-                <div class="process-step">
-                  <span class="step-num">01</span>
-                  <div class="step-content">
-                    <h4>Discovery Call</h4>
-                    <p>We define your goals, audience, and project priorities.</p>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <span class="step-num">02</span>
-                  <div class="step-content">
-                    <h4>Plan &amp; Scope</h4>
-                    <p>I map the pages, structure, and requirements before coding begins.</p>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <span class="step-num">03</span>
-                  <div class="step-content">
-                    <h4>Build</h4>
-                    <p>I hand-code the site in HTML, CSS, and JavaScript with a mobile-first, performance-focused approach.</p>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <span class="step-num">04</span>
-                  <div class="step-content">
-                    <h4>Review &amp; Refine</h4>
-                    <p>You review the build, and we refine details through included revisions.</p>
-                  </div>
-                </div>
-                <div class="process-step">
-                  <span class="step-num">05</span>
-                  <div class="step-content">
-                    <h4>Launch</h4>
-                    <p>The site is tested, deployed, and handed off with what you need to manage it.</p>
-                  </div>
-                </div>
+          <h2>How I work</h2>
+          <p>
+            Every project starts with a conversation. I want to understand what you're building, who it's for, and what success looks like before I write a single line of code. The process is honest, structured, and direct.
+          </p>
+
+          <ol class="process-list">
+            <li class="process-step">
+              <span class="process-step-num">01</span>
+              <div>
+                <h4>Discovery</h4>
+                <p>We talk about your goals, audience, and what the site needs to do. I'll ask the questions that surface the real requirements.</p>
               </div>
-            </div>
-          </div>
-
-          <!-- Right: Sticky card -->
-          <div>
-            <div class="about-card reveal">
-              <h3>What You Can Expect</h3>
-              <div class="expect-list">
-                <div class="expect-item">
-                  <span class="expect-check">
-                    <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="2,5 4,7.5 8,3"/>
-                    </svg>
-                  </span>
-                  <p>Direct communication with the person building your site.</p>
-                </div>
-                <div class="expect-item">
-                  <span class="expect-check">
-                    <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="2,5 4,7.5 8,3"/>
-                    </svg>
-                  </span>
-                  <p>Clean, scalable code without unnecessary bloat.</p>
-                </div>
-                <div class="expect-item">
-                  <span class="expect-check">
-                    <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="2,5 4,7.5 8,3"/>
-                    </svg>
-                  </span>
-                  <p>A collaborative process centered on your goals.</p>
-                </div>
-                <div class="expect-item">
-                  <span class="expect-check">
-                    <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="2,5 4,7.5 8,3"/>
-                    </svg>
-                  </span>
-                  <p>1–2 revision rounds included in every project.</p>
-                </div>
-                <div class="expect-item">
-                  <span class="expect-check">
-                    <svg viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="2,5 4,7.5 8,3"/>
-                    </svg>
-                  </span>
-                  <p>Careful execution and accountability from start to finish.</p>
-                </div>
+            </li>
+            <li class="process-step">
+              <span class="process-step-num">02</span>
+              <div>
+                <h4>Design</h4>
+                <p>I sketch the structure and design direction. You see it before I build it, so we agree on the visual approach early.</p>
               </div>
-            </div>
-          </div>
+            </li>
+            <li class="process-step">
+              <span class="process-step-num">03</span>
+              <div>
+                <h4>Build</h4>
+                <p>I hand-code the site &mdash; mobile-first, performance-focused, clean code under the hood. No bloat, no shortcuts.</p>
+              </div>
+            </li>
+            <li class="process-step">
+              <span class="process-step-num">04</span>
+              <div>
+                <h4>Review</h4>
+                <p>You review the build, and we refine the details through included revision rounds. Real feedback, real changes.</p>
+              </div>
+            </li>
+            <li class="process-step">
+              <span class="process-step-num">05</span>
+              <div>
+                <h4>Launch</h4>
+                <p>The site is tested, deployed, and handed off with everything you need to manage it going forward.</p>
+              </div>
+            </li>
+          </ol>
+
+          <h2>What you can expect</h2>
+          <p>
+            A few things I commit to on every project:
+          </p>
+          <ul class="case-features">
+            <li>Direct communication with the person actually building your site &mdash; no agency middlemen.</li>
+            <li>Clean, scalable code without unnecessary bloat.</li>
+            <li>A collaborative process centered on your goals, not mine.</li>
+            <li>Two rounds of revisions included in every project.</li>
+            <li>Careful execution and accountability from start to finish.</li>
+          </ul>
+
+          <h2>The tools</h2>
+          <p>
+            For static sites: HTML, CSS, and JavaScript. For full applications: Next.js, TypeScript, and Supabase. I pick the right tool for the project and avoid unnecessary complexity.
+          </p>
 
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- ═══ BIO BLOCKS (existing) ═══════════════════════════════════════ -->
-    <section class="bio-section">
+    <!-- ============ TESTIMONIAL ============ -->
+    <section class="section section-alt">
       <div class="container">
-        <span class="section-label reveal">Background</span>
-        <h2 class="reveal">The Full Picture</h2>
-
-        <div class="bio-grid">
-          <div class="bio-block reveal">
-            <h4>Military Background</h4>
-            <p>
-              I served in the U.S. Army, where I learned discipline, adaptability,
-              and how to execute under pressure. That mindset shapes every build.
-            </p>
-          </div>
-          <div class="bio-block reveal reveal-delay-1">
-            <h4>Self-Taught Developer</h4>
-            <p>
-              I am self-taught through hands-on project work, client collaboration,
-              and continuous refinement.
-            </p>
-          </div>
-          <div class="bio-block reveal reveal-delay-2">
-            <h4>Tech Stack</h4>
-            <p>
-              HTML5, CSS3, and vanilla JavaScript. I use the right tools for the
-              project and avoid unnecessary complexity.
-            </p>
-          </div>
-          <div class="bio-block reveal reveal-delay-3">
-            <h4>Based in Minnesota</h4>
-            <p>
-              Based in Minnesota and working remotely with clients across the U.S.
-              Communication is direct, clear, and responsive.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
-
-    <!-- ═══ TESTIMONIAL (existing) ═══════════════════════════════════════ -->
-    <section class="testimonial-section">
-      <div class="container">
-        <div class="testimonial-block reveal">
+        <div class="testimonial">
           <blockquote>
-            "Craig went above and beyond. He didn't just build us a website,
-            he brought our mission to life. We get compliments on it constantly."
+            Craig went above and beyond. He didn't just build us a website, he brought our mission to life. We get compliments on it constantly.
           </blockquote>
-          <cite>Guardian 4 Heroes Team</cite>
+          <cite>&mdash; Guardian 4 Heroes Team</cite>
         </div>
       </div>
     </section>
 
-    <!-- ═══ CTA STRIP (existing) ═════════════════════════════════════════ -->
-    <section class="cta-strip">
+    <!-- ============ CTA STRIP ============ -->
+    <section class="section cta-strip">
       <div class="container">
-        <span class="section-label reveal">Work With Me</span>
-        <h2 class="reveal">Let's Make Something Solid</h2>
-        <p class="reveal">
-          If you need a reliable, custom website, let's talk.
+        <h2>Ready to talk?</h2>
+        <p>
+          If you've got a project in mind, I'd like to hear about it. Every project starts with a conversation.
         </p>
-        <div class="cta-btns reveal">
-          <a href="/contact" class="btn btn-primary">Start a Conversation</a>
-          <a href="/services" class="btn btn-ghost">See My Services</a>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+          <a href="portfolio.html" class="btn btn-ghost">See My Work</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
-  <footer>
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="site-logo">
-            <a href="/">WEB<span class="logo-ops">[OPS]</span> STUDIO</a>
-            <span class="logo-tagline">Veteran-Built Front Ends</span>
-          </div>
-          <p>Custom hand-coded websites built with precision, clarity, and clean performance-focused code.</p>
+      <div class="footer-brand">
+        <div class="site-logo">
+          <a href="index.html">WebOps <em>Studio</em></a>
         </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <div class="footer-contact-items">
-            <p class="footer-contact-item"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></p>
-            <p class="footer-contact-item"><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></p>
-            <p class="footer-contact-item">Minnesota, United States</p>
-          </div>
-        </div>
+        <p>Custom hand-coded websites and full-stack web applications. Built by hand in Minnesota.</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="copy-year">2025</span> WebOps Studio. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="/contact">Get a Free Quote →</a>
-          <a href="/portfolio">View My Work →</a>
-        </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></li>
+          <li><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></li>
+          <li>Minnesota, USA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 WebOps Studio. All rights reserved.
     </div>
   </footer>
 
-  <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
-
-  <script src="js/scripts.js"></script>
-
-  <!-- MailerLite Universal -->
   <script>
-  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-  ml('account', '2121003');
+    function toggleNav(btn) {
+      const nav = document.getElementById('primary-nav');
+      const isOpen = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
   </script>
 
 </body>
