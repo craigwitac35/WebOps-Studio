@@ -3,121 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact &ndash;ndash; WebOps Studio</title>
-  <meta name="description" content="Get in touch with WebOps Studio. Tell Craig about your project and get a quote.">
+  <title>Contact &ndash; WebOps Studio</title>
+  <meta name="description" content="Tell me about your project. Every project starts with a conversation.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#FAF7F0">
+  <meta name="theme-color" content="#F5EFE2">
   <link rel="canonical" href="https://web-ops-studio.com/contact">
 
-  <meta property="og:title" content="Contact &ndash;ndash; WebOps Studio">
-  <meta property="og:description" content="Tell me about your project.">
+  <meta property="og:title" content="Contact &ndash; WebOps Studio">
+  <meta property="og:description" content="Get in touch about your project.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://web-ops-studio.com/contact">
 
-  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
+  <link rel="icon" href="images/monogram.png" type="image/png">
   <link rel="stylesheet" href="styles/styles.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="site-logo">
-        <a href="index.html">WebOps <em>Studio</em></a>
-      </div>
-      <nav class="site-nav" aria-label="Primary">
-        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
-          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="0" y1="8" x2="22" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <ul class="site-nav-links" id="primary-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="is-active">Contact</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-      </nav>
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <a href="index.html" aria-label="WebOps Studio home">
+      <img src="images/monogram.png" alt="" class="sidebar-monogram">
+    </a>
+    <div class="sidebar-brand">
+      Web<em>[Ops]</em><br>Studio
+      <small>Digital<br>Architecture</small>
     </div>
+    <div class="sidebar-divider"></div>
+
+    <nav class="sidebar-nav" aria-label="Primary">
+      <a href="index.html" data-num="01">Home</a>
+      <a href="portfolio.html" data-num="02">Work</a>
+      <a href="about.html" data-num="03">About</a>
+      <a href="contact.html" data-num="04" class="is-active">Contact</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div style="color: var(--cream); opacity: 0.5;">
+        <object type="image/svg+xml" data="images/compass.svg" class="sidebar-compass" aria-hidden="true"></object>
+      </div>
+      <div class="sidebar-motto">
+        Thoughtful<br>
+        Design<br>
+        &middot;<br>
+        Intentional<br>
+        Code
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MOBILE HEADER ============ -->
+  <header class="mobile-header">
+    <a href="index.html" class="mobile-logo">
+      <img src="images/monogram.png" alt="WebOps Studio">
+      <span>Web<em>[Ops]</em> Studio</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <div class="brand-line">Web<em>[Ops]</em> Studio</div>
+      <div class="brand-sub">Digital Architecture &middot; Minnesota</div>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html"><span class="mn-num">01</span><span class="mn-text">Home</span></a></li>
+      <li><a href="portfolio.html"><span class="mn-num">02</span><span class="mn-text">Work</span></a></li>
+      <li><a href="about.html"><span class="mn-num">03</span><span class="mn-text">About</span></a></li>
+      <li><a href="contact.html" class="is-active"><span class="mn-num">04</span><span class="mn-text">Contact</span></a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <div class="mn-tagline">
+        <span class="w1">Designed</span>
+        <span class="w2">With</span>
+        <span class="w3">Purpose.</span>
+      </div>
+      <div class="mn-meta">
+        44.9778&deg; N &middot; 93.2650&deg; W<br>
+        Minnesota / USA
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
 
     <!-- ============ HERO ============ -->
-    <section class="hero">
+    <section class="draft">
+      <!-- Mountain top right -->
+      <div class="draft-mountain" aria-hidden="true">
+        <img src="images/mountain-element.png" alt="">
+      </div>
+
+      <!-- Corner blocks -->
+      <div class="corner-block forest" style="right: 0; top: 50%; width: 60px; height: 200px;" aria-hidden="true"></div>
+      <div class="corner-block maroon" style="right: 0; top: 6rem; width: 100px; height: 70px;" aria-hidden="true"></div>
+      <div class="corner-block forest" style="left: 0; bottom: 0; width: 110px; height: 220px;" aria-hidden="true"></div>
+
+      <span class="crosshair" style="top: 2rem; right: 10%;" aria-hidden="true"></span>
+      <span class="crosshair" style="bottom: 6rem; left: 10%;" aria-hidden="true"></span>
+
+      <div class="draft-header">
+        <div class="draft-header-left">
+          <div class="h-name">Web[Ops] Studio</div>
+          <div class="h-tag">Let's Connect &middot; Every Project Starts With A Conversation</div>
+        </div>
+        <div class="draft-header-right">
+          <div class="coords">44.9778&deg; N, 93.2650&deg; W</div>
+          <div class="coords">Minnesota, USA</div>
+        </div>
+      </div>
+
+      <div class="draft-body reveal" style="margin-top: 5rem;">
+        <div class="draft-eyebrow">
+          <span>// Let's Connect</span>
+        </div>
+
+        <h1 class="draft-title">
+          <span class="bracket-open">[</span>Let's Build<br>Something
+        </h1>
+
+        <div class="tri-tagline">
+          <span class="word-1">Designed</span>
+          <span class="word-2">With</span>
+          <span class="word-3">Purpose.</span>
+        </div>
+
+        <p class="draft-body-copy">Great projects start with a conversation. Tell me about your ideas, your goals, and how we can build something impactful together. I'll get back to you within a day or two.</p>
+      </div>
+
+      <div class="page-baseline">
+        <span>// Built With Purpose &middot; Designed To Perform</span>
+      </div>
+    </section>
+
+    <!-- ============ FORM + DETAILS ============ -->
+    <section class="section section-alt">
       <div class="container">
-        <div class="hero-content">
-          <span class="eyebrow">Contact</span>
-          <h1>Tell me about your <em>project</em>.</h1>
-          <p class="hero-sub">
-            Every project starts with a conversation. Send me the details and I'll get back to you within a day or two.
-          </p>
+
+        <div class="section-marker reveal">
+          <span>&sect; 01 &middot; Send A Message</span>
+        </div>
+
+        <div class="contact-grid reveal">
+
+          <form class="contact-form" action="mailto:craigbaumann2020@gmail.com" method="post" enctype="text/plain">
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone <span style="text-transform: none; letter-spacing: 0; font-size: 0.7rem; color: var(--ink-faint);">(optional)</span></label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-field">
+              <label for="project-type">Project Type</label>
+              <select id="project-type" name="project-type">
+                <option value="">Choose one&hellip;</option>
+                <option value="custom-website">Custom Website</option>
+                <option value="web-app">Full-Stack Web Application</option>
+                <option value="landing-page">Landing Page</option>
+                <option value="redesign">Redesign / Cleanup</option>
+                <option value="other">Something Else</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Choose one&hellip;</option>
+                <option value="500">Around $500 (Template Setup)</option>
+                <option value="800-1200">$800 &ndash; 1,200 (Starter Site)</option>
+                <option value="1500-2500">$1,500 &ndash; 2,500 (Custom Build)</option>
+                <option value="2500-4500">$2,500 &ndash; 4,500 (Full-Stack Project)</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="project">Tell me about your project</label>
+              <textarea id="project" name="project" placeholder="What are you building, who is it for, and what kind of help do you need?" required></textarea>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary">Send Message &nbsp;&rarr;</button>
+            </div>
+          </form>
+
+          <div>
+            <span class="tag" style="display: block; margin-bottom: 1rem;">// What To Expect</span>
+
+            <ul class="expect-list">
+              <li>
+                <span class="e-num">01</span>
+                <div>
+                  <span class="e-title">Discover</span>
+                  <p class="e-body">We learn about your goals, audience, and vision.</p>
+                </div>
+              </li>
+              <li>
+                <span class="e-num">02</span>
+                <div>
+                  <span class="e-title">Strategize</span>
+                  <p class="e-body">We map the structure, experience, and technical approach.</p>
+                </div>
+              </li>
+              <li>
+                <span class="e-num">03</span>
+                <div>
+                  <span class="e-title">Execute</span>
+                  <p class="e-body">We design, build, and refine with precision and purpose.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="contact-info-grid">
+              <div class="contact-info-cell">
+                <div class="ci-label">Email</div>
+                <div class="ci-value"><a href="mailto:craigbaumann2020@gmail.com" style="color: var(--ink); border-bottom: 1px solid var(--gold);">craigbaumann2020@gmail.com</a></div>
+                <div class="ci-sub">Response within 24 hours</div>
+              </div>
+              <div class="contact-info-cell">
+                <div class="ci-label">Phone</div>
+                <div class="ci-value"><a href="tel:+13205226226" style="color: var(--ink); border-bottom: 1px solid var(--gold);">320&#8209;522&#8209;6226</a></div>
+                <div class="ci-sub">Mon &ndash; Fri &middot; 9am &ndash; 6pm CT</div>
+              </div>
+              <div class="contact-info-cell">
+                <div class="ci-label">Location</div>
+                <div class="ci-value">Minnesota, USA</div>
+                <div class="ci-sub">Working remote &middot; Available across the U.S.</div>
+              </div>
+              <div class="contact-info-cell">
+                <div class="ci-label">Projects</div>
+                <div class="ci-value">Now Booking</div>
+                <div class="ci-sub">Accepting new projects</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.25rem 1.5rem; border-left: 2px solid var(--gold); background: var(--cream-soft); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; line-height: 1.85; color: var(--ink-mute); text-transform: uppercase;">
+              Every project is a new opportunity to build something extraordinary.
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ============ FORM ============ -->
-    <section class="section">
+    <!-- ============ CTA (MAROON) ============ -->
+    <section class="section section-maroon cta-strip">
       <div class="container">
-
-        <form class="contact-form" action="mailto:craigbaumann2020@gmail.com" method="post" enctype="text/plain">
-
-          <div class="form-field">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-
-          <div class="form-field">
-            <label for="phone">Phone <span style="color: var(--color-text-mute); font-weight: 400; font-size: 0.8rem;">(optional)</span></label>
-            <input type="tel" id="phone" name="phone">
-          </div>
-
-          <div class="form-field">
-            <label for="budget">Budget range</label>
-            <select id="budget" name="budget">
-              <option value="">Choose one&hellip;</option>
-              <option value="500">Around $500 (Template Setup)</option>
-              <option value="800-1200">$800 &ndash; 1,200 (Starter Site)</option>
-              <option value="1500-2500">$1,500 &ndash; 2,500 (Custom Build)</option>
-              <option value="2500-4500">$2,500 &ndash; 4,500 (Full-Stack Project)</option>
-              <option value="not-sure">Not sure yet</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label for="project">Tell me about your project</label>
-            <textarea id="project" name="project" placeholder="What are you building, who is it for, and what kind of help do you need?" required></textarea>
-          </div>
-
-          <div>
-            <button type="submit" class="btn btn-primary" style="font-size: 1rem; padding: 0.95rem 1.75rem;">Send Message</button>
-          </div>
-
-        </form>
-
-        <div class="contact-direct">
-          <p>Prefer to skip the form?</p>
-          <p>
-            <a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a>
-          </p>
-          <p>
-            <a href="tel:+13205226226">320&#8209;522&#8209;6226</a>
-          </p>
-          <p style="color: var(--color-text-mute); font-size: 0.85rem; margin-top: 0.5rem;">Based in Minnesota &middot; Available across the U.S.</p>
+        <div class="section-header center reveal">
+          <span class="tag tag--light">// Prefer Other Channels</span>
+          <h2>Skip the form?<br><em style="color: var(--gold-bright);">Reach out directly.</em></h2>
+          <div class="divider divider--centered" aria-hidden="true"><span class="diamond"></span></div>
+          <p style="margin: 1.5rem auto 0;">Email or phone work just as well. Use whatever feels right.</p>
         </div>
-
+        <div class="actions">
+          <a href="mailto:craigbaumann2020@gmail.com" class="btn btn-on-dark">Email Me &nbsp;&rarr;</a>
+          <a href="tel:+13205226226" class="btn btn-ghost-on-dark">Call Me</a>
+        </div>
       </div>
     </section>
 
@@ -127,13 +285,11 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-brand">
-        <div class="site-logo">
-          <a href="index.html">WebOps <em>Studio</em></a>
-        </div>
+        <div class="site-logo">Web<em>[Ops]</em> Studio</div>
         <p>Custom hand-coded websites and full-stack web applications. Built by hand in Minnesota.</p>
       </div>
       <div class="footer-col">
-        <h4>Site</h4>
+        <h4>// Site</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="portfolio.html">Work</a></li>
@@ -142,7 +298,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>// Contact</h4>
         <ul>
           <li><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></li>
           <li><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></li>
@@ -151,16 +307,50 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 WebOps Studio. All rights reserved.
+      &copy; 2026 WebOps Studio &middot; All Rights Reserved
     </div>
   </footer>
 
   <script>
-    function toggleNav(btn) {
-      const nav = document.getElementById('primary-nav');
-      const isOpen = nav.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen);
-    }
+    (function() {
+      const btn = document.getElementById('mobileMenuBtn');
+      const drawer = document.getElementById('mobileNavDrawer');
+      if (!btn || !drawer) return;
+      btn.addEventListener('click', function() {
+        const open = drawer.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+        drawer.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      drawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          drawer.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          drawer.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+
+    (function() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll('.reveal');
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => io.observe(el));
+    })();
   </script>
 
 </body>
