@@ -3,326 +3,443 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebOps Studio &ndash; Hand-built websites by Craig Baumann</title>
-  <meta name="description" content="WebOps Studio builds custom, hand-coded websites and full-stack web applications for nonprofits, small businesses, and event organizers.">
+  <title>WebOps Studio &ndash; Digital Architecture Built with Intention</title>
+  <meta name="description" content="WebOps Studio builds custom, hand-coded websites and full-stack web applications. Modern precision. Handcrafted execution.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#FAF7F0">
+  <meta name="theme-color" content="#F5EFE2">
   <link rel="canonical" href="https://web-ops-studio.com/">
 
-  <meta property="og:title" content="WebOps Studio &ndash; Hand-built websites by Craig Baumann">
+  <meta property="og:title" content="WebOps Studio &ndash; Digital Architecture Built with Intention">
   <meta property="og:description" content="Custom, hand-coded websites and full-stack web applications. Built with care, by hand.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://web-ops-studio.com/">
 
-  <link rel="icon" href="images/Faveicon.jpg" type="image/jpeg">
+  <link rel="icon" href="images/monogram.png" type="image/png">
   <link rel="stylesheet" href="styles/styles.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="site-logo">
-        <a href="index.html">WebOps <em>Studio</em></a>
+  <!-- ============ SIDEBAR NAV ============ -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" class="sidebar-logo">
+        <img src="images/monogram.png" alt="WebOps Studio monogram">
+      </a>
+      <div class="sidebar-brand">
+        <span class="sidebar-name">Web<em class="italic-accent">[Ops]</em> Studio</span>
+        <span class="sidebar-tagline">Digital Architecture</span>
+        <span class="sidebar-tagline">Built with Intention</span>
       </div>
-      <nav class="site-nav" aria-label="Primary">
-        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)">
-          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="0" y1="8" x2="22" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </button>
-        <ul class="site-nav-links" id="primary-nav">
-          <li><a href="index.html" class="is-active">Home</a></li>
-          <li><a href="portfolio.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-      </nav>
+      <div class="sidebar-coords">
+        44.9778&deg; N<br>
+        93.2650&deg; W<br>
+        MINNESOTA / USA
+      </div>
     </div>
+
+    <nav class="sidebar-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="is-active"><span class="num">01</span>Home</a></li>
+        <li><a href="portfolio.html"><span class="num">02</span>Work</a></li>
+        <li><a href="about.html"><span class="num">03</span>About</a></li>
+        <li><a href="contact.html"><span class="num">04</span>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-divider"></div>
+      <p class="sidebar-motto">
+        Thoughtful Design<br>
+        Intentional Code<br>
+        Measurable Impact
+      </p>
+    </div>
+  </aside>
+
+  <!-- ============ MOBILE HEADER ============ -->
+  <header class="mobile-header">
+    <a href="index.html" class="mobile-logo">
+      <img src="images/monogram.png" alt="WebOps Studio">
+      <span>Web<em>[Ops]</em> Studio</span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <nav>
+      <ul>
+        <li><a href="index.html">01 &nbsp; Home</a></li>
+        <li><a href="portfolio.html">02 &nbsp; Work</a></li>
+        <li><a href="about.html">03 &nbsp; About</a></li>
+        <li><a href="contact.html">04 &nbsp; Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Hand-built websites for people who care about <em>the details</em>.</h1>
-          <p class="hero-sub">
-            WebOps Studio is a one-person shop building custom websites and full-stack web applications. No templates, no shortcuts. Just careful work that holds up.
-          </p>
-          <div class="hero-actions">
-            <a href="portfolio.html" class="btn btn-primary">View My Work</a>
-            <a href="contact.html" class="btn btn-ghost">Get a Quote</a>
-          </div>
+      <!-- Crosshair markers -->
+      <span class="crosshair crosshair-tl" aria-hidden="true"></span>
+      <span class="crosshair crosshair-tr" aria-hidden="true"></span>
+      <span class="crosshair crosshair-bl" aria-hidden="true"></span>
+      <span class="crosshair crosshair-br" aria-hidden="true"></span>
+
+      <!-- Code decorations (left + right) -->
+      <pre class="code-decor code-decor-left" aria-hidden="true"><span class="num">01</span> <span class="kw">&lt;!DOCTYPE</span> html<span class="kw">&gt;</span>
+<span class="num">02</span> <span class="kw">&lt;html</span> lang<span class="kw">=</span>"en"<span class="kw">&gt;</span>
+<span class="num">03</span> <span class="kw">&lt;head&gt;</span>
+<span class="num">04</span>   <span class="fn">&lt;meta</span> charset<span class="kw">=</span>"UTF-8"<span class="fn">/&gt;</span>
+<span class="num">05</span>   <span class="fn">&lt;title&gt;</span>Web[Ops]<span class="fn">&lt;/title&gt;</span>
+<span class="num">06</span> <span class="kw">&lt;/head&gt;</span>
+<span class="num">07</span> <span class="kw">&lt;body&gt;</span></pre>
+
+      <pre class="code-decor code-decor-right" aria-hidden="true"><span class="num">01</span> <span class="kw">function</span> <span class="fn">build</span>() {
+<span class="num">02</span>   plan();
+<span class="num">03</span>   design();
+<span class="num">04</span>   develop();
+<span class="num">05</span>   deploy();
+<span class="num">06</span>   <span class="kw">return</span> excellence;
+<span class="num">07</span> }</pre>
+
+      <!-- Mountain element -->
+      <div class="hero-mountain" aria-hidden="true">
+        <img src="images/mountain-element.png" alt="">
+      </div>
+
+      <!-- Top meta bar -->
+      <div class="hero-meta">
+        <div class="hero-meta-left">
+          <span>EST. 2026</span>
+          <span class="dot"></span>
+          <span>Independent Studio</span>
+        </div>
+        <div class="hero-meta-right">
+          <span>v3.0</span>
+          <span class="dot"></span>
+          <span>Built by hand</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="hero-body reveal">
+        <div class="hero-supertag">&lt; CODE &middot; <span class="gold-text">DESIGN</span> &middot; DEPLOY /&gt;</div>
+
+        <img src="images/monogram.png" alt="" class="hero-monogram" aria-hidden="true">
+
+        <h1 class="hero-wordmark">
+          Web<span class="bracket">[</span><span class="ops">Ops</span><span class="bracket">]</span>
+        </h1>
+        <div class="hero-wordmark-sub">STUDIO</div>
+
+        <p class="hero-tagline">
+          The modern <span class="italic-accent">precision.</span><br>
+          The handcrafted <span class="italic-accent">execution.</span>
+        </p>
+
+        <div class="gold-rule" style="max-width: 220px; margin-left: auto; margin-right: auto;">
+          <span class="diamond"></span>
+        </div>
+
+        <p class="hero-tagline-2">Intentional by design &middot; <span class="gold-text">Excellent</span> by default</p>
+
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-primary">View Work &nbsp;&rarr;</a>
+          <a href="contact.html" class="btn btn-ghost">Start a Project</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ FEATURED WORK &ndash; MISSION POSSIBLE ============ -->
+    <!-- ============ FEATURED CASE: MISSION POSSIBLE ============ -->
     <section class="section section-alt">
       <div class="container">
 
-        <div class="section-number">
-          <span class="num">01</span> Case Study
+        <div class="section-num reveal">
+          <span>&sect; 01 &middot; Case Study</span>
         </div>
 
-        <div class="section-header" style="margin-bottom: 2.5rem;">
-          <span class="eyebrow">Featured Project</span>
-          <h2>A full-stack event platform, <em style="color: var(--color-gold-deep); font-style: italic; font-weight: 400;">built from scratch</em>.</h2>
+        <div class="section-header reveal">
+          <span class="tag-label">// Featured Project</span>
+          <h2>
+            <span class="bracket-h"><span class="bracket">[</span></span>A full-stack event platform, <em class="italic-accent">built from scratch.</em>
+          </h2>
         </div>
 
-        <div class="featured-wrapper">
-          <div class="featured-case">
-            <div class="featured-case-images">
-              <img src="images/mission-home.jpg" alt="Mission Possible homepage hero">
-              <img src="images/mission-reg.jpg" alt="Mission Possible registration form">
-              <img src="images/mission-event.jpg" alt="Mission Possible event details">
-              <img src="images/mission-com.jpg" alt="Mission Possible payment confirmation with reference code">
-            </div>
-
-            <div class="featured-case-meta">
-              <p class="case-meta-eyebrow">Mission Possible &middot; 2026</p>
-              <h3 class="case-title">Mission Possible: <em>Hooves &amp; Paws</em></h3>
-              <p class="case-summary">
-                A custom event registration platform for a Minnesota nonprofit fundraiser. Built end to end &ndash; design system, registration flow, payment tracking, and an admin dashboard for the hosts.
-              </p>
-
-              <div class="case-tags">
-                <span class="case-tag">Next.js</span>
-                <span class="case-tag">Supabase</span>
-                <span class="case-tag">TypeScript</span>
-                <span class="case-tag">Custom Design</span>
-                <span class="case-tag">Vercel</span>
-              </div>
-
-              <ul class="case-features">
-                <li><strong>Custom design system</strong> &ndash; cinematic homepage, hand-composited logo, full mobile-responsive layout</li>
-                <li><strong>Registration flow</strong> &ndash; multi-participant forms, dynamic pricing, t-shirt sizing</li>
-                <li><strong>Payment tracking</strong> &ndash; unique reference codes, partial-payment handling, Givebutter integration</li>
-                <li><strong>Admin dashboard</strong> &ndash; live stats, registration search, shirt order reporting</li>
-              </ul>
-
-              <a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener" class="case-link">
-                View Live Site &rarr;
-              </a>
-            </div>
+        <div class="featured-case reveal">
+          <div class="featured-images">
+            <img src="images/mission-home.jpg" alt="Mission Possible homepage hero">
+            <img src="images/mission-reg.jpg" alt="Registration form">
+            <img src="images/mission-event.jpg" alt="Event details">
+            <img src="images/mission-com.jpg" alt="Payment confirmation with reference code">
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ SECONDARY WORK &ndash; GUARDIAN 4 HEROES (DARK GREEN) ============ -->
-    <section class="section section-dark-green">
-      <div class="container">
+          <div class="case-info">
+            <span class="case-eyebrow">Mission Possible &middot; 2026</span>
+            <h3>Mission Possible: <em class="italic-accent">Hooves &amp; Paws</em></h3>
+            <p>A custom event registration platform for a Minnesota nonprofit fundraiser. Built end to end &ndash; design system, registration flow, payment tracking, and an admin dashboard for the hosts.</p>
 
-        <div class="section-number" style="color: var(--color-gold);">
-          <span class="num" style="color: var(--color-gold);">02</span> Project
-        </div>
-
-        <div class="section-header">
-          <span class="eyebrow eyebrow-on-dark">More Work</span>
-          <h2>Guardian 4 <em style="color: var(--color-gold); font-style: italic; font-weight: 400;">Heroes</em></h2>
-          <p>
-            A multi-page site for a nonprofit offering equine therapy to veterans and first responders. Hand-coded HTML/CSS/JS with a custom design system, hosted on GitHub Pages.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-body">
-            <p>
-              Custom nonprofit website with announcements, programs, donations, and a feature module that highlights upcoming events. Designed to feel grounded and personal &ndash; matching the mission.
-            </p>
             <div class="case-tags">
-              <span class="case-tag">HTML/CSS/JS</span>
-              <span class="case-tag">GitHub Pages</span>
+              <span class="case-tag">Next.js</span>
+              <span class="case-tag">Supabase</span>
+              <span class="case-tag">TypeScript</span>
               <span class="case-tag">Custom Design</span>
+              <span class="case-tag">Vercel</span>
             </div>
-            <br>
-            <a href="https://guardian4heroes.com/" target="_blank" rel="noopener" class="case-link">
-              View Live Site &rarr;
-            </a>
+
+            <ul class="case-features">
+              <li><strong>Custom design system</strong> &ndash; cinematic homepage, hand-composited logo, full mobile-responsive layout.</li>
+              <li><strong>Registration flow</strong> &ndash; multi-participant forms, dynamic pricing, t-shirt sizing.</li>
+              <li><strong>Payment tracking</strong> &ndash; unique reference codes, partial-payment handling, Givebutter integration.</li>
+              <li><strong>Admin dashboard</strong> &ndash; live stats, registration search, shirt order reporting.</li>
+            </ul>
+
+            <a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener" class="case-link">View Live Site &rarr;</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ MORE WORK &ndash; CONCEPT + LANDING PAGES (DARK CHARCOAL) ============ -->
-    <section class="section section-dark-charcoal">
+    <!-- ============ MORE WORK ============ -->
+    <section class="section">
       <div class="container">
 
-        <div class="section-number" style="color: var(--color-gold);">
-          <span class="num" style="color: var(--color-gold);">03</span> More Work
+        <div class="section-num reveal">
+          <span>&sect; 02 &middot; Selected Work</span>
         </div>
 
-        <div class="section-header">
-          <span class="eyebrow eyebrow-on-dark">Concept Builds &amp; Landing Pages</span>
-          <h2>Range across <em style="color: var(--color-gold); font-style: italic; font-weight: 400;">industries</em>.</h2>
-          <p>
-            A look at recent demos and landing pages. Different industries, different goals, same attention to detail.
-          </p>
+        <div class="section-header reveal">
+          <span class="tag-label">// Range Across Industries</span>
+          <h2>Concept builds &amp; <em class="italic-accent">landing pages.</em></h2>
+          <p>A look at recent demos, client launches, and landing pages. Different industries, different goals, same attention to detail.</p>
         </div>
 
-        <div class="more-work-grid">
+        <div class="work-grid">
 
-          <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="more-work-card">
-            <div class="more-work-card-image">
-              <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe concept site">
+          <a href="https://guardian4heroes.com/" target="_blank" rel="noopener" class="work-card reveal">
+            <span class="work-card-num">02</span>
+            <div class="work-card-image">
+              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes">
             </div>
-            <div class="more-work-card-body">
-              <span class="more-work-card-eyebrow">Concept Build</span>
-              <div class="more-work-card-title">Ember &amp; Oak Cafe</div>
-              <p class="more-work-card-desc">A six-page concept site showcasing multi-page structure and brand consistency.</p>
+            <div class="work-card-body">
+              <span class="work-card-eyebrow">Nonprofit Site</span>
+              <h4 class="work-card-title">Guardian 4 Heroes</h4>
+              <p>A multi-page site for a nonprofit offering equine therapy to veterans and first responders.</p>
             </div>
           </a>
 
-          <a href="https://web-ops-studio.com/landing-pages/ironshield-roofing/" target="_blank" rel="noopener" class="more-work-card">
-            <div class="more-work-card-image">
-              <img src="images/roofing-screenshot2.jpg" alt="IronShield Roofing landing page">
+          <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="work-card reveal">
+            <span class="work-card-num">03</span>
+            <div class="work-card-image">
+              <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe">
             </div>
-            <div class="more-work-card-body">
-              <span class="more-work-card-eyebrow">Landing Page</span>
-              <div class="more-work-card-title">IronShield Roofing</div>
-              <p class="more-work-card-desc">Storm-damage lead gen page with a trust-first layout and quote request flow.</p>
-            </div>
-          </a>
-
-          <a href="https://web-ops-studio.com/landing-pages/fitness-coach-funnel/" target="_blank" rel="noopener" class="more-work-card">
-            <div class="more-work-card-image">
-              <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness landing page">
-            </div>
-            <div class="more-work-card-body">
-              <span class="more-work-card-eyebrow">Landing Page</span>
-              <div class="more-work-card-title">Vanguard Fitness</div>
-              <p class="more-work-card-desc">Premium coaching funnel with application-driven flow and social proof.</p>
+            <div class="work-card-body">
+              <span class="work-card-eyebrow">Concept Build</span>
+              <h4 class="work-card-title">Ember &amp; Oak Cafe</h4>
+              <p>A six-page concept site showcasing multi-page structure and brand consistency.</p>
             </div>
           </a>
 
-          <a href="https://web-ops-studio.com/landing-pages/saas-beta-waitlist/" target="_blank" rel="noopener" class="more-work-card">
-            <div class="more-work-card-image">
-              <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck SaaS landing page">
+          <a href="landing-pages/ironshield-roofing/" target="_blank" rel="noopener" class="work-card reveal">
+            <span class="work-card-num">04</span>
+            <div class="work-card-image">
+              <img src="images/roofing-screenshot2.jpg" alt="IronShield Roofing">
             </div>
-            <div class="more-work-card-body">
-              <span class="more-work-card-eyebrow">Landing Page</span>
-              <div class="more-work-card-title">LaunchDeck</div>
-              <p class="more-work-card-desc">SaaS beta waitlist page with centered hero, feature grid, and streamlined signup.</p>
+            <div class="work-card-body">
+              <span class="work-card-eyebrow">Landing Page</span>
+              <h4 class="work-card-title">IronShield Roofing</h4>
+              <p>Storm-damage lead gen page with a trust-first layout and quote request flow.</p>
+            </div>
+          </a>
+
+          <a href="landing-pages/fitness-coach-funnel/" target="_blank" rel="noopener" class="work-card reveal">
+            <span class="work-card-num">05</span>
+            <div class="work-card-image">
+              <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness">
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-eyebrow">Landing Page</span>
+              <h4 class="work-card-title">Vanguard Fitness</h4>
+              <p>Premium coaching funnel with application-driven flow and social proof.</p>
+            </div>
+          </a>
+
+          <a href="landing-pages/saas-beta-waitlist/" target="_blank" rel="noopener" class="work-card reveal">
+            <span class="work-card-num">06</span>
+            <div class="work-card-image">
+              <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck SaaS">
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-eyebrow">Landing Page</span>
+              <h4 class="work-card-title">LaunchDeck</h4>
+              <p>SaaS beta waitlist page with centered hero, feature grid, and streamlined signup.</p>
             </div>
           </a>
 
         </div>
 
         <div style="text-align: center; margin-top: 3rem;">
-          <a href="portfolio.html" class="btn btn-on-dark">View All Work</a>
+          <a href="portfolio.html" class="btn btn-ghost">View All Work &rarr;</a>
         </div>
-
       </div>
     </section>
 
-    <!-- ============ SERVICES ============ -->
-    <section class="section">
+    <!-- ============ SERVICES (DARK FOREST) ============ -->
+    <section class="section section-dark">
       <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">What I Build</span>
-          <h2>Websites and web apps, <em style="color: var(--color-gold-deep); font-style: italic; font-weight: 400;">built by hand</em>.</h2>
+
+        <div class="section-num reveal">
+          <span>&sect; 03 &middot; What I Build</span>
         </div>
 
-        <div class="services-list">
+        <div class="section-header reveal">
+          <span class="tag-label tag-label--light">// Services &amp; Capabilities</span>
+          <h2>Websites and web apps, <em style="color: var(--gold-bright);">built by hand.</em></h2>
+          <p>No templates. No bloated frameworks. Just clean, scalable code and intentional design that performs.</p>
+        </div>
+
+        <div class="services-grid reveal">
           <div class="service-item">
+            <span class="sv-num">01</span>
             <h4>Custom Websites</h4>
             <p>Hand-coded multi-page sites with custom design systems and clean, maintainable code.</p>
           </div>
           <div class="service-item">
+            <span class="sv-num">02</span>
             <h4>Full-Stack Web Apps</h4>
-            <p>Registration platforms, admin dashboards, and database-driven sites with authentication and payment tracking.</p>
+            <p>Registration platforms, admin dashboards, and database-driven sites with authentication.</p>
           </div>
           <div class="service-item">
+            <span class="sv-num">03</span>
             <h4>Landing Pages</h4>
             <p>Single-page sites focused on conversion &ndash; clear messaging, fast load, mobile-first.</p>
           </div>
           <div class="service-item">
+            <span class="sv-num">04</span>
             <h4>Redesigns &amp; Cleanup</h4>
             <p>Rework existing sites to look modern, load faster, and read better on every screen.</p>
           </div>
           <div class="service-item">
+            <span class="sv-num">05</span>
             <h4>Mobile Optimization</h4>
-            <p>Make sure your existing site actually works &ndash; and looks good &ndash; on the phones most of your visitors are using.</p>
+            <p>Make sure your existing site looks good and works right on the phones your visitors use.</p>
           </div>
           <div class="service-item">
+            <span class="sv-num">06</span>
             <h4>Contact &amp; Donation Forms</h4>
-            <p>Custom contact, donation, and registration forms integrated with the tools your business already uses.</p>
+            <p>Custom contact, donation, and registration forms integrated with the tools you use.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PRICING (DARK CHARCOAL) ============ -->
-    <section class="section section-dark-charcoal">
+    <!-- ============ PROCESS ============ -->
+    <section class="section">
       <div class="container">
 
-        <div class="section-number" style="color: var(--color-gold);">
-          <span class="num" style="color: var(--color-gold);">04</span> Pricing
+        <div class="section-num reveal">
+          <span>&sect; 04 &middot; The Process</span>
         </div>
 
-        <div class="section-header">
-          <span class="eyebrow eyebrow-on-dark">Pricing</span>
-          <h2>Honest ranges, <em style="color: var(--color-gold); font-style: italic; font-weight: 400;">no surprises</em>.</h2>
-          <p>
-            Every project is quoted individually based on scope. These ranges give you a sense of where things land.
-          </p>
+        <div class="section-header reveal">
+          <span class="tag-label">// How the Work Gets Made</span>
+          <h2>A clear path from <em class="italic-accent">idea to launch.</em></h2>
         </div>
 
-        <div class="pricing-grid">
+        <div class="process-track reveal">
+          <div class="process-step">
+            <div class="ps-num">01</div>
+            <div class="ps-title">Discover</div>
+            <div class="ps-bar"></div>
+            <p>We learn about your goals, audience, and what you actually need.</p>
+          </div>
+          <div class="process-step">
+            <div class="ps-num">02</div>
+            <div class="ps-title">Strategize</div>
+            <div class="ps-bar"></div>
+            <p>Map the structure, user flow, and technical foundation.</p>
+          </div>
+          <div class="process-step">
+            <div class="ps-num">03</div>
+            <div class="ps-title">Design</div>
+            <div class="ps-bar gold"></div>
+            <p>Build a custom layout and visual system tied to your brand.</p>
+          </div>
+          <div class="process-step">
+            <div class="ps-num">04</div>
+            <div class="ps-title">Develop</div>
+            <div class="ps-bar"></div>
+            <p>Hand-code performant, scalable, maintainable solutions.</p>
+          </div>
+          <div class="process-step">
+            <div class="ps-num">05</div>
+            <div class="ps-title">Deploy</div>
+            <div class="ps-bar maroon"></div>
+            <p>Launch with precision. Stay available for what comes next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="pricing-tier">
-            <span class="pricing-tier-name">Template Setup</span>
-            <div class="pricing-tier-price"><span class="dollar">$</span>500</div>
-            <p class="pricing-tier-desc">
-              Professional template-based site (Wix, Squarespace, or similar). I handle setup, customization, content, mobile optimization, and launch.
-            </p>
-            <div class="pricing-tier-for">
+    <!-- ============ PRICING ============ -->
+    <section class="section section-alt">
+      <div class="container">
+
+        <div class="section-num reveal">
+          <span>&sect; 05 &middot; Pricing</span>
+        </div>
+
+        <div class="section-header reveal">
+          <span class="tag-label">// Honest Ranges</span>
+          <h2>No surprises. <em class="italic-accent">No games.</em> Just clarity.</h2>
+          <p>Every project is quoted individually based on scope. These ranges give you a sense of where things land.</p>
+        </div>
+
+        <div class="pricing-grid reveal">
+
+          <div class="pricing-card">
+            <div class="pc-tier">Template Setup</div>
+            <div class="pc-price"><span class="dollar">$</span>500</div>
+            <p>Professional template-based site (Wix, Squarespace, or similar). Setup, customization, content, mobile optimization, launch.</p>
+            <div class="pc-for">
               <strong>Good for</strong>
               Tight budgets that still need a polished result without doing it yourself.
             </div>
           </div>
 
-          <div class="pricing-tier">
-            <span class="pricing-tier-name">Starter Site</span>
-            <div class="pricing-tier-price"><span class="dollar">$</span>800<span style="font-size: 0.6em; color: var(--color-text-light-mute);">&ndash;1.2k</span></div>
-            <p class="pricing-tier-desc">
-              Hand-coded HTML/CSS site. Up to 5 pages, mobile-responsive, contact form, domain setup.
-            </p>
-            <div class="pricing-tier-for">
+          <div class="pricing-card">
+            <div class="pc-tier">Starter Site</div>
+            <div class="pc-price"><span class="dollar">$</span>800<span class="range">&ndash;1.2k</span></div>
+            <p>Hand-coded HTML/CSS site. Up to 5 pages, mobile-responsive, contact form, domain setup.</p>
+            <div class="pc-for">
               <strong>Good for</strong>
               Local businesses and nonprofits who want something custom but simple.
             </div>
           </div>
 
-          <div class="pricing-tier">
-            <span class="pricing-tier-name">Custom Build</span>
-            <div class="pricing-tier-price"><span class="dollar">$</span>1.5k<span style="font-size: 0.6em; color: var(--color-text-light-mute);">&ndash;2.5k</span></div>
-            <p class="pricing-tier-desc">
-              Hand-coded multi-page site with a custom design system, CMS-friendly structure, and full deployment.
-            </p>
-            <div class="pricing-tier-for">
+          <div class="pricing-card featured">
+            <span class="pc-badge">Most Popular</span>
+            <div class="pc-tier">Custom Build</div>
+            <div class="pc-price"><span class="dollar">$</span>1.5k<span class="range">&ndash;2.5k</span></div>
+            <p>Hand-coded multi-page site with a custom design system, CMS-friendly structure, and full deployment.</p>
+            <div class="pc-for">
               <strong>Good for</strong>
               Businesses that need something polished, distinctive, and built to last.
             </div>
           </div>
 
-          <div class="pricing-tier">
-            <span class="pricing-tier-name">Full-Stack Project</span>
-            <div class="pricing-tier-price"><span class="dollar">$</span>2.5k<span style="font-size: 0.6em; color: var(--color-text-light-mute);">&ndash;4.5k</span></div>
-            <p class="pricing-tier-desc">
-              Custom web application &ndash; database, authentication, admin dashboard, forms with logic. Think Mission Possible.
-            </p>
-            <div class="pricing-tier-for">
+          <div class="pricing-card">
+            <div class="pc-tier">Full-Stack</div>
+            <div class="pc-price"><span class="dollar">$</span>2.5k<span class="range">&ndash;4.5k</span></div>
+            <p>Custom web application &ndash; database, authentication, admin dashboard, forms with logic. Think Mission Possible.</p>
+            <div class="pc-for">
               <strong>Good for</strong>
               Event platforms, registration systems, anything with data.
             </div>
@@ -330,7 +447,7 @@
 
         </div>
 
-        <div class="pricing-note">
+        <div class="pricing-note reveal">
           <strong>Every project includes:</strong> 2 rounds of revisions, mobile-first build, deployment, and direct communication with the person actually building your site.
         </div>
       </div>
@@ -339,24 +456,26 @@
     <!-- ============ TESTIMONIAL ============ -->
     <section class="section">
       <div class="container">
-        <div class="testimonial">
+        <div class="testimonial reveal">
           <blockquote>
             Craig went above and beyond. He didn't just build us a website, he brought our mission to life. We get compliments on it constantly.
           </blockquote>
-          <cite>&ndash; Guardian 4 Heroes Team</cite>
+          <cite>&mdash; Guardian 4 Heroes Team</cite>
         </div>
       </div>
     </section>
 
-    <!-- ============ CTA STRIP (DEEP GREEN CLOSER) ============ -->
-    <section class="section section-cta-green cta-strip">
+    <!-- ============ CTA STRIP (MAROON) ============ -->
+    <section class="section section-maroon cta-strip">
       <div class="container">
-        <h2>Let's build something <em>that lasts</em>.</h2>
-        <p>
-          If you've got a project in mind, I'd like to hear about it.
-        </p>
+        <div class="section-header center reveal">
+          <span class="tag-label tag-label--light">// Let's Build Something</span>
+          <h2>Something <em style="color: var(--gold-bright);">that lasts.</em></h2>
+          <div class="gold-rule"><span class="diamond"></span></div>
+          <p>If you've got a project in mind, I'd like to hear about it. No pressure. Just a real conversation about what you're trying to build.</p>
+        </div>
         <div class="hero-actions">
-          <a href="contact.html" class="btn btn-on-dark">Get a Quote</a>
+          <a href="contact.html" class="btn btn-on-dark">Get a Quote &nbsp;&rarr;</a>
           <a href="portfolio.html" class="btn btn-ghost-on-dark">See More Work</a>
         </div>
       </div>
@@ -368,13 +487,11 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-brand">
-        <div class="site-logo">
-          <a href="index.html">WebOps <em>Studio</em></a>
-        </div>
+        <div class="site-logo">Web<em>[Ops]</em> Studio</div>
         <p>Custom hand-coded websites and full-stack web applications. Built by hand in Minnesota.</p>
       </div>
       <div class="footer-col">
-        <h4>Site</h4>
+        <h4>// Site</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="portfolio.html">Work</a></li>
@@ -383,7 +500,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>// Contact</h4>
         <ul>
           <li><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></li>
           <li><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></li>
@@ -392,16 +509,49 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 WebOps Studio. All rights reserved.
+      &copy; 2026 WebOps Studio &middot; All rights reserved &middot; v3.0
     </div>
   </footer>
 
   <script>
-    function toggleNav(btn) {
-      const nav = document.getElementById('primary-nav');
-      const isOpen = nav.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen);
-    }
+    // Mobile nav toggle
+    (function() {
+      const btn = document.getElementById('mobileMenuBtn');
+      const drawer = document.getElementById('mobileNavDrawer');
+      if (!btn || !drawer) return;
+      btn.addEventListener('click', function() {
+        const open = drawer.classList.toggle('is-open');
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open);
+      });
+      // Close drawer when a link is tapped
+      drawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          drawer.classList.remove('is-open');
+          btn.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+
+    // Scroll reveal (respects prefers-reduced-motion)
+    (function() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll('.reveal');
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => io.observe(el));
+    })();
   </script>
 
 </body>
