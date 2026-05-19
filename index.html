@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://web-ops-studio.com/">
 
   <meta property="og:title" content="WebOps Studio &ndash; Digital Architecture Built with Intention">
-  <meta property="og:description" content="Custom, hand-coded websites and full-stack web applications. Built with care, by hand.">
+  <meta property="og:description" content="Custom, hand-coded websites and full-stack web applications. Built by hand in Minnesota.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://web-ops-studio.com/">
 
@@ -23,40 +23,35 @@
 </head>
 <body>
 
-  <!-- ============ SIDEBAR NAV ============ -->
+  <!-- ============ SIDEBAR (DESKTOP) ============ -->
   <aside class="sidebar">
-    <div class="sidebar-top">
-      <a href="index.html" class="sidebar-logo">
-        <img src="images/monogram.png" alt="WebOps Studio monogram">
-      </a>
-      <div class="sidebar-brand">
-        <span class="sidebar-name">Web<em class="italic-accent">[Ops]</em> Studio</span>
-        <span class="sidebar-tagline">Digital Architecture</span>
-        <span class="sidebar-tagline">Built with Intention</span>
-      </div>
-      <div class="sidebar-coords">
-        44.9778&deg; N<br>
-        93.2650&deg; W<br>
-        MINNESOTA / USA
-      </div>
+    <a href="index.html" aria-label="WebOps Studio home">
+      <img src="images/monogram.png" alt="" class="sidebar-monogram">
+    </a>
+    <div class="sidebar-brand">
+      Web<em>[Ops]</em><br>Studio
+      <small>Digital<br>Architecture</small>
     </div>
+    <div class="sidebar-divider"></div>
 
     <nav class="sidebar-nav" aria-label="Primary">
-      <ul>
-        <li><a href="index.html" class="is-active"><span class="num">01</span>Home</a></li>
-        <li><a href="portfolio.html"><span class="num">02</span>Work</a></li>
-        <li><a href="about.html"><span class="num">03</span>About</a></li>
-        <li><a href="contact.html"><span class="num">04</span>Contact</a></li>
-      </ul>
+      <a href="index.html" data-num="01" class="is-active">Home</a>
+      <a href="portfolio.html" data-num="02">Work</a>
+      <a href="about.html" data-num="03">About</a>
+      <a href="contact.html" data-num="04">Contact</a>
     </nav>
 
     <div class="sidebar-footer">
-      <div class="sidebar-divider"></div>
-      <p class="sidebar-motto">
-        Thoughtful Design<br>
-        Intentional Code<br>
-        Measurable Impact
-      </p>
+      <div style="color: var(--cream); opacity: 0.5;">
+        <object type="image/svg+xml" data="images/compass.svg" class="sidebar-compass" aria-hidden="true"></object>
+      </div>
+      <div class="sidebar-motto">
+        Thoughtful<br>
+        Design<br>
+        &middot;<br>
+        Intentional<br>
+        Code
+      </div>
     </div>
   </aside>
 
@@ -71,270 +66,234 @@
     </button>
   </header>
 
-  <div class="mobile-nav-drawer" id="mobileNavDrawer">
-    <nav>
-      <ul>
-        <li><a href="index.html">01 &nbsp; Home</a></li>
-        <li><a href="portfolio.html">02 &nbsp; Work</a></li>
-        <li><a href="about.html">03 &nbsp; About</a></li>
-        <li><a href="contact.html">04 &nbsp; Contact</a></li>
-      </ul>
-    </nav>
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <div class="brand-line">Web<em>[Ops]</em> Studio</div>
+      <div class="brand-sub">Digital Architecture &middot; Minnesota</div>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="is-active"><span class="mn-num">01</span><span class="mn-text">Home</span></a></li>
+      <li><a href="portfolio.html"><span class="mn-num">02</span><span class="mn-text">Work</span></a></li>
+      <li><a href="about.html"><span class="mn-num">03</span><span class="mn-text">About</span></a></li>
+      <li><a href="contact.html"><span class="mn-num">04</span><span class="mn-text">Contact</span></a></li>
+    </ul>
+
+    <div class="mobile-nav-footer">
+      <div class="mn-tagline">
+        <span class="w1">Precision.</span>
+        <span class="w2">Craft.</span>
+        <span class="w3">Purpose.</span>
+      </div>
+      <div class="mn-meta">
+        44.9778&deg; N &middot; 93.2650&deg; W<br>
+        Minnesota / USA
+      </div>
+    </div>
   </div>
 
   <!-- ============ MAIN ============ -->
   <main class="main">
 
     <!-- ============ HERO ============ -->
-    <section class="hero">
-      <!-- Crosshair markers -->
-      <span class="crosshair crosshair-tl" aria-hidden="true"></span>
-      <span class="crosshair crosshair-tr" aria-hidden="true"></span>
-      <span class="crosshair crosshair-bl" aria-hidden="true"></span>
-      <span class="crosshair crosshair-br" aria-hidden="true"></span>
-
-      <!-- Code decorations (left + right) -->
-      <pre class="code-decor code-decor-left" aria-hidden="true"><span class="num">01</span> <span class="kw">&lt;!DOCTYPE</span> html<span class="kw">&gt;</span>
-<span class="num">02</span> <span class="kw">&lt;html</span> lang<span class="kw">=</span>"en"<span class="kw">&gt;</span>
-<span class="num">03</span> <span class="kw">&lt;head&gt;</span>
-<span class="num">04</span>   <span class="fn">&lt;meta</span> charset<span class="kw">=</span>"UTF-8"<span class="fn">/&gt;</span>
-<span class="num">05</span>   <span class="fn">&lt;title&gt;</span>Web[Ops]<span class="fn">&lt;/title&gt;</span>
-<span class="num">06</span> <span class="kw">&lt;/head&gt;</span>
-<span class="num">07</span> <span class="kw">&lt;body&gt;</span></pre>
-
-      <pre class="code-decor code-decor-right" aria-hidden="true"><span class="num">01</span> <span class="kw">function</span> <span class="fn">build</span>() {
-<span class="num">02</span>   plan();
-<span class="num">03</span>   design();
-<span class="num">04</span>   develop();
-<span class="num">05</span>   deploy();
-<span class="num">06</span>   <span class="kw">return</span> excellence;
-<span class="num">07</span> }</pre>
-
-      <!-- Mountain element -->
-      <div class="hero-mountain" aria-hidden="true">
+    <section class="draft">
+      <!-- Mountain - top right -->
+      <div class="draft-mountain" aria-hidden="true">
         <img src="images/mountain-element.png" alt="">
       </div>
 
-      <!-- Top meta bar -->
-      <div class="hero-meta">
-        <div class="hero-meta-left">
-          <span>EST. 2026</span>
-          <span class="dot"></span>
-          <span>Independent Studio</span>
+      <!-- Corner blocks -->
+      <div class="corner-block forest" style="right: 0; top: 30%; width: 40px; height: 180px;" aria-hidden="true"></div>
+      <div class="corner-block maroon" style="right: 0; bottom: 8%; width: 60px; height: 60px;" aria-hidden="true"></div>
+
+      <!-- Crosshair markers -->
+      <span class="crosshair" style="top: 1.5rem; left: 0;" aria-hidden="true"></span>
+      <span class="crosshair" style="top: 30%; left: 35%;" aria-hidden="true"></span>
+      <span class="crosshair" style="bottom: 8rem; right: 18%;" aria-hidden="true"></span>
+
+      <!-- Side label -->
+      <span class="side-label" style="right: 1rem; top: 50%;">EST. 2026 &mdash; INDEPENDENT STUDIO</span>
+
+      <!-- Code block - top left -->
+      <pre class="code-block code-floating" style="top: 6rem; left: var(--pad-x); max-width: 280px;" aria-hidden="true"><span class="ln">01</span> <span class="kw">&lt;!DOCTYPE</span> html<span class="kw">&gt;</span>
+<span class="ln">02</span> <span class="kw">&lt;html</span> lang<span class="cm">=</span>"en"<span class="kw">&gt;</span>
+<span class="ln">03</span> <span class="kw">&lt;head&gt;</span>
+<span class="ln">04</span>   <span class="fn">&lt;meta</span> charset<span class="cm">=</span>"UTF-8"/&gt;
+<span class="ln">05</span>   <span class="fn">&lt;title&gt;</span>Web[Ops]<span class="fn">&lt;/title&gt;</span>
+<span class="ln">06</span> <span class="kw">&lt;/head&gt;</span>
+<span class="ln">07</span> <span class="kw">&lt;body&gt;</span></pre>
+
+      <!-- Code block - bottom right -->
+      <pre class="code-block code-floating" style="bottom: 8rem; right: var(--pad-x); max-width: 280px;" aria-hidden="true"><span class="cm">/* build.js */</span>
+<span class="ln">01</span> <span class="kw">function</span> <span class="fn">build</span>() {
+<span class="ln">02</span>   <span class="kw">const</span> plan = strategy();
+<span class="ln">03</span>   <span class="kw">const</span> design = craft();
+<span class="ln">04</span>   <span class="kw">const</span> build = develop();
+<span class="ln">05</span>   <span class="kw">return</span> excellence;
+<span class="ln">06</span> }</pre>
+
+      <!-- Wireframe decoration -->
+      <div class="wire-frame" style="bottom: 14rem; left: 28%; width: 200px; color: var(--ink);" aria-hidden="true">
+        <object type="image/svg+xml" data="images/wireframe.svg"></object>
+      </div>
+
+      <!-- Header -->
+      <div class="draft-header">
+        <div class="draft-header-left">
+          <div class="h-name">Web[Ops] Studio</div>
+          <div class="h-tag">Digital Architecture &middot; Built With Intention</div>
         </div>
-        <div class="hero-meta-right">
-          <span>v3.0</span>
-          <span class="dot"></span>
-          <span>Built by hand</span>
+        <div class="draft-header-right">
+          <div class="coords">44.9778&deg; N, 93.2650&deg; W</div>
+          <div class="coords">Minnesota, USA</div>
         </div>
       </div>
 
       <!-- Body -->
-      <div class="hero-body reveal">
-        <div class="hero-supertag">&lt; CODE &middot; <span class="gold-text">DESIGN</span> &middot; DEPLOY /&gt;</div>
+      <div class="draft-body reveal" style="margin-top: 6rem; text-align: center; max-width: 100%;">
+        <div class="draft-eyebrow" style="justify-content: center;">
+          <span class="bracket">[</span>
+          <span>// Code &middot; Design &middot; Deploy</span>
+          <span class="bracket">]</span>
+        </div>
 
-        <img src="images/monogram.png" alt="" class="hero-monogram" aria-hidden="true">
-
-        <h1 class="hero-wordmark">
-          Web<span class="bracket">[</span><span class="ops">Ops</span><span class="bracket">]</span>
+        <h1 class="draft-title" style="text-align: center;">
+          Web<span class="bracket-open">[</span>Ops<span class="bracket-open">]</span>
         </h1>
-        <div class="hero-wordmark-sub">STUDIO</div>
 
-        <p class="hero-tagline">
-          The modern <span class="italic-accent">precision.</span><br>
-          The handcrafted <span class="italic-accent">execution.</span>
-        </p>
+        <div style="font-family: var(--font-body); font-size: 1.2rem; font-weight: 500; letter-spacing: 0.45em; color: var(--ink); margin-top: -0.3rem; margin-bottom: 1.5rem;">STUDIO</div>
 
-        <div class="gold-rule" style="max-width: 220px; margin-left: auto; margin-right: auto;">
+        <div class="divider divider--centered" aria-hidden="true">
           <span class="diamond"></span>
         </div>
 
-        <p class="hero-tagline-2">Intentional by design &middot; <span class="gold-text">Excellent</span> by default</p>
+        <div style="font-family: var(--font-display); font-size: clamp(1.4rem, 2.8vw, 2rem); font-style: italic; color: var(--ink-soft); font-weight: 400; margin: 1rem 0; line-height: 1.3;">
+          The modern <span class="italic-accent">precision.</span><br>
+          The handcrafted <span class="italic-accent italic-accent--maroon">execution.</span>
+        </div>
 
-        <div class="hero-actions">
+        <div class="tri-tagline" style="justify-content: center; margin-top: 2rem;">
+          <span class="word-1">Precision.</span>
+          <span class="word-2">Craft.</span>
+          <span class="word-3">Purpose.</span>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
           <a href="portfolio.html" class="btn btn-primary">View Work &nbsp;&rarr;</a>
           <a href="contact.html" class="btn btn-ghost">Start a Project</a>
         </div>
       </div>
+
+      <div class="page-baseline">
+        <span>// Built With Purpose &middot; Designed To Perform</span>
+      </div>
     </section>
 
-    <!-- ============ FEATURED CASE: MISSION POSSIBLE ============ -->
+    <!-- ============ FEATURED CASE ============ -->
     <section class="section section-alt">
       <div class="container">
 
-        <div class="section-num reveal">
-          <span>&sect; 01 &middot; Case Study</span>
+        <div class="section-marker reveal">
+          <span>&sect; 01 &middot; Featured Case Study</span>
         </div>
 
         <div class="section-header reveal">
-          <span class="tag-label">// Featured Project</span>
+          <span class="tag">// Mission Possible</span>
           <h2>
-            <span class="bracket-h"><span class="bracket">[</span></span>A full-stack event platform, <em class="italic-accent">built from scratch.</em>
+            <span class="bracket-h"><span class="bracket">[</span></span>A full-stack event<br>
+            platform, <em class="italic-accent">built from scratch.</em>
           </h2>
+          <div class="tri-tagline">
+            <span class="word-1">Design.</span>
+            <span class="word-2">Structure.</span>
+            <span class="word-3">Performance.</span>
+          </div>
         </div>
 
         <div class="featured-case reveal">
-          <div class="featured-images">
-            <img src="images/mission-home.jpg" alt="Mission Possible homepage hero">
-            <img src="images/mission-reg.jpg" alt="Registration form">
-            <img src="images/mission-event.jpg" alt="Event details">
-            <img src="images/mission-com.jpg" alt="Payment confirmation with reference code">
+          <div class="fc-images">
+            <div class="fc-img featured" data-num="01"><img src="images/mission-home.jpg" alt="Mission Possible homepage hero"></div>
+            <div class="fc-img" data-num="02"><img src="images/mission-event.jpg" alt="Event details page"></div>
+            <div class="fc-img" data-num="03"><img src="images/mission-reg.jpg" alt="Registration form"></div>
+            <div class="fc-img" data-num="04" style="grid-column: 1 / -1;"><img src="images/mission-com.jpg" alt="Payment confirmation"></div>
           </div>
 
-          <div class="case-info">
-            <span class="case-eyebrow">Mission Possible &middot; 2026</span>
+          <div class="fc-info">
+            <span class="fc-eyebrow">Mission Possible &middot; 2026</span>
             <h3>Mission Possible: <em class="italic-accent">Hooves &amp; Paws</em></h3>
-            <p>A custom event registration platform for a Minnesota nonprofit fundraiser. Built end to end &ndash; design system, registration flow, payment tracking, and an admin dashboard for the hosts.</p>
+            <p>A custom event registration platform for a Minnesota nonprofit fundraiser benefiting equine therapy and K9 training programs for veterans and first responders.</p>
+            <p>The organizers needed more than a marketing site &ndash; they needed a full system to manage registrations, track payments, and run a real event. Everything built from scratch.</p>
 
-            <div class="case-tags">
-              <span class="case-tag">Next.js</span>
-              <span class="case-tag">Supabase</span>
-              <span class="case-tag">TypeScript</span>
-              <span class="case-tag">Custom Design</span>
-              <span class="case-tag">Vercel</span>
+            <div class="fc-tags">
+              <span class="fc-tag">Next.js</span>
+              <span class="fc-tag">TypeScript</span>
+              <span class="fc-tag">Supabase</span>
+              <span class="fc-tag">Vercel</span>
+              <span class="fc-tag">Givebutter</span>
             </div>
 
-            <ul class="case-features">
-              <li><strong>Custom design system</strong> &ndash; cinematic homepage, hand-composited logo, full mobile-responsive layout.</li>
-              <li><strong>Registration flow</strong> &ndash; multi-participant forms, dynamic pricing, t-shirt sizing.</li>
-              <li><strong>Payment tracking</strong> &ndash; unique reference codes, partial-payment handling, Givebutter integration.</li>
-              <li><strong>Admin dashboard</strong> &ndash; live stats, registration search, shirt order reporting.</li>
+            <ul class="fc-features">
+              <li><strong>Custom design system</strong> &mdash; cinematic homepage, hand-composited logo, full mobile-responsive layout.</li>
+              <li><strong>Registration flow</strong> &mdash; multi-participant forms, dynamic pricing, t-shirt sizing.</li>
+              <li><strong>Payment tracking</strong> &mdash; unique reference codes, partial-payment handling, Givebutter integration.</li>
+              <li><strong>Admin dashboard</strong> &mdash; live stats, registration search, shirt order reporting.</li>
             </ul>
 
             <a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener" class="case-link">View Live Site &rarr;</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ MORE WORK ============ -->
-    <section class="section">
-      <div class="container">
-
-        <div class="section-num reveal">
-          <span>&sect; 02 &middot; Selected Work</span>
-        </div>
-
-        <div class="section-header reveal">
-          <span class="tag-label">// Range Across Industries</span>
-          <h2>Concept builds &amp; <em class="italic-accent">landing pages.</em></h2>
-          <p>A look at recent demos, client launches, and landing pages. Different industries, different goals, same attention to detail.</p>
-        </div>
-
-        <div class="work-grid">
-
-          <a href="https://guardian4heroes.com/" target="_blank" rel="noopener" class="work-card reveal">
-            <span class="work-card-num">02</span>
-            <div class="work-card-image">
-              <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes">
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-eyebrow">Nonprofit Site</span>
-              <h4 class="work-card-title">Guardian 4 Heroes</h4>
-              <p>A multi-page site for a nonprofit offering equine therapy to veterans and first responders.</p>
-            </div>
-          </a>
-
-          <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="work-card reveal">
-            <span class="work-card-num">03</span>
-            <div class="work-card-image">
-              <img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe">
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-eyebrow">Concept Build</span>
-              <h4 class="work-card-title">Ember &amp; Oak Cafe</h4>
-              <p>A six-page concept site showcasing multi-page structure and brand consistency.</p>
-            </div>
-          </a>
-
-          <a href="landing-pages/ironshield-roofing/" target="_blank" rel="noopener" class="work-card reveal">
-            <span class="work-card-num">04</span>
-            <div class="work-card-image">
-              <img src="images/roofing-screenshot2.jpg" alt="IronShield Roofing">
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-eyebrow">Landing Page</span>
-              <h4 class="work-card-title">IronShield Roofing</h4>
-              <p>Storm-damage lead gen page with a trust-first layout and quote request flow.</p>
-            </div>
-          </a>
-
-          <a href="landing-pages/fitness-coach-funnel/" target="_blank" rel="noopener" class="work-card reveal">
-            <span class="work-card-num">05</span>
-            <div class="work-card-image">
-              <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness">
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-eyebrow">Landing Page</span>
-              <h4 class="work-card-title">Vanguard Fitness</h4>
-              <p>Premium coaching funnel with application-driven flow and social proof.</p>
-            </div>
-          </a>
-
-          <a href="landing-pages/saas-beta-waitlist/" target="_blank" rel="noopener" class="work-card reveal">
-            <span class="work-card-num">06</span>
-            <div class="work-card-image">
-              <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck SaaS">
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-eyebrow">Landing Page</span>
-              <h4 class="work-card-title">LaunchDeck</h4>
-              <p>SaaS beta waitlist page with centered hero, feature grid, and streamlined signup.</p>
-            </div>
-          </a>
-
-        </div>
 
         <div style="text-align: center; margin-top: 3rem;">
-          <a href="portfolio.html" class="btn btn-ghost">View All Work &rarr;</a>
+          <a href="portfolio.html" class="btn btn-ghost">See All Projects &nbsp;&rarr;</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ SERVICES (DARK FOREST) ============ -->
-    <section class="section section-dark">
+    <!-- ============ SERVICES (FOREST) ============ -->
+    <section class="section section-forest">
       <div class="container">
 
-        <div class="section-num reveal">
-          <span>&sect; 03 &middot; What I Build</span>
+        <div class="section-marker section-marker--light reveal">
+          <span>&sect; 02 &middot; Services</span>
         </div>
 
         <div class="section-header reveal">
-          <span class="tag-label tag-label--light">// Services &amp; Capabilities</span>
-          <h2>Websites and web apps, <em style="color: var(--gold-bright);">built by hand.</em></h2>
-          <p>No templates. No bloated frameworks. Just clean, scalable code and intentional design that performs.</p>
+          <span class="tag tag--light">// What I Build</span>
+          <h2>Websites and web apps,<br><em style="color: var(--gold-bright);">built by hand.</em></h2>
+          <p>No templates. No bloated frameworks. Just clean, scalable code and intentional design that performs across every screen your visitors use.</p>
         </div>
 
-        <div class="services-grid reveal">
-          <div class="service-item">
-            <span class="sv-num">01</span>
+        <div class="svc-grid reveal">
+          <div class="svc-card">
+            <span class="svc-num">01</span>
             <h4>Custom Websites</h4>
             <p>Hand-coded multi-page sites with custom design systems and clean, maintainable code.</p>
           </div>
-          <div class="service-item">
-            <span class="sv-num">02</span>
+          <div class="svc-card">
+            <span class="svc-num">02</span>
             <h4>Full-Stack Web Apps</h4>
             <p>Registration platforms, admin dashboards, and database-driven sites with authentication.</p>
           </div>
-          <div class="service-item">
-            <span class="sv-num">03</span>
+          <div class="svc-card">
+            <span class="svc-num">03</span>
             <h4>Landing Pages</h4>
-            <p>Single-page sites focused on conversion &ndash; clear messaging, fast load, mobile-first.</p>
+            <p>Single-page sites focused on conversion &mdash; clear messaging, fast load, mobile-first.</p>
           </div>
-          <div class="service-item">
-            <span class="sv-num">04</span>
+          <div class="svc-card">
+            <span class="svc-num">04</span>
             <h4>Redesigns &amp; Cleanup</h4>
             <p>Rework existing sites to look modern, load faster, and read better on every screen.</p>
           </div>
-          <div class="service-item">
-            <span class="sv-num">05</span>
+          <div class="svc-card">
+            <span class="svc-num">05</span>
             <h4>Mobile Optimization</h4>
             <p>Make sure your existing site looks good and works right on the phones your visitors use.</p>
           </div>
-          <div class="service-item">
-            <span class="sv-num">06</span>
+          <div class="svc-card">
+            <span class="svc-num">06</span>
             <h4>Contact &amp; Donation Forms</h4>
-            <p>Custom contact, donation, and registration forms integrated with the tools you use.</p>
+            <p>Custom forms integrated with the tools you already use. Registration, donations, contact flows.</p>
           </div>
         </div>
       </div>
@@ -344,13 +303,13 @@
     <section class="section">
       <div class="container">
 
-        <div class="section-num reveal">
-          <span>&sect; 04 &middot; The Process</span>
+        <div class="section-marker reveal">
+          <span>&sect; 03 &middot; The Process</span>
         </div>
 
         <div class="section-header reveal">
-          <span class="tag-label">// How the Work Gets Made</span>
-          <h2>A clear path from <em class="italic-accent">idea to launch.</em></h2>
+          <span class="tag">// How The Work Gets Made</span>
+          <h2>A clear path from<br><em class="italic-accent">idea to launch.</em></h2>
         </div>
 
         <div class="process-track reveal">
@@ -358,7 +317,7 @@
             <div class="ps-num">01</div>
             <div class="ps-title">Discover</div>
             <div class="ps-bar"></div>
-            <p>We learn about your goals, audience, and what you actually need.</p>
+            <p>Learn about your goals, audience, and what the site actually needs to do.</p>
           </div>
           <div class="process-step">
             <div class="ps-num">02</div>
@@ -369,7 +328,7 @@
           <div class="process-step">
             <div class="ps-num">03</div>
             <div class="ps-title">Design</div>
-            <div class="ps-bar gold"></div>
+            <div class="ps-bar"></div>
             <p>Build a custom layout and visual system tied to your brand.</p>
           </div>
           <div class="process-step">
@@ -381,7 +340,7 @@
           <div class="process-step">
             <div class="ps-num">05</div>
             <div class="ps-title">Deploy</div>
-            <div class="ps-bar maroon"></div>
+            <div class="ps-bar"></div>
             <p>Launch with precision. Stay available for what comes next.</p>
           </div>
         </div>
@@ -392,19 +351,19 @@
     <section class="section section-alt">
       <div class="container">
 
-        <div class="section-num reveal">
-          <span>&sect; 05 &middot; Pricing</span>
+        <div class="section-marker reveal">
+          <span>&sect; 04 &middot; Pricing</span>
         </div>
 
         <div class="section-header reveal">
-          <span class="tag-label">// Honest Ranges</span>
+          <span class="tag">// Honest Ranges</span>
           <h2>No surprises. <em class="italic-accent">No games.</em> Just clarity.</h2>
           <p>Every project is quoted individually based on scope. These ranges give you a sense of where things land.</p>
         </div>
 
         <div class="pricing-grid reveal">
 
-          <div class="pricing-card">
+          <div class="pc">
             <div class="pc-tier">Template Setup</div>
             <div class="pc-price"><span class="dollar">$</span>500</div>
             <p>Professional template-based site (Wix, Squarespace, or similar). Setup, customization, content, mobile optimization, launch.</p>
@@ -414,7 +373,7 @@
             </div>
           </div>
 
-          <div class="pricing-card">
+          <div class="pc">
             <div class="pc-tier">Starter Site</div>
             <div class="pc-price"><span class="dollar">$</span>800<span class="range">&ndash;1.2k</span></div>
             <p>Hand-coded HTML/CSS site. Up to 5 pages, mobile-responsive, contact form, domain setup.</p>
@@ -424,7 +383,7 @@
             </div>
           </div>
 
-          <div class="pricing-card featured">
+          <div class="pc featured">
             <span class="pc-badge">Most Popular</span>
             <div class="pc-tier">Custom Build</div>
             <div class="pc-price"><span class="dollar">$</span>1.5k<span class="range">&ndash;2.5k</span></div>
@@ -435,10 +394,10 @@
             </div>
           </div>
 
-          <div class="pricing-card">
+          <div class="pc">
             <div class="pc-tier">Full-Stack</div>
             <div class="pc-price"><span class="dollar">$</span>2.5k<span class="range">&ndash;4.5k</span></div>
-            <p>Custom web application &ndash; database, authentication, admin dashboard, forms with logic. Think Mission Possible.</p>
+            <p>Custom web application &ndash; database, authentication, admin dashboard, forms with logic.</p>
             <div class="pc-for">
               <strong>Good for</strong>
               Event platforms, registration systems, anything with data.
@@ -465,16 +424,16 @@
       </div>
     </section>
 
-    <!-- ============ CTA STRIP (MAROON) ============ -->
+    <!-- ============ CTA (MAROON) ============ -->
     <section class="section section-maroon cta-strip">
       <div class="container">
         <div class="section-header center reveal">
-          <span class="tag-label tag-label--light">// Let's Build Something</span>
-          <h2>Something <em style="color: var(--gold-bright);">that lasts.</em></h2>
-          <div class="gold-rule"><span class="diamond"></span></div>
-          <p>If you've got a project in mind, I'd like to hear about it. No pressure. Just a real conversation about what you're trying to build.</p>
+          <span class="tag tag--light">// Let's Connect</span>
+          <h2>Let's build something<br><em style="color: var(--gold-bright);">that lasts.</em></h2>
+          <div class="divider divider--centered" aria-hidden="true"><span class="diamond"></span></div>
+          <p style="margin: 1.5rem auto 0;">If you've got a project in mind, I'd like to hear about it. No pressure. Just a real conversation about what you're trying to build.</p>
         </div>
-        <div class="hero-actions">
+        <div class="actions">
           <a href="contact.html" class="btn btn-on-dark">Get a Quote &nbsp;&rarr;</a>
           <a href="portfolio.html" class="btn btn-ghost-on-dark">See More Work</a>
         </div>
@@ -509,12 +468,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 WebOps Studio &middot; All rights reserved &middot; v3.0
+      &copy; 2026 WebOps Studio &middot; All Rights Reserved
     </div>
   </footer>
 
   <script>
-    // Mobile nav toggle
+    // Mobile drawer
     (function() {
       const btn = document.getElementById('mobileMenuBtn');
       const drawer = document.getElementById('mobileNavDrawer');
@@ -523,18 +482,21 @@
         const open = drawer.classList.toggle('is-open');
         btn.classList.toggle('is-open', open);
         btn.setAttribute('aria-expanded', open);
+        drawer.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
       });
-      // Close drawer when a link is tapped
       drawer.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
           drawer.classList.remove('is-open');
           btn.classList.remove('is-open');
           btn.setAttribute('aria-expanded', 'false');
+          drawer.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
         });
       });
     })();
 
-    // Scroll reveal (respects prefers-reduced-motion)
+    // Scroll reveal
     (function() {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const els = document.querySelectorAll('.reveal');
