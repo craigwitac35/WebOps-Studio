@@ -3,482 +3,282 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work &ndash; WebOps Studio</title>
-  <meta name="description" content="Selected projects from WebOps Studio. Custom websites, full-stack applications, and landing pages.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#F5EFE2">
-  <link rel="canonical" href="https://web-ops-studio.com/portfolio">
-
-  <meta property="og:title" content="Work &ndash; WebOps Studio">
-  <meta property="og:description" content="Selected projects from WebOps Studio.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://web-ops-studio.com/portfolio">
-
-  <link rel="icon" href="images/monogram.png" type="image/png">
-  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="description" content="WebOps Studio portfolio — hand-coded websites for real clients. Case studies for IronShield Roofing, Ember & Oak Cafe, Guardian 4 Heroes, and more.">
+  <title>Portfolio — WebOps Studio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="images/webops-logo.png" type="image/png">
 </head>
 <body>
 
-  <!-- ============ SIDEBAR ============ -->
-  <aside class="sidebar">
-    <a href="index.html" aria-label="WebOps Studio home">
-      <img src="images/monogram.png" alt="" class="sidebar-monogram">
-    </a>
-    <div class="sidebar-brand">
-      Web<em>[Ops]</em><br>Studio
-      <small>Digital<br>Architecture</small>
+  <!-- NAV -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio — Home">
+        <img src="images/webops-logo.png" alt="WebOps Studio logo">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"     class="nav__link">Home</a></li>
+        <li><a href="portfolio.html" class="nav__link active">Portfolio</a></li>
+        <li><a href="about.html"     class="nav__link">About</a></li>
+        <li><a href="services.html"  class="nav__link">Services</a></li>
+        <li><a href="contact.html"   class="nav__cta">Let's Talk</a></li>
+      </ul>
+      <button class="nav__mobile-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="sidebar-divider"></div>
+  </nav>
 
-    <nav class="sidebar-nav" aria-label="Primary">
-      <a href="index.html" data-num="01">Home</a>
-      <a href="portfolio.html" data-num="02" class="is-active">Work</a>
-      <a href="about.html" data-num="03">About</a>
-      <a href="contact.html" data-num="04">Contact</a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div style="color: var(--cream); opacity: 0.5;">
-        <object type="image/svg+xml" data="images/compass.svg" class="sidebar-compass" aria-hidden="true"></object>
-      </div>
-      <div class="sidebar-motto">
-        Thoughtful<br>
-        Design<br>
-        &middot;<br>
-        Intentional<br>
-        Code
-      </div>
-    </div>
-  </aside>
-
-  <!-- ============ MOBILE HEADER ============ -->
-  <header class="mobile-header">
-    <a href="index.html" class="mobile-logo">
-      <img src="images/monogram.png" alt="WebOps Studio">
-      <span>Web<em>[Ops]</em> Studio</span>
-    </a>
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+  <!-- MOBILE DRAWER -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <nav class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="drawer__close" id="drawerClose" aria-label="Close navigation menu">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
     </button>
+    <ul class="drawer__nav" role="list">
+      <li><a href="index.html"     class="drawer__link"><span class="drawer__link-num">01</span>Home</a></li>
+      <li><a href="portfolio.html" class="drawer__link"><span class="drawer__link-num">02</span>Portfolio</a></li>
+      <li><a href="about.html"     class="drawer__link"><span class="drawer__link-num">03</span>About</a></li>
+      <li><a href="services.html"  class="drawer__link"><span class="drawer__link-num">04</span>Services</a></li>
+      <li><a href="contact.html"   class="drawer__link"><span class="drawer__link-num">05</span>Let's Talk</a></li>
+    </ul>
+    <div class="drawer__contact">
+      <p class="drawer__contact-label">Direct contact</p>
+      <a href="mailto:craigbaumann2020@gmail.com" class="drawer__contact-email">craigbaumann2020@gmail.com</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-label="Portfolio hero">
+    <div class="page-hero__bg" style="background-image: url('images/hero-portfolio.png');" role="presentation"></div>
+    <div class="page-hero__grid" role="presentation"></div>
+    <div class="page-hero__rule" role="presentation"></div>
+    <div class="page-hero__inner">
+      <p class="t-eyebrow page-hero__eyebrow">Selected Work</p>
+      <h1 class="t-headline t-headline--page">
+        Portfolio <span class="t-dim">&amp; Case Studies</span>
+      </h1>
+    </div>
   </header>
 
-  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
-    <div class="mobile-nav-header">
-      <div class="brand-line">Web<em>[Ops]</em> Studio</div>
-      <div class="brand-sub">Digital Architecture &middot; Minnesota</div>
-    </div>
-    <ul class="mobile-nav-list">
-      <li><a href="index.html"><span class="mn-num">01</span><span class="mn-text">Home</span></a></li>
-      <li><a href="portfolio.html" class="is-active"><span class="mn-num">02</span><span class="mn-text">Work</span></a></li>
-      <li><a href="about.html"><span class="mn-num">03</span><span class="mn-text">About</span></a></li>
-      <li><a href="contact.html"><span class="mn-num">04</span><span class="mn-text">Contact</span></a></li>
-    </ul>
-    <div class="mobile-nav-footer">
-      <div class="mn-tagline">
-        <span class="w1">Design.</span>
-        <span class="w2">Structure.</span>
-        <span class="w3">Performance.</span>
-      </div>
-      <div class="mn-meta">
-        44.9778&deg; N &middot; 93.2650&deg; W<br>
-        Minnesota / USA
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ MAIN ============ -->
-  <main class="main">
-
-    <!-- ============ HERO ============ -->
-    <section class="draft">
-      <!-- Mountain top right -->
-      <div class="draft-mountain" aria-hidden="true">
-        <img src="images/mountain-element.png" alt="">
-      </div>
-
-      <!-- Corner blocks -->
-      <div class="corner-block forest" style="right: 0; top: 8rem; width: 50px; height: 220px;" aria-hidden="true"></div>
-      <div class="corner-block maroon" style="right: 0; bottom: 5rem; width: 60px; height: 80px;" aria-hidden="true"></div>
-      <div class="corner-block forest" style="left: 0; bottom: 0; width: 80px; height: 200px;" aria-hidden="true"></div>
-
-      <span class="crosshair" style="top: 1.5rem; right: 12%;" aria-hidden="true"></span>
-      <span class="crosshair" style="bottom: 4rem; left: 8%;" aria-hidden="true"></span>
-
-      <!-- Code decoration -->
-      <pre class="code-block code-floating" style="top: 5rem; left: 50%; transform: translateX(-50%); max-width: 320px;" aria-hidden="true"><span class="cm">&lt;!-- Built with precision --&gt;</span>
-<span class="ln">01</span> <span class="kw">&lt;section</span> class<span class="cm">=</span>"work-archive"<span class="kw">&gt;</span>
-<span class="ln">02</span>   <span class="kw">&lt;header&gt;</span>
-<span class="ln">03</span>     <span class="fn">&lt;h1&gt;</span>Project Archive<span class="fn">&lt;/h1&gt;</span>
-<span class="ln">04</span>     <span class="fn">&lt;p&gt;</span>Design. Structure. Performance.<span class="fn">&lt;/p&gt;</span>
-<span class="ln">05</span>   <span class="kw">&lt;/header&gt;</span>
-<span class="ln">06</span> <span class="kw">&lt;/section&gt;</span></pre>
-
-      <div class="draft-header">
-        <div class="draft-header-left">
-          <div class="h-name">Web[Ops] Studio</div>
-          <div class="h-tag">Project Archive &middot; 2025&ndash;2026</div>
+  <!-- ============================================================
+       CASE STUDY 01 — GUARDIAN 4 HEROES (Live Client)
+       ============================================================ -->
+  <article class="case-study" id="guardian4heroes" aria-label="Guardian 4 Heroes case study">
+    <div class="case-study__inner">
+      <div class="case-study__header">
+        <div>
+          <p class="t-eyebrow u-mb-md reveal">Live Client &middot; Nonprofit</p>
+          <h2 class="t-headline t-headline--sm reveal reveal--delay-1">Guardian 4 Heroes</h2>
+          <div class="case-study__meta reveal reveal--delay-2">
+            <span class="case-study__meta-tag">HTML</span>
+            <span class="case-study__meta-tag">CSS</span>
+            <span class="case-study__meta-tag">Vanilla JS</span>
+            <span class="case-study__meta-tag">GitHub Pages</span>
+            <span class="case-study__meta-tag">Equine Therapy</span>
+          </div>
         </div>
-        <div class="draft-header-right">
-          <div class="coords">44.9778&deg; N, 93.2650&deg; W</div>
-          <div class="coords">Minnesota, USA</div>
+        <a href="https://guardian4heroes.org" target="_blank" rel="noopener noreferrer" class="btn btn--outline reveal">
+          View Live Site &rarr;
+        </a>
+      </div>
+
+      <div class="case-study__screenshots reveal">
+        <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes homepage" class="case-study__screenshot" loading="lazy">
+        <img src="images/guardian-2.jpg" alt="Guardian 4 Heroes about section" class="case-study__screenshot" loading="lazy">
+        <img src="images/guardian-3.jpg" alt="Guardian 4 Heroes programs page" class="case-study__screenshot" loading="lazy">
+      </div>
+
+      <div class="about-grid" style="gap: 3rem;">
+        <div class="reveal">
+          <p class="t-eyebrow u-mb-md">The Problem</p>
+          <p class="t-body">Guardian 4 Heroes is an equine therapy nonprofit serving veterans. They had no web presence — just a mission and a name. They needed a site that would communicate the emotional weight of their work while remaining clean and trustworthy enough to attract donors and program participants.</p>
+        </div>
+        <div class="reveal reveal--delay-1">
+          <p class="t-eyebrow u-mb-md">The Result</p>
+          <p class="t-body">A fully custom site built and deployed on GitHub Pages. Photography-forward layout, clear program information, and a donation pathway. The client reports consistent compliments and increased program inquiries since launch.</p>
         </div>
       </div>
 
-      <div class="draft-body reveal" style="margin-top: 5rem;">
-        <div class="draft-eyebrow">
-          <span>// Selected Work</span>
-        </div>
-
-        <h1 class="draft-title">
-          <span class="bracket-open">[</span>Project<br>Archive
-        </h1>
-
-        <div class="tri-tagline">
-          <span class="word-1">Design.</span>
-          <span class="word-2">Structure.</span>
-          <span class="word-3">Performance.</span>
-        </div>
-
-        <p class="draft-body-copy">A collection of digital experiences built from strategy to deployment. Each project crafted with purpose, structured for performance, and designed to last.</p>
-      </div>
-
-      <div class="page-baseline">
-        <span>// Every Line Has Purpose</span>
-      </div>
-    </section>
-
-    <!-- ============ FEATURED WORK ============ -->
-    <section class="section section-alt">
-      <div class="container">
-
-        <div class="section-marker reveal">
-          <span>&sect; 01 &middot; Featured Work</span>
-        </div>
-
-        <!-- MISSION POSSIBLE -->
-        <div class="proj reveal">
-          <div class="proj-header-strip">
-            <span class="proj-num">01 &middot; Full-Stack Application</span>
-            <span class="proj-type">Active &middot; 2026</span>
-          </div>
-
-          <div class="proj-images">
-            <div class="proj-img span-2"><img src="images/mission-home.jpg" alt="Mission Possible homepage hero"></div>
-            <div class="proj-img"><img src="images/mission-event.jpg" alt="Event details page"></div>
-            <div class="proj-img"><img src="images/mission-reg.jpg" alt="Registration form"></div>
-            <div class="proj-img span-2"><img src="images/mission-com.jpg" alt="Payment confirmation"></div>
-          </div>
-
-          <div class="proj-info">
-            <span class="fc-eyebrow">Full-Stack Project</span>
-            <h3>Mission Possible: <em class="italic-accent">Hooves &amp; Paws</em></h3>
-            <p>A complete event registration platform for a Minnesota nonprofit fundraiser benefiting equine therapy and K9 training programs for veterans and first responders.</p>
-            <p>The organizers needed more than a marketing site &ndash; they needed a full system to manage registrations, track payments, and run a real event. Everything built from scratch.</p>
-            <p><strong>What was built:</strong> cinematic homepage with hand-composited logo; events page with day-of details and pricing; multi-participant registration form with t-shirt sizing and dynamic pricing rules; unique reference codes tied to Givebutter; confirmation page with copy-to-clipboard codes; private admin dashboard with live stats, search, and shirt-order reporting.</p>
-
-            <div class="proj-meta">
-              <div class="proj-meta-row"><div class="proj-meta-label">Year</div><div class="proj-meta-value">2026</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Client</div><div class="proj-meta-value">Guardian 4 Heroes &amp; Heroes K9 Odyssey Academy</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Stack</div><div class="proj-meta-value">Next.js, TypeScript, Supabase, Vercel</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Role</div><div class="proj-meta-value">Design &amp; Development</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Live</div><div class="proj-meta-value"><a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener" style="color: var(--maroon); border-bottom: 1px solid var(--maroon);">missionpossiblehoovesandpaws.com</a></div></div>
-            </div>
-
-            <div style="margin-top: 1.5rem;">
-              <a href="https://www.missionpossiblehoovesandpaws.com/" target="_blank" rel="noopener" class="case-link">View Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============ LIVE SITES ============ -->
-    <section class="section">
-      <div class="container">
-
-        <div class="section-marker reveal">
-          <span>&sect; 02 &middot; Live Sites</span>
-        </div>
-
-        <!-- GUARDIAN 4 HEROES -->
-        <div class="proj reveal">
-          <div class="proj-header-strip">
-            <span class="proj-num">02 &middot; Nonprofit Website</span>
-            <span class="proj-type">Live &middot; 2025&ndash;2026</span>
-          </div>
-
-          <div class="proj-images">
-            <div class="proj-img span-2"><img src="images/guardian-1.jpg" alt="Guardian 4 Heroes homepage"></div>
-            <div class="proj-img"><img src="images/guardian-3.jpg" alt="Guardian 4 Heroes shop"></div>
-            <div class="proj-img"><img src="images/guardian-4.jpg" alt="Guardian 4 Heroes donation page"></div>
-          </div>
-
-          <div class="proj-info">
-            <span class="fc-eyebrow">Nonprofit Site</span>
-            <h3>Guardian 4 Heroes</h3>
-            <p>A multi-page website for a Minnesota nonprofit offering equine-facilitated therapy and training to veterans and first responders. The site needed to feel warm and personal while being a clear front door for programs, donations, and events.</p>
-            <p><strong>What was built:</strong> full multi-page site with home, about, programs, shop, donate, and contact pages; announcements section the team can update for time-sensitive news; feature module highlighting the Mission Possible mud run.</p>
-
-            <div class="proj-meta">
-              <div class="proj-meta-row"><div class="proj-meta-label">Year</div><div class="proj-meta-value">2025&ndash;2026</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Client</div><div class="proj-meta-value">Guardian 4 Heroes</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Stack</div><div class="proj-meta-value">HTML, CSS, JavaScript, GitHub Pages</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Role</div><div class="proj-meta-value">Design &amp; Development</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Live</div><div class="proj-meta-value"><a href="https://guardian4heroes.com/" target="_blank" rel="noopener" style="color: var(--maroon); border-bottom: 1px solid var(--maroon);">guardian4heroes.com</a></div></div>
-            </div>
-
-            <div style="margin-top: 1.5rem;">
-              <a href="https://guardian4heroes.com/" target="_blank" rel="noopener" class="case-link">View Live Site &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============ CONCEPT BUILDS (FOREST) ============ -->
-    <section class="section section-forest">
-      <div class="container">
-
-        <div class="section-marker section-marker--light reveal">
-          <span>&sect; 03 &middot; Concept Builds</span>
-        </div>
-
-        <div class="proj reveal" style="border-bottom-color: var(--rule-light);">
-          <div class="proj-header-strip" style="border-bottom-color: var(--rule-light);">
-            <span class="proj-num" style="color: var(--gold-bright);">03 &middot; Concept Build</span>
-            <span class="proj-type" style="color: rgba(245, 239, 226, 0.6);">Demo &middot; 2025</span>
-          </div>
-
-          <div class="proj-images">
-            <div class="proj-img span-2" style="background: rgba(245, 239, 226, 0.05); border-color: var(--rule-light);"><img src="images/ember.demo.home.jpg" alt="Ember &amp; Oak Cafe homepage"></div>
-            <div class="proj-img" style="background: rgba(245, 239, 226, 0.05); border-color: var(--rule-light);"><img src="images/ember-demo-menu.jpg" alt="Menu page"></div>
-            <div class="proj-img" style="background: rgba(245, 239, 226, 0.05); border-color: var(--rule-light);"><img src="images/ember.demo.catering.jpg" alt="Catering page"></div>
-          </div>
-
-          <div class="proj-info">
-            <span class="fc-eyebrow" style="color: var(--gold-bright);">Concept Build</span>
-            <h3>Ember &amp; <em style="color: var(--gold-bright); font-style: italic;">Oak Cafe</em></h3>
-            <p>A six-page concept site for a fictional cafe, built to showcase multi-page structure, menu layout, events, catering, and brand consistency across an entire site.</p>
-            <p><strong>What was built:</strong> complete brand and visual identity, structured menu with categories and pricing, about page with story and team, catering page with package pricing, and a contact page. End-to-end small business site capability.</p>
-
-            <div class="proj-meta" style="border-color: var(--rule-light);">
-              <div class="proj-meta-row" style="border-color: rgba(245, 239, 226, 0.08);"><div class="proj-meta-label" style="color: rgba(245, 239, 226, 0.55);">Type</div><div class="proj-meta-value" style="color: rgba(245, 239, 226, 0.85);">Concept Build</div></div>
-              <div class="proj-meta-row" style="border-color: rgba(245, 239, 226, 0.08);"><div class="proj-meta-label" style="color: rgba(245, 239, 226, 0.55);">Pages</div><div class="proj-meta-value" style="color: rgba(245, 239, 226, 0.85);">6 pages</div></div>
-              <div class="proj-meta-row" style="border-color: rgba(245, 239, 226, 0.08);"><div class="proj-meta-label" style="color: rgba(245, 239, 226, 0.55);">Stack</div><div class="proj-meta-value" style="color: rgba(245, 239, 226, 0.85);">HTML, CSS, JavaScript</div></div>
-              <div class="proj-meta-row" style="border-color: rgba(245, 239, 226, 0.08);"><div class="proj-meta-label" style="color: rgba(245, 239, 226, 0.55);">Role</div><div class="proj-meta-value" style="color: rgba(245, 239, 226, 0.85);">Design &amp; Development</div></div>
-              <div class="proj-meta-row" style="border-color: rgba(245, 239, 226, 0.08);"><div class="proj-meta-label" style="color: rgba(245, 239, 226, 0.55);">Live</div><div class="proj-meta-value"><a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" style="color: var(--gold-bright); border-bottom: 1px solid var(--gold-bright);">View Demo</a></div></div>
-            </div>
-
-            <div style="margin-top: 1.5rem;">
-              <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="case-link" style="color: var(--gold-bright); border-bottom-color: var(--gold-bright);">View Live Demo &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ LANDING PAGES ============ -->
-    <section class="section">
-      <div class="container">
-
-        <div class="section-marker reveal">
-          <span>&sect; 04 &middot; Landing Pages</span>
-        </div>
-
-        <!-- IRONSHIELD -->
-        <div class="proj reveal">
-          <div class="proj-header-strip">
-            <span class="proj-num">04 &middot; Lead Gen Landing Page</span>
-            <span class="proj-type">Demo &middot; 2026</span>
-          </div>
-
-          <div class="proj-images">
-            <div class="proj-img span-2"><img src="landing-pages/ironshield-roofing/images/ironshield-preview.jpg" alt="IronShield Roofing landing page"></div>
-            <div class="proj-img"><img src="images/roofing-screenshot2.jpg" alt="Services section"></div>
-            <div class="proj-img"><img src="images/roofing-screenshot3.jpg" alt="Quote form"></div>
-          </div>
-
-          <div class="proj-info">
-            <span class="fc-eyebrow">Landing Page</span>
-            <h3>IronShield <em class="italic-accent">Roofing</em></h3>
-            <p>A storm-damage lead generation landing page for a roofing company. Built around a trust-first layout with focused quote request flow designed to convert cold traffic into qualified leads.</p>
-            <p><strong>What was built:</strong> hero with primary CTA, services section, trust signals and credentials, gallery of past work, and a streamlined quote request form with progressive disclosure.</p>
-
-            <div class="proj-meta">
-              <div class="proj-meta-row"><div class="proj-meta-label">Type</div><div class="proj-meta-value">Lead Gen Landing Page</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Industry</div><div class="proj-meta-value">Roofing &amp; Storm Damage</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Stack</div><div class="proj-meta-value">HTML, CSS, JavaScript</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Role</div><div class="proj-meta-value">Design &amp; Development</div></div>
-            </div>
-
-            <div style="margin-top: 1.5rem;">
-              <a href="landing-pages/ironshield-roofing/" target="_blank" rel="noopener" class="case-link">View Live Demo &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- VANGUARD FITNESS -->
-        <div class="proj reveal">
-          <div class="proj-header-strip">
-            <span class="proj-num">05 &middot; Coaching Funnel</span>
-            <span class="proj-type">Demo &middot; 2025</span>
-          </div>
-
-          <div class="proj-images">
-            <div class="proj-img span-2"><img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness hero"></div>
-            <div class="proj-img"><img src="images/vanguard-screenshot2.jpg" alt="Coaching section"></div>
-            <div class="proj-img"><img src="images/vanguard-screenshot3.jpg" alt="Application form"></div>
-          </div>
-
-          <div class="proj-info">
-            <span class="fc-eyebrow">Landing Page</span>
-            <h3>Vanguard <em class="italic-accent">Fitness</em></h3>
-            <p>A premium coaching funnel landing page built around an application-driven flow. Designed to filter out unqualified leads while making qualified prospects feel like they're applying to something exclusive.</p>
-            <p><strong>What was built:</strong> hero with positioning statement, social proof, transformation case studies, program breakdown, and a multi-step application form that builds investment before pricing is revealed.</p>
-
-            <div class="proj-meta">
-              <div class="proj-meta-row"><div class="proj-meta-label">Type</div><div class="proj-meta-value">Coaching Funnel</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Industry</div><div class="proj-meta-value">Fitness Coaching</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Stack</div><div class="proj-meta-value">HTML, CSS, JavaScript</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Role</div><div class="proj-meta-value">Design &amp; Development</div></div>
-            </div>
-
-            <div style="margin-top: 1.5rem;">
-              <a href="landing-pages/fitness-coach-funnel/" target="_blank" rel="noopener" class="case-link">View Live Demo &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- LAUNCHDECK -->
-        <div class="proj reveal">
-          <div class="proj-header-strip">
-            <span class="proj-num">06 &middot; SaaS Waitlist</span>
-            <span class="proj-type">Demo &middot; 2025</span>
-          </div>
-
-          <div class="proj-images">
-            <div class="proj-img span-2"><img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck hero"></div>
-            <div class="proj-img"><img src="images/launch-desk-screenshot2.jpg" alt="Features"></div>
-            <div class="proj-img"><img src="images/launch-desk-screenshot3.jpg" alt="Waitlist signup"></div>
-          </div>
-
-          <div class="proj-info">
-            <span class="fc-eyebrow">Landing Page</span>
-            <h3>Launch<em class="italic-accent">Deck</em></h3>
-            <p>A SaaS beta waitlist landing page with a centered hero, feature grid, FAQ section, and streamlined signup flow. Designed to capture interest and grow an early-access list before product launch.</p>
-            <p><strong>What was built:</strong> centered hero with clear value proposition, feature grid with icons, FAQ section addressing common objections, and a low-friction email signup form.</p>
-
-            <div class="proj-meta">
-              <div class="proj-meta-row"><div class="proj-meta-label">Type</div><div class="proj-meta-value">Waitlist Landing Page</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Industry</div><div class="proj-meta-value">SaaS &amp; Tech</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Stack</div><div class="proj-meta-value">HTML, CSS, JavaScript</div></div>
-              <div class="proj-meta-row"><div class="proj-meta-label">Role</div><div class="proj-meta-value">Design &amp; Development</div></div>
-            </div>
-
-            <div style="margin-top: 1.5rem;">
-              <a href="landing-pages/saas-beta-waitlist/" target="_blank" rel="noopener" class="case-link">View Live Demo &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============ CTA (MAROON) ============ -->
-    <section class="section section-maroon cta-strip">
-      <div class="container">
-        <div class="section-header center reveal">
-          <span class="tag tag--light">// Let's Connect</span>
-          <h2>Your project<br><em style="color: var(--gold-bright);">could be next.</em></h2>
-          <div class="divider divider--centered" aria-hidden="true"><span class="diamond"></span></div>
-          <p style="margin: 1.5rem auto 0;">If you've got something you want built right, I'd like to hear about it.</p>
-        </div>
-        <div class="actions">
-          <a href="contact.html" class="btn btn-on-dark">Get a Quote &nbsp;&rarr;</a>
-          <a href="about.html" class="btn btn-ghost-on-dark">Learn More</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-brand">
-        <div class="site-logo">Web<em>[Ops]</em> Studio</div>
-        <p>Custom hand-coded websites and full-stack web applications. Built by hand in Minnesota.</p>
-      </div>
-      <div class="footer-col">
-        <h4>// Site</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>// Contact</h4>
-        <ul>
-          <li><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></li>
-          <li><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></li>
-          <li>Minnesota, USA</li>
-        </ul>
+      <div class="testimonial u-mt-lg reveal">
+        <p class="testimonial__quote">
+          "Craig went above and beyond. He didn't just build us a website —
+          he brought our mission to life. We get compliments on it constantly."
+        </p>
+        <p class="testimonial__cite">Guardian 4 Heroes Team</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 WebOps Studio &middot; All Rights Reserved
+  </article>
+
+  <!-- ============================================================
+       CASE STUDY 02 — IRONSHIELD ROOFING
+       ============================================================ -->
+  <article class="case-study" id="ironshield" aria-label="IronShield Roofing case study">
+    <div class="case-study__inner">
+      <div class="case-study__header">
+        <div>
+          <p class="t-eyebrow u-mb-md reveal">Demo Build &middot; Local Business</p>
+          <h2 class="t-headline t-headline--sm reveal reveal--delay-1">IronShield Roofing</h2>
+          <div class="case-study__meta reveal reveal--delay-2">
+            <span class="case-study__meta-tag">HTML</span>
+            <span class="case-study__meta-tag">CSS</span>
+            <span class="case-study__meta-tag">Landing Page</span>
+            <span class="case-study__meta-tag">Lead Generation</span>
+          </div>
+        </div>
+        <a href="landing-pages/ironshield-roofing/" target="_blank" rel="noopener noreferrer" class="btn btn--outline reveal">
+          View Demo &rarr;
+        </a>
+      </div>
+
+      <div class="case-study__screenshots reveal">
+        <img src="images/ironshield-preview.jpg" alt="IronShield Roofing landing page preview" class="case-study__screenshot" loading="lazy">
+        <img src="images/ironshield-preview.jpg" alt="IronShield Roofing services section" class="case-study__screenshot" loading="lazy" style="object-position: center 30%;">
+        <img src="images/ironshield-preview.jpg" alt="IronShield Roofing contact section" class="case-study__screenshot" loading="lazy" style="object-position: bottom;">
+      </div>
+
+      <div class="about-grid" style="gap: 3rem;">
+        <div class="reveal">
+          <p class="t-eyebrow u-mb-md">The Brief</p>
+          <p class="t-body">A single-page lead generation site for a local roofing contractor. The goal: convert visitors into phone calls. Bold hero, clear service list, trust signals, and a single prominent CTA — no distractions.</p>
+        </div>
+        <div class="reveal reveal--delay-1">
+          <p class="t-eyebrow u-mb-md">The Build</p>
+          <p class="t-body">Hand-coded landing page with a strong above-the-fold impact, service breakdown, and contact form. Fully responsive, fast-loading, and built to be handed off cleanly to the client.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============================================================
+       CASE STUDY 03 — EMBER & OAK CAFE
+       ============================================================ -->
+  <article class="case-study" id="emberoak" aria-label="Ember & Oak Cafe case study">
+    <div class="case-study__inner">
+      <div class="case-study__header">
+        <div>
+          <p class="t-eyebrow u-mb-md reveal">Demo Build &middot; Restaurant</p>
+          <h2 class="t-headline t-headline--sm reveal reveal--delay-1">Ember &amp; Oak Cafe</h2>
+          <div class="case-study__meta reveal reveal--delay-2">
+            <span class="case-study__meta-tag">HTML</span>
+            <span class="case-study__meta-tag">CSS</span>
+            <span class="case-study__meta-tag">Vanilla JS</span>
+            <span class="case-study__meta-tag">Full Site</span>
+            <span class="case-study__meta-tag">Mobile Menu Overlay</span>
+          </div>
+        </div>
+        <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener noreferrer" class="btn btn--outline reveal">
+          View Demo &rarr;
+        </a>
+      </div>
+
+      <div class="case-study__screenshots reveal">
+        <img src="images/ember.demo.home.jpg"     alt="Ember & Oak Cafe homepage" class="case-study__screenshot" loading="lazy">
+        <img src="images/ember-demo-menu.jpg"     alt="Ember & Oak Cafe menu page" class="case-study__screenshot" loading="lazy">
+        <img src="images/ember.demo.about.jpg"    alt="Ember & Oak Cafe about page" class="case-study__screenshot" loading="lazy">
+      </div>
+
+      <div class="about-grid" style="gap: 3rem; margin-top: 1.5rem;">
+        <div class="case-study__screenshots reveal" style="margin-top: 0;">
+          <img src="images/ember.demo.catering.jpg" alt="Ember & Oak Cafe catering page" class="case-study__screenshot" loading="lazy">
+          <img src="images/ember.demo.css.jpg"      alt="Ember & Oak Cafe CSS detail" class="case-study__screenshot" loading="lazy">
+        </div>
+        <div class="reveal reveal--delay-1">
+          <p class="t-eyebrow u-mb-md">The Build</p>
+          <p class="t-body">Dark espresso aesthetic with a full-screen mobile menu overlay, multi-page structure, and a catering section. Built to feel premium without being pretentious — exactly the tone a neighborhood cafe wants.</p>
+          <p class="t-body u-mt-sm">Fully responsive across all screen sizes, with smooth JS interactions and zero frameworks.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============================================================
+       PIPELINE
+       ============================================================ -->
+  <section class="section section--surface" aria-label="Projects in progress">
+    <div class="section-inner">
+      <p class="t-eyebrow u-mb-md reveal">In the Pipeline</p>
+      <h2 class="t-headline t-headline--section u-mb-lg reveal reveal--delay-1">Coming Soon</h2>
+
+      <div class="work-grid work-grid--2col reveal reveal--delay-2">
+        <div class="work-card work-card--ratio-169 work-card--placeholder">
+          <div class="work-card__placeholder-inner">
+            <p class="t-mono" style="color: var(--color-orange); margin-bottom: 0.5rem;">In Progress</p>
+            <p class="t-headline t-headline--sm" style="font-size: 1.1rem; color: var(--color-white-faint);">Vanguard Fitness</p>
+          </div>
+        </div>
+        <div class="work-card work-card--ratio-169 work-card--placeholder">
+          <div class="work-card__placeholder-inner">
+            <p class="t-mono" style="color: var(--color-orange); margin-bottom: 0.5rem;">Planned</p>
+            <p class="t-headline t-headline--sm" style="font-size: 1.1rem; color: var(--color-white-faint);">SaaS Waitlist Demo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" aria-label="Start a project">
+    <div class="section-inner u-text-center">
+      <p class="t-eyebrow t-eyebrow--center u-mb-md reveal">Your Project Next?</p>
+      <h2 class="t-headline t-headline--section u-mb-lg reveal reveal--delay-1">
+        Let's build something<br>
+        <span class="t-dim">worth showing.</span>
+      </h2>
+      <a href="contact.html" class="btn btn--primary reveal reveal--delay-2">
+        Start a Conversation
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 7h10M8 3l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__logo">
+            <img src="images/webops-logo.png" alt="WebOps Studio">
+            <div><p class="footer__brand-name">Web<em>[Ops]</em> Studio</p></div>
+          </div>
+          <span class="footer__tagline">Veteran-Built Front Ends</span>
+          <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
+        </div>
+        <div>
+          <span class="footer__col-label">Navigation</span>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
+            <li><a href="about.html"     class="footer__link">About</a></li>
+            <li><a href="services.html"  class="footer__link">Services</a></li>
+            <li><a href="contact.html"   class="footer__link">Let's Talk</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer__col-label">Contact</span>
+          <ul class="footer__links" role="list">
+            <li><a href="mailto:craigbaumann2020@gmail.com" class="footer__link">craigbaumann2020@gmail.com</a></li>
+            <li><a href="tel:3205226226" class="footer__link">320-522-6226</a></li>
+            <li><span class="footer__link" style="pointer-events:none;">Minnesota, USA</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span id="copy-year"></span> <em>WebOps Studio</em> &mdash; All rights reserved.</p>
+        <p class="footer__copy">HTML &middot; CSS &middot; Vanilla JS &middot; Zero Frameworks</p>
+      </div>
     </div>
   </footer>
 
-  <script>
-    (function() {
-      const btn = document.getElementById('mobileMenuBtn');
-      const drawer = document.getElementById('mobileNavDrawer');
-      if (!btn || !drawer) return;
-      btn.addEventListener('click', function() {
-        const open = drawer.classList.toggle('is-open');
-        btn.classList.toggle('is-open', open);
-        btn.setAttribute('aria-expanded', open);
-        drawer.setAttribute('aria-hidden', !open);
-        document.body.style.overflow = open ? 'hidden' : '';
-      });
-      drawer.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          drawer.classList.remove('is-open');
-          btn.classList.remove('is-open');
-          btn.setAttribute('aria-expanded', 'false');
-          drawer.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-        });
-      });
-    })();
-
-    (function() {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.reveal');
-      if (prefersReduced || !('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
-
+  <script src="js/scripts.js"></script>
 </body>
 </html>

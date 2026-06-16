@@ -3,355 +3,291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact &ndash; WebOps Studio</title>
-  <meta name="description" content="Tell me about your project. Every project starts with a conversation.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#F5EFE2">
-  <link rel="canonical" href="https://web-ops-studio.com/contact">
-
-  <meta property="og:title" content="Contact &ndash; WebOps Studio">
-  <meta property="og:description" content="Get in touch about your project.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://web-ops-studio.com/contact">
-
-  <link rel="icon" href="images/monogram.png" type="image/png">
-  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="description" content="Contact WebOps Studio — start a project with Craig Baumann, veteran-built web developer based in Minnesota.">
+  <title>Contact — WebOps Studio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="images/webops-logo.png" type="image/png">
 </head>
 <body>
 
-  <!-- ============ SIDEBAR ============ -->
-  <aside class="sidebar">
-    <a href="index.html" aria-label="WebOps Studio home">
-      <img src="images/monogram.png" alt="" class="sidebar-monogram">
-    </a>
-    <div class="sidebar-brand">
-      Web<em>[Ops]</em><br>Studio
-      <small>Digital<br>Architecture</small>
+  <!-- NAV -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio — Home">
+        <img src="images/webops-logo.png" alt="WebOps Studio logo">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"     class="nav__link">Home</a></li>
+        <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="about.html"     class="nav__link">About</a></li>
+        <li><a href="services.html"  class="nav__link">Services</a></li>
+        <li><a href="contact.html"   class="nav__cta active" style="background: var(--color-orange); color: var(--color-bg);">Let's Talk</a></li>
+      </ul>
+      <button class="nav__mobile-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="sidebar-divider"></div>
+  </nav>
 
-    <nav class="sidebar-nav" aria-label="Primary">
-      <a href="index.html" data-num="01">Home</a>
-      <a href="portfolio.html" data-num="02">Work</a>
-      <a href="about.html" data-num="03">About</a>
-      <a href="contact.html" data-num="04" class="is-active">Contact</a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div style="color: var(--cream); opacity: 0.5;">
-        <object type="image/svg+xml" data="images/compass.svg" class="sidebar-compass" aria-hidden="true"></object>
-      </div>
-      <div class="sidebar-motto">
-        Thoughtful<br>
-        Design<br>
-        &middot;<br>
-        Intentional<br>
-        Code
-      </div>
-    </div>
-  </aside>
-
-  <!-- ============ MOBILE HEADER ============ -->
-  <header class="mobile-header">
-    <a href="index.html" class="mobile-logo">
-      <img src="images/monogram.png" alt="WebOps Studio">
-      <span>Web<em>[Ops]</em> Studio</span>
-    </a>
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+  <!-- MOBILE DRAWER -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <nav class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="drawer__close" id="drawerClose" aria-label="Close navigation menu">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
     </button>
+    <ul class="drawer__nav" role="list">
+      <li><a href="index.html"     class="drawer__link"><span class="drawer__link-num">01</span>Home</a></li>
+      <li><a href="portfolio.html" class="drawer__link"><span class="drawer__link-num">02</span>Portfolio</a></li>
+      <li><a href="about.html"     class="drawer__link"><span class="drawer__link-num">03</span>About</a></li>
+      <li><a href="services.html"  class="drawer__link"><span class="drawer__link-num">04</span>Services</a></li>
+      <li><a href="contact.html"   class="drawer__link"><span class="drawer__link-num">05</span>Let's Talk</a></li>
+    </ul>
+    <div class="drawer__contact">
+      <p class="drawer__contact-label">Direct contact</p>
+      <a href="mailto:craigbaumann2020@gmail.com" class="drawer__contact-email">craigbaumann2020@gmail.com</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-label="Contact page hero">
+    <div class="page-hero__bg" style="background-image: url('images/hero-contact.png');" role="presentation"></div>
+    <div class="page-hero__grid" role="presentation"></div>
+    <div class="page-hero__rule" role="presentation"></div>
+    <div class="page-hero__inner">
+      <p class="t-eyebrow page-hero__eyebrow">Get In Touch</p>
+      <h1 class="t-headline t-headline--page">
+        Start a <span class="t-dim">Project</span>
+      </h1>
+    </div>
   </header>
 
-  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
-    <div class="mobile-nav-header">
-      <div class="brand-line">Web<em>[Ops]</em> Studio</div>
-      <div class="brand-sub">Digital Architecture &middot; Minnesota</div>
-    </div>
-    <ul class="mobile-nav-list">
-      <li><a href="index.html"><span class="mn-num">01</span><span class="mn-text">Home</span></a></li>
-      <li><a href="portfolio.html"><span class="mn-num">02</span><span class="mn-text">Work</span></a></li>
-      <li><a href="about.html"><span class="mn-num">03</span><span class="mn-text">About</span></a></li>
-      <li><a href="contact.html" class="is-active"><span class="mn-num">04</span><span class="mn-text">Contact</span></a></li>
-    </ul>
-    <div class="mobile-nav-footer">
-      <div class="mn-tagline">
-        <span class="w1">Designed</span>
-        <span class="w2">With</span>
-        <span class="w3">Purpose.</span>
-      </div>
-      <div class="mn-meta">
-        44.9778&deg; N &middot; 93.2650&deg; W<br>
-        Minnesota / USA
-      </div>
-    </div>
-  </div>
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section class="section" aria-label="Contact form and information">
+    <div class="section-inner">
+      <div class="contact-grid">
 
-  <!-- ============ MAIN ============ -->
-  <main class="main">
+        <!-- Left — info -->
+        <div>
+          <p class="t-eyebrow u-mb-md reveal">Direct Contact</p>
+          <h2 class="t-headline t-headline--sm u-mb-md reveal reveal--delay-1">
+            Let's talk about<br>
+            <span class="t-dim">your project.</span>
+          </h2>
+          <p class="t-body u-mb-lg reveal reveal--delay-2">
+            Whether you have a fully formed idea or just know you need a better website,
+            reach out. The first conversation is always free.
+          </p>
 
-    <!-- ============ HERO ============ -->
-    <section class="draft">
-      <!-- Mountain top right -->
-      <div class="draft-mountain" aria-hidden="true">
-        <img src="images/mountain-element.png" alt="">
-      </div>
-
-      <!-- Corner blocks -->
-      <div class="corner-block forest" style="right: 0; top: 50%; width: 60px; height: 200px;" aria-hidden="true"></div>
-      <div class="corner-block maroon" style="right: 0; top: 6rem; width: 100px; height: 70px;" aria-hidden="true"></div>
-      <div class="corner-block forest" style="left: 0; bottom: 0; width: 110px; height: 220px;" aria-hidden="true"></div>
-
-      <span class="crosshair" style="top: 2rem; right: 10%;" aria-hidden="true"></span>
-      <span class="crosshair" style="bottom: 6rem; left: 10%;" aria-hidden="true"></span>
-
-      <div class="draft-header">
-        <div class="draft-header-left">
-          <div class="h-name">Web[Ops] Studio</div>
-          <div class="h-tag">Let's Connect &middot; Every Project Starts With A Conversation</div>
-        </div>
-        <div class="draft-header-right">
-          <div class="coords">44.9778&deg; N, 93.2650&deg; W</div>
-          <div class="coords">Minnesota, USA</div>
-        </div>
-      </div>
-
-      <div class="draft-body reveal" style="margin-top: 5rem;">
-        <div class="draft-eyebrow">
-          <span>// Let's Connect</span>
-        </div>
-
-        <h1 class="draft-title">
-          <span class="bracket-open">[</span>Let's Build<br>Something
-        </h1>
-
-        <div class="tri-tagline">
-          <span class="word-1">Designed</span>
-          <span class="word-2">With</span>
-          <span class="word-3">Purpose.</span>
-        </div>
-
-        <p class="draft-body-copy">Great projects start with a conversation. Tell me about your ideas, your goals, and how we can build something impactful together. I'll get back to you within a day or two.</p>
-      </div>
-
-      <div class="page-baseline">
-        <span>// Built With Purpose &middot; Designed To Perform</span>
-      </div>
-    </section>
-
-    <!-- ============ FORM + DETAILS ============ -->
-    <section class="section section-alt">
-      <div class="container">
-
-        <div class="section-marker reveal">
-          <span>&sect; 01 &middot; Send A Message</span>
-        </div>
-
-        <div class="contact-grid reveal">
-
-          <form class="contact-form" action="mailto:craigbaumann2020@gmail.com" method="post" enctype="text/plain">
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="card-credential reveal reveal--delay-3">
+              <div class="card-credential__icon" aria-hidden="true">@</div>
+              <div>
+                <span class="card-credential__label">Email</span>
+                <a href="mailto:craigbaumann2020@gmail.com" class="card-credential__desc" style="color: var(--color-orange); text-decoration: none;">craigbaumann2020@gmail.com</a>
               </div>
             </div>
-
-            <div class="form-field">
-              <label for="phone">Phone <span style="text-transform: none; letter-spacing: 0; font-size: 0.7rem; color: var(--ink-faint);">(optional)</span></label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-
-            <div class="form-field">
-              <label for="project-type">Project Type</label>
-              <select id="project-type" name="project-type">
-                <option value="">Choose one&hellip;</option>
-                <option value="custom-website">Custom Website</option>
-                <option value="web-app">Full-Stack Web Application</option>
-                <option value="landing-page">Landing Page</option>
-                <option value="redesign">Redesign / Cleanup</option>
-                <option value="other">Something Else</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label for="budget">Budget Range</label>
-              <select id="budget" name="budget">
-                <option value="">Choose one&hellip;</option>
-                <option value="500">Around $500 (Template Setup)</option>
-                <option value="800-1200">$800 &ndash; 1,200 (Starter Site)</option>
-                <option value="1500-2500">$1,500 &ndash; 2,500 (Custom Build)</option>
-                <option value="2500-4500">$2,500 &ndash; 4,500 (Full-Stack Project)</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label for="project">Tell me about your project</label>
-              <textarea id="project" name="project" placeholder="What are you building, who is it for, and what kind of help do you need?" required></textarea>
-            </div>
-
-            <div>
-              <button type="submit" class="btn btn-primary">Send Message &nbsp;&rarr;</button>
-            </div>
-          </form>
-
-          <div>
-            <span class="tag" style="display: block; margin-bottom: 1rem;">// What To Expect</span>
-
-            <ul class="expect-list">
-              <li>
-                <span class="e-num">01</span>
-                <div>
-                  <span class="e-title">Discover</span>
-                  <p class="e-body">We learn about your goals, audience, and vision.</p>
-                </div>
-              </li>
-              <li>
-                <span class="e-num">02</span>
-                <div>
-                  <span class="e-title">Strategize</span>
-                  <p class="e-body">We map the structure, experience, and technical approach.</p>
-                </div>
-              </li>
-              <li>
-                <span class="e-num">03</span>
-                <div>
-                  <span class="e-title">Execute</span>
-                  <p class="e-body">We design, build, and refine with precision and purpose.</p>
-                </div>
-              </li>
-            </ul>
-
-            <div class="contact-info-grid">
-              <div class="contact-info-cell">
-                <div class="ci-label">Email</div>
-                <div class="ci-value"><a href="mailto:craigbaumann2020@gmail.com" style="color: var(--ink); border-bottom: 1px solid var(--gold);">craigbaumann2020@gmail.com</a></div>
-                <div class="ci-sub">Response within 24 hours</div>
-              </div>
-              <div class="contact-info-cell">
-                <div class="ci-label">Phone</div>
-                <div class="ci-value"><a href="tel:+13205226226" style="color: var(--ink); border-bottom: 1px solid var(--gold);">320&#8209;522&#8209;6226</a></div>
-                <div class="ci-sub">Mon &ndash; Fri &middot; 9am &ndash; 6pm CT</div>
-              </div>
-              <div class="contact-info-cell">
-                <div class="ci-label">Location</div>
-                <div class="ci-value">Minnesota, USA</div>
-                <div class="ci-sub">Working remote &middot; Available across the U.S.</div>
-              </div>
-              <div class="contact-info-cell">
-                <div class="ci-label">Projects</div>
-                <div class="ci-value">Now Booking</div>
-                <div class="ci-sub">Accepting new projects</div>
+            <div class="card-credential reveal reveal--delay-4">
+              <div class="card-credential__icon" aria-hidden="true">📞</div>
+              <div>
+                <span class="card-credential__label">Phone</span>
+                <a href="tel:3205226226" class="card-credential__desc" style="color: var(--color-orange); text-decoration: none;">320-522-6226</a>
               </div>
             </div>
-
-            <div style="margin-top: 2rem; padding: 1.25rem 1.5rem; border-left: 2px solid var(--gold); background: var(--cream-soft); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; line-height: 1.85; color: var(--ink-mute); text-transform: uppercase;">
-              Every project is a new opportunity to build something extraordinary.
+            <div class="card-credential reveal reveal--delay-4">
+              <div class="card-credential__icon" aria-hidden="true">MN</div>
+              <div>
+                <span class="card-credential__label">Location</span>
+                <p class="card-credential__desc">Minnesota, USA &mdash; remote-friendly</p>
+              </div>
             </div>
           </div>
 
+          <div style="margin-top: 2.5rem;" class="reveal">
+            <p class="t-eyebrow u-mb-md">Typical Response Time</p>
+            <p class="t-body t-body--sm">I respond to most inquiries within 24&ndash;48 hours. If your project is time-sensitive, note it in the message.</p>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ CTA (MAROON) ============ -->
-    <section class="section section-maroon cta-strip">
-      <div class="container">
-        <div class="section-header center reveal">
-          <span class="tag tag--light">// Prefer Other Channels</span>
-          <h2>Skip the form?<br><em style="color: var(--gold-bright);">Reach out directly.</em></h2>
-          <div class="divider divider--centered" aria-hidden="true"><span class="diamond"></span></div>
-          <p style="margin: 1.5rem auto 0;">Email or phone work just as well. Use whatever feels right.</p>
+        <!-- Right — form -->
+        <div class="contact-form-wrap reveal reveal--delay-1">
+          <p class="t-mono u-mb-lg" style="color: var(--color-orange);">Send a Message</p>
+
+          <form
+            action="https://formspree.io/f/xdkozpqv"
+            method="POST"
+            id="contactForm"
+            novalidate
+          >
+            <!-- Honeypot -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="form-group">
+              <label class="form-label" for="name">Name <span aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone (optional)</label>
+              <input
+                class="form-input"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="320-000-0000"
+                autocomplete="tel"
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project">Project Type</label>
+              <select
+                class="form-input"
+                id="project"
+                name="project"
+                style="cursor: pointer;"
+              >
+                <option value="" disabled selected>Select a service...</option>
+                <option value="landing-page">Landing Page — Starting at $400</option>
+                <option value="small-business">Small Business Site — Starting at $800</option>
+                <option value="full-custom">Full Custom Build — Starting at $1,500</option>
+                <option value="nonprofit">Nonprofit / Mission-Driven — Custom</option>
+                <option value="maintenance">Maintenance Retainer — Starting at $75/mo</option>
+                <option value="not-sure">Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.75rem;">
+              <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea
+                class="form-textarea"
+                id="message"
+                name="message"
+                placeholder="Tell me about your project — what it is, who it's for, and what you want it to do..."
+                required
+                rows="6"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+              Send Message
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4"/>
+              </svg>
+            </button>
+
+            <!-- Status message -->
+            <div id="formStatus" role="status" aria-live="polite" style="display: none; margin-top: 1rem; padding: 0.85rem 1rem; border-radius: 2px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;"></div>
+
+          </form>
         </div>
-        <div class="actions">
-          <a href="mailto:craigbaumann2020@gmail.com" class="btn btn-on-dark">Email Me &nbsp;&rarr;</a>
-          <a href="tel:+13205226226" class="btn btn-ghost-on-dark">Call Me</a>
-        </div>
-      </div>
-    </section>
 
-  </main>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-brand">
-        <div class="site-logo">Web<em>[Ops]</em> Studio</div>
-        <p>Custom hand-coded websites and full-stack web applications. Built by hand in Minnesota.</p>
-      </div>
-      <div class="footer-col">
-        <h4>// Site</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>// Contact</h4>
-        <ul>
-          <li><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></li>
-          <li><a href="tel:+13205226226">320&#8209;522&#8209;6226</a></li>
-          <li>Minnesota, USA</li>
-        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 WebOps Studio &middot; All Rights Reserved
+  </section>
+
+  <!-- ============================================================
+       REASSURANCE STRIP
+       ============================================================ -->
+  <section class="section section--surface" aria-label="What to expect">
+    <div class="section-inner">
+      <p class="t-eyebrow u-mb-md reveal">What Happens Next</p>
+      <h2 class="t-headline t-headline--section u-mb-lg reveal reveal--delay-1">
+        No pressure.<br>
+        <span class="t-dim">Just a conversation.</span>
+      </h2>
+      <div class="process-grid reveal reveal--delay-2">
+        <div class="process-item">
+          <span class="process-item__num">01</span>
+          <p class="process-item__title">You Reach Out</p>
+          <p class="process-item__desc">Fill out the form or email directly. Tell me what you're working on. No commitment required.</p>
+        </div>
+        <div class="process-item">
+          <span class="process-item__num">02</span>
+          <p class="process-item__title">I Respond</p>
+          <p class="process-item__desc">Usually within 24&ndash;48 hours. I'll ask a few questions to understand the scope before anything else.</p>
+        </div>
+        <div class="process-item">
+          <span class="process-item__num">03</span>
+          <p class="process-item__title">We Scope It</p>
+          <p class="process-item__desc">Quick call or email exchange to nail down what the project actually needs. No surprises, no scope creep.</p>
+        </div>
+        <div class="process-item">
+          <span class="process-item__num">04</span>
+          <p class="process-item__title">We Build</p>
+          <p class="process-item__desc">Once we're aligned, the build begins. Clear timeline, regular check-ins, and a clean handoff at the end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__logo">
+            <img src="images/webops-logo.png" alt="WebOps Studio">
+            <div><p class="footer__brand-name">Web<em>[Ops]</em> Studio</p></div>
+          </div>
+          <span class="footer__tagline">Veteran-Built Front Ends</span>
+          <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
+        </div>
+        <div>
+          <span class="footer__col-label">Navigation</span>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
+            <li><a href="about.html"     class="footer__link">About</a></li>
+            <li><a href="services.html"  class="footer__link">Services</a></li>
+            <li><a href="contact.html"   class="footer__link">Let's Talk</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer__col-label">Contact</span>
+          <ul class="footer__links" role="list">
+            <li><a href="mailto:craigbaumann2020@gmail.com" class="footer__link">craigbaumann2020@gmail.com</a></li>
+            <li><a href="tel:3205226226" class="footer__link">320-522-6226</a></li>
+            <li><span class="footer__link" style="pointer-events:none;">Minnesota, USA</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span id="copy-year"></span> <em>WebOps Studio</em> &mdash; All rights reserved.</p>
+        <p class="footer__copy">HTML &middot; CSS &middot; Vanilla JS &middot; Zero Frameworks</p>
+      </div>
     </div>
   </footer>
 
-  <script>
-    (function() {
-      const btn = document.getElementById('mobileMenuBtn');
-      const drawer = document.getElementById('mobileNavDrawer');
-      if (!btn || !drawer) return;
-      btn.addEventListener('click', function() {
-        const open = drawer.classList.toggle('is-open');
-        btn.classList.toggle('is-open', open);
-        btn.setAttribute('aria-expanded', open);
-        drawer.setAttribute('aria-hidden', !open);
-        document.body.style.overflow = open ? 'hidden' : '';
-      });
-      drawer.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          drawer.classList.remove('is-open');
-          btn.classList.remove('is-open');
-          btn.setAttribute('aria-expanded', 'false');
-          drawer.setAttribute('aria-hidden', 'true');
-          document.body.style.overflow = '';
-        });
-      });
-    })();
-
-    (function() {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.reveal');
-      if (prefersReduced || !('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('is-visible'));
-        return;
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
-
+  <script src="js/scripts.js"></script>
 </body>
 </html>

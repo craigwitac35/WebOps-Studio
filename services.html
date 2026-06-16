@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WebOps Studio services — hand-coded landing pages, small business sites, and full custom builds. Starting at $400. No templates, no frameworks.">
+  <title>Services — WebOps Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="images/webops-logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio — Home">
+        <img src="images/webops-logo.png" alt="WebOps Studio logo">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html"     class="nav__link">Home</a></li>
+        <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="about.html"     class="nav__link">About</a></li>
+        <li><a href="services.html"  class="nav__link active">Services</a></li>
+        <li><a href="contact.html"   class="nav__cta">Let's Talk</a></li>
+      </ul>
+      <button class="nav__mobile-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <nav class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="drawer__close" id="drawerClose" aria-label="Close navigation menu">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 4l12 12M16 4L4 16"/>
+      </svg>
+    </button>
+    <ul class="drawer__nav" role="list">
+      <li><a href="index.html"     class="drawer__link"><span class="drawer__link-num">01</span>Home</a></li>
+      <li><a href="portfolio.html" class="drawer__link"><span class="drawer__link-num">02</span>Portfolio</a></li>
+      <li><a href="about.html"     class="drawer__link"><span class="drawer__link-num">03</span>About</a></li>
+      <li><a href="services.html"  class="drawer__link"><span class="drawer__link-num">04</span>Services</a></li>
+      <li><a href="contact.html"   class="drawer__link"><span class="drawer__link-num">05</span>Let's Talk</a></li>
+    </ul>
+    <div class="drawer__contact">
+      <p class="drawer__contact-label">Direct contact</p>
+      <a href="mailto:craigbaumann2020@gmail.com" class="drawer__contact-email">craigbaumann2020@gmail.com</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-label="Services page hero">
+    <div class="page-hero__bg" style="background-image: url('images/hero-services.png');" role="presentation"></div>
+    <div class="page-hero__grid" role="presentation"></div>
+    <div class="page-hero__rule" role="presentation"></div>
+    <div class="page-hero__inner">
+      <p class="t-eyebrow page-hero__eyebrow">What I Build</p>
+      <h1 class="t-headline t-headline--page">
+        Services <span class="t-dim">&amp; Pricing</span>
+      </h1>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       INTRO
+       ============================================================ -->
+  <section class="section" aria-label="Services intro">
+    <div class="section-inner" style="max-width: 760px;">
+      <p class="t-eyebrow u-mb-md reveal">The Pitch</p>
+      <h2 class="t-headline t-headline--section u-mb-md reveal reveal--delay-1">
+        Why hand-coded<br>
+        <span class="t-dim">beats a template.</span>
+      </h2>
+      <p class="t-body u-mb-md reveal reveal--delay-2">
+        Squarespace and Wix are fast to set up and slow to defend. You're renting a site,
+        not owning one. When the platform changes, your site changes. When the plugin breaks,
+        your site breaks. When you stop paying, your site disappears.
+      </p>
+      <p class="t-body reveal reveal--delay-3">
+        Hand-coded sites load faster, rank better, and hold up longer — because there's
+        nothing in them that doesn't need to be there. You get clean code, a real handoff,
+        and a site that belongs to you.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY HAND-CODED — 3 PILLARS
+       ============================================================ -->
+  <section class="section section--surface" aria-label="Advantages of hand-coded">
+    <div class="section-inner">
+      <div class="process-grid reveal">
+        <div class="process-item">
+          <span class="process-item__num" style="font-size: 1.5rem; letter-spacing: 0;">⚡</span>
+          <p class="process-item__title">Speed</p>
+          <p class="process-item__desc">No framework overhead, no unused CSS, no plugin calls. Just lean, intentional code that loads fast from the first byte.</p>
+        </div>
+        <div class="process-item">
+          <span class="process-item__num" style="font-size: 1.5rem; letter-spacing: 0;">🔑</span>
+          <p class="process-item__title">Ownership</p>
+          <p class="process-item__desc">You get the files. No monthly platform fee to keep your site alive. No lock-in. Your site runs as long as you want it to.</p>
+        </div>
+        <div class="process-item">
+          <span class="process-item__num" style="font-size: 1.5rem; letter-spacing: 0;">🛡️</span>
+          <p class="process-item__title">Longevity</p>
+          <p class="process-item__desc">No plugins to update, no platform migrations, no breaking changes. What works today still works in three years.</p>
+        </div>
+        <div class="process-item">
+          <span class="process-item__num" style="font-size: 1.5rem; letter-spacing: 0;">🎯</span>
+          <p class="process-item__title">Precision</p>
+          <p class="process-item__desc">Every element is intentional. No bloated templates, no unused components. The site does exactly what it needs to do and nothing else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICE TIERS
+       ============================================================ -->
+  <section class="section" aria-label="Service packages">
+    <div class="section-inner">
+      <p class="t-eyebrow u-mb-md reveal">Packages</p>
+      <h2 class="t-headline t-headline--section u-mb-lg reveal reveal--delay-1">
+        Pick your build.<br>
+        <span class="t-dim">Every one is custom.</span>
+      </h2>
+
+      <div class="services-grid reveal reveal--delay-2">
+
+        <!-- Landing Page -->
+        <div class="service-card">
+          <span class="service-card__tag">Tier 01</span>
+          <h3 class="service-card__title">Landing Page</h3>
+          <p class="service-card__desc">One page. One goal. Built to convert visitors into leads, calls, or sign-ups. Perfect for contractors, local businesses, and event promotions.</p>
+          <div class="service-card__price">
+            <span class="service-card__price-label">Starting at</span>
+            <span class="service-card__price-amount">$400</span>
+          </div>
+          <ul class="service-card__includes">
+            <li class="service-card__include-item">Single page, fully responsive</li>
+            <li class="service-card__include-item">Contact form or CTA integration</li>
+            <li class="service-card__include-item">Mobile-first build</li>
+            <li class="service-card__include-item">GitHub Pages deployment</li>
+            <li class="service-card__include-item">Clean handoff with source files</li>
+          </ul>
+          <a href="contact.html" class="btn btn--outline">Get Started</a>
+        </div>
+
+        <!-- Small Business Site -->
+        <div class="service-card">
+          <span class="service-card__tag">Tier 02</span>
+          <h3 class="service-card__title">Small Business Site</h3>
+          <p class="service-card__desc">3 to 5 pages covering everything a local business needs — home, about, services, and a real contact form that actually works.</p>
+          <div class="service-card__price">
+            <span class="service-card__price-label">Starting at</span>
+            <span class="service-card__price-amount">$800</span>
+          </div>
+          <ul class="service-card__includes">
+            <li class="service-card__include-item">3&ndash;5 hand-coded pages</li>
+            <li class="service-card__include-item">Navigation + mobile menu</li>
+            <li class="service-card__include-item">Formspree contact form</li>
+            <li class="service-card__include-item">Domain + hosting setup</li>
+            <li class="service-card__include-item">Clean handoff with source files</li>
+          </ul>
+          <a href="contact.html" class="btn btn--outline">Get Started</a>
+        </div>
+
+        <!-- Full Custom Build -->
+        <div class="service-card">
+          <span class="service-card__tag">Tier 03</span>
+          <h3 class="service-card__title">Full Custom Build</h3>
+          <p class="service-card__desc">5+ pages, more complex structure, custom interactions, and a longer engagement. For clients who want something that genuinely stands out.</p>
+          <div class="service-card__price">
+            <span class="service-card__price-label">Starting at</span>
+            <span class="service-card__price-amount">$1,500</span>
+          </div>
+          <ul class="service-card__includes">
+            <li class="service-card__include-item">5+ fully custom pages</li>
+            <li class="service-card__include-item">Advanced JS interactions</li>
+            <li class="service-card__include-item">Third-party integrations</li>
+            <li class="service-card__include-item">Performance optimization</li>
+            <li class="service-card__include-item">Full documentation + handoff</li>
+          </ul>
+          <a href="contact.html" class="btn btn--outline">Get Started</a>
+        </div>
+
+        <!-- Nonprofit / Mission-Driven -->
+        <div class="service-card">
+          <span class="service-card__tag">Tier 04</span>
+          <h3 class="service-card__title">Nonprofit &amp; Mission-Driven</h3>
+          <p class="service-card__desc">Veteran-run or mission-driven organizations get my best work at a rate that respects what you're trying to do. Let's talk.</p>
+          <div class="service-card__price">
+            <span class="service-card__price-label">Pricing</span>
+            <span class="service-card__price-amount" style="font-size: 1.4rem;">Custom</span>
+          </div>
+          <ul class="service-card__includes">
+            <li class="service-card__include-item">Nonprofit-adjusted pricing</li>
+            <li class="service-card__include-item">Veteran org priority</li>
+            <li class="service-card__include-item">Full scope discussion</li>
+            <li class="service-card__include-item">Same build quality, every time</li>
+          </ul>
+          <a href="contact.html" class="btn btn--outline">Let's Talk</a>
+        </div>
+
+        <!-- Maintenance (full width) -->
+        <div class="service-card service-card--maintenance">
+          <div>
+            <span class="service-card__tag">Add-On</span>
+            <h3 class="service-card__title">Ongoing Maintenance</h3>
+            <p class="service-card__desc" style="margin-bottom: 0;">
+              Content updates, performance checks, minor additions, and peace of mind.
+              Available as a monthly retainer after any project build.
+            </p>
+          </div>
+          <div style="flex-shrink: 0;">
+            <div class="service-card__price" style="margin-bottom: 1rem;">
+              <span class="service-card__price-label">Starting at</span>
+              <span class="service-card__price-amount">$75</span>
+              <span class="service-card__price-suffix">/mo</span>
+            </div>
+            <a href="contact.html" class="btn btn--primary">
+              Add Maintenance
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="section section--surface" aria-label="Frequently asked questions">
+    <div class="section-inner" style="max-width: 760px;">
+      <p class="t-eyebrow u-mb-md reveal">FAQ</p>
+      <h2 class="t-headline t-headline--section u-mb-lg reveal reveal--delay-1">
+        Common <span class="t-dim">Questions</span>
+      </h2>
+
+      <div class="reveal reveal--delay-2" style="display: flex; flex-direction: column; gap: 0; border: 1px solid var(--color-border); border-radius: 2px; overflow: hidden;">
+
+        <div class="faq-item" style="padding: 1.75rem 2rem; border-bottom: 1px solid var(--color-border);">
+          <p style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-white); margin-bottom: 0.6rem;">Do you work with clients outside Minnesota?</p>
+          <p class="t-body t-body--sm">Yes. Most of the work happens remotely anyway. Location doesn't matter as long as communication is clear.</p>
+        </div>
+
+        <div class="faq-item" style="padding: 1.75rem 2rem; border-bottom: 1px solid var(--color-border);">
+          <p style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-white); margin-bottom: 0.6rem;">How long does a build take?</p>
+          <p class="t-body t-body--sm">A landing page typically takes 1&ndash;2 weeks. A small business site runs 2&ndash;4 weeks. Larger builds are scoped individually. Timeline depends on how quickly content and feedback come in.</p>
+        </div>
+
+        <div class="faq-item" style="padding: 1.75rem 2rem; border-bottom: 1px solid var(--color-border);">
+          <p style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-white); margin-bottom: 0.6rem;">What do I need to provide?</p>
+          <p class="t-body t-body--sm">Your logo, any photos you want to use, and a clear idea of what the site needs to do. I'll handle structure, copy direction, and all the code.</p>
+        </div>
+
+        <div class="faq-item" style="padding: 1.75rem 2rem; border-bottom: 1px solid var(--color-border);">
+          <p style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-white); margin-bottom: 0.6rem;">Will I be able to update the site myself?</p>
+          <p class="t-body t-body--sm">Yes — the code is clean and straightforward. If you're comfortable with basic HTML, you can make text and image updates yourself. Alternatively, the maintenance retainer covers ongoing updates.</p>
+        </div>
+
+        <div class="faq-item" style="padding: 1.75rem 2rem;">
+          <p style="font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-white); margin-bottom: 0.6rem;">Why not just use Squarespace or Wix?</p>
+          <p class="t-body t-body--sm">You can. But you'll pay monthly forever, deal with platform updates you didn't ask for, and end up with a site that looks like every other site built on that template. A hand-coded site is faster, owned outright, and built specifically for you.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" aria-label="Start a project">
+    <div class="section-inner u-text-center">
+      <p class="t-eyebrow t-eyebrow--center u-mb-md reveal">Not Sure Which Tier?</p>
+      <h2 class="t-headline t-headline--section u-mb-md reveal reveal--delay-1">
+        Let's figure it out<br>
+        <span class="t-dim">together.</span>
+      </h2>
+      <p class="t-body u-mb-lg reveal reveal--delay-2" style="max-width: 44ch; margin-left: auto; margin-right: auto;">
+        The first conversation is free. Tell me what you're building and I'll tell you what it actually needs.
+      </p>
+      <a href="contact.html" class="btn btn--primary reveal reveal--delay-3">
+        Start a Conversation
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 7h10M8 3l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__logo">
+            <img src="images/webops-logo.png" alt="WebOps Studio">
+            <div><p class="footer__brand-name">Web<em>[Ops]</em> Studio</p></div>
+          </div>
+          <span class="footer__tagline">Veteran-Built Front Ends</span>
+          <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
+        </div>
+        <div>
+          <span class="footer__col-label">Navigation</span>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html"     class="footer__link">Home</a></li>
+            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
+            <li><a href="about.html"     class="footer__link">About</a></li>
+            <li><a href="services.html"  class="footer__link">Services</a></li>
+            <li><a href="contact.html"   class="footer__link">Let's Talk</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer__col-label">Contact</span>
+          <ul class="footer__links" role="list">
+            <li><a href="mailto:craigbaumann2020@gmail.com" class="footer__link">craigbaumann2020@gmail.com</a></li>
+            <li><a href="tel:3205226226" class="footer__link">320-522-6226</a></li>
+            <li><span class="footer__link" style="pointer-events:none;">Minnesota, USA</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span id="copy-year"></span> <em>WebOps Studio</em> &mdash; All rights reserved.</p>
+        <p class="footer__copy">HTML &middot; CSS &middot; Vanilla JS &middot; Zero Frameworks</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
