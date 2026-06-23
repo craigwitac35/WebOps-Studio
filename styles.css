@@ -426,9 +426,7 @@ input, textarea, select {
 }
 .hero-fullbleed__img {
   width: 100%;
-  height: clamp(320px, 56vw, 700px);
-  object-fit: cover;
-  object-position: center;
+  height: auto;
   display: block;
 }
 .hero-fullbleed__rule {
@@ -512,9 +510,6 @@ input, textarea, select {
 .page-hero__img {
   width: 100%;
   height: auto;
-  max-height: clamp(360px, 56vw, 680px);
-  object-fit: contain;
-  object-position: center;
   display: block;
   background: var(--bg);
 }
