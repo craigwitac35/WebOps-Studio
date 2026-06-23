@@ -3,258 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WebOps Studio — Veteran-built, hand-coded websites for small businesses and nonprofits. No templates. No frameworks. Just clean, fast, custom code.">
+  <meta name="description" content="WebOps Studio — veteran-built, hand-coded websites for small businesses and nonprofits. No templates. No frameworks. No shortcuts. Only solutions.">
   <title>WebOps Studio — Veteran-Built Front Ends</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="icon" href="images/webops-mark.png" type="image/png">
 </head>
 <body>
 
   <!-- NAV -->
-  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="WebOps Studio — Home">
-        <img src="images/webops-mark.png" alt="WebOps Studio" loading="eager">
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio home">
+        <img src="images/webops-mark.png" alt="WebOps Studio">
       </a>
-      <ul class="nav__links" role="list">
-        <li><a href="index.html"     class="nav__link active">Home</a></li>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link active">Home</a></li>
         <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
-        <li><a href="about.html"     class="nav__link">About</a></li>
-        <li><a href="services.html"  class="nav__link">Services</a></li>
-        <li><a href="contact.html"   class="nav__cta">Let's Talk</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
       </ul>
-      <button class="nav__mobile-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- MOBILE DRAWER -->
-  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
-  <nav class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
-    <button class="drawer__close" id="drawerClose" aria-label="Close menu">
-      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <path d="M4 4l12 12M16 4L4 16"/>
-      </svg>
-    </button>
-    <ul class="drawer__nav" role="list">
-      <li><a href="index.html"     class="drawer__link"><span class="drawer__link-num">01</span>Home</a></li>
-      <li><a href="portfolio.html" class="drawer__link"><span class="drawer__link-num">02</span>Portfolio</a></li>
-      <li><a href="about.html"     class="drawer__link"><span class="drawer__link-num">03</span>About</a></li>
-      <li><a href="services.html"  class="drawer__link"><span class="drawer__link-num">04</span>Services</a></li>
-      <li><a href="contact.html"   class="drawer__link"><span class="drawer__link-num">05</span>Let's Talk</a></li>
-    </ul>
-    <div class="drawer__contact">
-      <span class="drawer__contact-label">Direct contact</span>
-      <a href="mailto:craigbaumann2020@gmail.com" class="drawer__contact-email">craigbaumann2020@gmail.com</a>
+  <!-- DRAWER -->
+  <div class="drawer-overlay" id="overlay"></div>
+  <nav class="drawer" id="drawer" aria-label="Mobile navigation">
+    <button class="drawer__close" id="drawerClose" aria-label="Close menu"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+    <div class="drawer__nav">
+      <a href="index.html" class="drawer__link"><span class="n">01</span>Home</a>
+      <a href="portfolio.html" class="drawer__link"><span class="n">02</span>Portfolio</a>
+      <a href="about.html" class="drawer__link"><span class="n">03</span>About</a>
+      <a href="services.html" class="drawer__link"><span class="n">04</span>Services</a>
+      <a href="contact.html" class="drawer__link"><span class="n">05</span>Let's Talk</a>
+    </div>
+    <div class="drawer__foot">
+      <span class="mono">Direct line</span>
+      <a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a>
     </div>
   </nav>
 
-  <!-- HERO — FULLBLEED IMAGE + CONTENT BELOW -->
-  <section aria-label="Homepage hero">
-    <div class="hero-fullbleed">
-      <div class="hero-fullbleed__rule" aria-hidden="true"></div>
-      <img
-        src="images/home-hero.jpg"
-        alt="WebOps Studio — Veteran-built web development"
-        class="hero-fullbleed__img"
-        loading="eager"
-      >
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__media">
+      <div class="hero__rule"></div>
+      <img src="images/home-hero.jpg" alt="WebOps Studio — veteran-built, hand-coded, results-driven" class="hero__img">
     </div>
-    <div class="hero-content">
-      <div class="hero-content__inner">
-        <p class="eyebrow hero-content__eyebrow">Minnesota &nbsp;/&nbsp; Veteran-Built &nbsp;/&nbsp; Est. 2026</p>
-        <h1 class="headline headline--hero hero-content__headline">
+    <div class="hero__body">
+      <div class="hero__body-inner">
+        <span class="eyebrow hero__eyebrow">Minnesota · Veteran-Built · Est. 2026</span>
+        <h1 class="headline headline--xl hero__title">
           Hand-Coded<br>
-          <span class="t-dim">Websites That</span><br>
-          <span class="t-accent">Actually Work.</span>
+          <span class="ghost">Websites That</span><br>
+          <span class="accent">Actually Work.</span>
         </h1>
-        <p class="body-text hero-content__sub">
-          No templates. No page builders. No shortcuts.
-          Every line written from scratch — built to load fast,
-          look sharp, and hold up long-term.
+        <p class="lede hero__lede">
+          No templates. No page builders. No shortcuts. Every line written from
+          scratch — built to load fast, look sharp, and hold up for years.
         </p>
-        <div class="hero-content__actions">
-          <a href="portfolio.html" class="btn btn--primary">
-            See the Work
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-          </a>
+        <div class="hero__actions">
+          <a href="portfolio.html" class="btn btn--primary">See the Work <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
           <a href="contact.html" class="btn btn--ghost">Start a Project</a>
         </div>
-        <div class="hero-content__stats" role="list">
-          <div role="listitem">
-            <span class="stat__num">6<em>+</em></span>
-            <span class="stat__label">Live Deployments</span>
-          </div>
-          <div role="listitem">
-            <span class="stat__num">100<em>%</em></span>
-            <span class="stat__label">Hand-Coded</span>
-          </div>
-          <div role="listitem">
-            <span class="stat__num">0</span>
-            <span class="stat__label">Frameworks Used</span>
-          </div>
-          <div role="listitem">
-            <span class="stat__num">MN</span>
-            <span class="stat__label">Minnesota Based</span>
-          </div>
+        <div class="hero__stats">
+          <div><span class="stat__n">6<em>+</em></span><span class="stat__l">Live Deployments</span></div>
+          <div><span class="stat__n">100<em>%</em></span><span class="stat__l">Hand-Coded</span></div>
+          <div><span class="stat__n">0</span><span class="stat__l">Frameworks Used</span></div>
+          <div><span class="stat__n">MN</span><span class="stat__l">Minnesota Based</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <!-- ABOUT STRIP -->
-  <section class="section section--dark" aria-label="About WebOps Studio">
-    <div class="section-inner">
-      <div class="about-grid">
-        <div>
-          <p class="eyebrow u-mb-md reveal">About</p>
-          <h2 class="headline headline--section u-mb-md reveal reveal--d1">
-            Built by a vet.<br>
-            <span class="t-dim">Not a template.</span>
-          </h2>
-          <p class="body-text u-mb-md reveal reveal--d2">
-            <strong>Craig Baumann</strong> is a U.S. Army veteran and self-taught
-            front-end developer based in Minnesota. WebOps Studio exists because
-            most small businesses deserve better than a $30/month drag-and-drop
-            site that breaks when the plugin updates.
-          </p>
-          <p class="body-text u-mb-md reveal reveal--d3">
-            Every project is written in plain HTML, CSS, and Vanilla JS.
-            No React. No Bootstrap. No bloat. Just clean, fast, maintainable
-            code that you actually own.
-          </p>
-          <a href="about.html" class="btn btn--ghost reveal reveal--d4">Read the Full Story</a>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:1rem;">
-          <div class="card-cred reveal">
-            <div class="card-cred__icon" aria-hidden="true">VET</div>
-            <div>
-              <span class="card-cred__label">U.S. Army Veteran</span>
-              <p class="card-cred__desc">Discipline, precision, and no-shortcuts work ethic built in from service.</p>
-            </div>
-          </div>
-          <div class="card-cred reveal reveal--d1">
-            <div class="card-cred__icon" aria-hidden="true">STK</div>
-            <div>
-              <span class="card-cred__label">HTML &middot; CSS &middot; Vanilla JS</span>
-              <p class="card-cred__desc">No frameworks. No dependencies that break six months down the road.</p>
-            </div>
-          </div>
-          <div class="card-cred reveal reveal--d2">
-            <div class="card-cred__icon" aria-hidden="true">MN</div>
-            <div>
-              <span class="card-cred__label">Minnesota Based</span>
-              <p class="card-cred__desc">Local to the region. Available to clients everywhere.</p>
-            </div>
-          </div>
-        </div>
+  <section class="section section--dark">
+    <div class="section-inner about">
+      <div class="about__body">
+        <span class="eyebrow reveal">About</span>
+        <h2 class="headline headline--lg reveal d1">Built by a vet.<br><span class="muted">Not a template.</span></h2>
+        <p class="body-text reveal d2"><strong>Craig Baumann</strong> is a U.S. Army veteran and self-taught front-end developer based in Minnesota. WebOps Studio exists because most small businesses deserve better than a $30-a-month drag-and-drop site that breaks when a plugin updates.</p>
+        <p class="body-text reveal d3">Every project is written in plain HTML, CSS, and vanilla JavaScript. No React. No Bootstrap. No bloat. Just clean, fast, maintainable code you actually own.</p>
+        <a href="about.html" class="btn btn--ghost reveal d4">Read the Full Story</a>
+      </div>
+      <div class="creds">
+        <div class="cred reveal"><span class="cred__ico">VET</span><span><span class="cred__label">U.S. Army Veteran</span><span class="cred__desc">Discipline, precision, and a no-shortcuts work ethic built in from service.</span></span></div>
+        <div class="cred reveal d1"><span class="cred__ico">STK</span><span><span class="cred__label">HTML · CSS · Vanilla JS</span><span class="cred__desc">No frameworks. No dependencies that break six months down the road.</span></span></div>
+        <div class="cred reveal d2"><span class="cred__ico">MN</span><span><span class="cred__label">Minnesota Based</span><span class="cred__desc">Local to the region. Available to clients everywhere.</span></span></div>
       </div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="section" aria-label="How it works">
+  <section class="section">
     <div class="section-inner">
-      <p class="eyebrow u-mb-md reveal">How It Works</p>
-      <h2 class="headline headline--section u-mb-lg reveal reveal--d1">The Process</h2>
-      <div class="process-grid reveal reveal--d2">
-        <div class="process-item">
-          <span class="process-item__num">01</span>
-          <p class="process-item__title">Discovery</p>
-          <p class="process-item__desc">Understand the business, the goal, and what success actually looks like for this client.</p>
-        </div>
-        <div class="process-item">
-          <span class="process-item__num">02</span>
-          <p class="process-item__title">Architecture</p>
-          <p class="process-item__desc">Plan the structure, page map, and technical requirements before writing a single line of code.</p>
-        </div>
-        <div class="process-item">
-          <span class="process-item__num">03</span>
-          <p class="process-item__title">Build</p>
-          <p class="process-item__desc">Hand-coded from scratch. HTML, CSS, Vanilla JS. No templates. No shortcuts.</p>
-        </div>
-        <div class="process-item">
-          <span class="process-item__num">04</span>
-          <p class="process-item__title">Deploy &amp; Hand Off</p>
-          <p class="process-item__desc">Tested across mobile, tablet, and desktop. Deployed clean. You own the code.</p>
-        </div>
+      <span class="eyebrow reveal">How It Works</span>
+      <h2 class="headline headline--lg mb-3 mt-1 reveal d1">The Process</h2>
+      <div class="process reveal d2">
+        <div class="process__item"><span class="process__n">01</span><h3 class="process__t">Discovery</h3><p class="process__d">Understand the business, the goal, and what success actually looks like for this client.</p></div>
+        <div class="process__item"><span class="process__n">02</span><h3 class="process__t">Architecture</h3><p class="process__d">Plan the structure, page map, and technical requirements before writing a single line.</p></div>
+        <div class="process__item"><span class="process__n">03</span><h3 class="process__t">Build</h3><p class="process__d">Hand-coded from scratch. HTML, CSS, vanilla JS. No templates, no shortcuts.</p></div>
+        <div class="process__item"><span class="process__n">04</span><h3 class="process__t">Deploy &amp; Hand Off</h3><p class="process__d">Tested across mobile, tablet, and desktop. Deployed clean. You own the code.</p></div>
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIAL -->
-  <section class="section section--dark" aria-label="Client testimonial">
+  <section class="section section--dark">
     <div class="section-inner">
-      <p class="eyebrow eyebrow--center u-mb-lg reveal">Client Voice</p>
-      <div class="testimonial reveal reveal--d1">
-        <p class="testimonial__quote">
-          "Craig went above and beyond. He didn't just build us a website —
-          he brought our mission to life. We get compliments on it constantly."
-        </p>
-        <p class="testimonial__cite">Guardian 4 Heroes Team</p>
+      <div class="quote reveal">
+        <div class="quote__mark">"</div>
+        <p class="quote__text">Craig went above and beyond. He didn't just build us a website — he brought our mission to life. We get compliments on it constantly.</p>
+        <span class="quote__cite">Guardian 4 Heroes Team</span>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section" aria-label="Start a project">
-    <div class="section-inner u-center">
-      <p class="eyebrow eyebrow--center u-mb-md reveal">Ready to Build?</p>
-      <h2 class="headline headline--section u-mb-md reveal reveal--d1">
-        Let's make something<br>
-        <span class="t-dim">worth showing off.</span>
-      </h2>
-      <p class="body-text u-mb-lg reveal reveal--d2" style="max-width:48ch; margin-left:auto; margin-right:auto;">
-        Whether you need a landing page or a full site build,
-        the first conversation is always free.
-      </p>
-      <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn--primary reveal reveal--d3">
-          Start a Project
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        </a>
-        <a href="services.html" class="btn btn--outline reveal reveal--d4">View Services</a>
+  <section class="section">
+    <div class="section-inner cta">
+      <span class="eyebrow eyebrow--center reveal">Ready to Build?</span>
+      <h2 class="headline headline--lg cta__title mt-1 reveal d1">Let's make something<br><span class="muted">worth showing off.</span></h2>
+      <p class="lede u-center reveal d2" style="margin-inline:auto;">Whether you need a landing page or a full site build, the first conversation is always free.</p>
+      <div class="cta__actions reveal d3">
+        <a href="contact.html" class="btn btn--primary">Start a Project <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+        <a href="services.html" class="btn btn--outline">View Services</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="footer__inner">
       <div class="footer__top">
         <div>
-          <div class="footer__logo">
-            <img src="images/webops-lockup.png" alt="WebOps Studio" loading="lazy">
-          </div>
-          <span class="footer__tagline">Veteran-Built Front Ends</span>
+          <div class="footer__logo"><img src="images/webops-lockup.png" alt="WebOps Studio"></div>
+          <span class="footer__tag">Veteran-Built Front Ends</span>
           <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
         </div>
         <div>
-          <span class="footer__col-label">Navigation</span>
-          <ul class="footer__links" role="list">
-            <li><a href="index.html"     class="footer__link">Home</a></li>
-            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
-            <li><a href="about.html"     class="footer__link">About</a></li>
-            <li><a href="services.html"  class="footer__link">Services</a></li>
-            <li><a href="contact.html"   class="footer__link">Let's Talk</a></li>
-          </ul>
+          <span class="footer__col-l">Navigation</span>
+          <div class="footer__links">
+            <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Let's Talk</a>
+          </div>
         </div>
         <div>
-          <span class="footer__col-label">Contact</span>
-          <ul class="footer__links" role="list">
-            <li><a href="mailto:craigbaumann2020@gmail.com" class="footer__link">craigbaumann2020@gmail.com</a></li>
-            <li><a href="tel:3205226226" class="footer__link">320-522-6226</a></li>
-            <li><span class="footer__link" style="pointer-events:none; cursor:default;">Minnesota, USA</span></li>
-          </ul>
+          <span class="footer__col-l">Contact</span>
+          <div class="footer__links">
+            <a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a><a href="tel:3205226226">320-522-6226</a><a href="#" style="pointer-events:none">Minnesota, USA</a>
+          </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">&copy; <span id="copy-year"></span> <em>WebOps Studio</em> &mdash; All rights reserved.</p>
-        <p class="footer__copy">HTML &middot; CSS &middot; Vanilla JS &middot; Zero Frameworks</p>
+        <span class="footer__copy">&copy; <span id="year"></span> <em>WebOps Studio</em> — All rights reserved.</span>
+        <span class="footer__copy">HTML · CSS · Vanilla JS · Zero Frameworks</span>
       </div>
     </div>
   </footer>

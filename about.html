@@ -7,191 +7,100 @@
   <title>About — WebOps Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="icon" href="images/webops-mark.png" type="image/png">
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+  <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="WebOps Studio — Home">
-        <img src="images/webops-mark.png" alt="WebOps Studio" loading="eager">
-      </a>
-      <ul class="nav__links" role="list">
-        <li><a href="index.html"     class="nav__link">Home</a></li>
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio home"><img src="images/webops-mark.png" alt="WebOps Studio"></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
-        <li><a href="about.html"     class="nav__link active">About</a></li>
-        <li><a href="services.html"  class="nav__link">Services</a></li>
-        <li><a href="contact.html"   class="nav__cta">Let's Talk</a></li>
+        <li><a href="about.html" class="nav__link active">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
       </ul>
-      <button class="nav__mobile-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
-
-  <!-- MOBILE DRAWER -->
-  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
-  <nav class="drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
-    <button class="drawer__close" id="drawerClose" aria-label="Close menu">
-      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <path d="M4 4l12 12M16 4L4 16"/>
-      </svg>
-    </button>
-    <ul class="drawer__nav" role="list">
-      <li><a href="index.html"     class="drawer__link"><span class="drawer__link-num">01</span>Home</a></li>
-      <li><a href="portfolio.html" class="drawer__link"><span class="drawer__link-num">02</span>Portfolio</a></li>
-      <li><a href="about.html"     class="drawer__link"><span class="drawer__link-num">03</span>About</a></li>
-      <li><a href="services.html"  class="drawer__link"><span class="drawer__link-num">04</span>Services</a></li>
-      <li><a href="contact.html"   class="drawer__link"><span class="drawer__link-num">05</span>Let's Talk</a></li>
-    </ul>
-    <div class="drawer__contact">
-      <span class="drawer__contact-label">Direct contact</span>
-      <a href="mailto:craigbaumann2020@gmail.com" class="drawer__contact-email">craigbaumann2020@gmail.com</a>
+  <div class="drawer-overlay" id="overlay"></div>
+  <nav class="drawer" id="drawer" aria-label="Mobile navigation">
+    <button class="drawer__close" id="drawerClose" aria-label="Close menu"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+    <div class="drawer__nav">
+      <a href="index.html" class="drawer__link"><span class="n">01</span>Home</a>
+      <a href="portfolio.html" class="drawer__link"><span class="n">02</span>Portfolio</a>
+      <a href="about.html" class="drawer__link"><span class="n">03</span>About</a>
+      <a href="services.html" class="drawer__link"><span class="n">04</span>Services</a>
+      <a href="contact.html" class="drawer__link"><span class="n">05</span>Let's Talk</a>
     </div>
+    <div class="drawer__foot"><span class="mono">Direct line</span><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <header aria-label="About page hero">
-    <h1 class="u-sr-only">About Craig — WebOps Studio</h1>
-    <div class="page-hero">
-      <div class="page-hero__rule" aria-hidden="true"></div>
-      <img src="images/about-hero.jpg" alt="The Mission — About WebOps Studio" class="page-hero__img" loading="eager">
-    </div>
+  <header class="page-hero">
+    <h1 class="sr-only">About Craig Baumann</h1>
+    <div class="page-hero__rule"></div>
+    <img src="images/about-hero.jpg" alt="The Mission — Built With Purpose" class="page-hero__img">
   </header>
 
-  <!-- MAIN ABOUT -->
-  <section class="section" aria-label="About Craig Baumann">
+  <section class="section">
+    <div class="section-inner about">
+      <div class="about__photo-wrap reveal">
+        <img src="images/photo-me.jpg" alt="Craig Baumann, founder of WebOps Studio" class="about__photo">
+        <span class="about__photo-tag">Craig Baumann · Founder</span>
+      </div>
+      <div class="about__body">
+        <span class="eyebrow reveal">Background</span>
+        <h2 class="headline headline--lg reveal d1">Veteran. Developer.<br><span class="muted">No shortcuts.</span></h2>
+        <p class="body-text reveal d2"><strong>Craig Baumann</strong> is a U.S. Army veteran and self-taught front-end developer based in Minnesota. WebOps Studio was built on one principle: if something's worth doing, it's worth doing right.</p>
+        <p class="body-text reveal d3">After separating from service, Craig taught himself to code the hard way — building real things, breaking them, learning why, and building again. No bootcamp shortcuts. No "just use a template" compromises.</p>
+        <p class="body-text reveal d3">The result is a practice that treats every project like a mission: clear objectives, clean execution, and zero tolerance for sloppy work. Clients get hand-coded sites that load fast, look sharp, and don't break six months after launch.</p>
+        <div class="reveal d4">
+          <span class="eyebrow mb-1" style="margin-bottom:.9rem;display:inline-flex;">Tech Stack</span>
+          <div class="stack">
+            <span class="stack__tag">HTML5</span><span class="stack__tag">CSS3</span><span class="stack__tag">Vanilla JS</span><span class="stack__tag">GitHub Pages</span><span class="stack__tag">Flexbox</span><span class="stack__tag">CSS Grid</span><span class="stack__tag">Formspree</span><span class="stack__tag">MailerLite</span>
+          </div>
+        </div>
+        <div class="reveal d4" style="margin-top:.5rem;"><a href="contact.html" class="btn btn--primary">Work With Me <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
     <div class="section-inner">
-      <div class="about-grid">
-        <div class="about-photo-wrap reveal">
-          <img src="images/Shareface.jpg" alt="Craig Baumann — WebOps Studio founder" class="about-photo" loading="eager">
-          <div class="about-photo-accent" aria-hidden="true"></div>
-        </div>
-        <div class="about-content">
-          <div>
-            <p class="eyebrow u-mb-md reveal">Background</p>
-            <h2 class="headline headline--section u-mb-md reveal reveal--d1">
-              Veteran. Developer.<br><span class="t-dim">No shortcuts.</span>
-            </h2>
-          </div>
-          <p class="body-text reveal reveal--d2">
-            <strong>Craig Baumann</strong> is a U.S. Army veteran and self-taught front-end developer based in Minnesota. WebOps Studio was built on one principle: if something's worth doing, it's worth doing right.
-          </p>
-          <p class="body-text reveal reveal--d3">
-            After separating from service, Craig taught himself to code the hard way — building real things, breaking them, learning why, and building again. No bootcamp shortcuts. No "just use a template" compromises. Every skill earned through repetition and real projects.
-          </p>
-          <p class="body-text reveal reveal--d4">
-            The result is a web development practice that treats every project like a mission: clear objectives, clean execution, and zero tolerance for sloppy work. Clients get hand-coded sites that load fast, look sharp, and don't break six months after launch.
-          </p>
-          <div class="reveal">
-            <p class="eyebrow u-mb-md">Tech Stack</p>
-            <div class="about-stack">
-              <span class="about-stack-tag">HTML5</span>
-              <span class="about-stack-tag">CSS3</span>
-              <span class="about-stack-tag">Vanilla JS</span>
-              <span class="about-stack-tag">GitHub Pages</span>
-              <span class="about-stack-tag">Flexbox</span>
-              <span class="about-stack-tag">CSS Grid</span>
-              <span class="about-stack-tag">Formspree</span>
-              <span class="about-stack-tag">MailerLite</span>
-            </div>
-          </div>
-          <div class="reveal">
-            <a href="contact.html" class="btn btn--primary">
-              Work With Me
-              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-            </a>
-          </div>
-        </div>
+      <span class="eyebrow reveal">What I Stand For</span>
+      <h2 class="headline headline--lg mb-3 mt-1 reveal d1">The WebOps <span class="muted">Standard</span></h2>
+      <div class="process reveal d2">
+        <div class="process__item"><span class="process__n">01</span><h3 class="process__t">No Templates</h3><p class="process__d">Every site written from a blank file. No Squarespace, no Wix, no Bootstrap. Your site is yours.</p></div>
+        <div class="process__item"><span class="process__n">02</span><h3 class="process__t">You Own It</h3><p class="process__d">Full source code, no platform lock-in, no monthly subscription to keep your site alive.</p></div>
+        <div class="process__item"><span class="process__n">03</span><h3 class="process__t">Performance First</h3><p class="process__d">No unnecessary libraries, no plugin bloat. Sites load fast because they're lean by design.</p></div>
+        <div class="process__item"><span class="process__n">04</span><h3 class="process__t">Long-Term Integrity</h3><p class="process__d">Hand-coded sites don't break when a plugin updates. What works today works in three years.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- VALUES -->
-  <section class="section section--dark" aria-label="Core values">
-    <div class="section-inner">
-      <p class="eyebrow u-mb-md reveal">What I Stand For</p>
-      <h2 class="headline headline--section u-mb-lg reveal reveal--d1">The WebOps <span class="t-dim">Standard</span></h2>
-      <div class="process-grid reveal reveal--d2">
-        <div class="process-item">
-          <span class="process-item__num">01</span>
-          <p class="process-item__title">No Templates</p>
-          <p class="process-item__desc">Every site is written from a blank file. No Squarespace, no Wix, no Bootstrap. Your site is yours — not a reskin of someone else's.</p>
-        </div>
-        <div class="process-item">
-          <span class="process-item__num">02</span>
-          <p class="process-item__title">You Own It</p>
-          <p class="process-item__desc">You get the full source code. No platform lock-in, no monthly subscription to keep your site alive. Clean handoff, every time.</p>
-        </div>
-        <div class="process-item">
-          <span class="process-item__num">03</span>
-          <p class="process-item__title">Performance First</p>
-          <p class="process-item__desc">No unnecessary libraries, no plugin bloat. Sites load fast because they're lean by design — not patched up after the fact.</p>
-        </div>
-        <div class="process-item">
-          <span class="process-item__num">04</span>
-          <p class="process-item__title">Long-Term Integrity</p>
-          <p class="process-item__desc">Hand-coded sites don't break when a plugin updates. What works today will still work in three years.</p>
-        </div>
+  <section class="section">
+    <div class="section-inner cta">
+      <span class="eyebrow eyebrow--center reveal">Ready to Work Together?</span>
+      <h2 class="headline headline--lg cta__title mt-1 reveal d1">Let's build something<br><span class="muted">that lasts.</span></h2>
+      <div class="cta__actions reveal d2">
+        <a href="contact.html" class="btn btn--primary">Start a Project <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+        <a href="portfolio.html" class="btn btn--outline">View My Work</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" aria-label="Start a project">
-    <div class="section-inner u-center">
-      <p class="eyebrow eyebrow--center u-mb-md reveal">Ready to Work Together?</p>
-      <h2 class="headline headline--section u-mb-lg reveal reveal--d1">
-        Let's build something<br><span class="t-dim">that lasts.</span>
-      </h2>
-      <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
-        <a href="contact.html"   class="btn btn--primary reveal reveal--d2">
-          Start a Project
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-        </a>
-        <a href="portfolio.html" class="btn btn--outline reveal reveal--d3">View My Work</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="footer__inner">
       <div class="footer__top">
-        <div>
-          <div class="footer__logo"><img src="images/webops-lockup.png" alt="WebOps Studio" loading="lazy"></div>
-          <span class="footer__tagline">Veteran-Built Front Ends</span>
-          <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
-        </div>
-        <div>
-          <span class="footer__col-label">Navigation</span>
-          <ul class="footer__links" role="list">
-            <li><a href="index.html"     class="footer__link">Home</a></li>
-            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
-            <li><a href="about.html"     class="footer__link">About</a></li>
-            <li><a href="services.html"  class="footer__link">Services</a></li>
-            <li><a href="contact.html"   class="footer__link">Let's Talk</a></li>
-          </ul>
-        </div>
-        <div>
-          <span class="footer__col-label">Contact</span>
-          <ul class="footer__links" role="list">
-            <li><a href="mailto:craigbaumann2020@gmail.com" class="footer__link">craigbaumann2020@gmail.com</a></li>
-            <li><a href="tel:3205226226" class="footer__link">320-522-6226</a></li>
-            <li><span class="footer__link" style="pointer-events:none; cursor:default;">Minnesota, USA</span></li>
-          </ul>
-        </div>
+        <div><div class="footer__logo"><img src="images/webops-lockup.png" alt="WebOps Studio"></div><span class="footer__tag">Veteran-Built Front Ends</span><p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p></div>
+        <div><span class="footer__col-l">Navigation</span><div class="footer__links"><a href="index.html">Home</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Let's Talk</a></div></div>
+        <div><span class="footer__col-l">Contact</span><div class="footer__links"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a><a href="tel:3205226226">320-522-6226</a><a href="#" style="pointer-events:none">Minnesota, USA</a></div></div>
       </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; <span id="copy-year"></span> <em>WebOps Studio</em> &mdash; All rights reserved.</p>
-        <p class="footer__copy">HTML &middot; CSS &middot; Vanilla JS &middot; Zero Frameworks</p>
-      </div>
+      <div class="footer__bottom"><span class="footer__copy">&copy; <span id="year"></span> <em>WebOps Studio</em> — All rights reserved.</span><span class="footer__copy">HTML · CSS · Vanilla JS · Zero Frameworks</span></div>
     </div>
   </footer>
-
   <script src="js/scripts.js"></script>
 </body>
 </html>
