@@ -9,12 +9,12 @@
    ============================================================ */
 :root {
   --bg:            #07070C;
-  --surface-1:     #0F0F16;
-  --surface-2:     #16161F;
-  --surface-3:     #1E1E2A;
+  --surface-1:     #111118;
+  --surface-2:     #1A1A24;
+  --surface-3:     #22222E;
 
-  --border:        rgba(240,235,227,0.07);
-  --border-mid:    rgba(240,235,227,0.13);
+  --border:        rgba(240,235,227,0.08);
+  --border-mid:    rgba(240,235,227,0.14);
   --border-strong: rgba(240,235,227,0.22);
 
   --white:         #F0EBE3;
@@ -24,12 +24,12 @@
 
   --orange:        #E8620A;
   --orange-lt:     #FF7A24;
-  --orange-dim:    rgba(232,98,10,0.12);
-  --orange-glow:   rgba(232,98,10,0.06);
+  --orange-dim:    rgba(232,98,10,0.14);
+  --orange-glow:   rgba(232,98,10,0.07);
 
   --purple:        #3B1E6D;
   --purple-lt:     #6B4FA0;
-  --purple-glow:   rgba(59,30,109,0.30);
+  --purple-glow:   rgba(59,30,109,0.32);
 
   --font-display:  'Space Grotesk', sans-serif;
   --font-body:     'Inter', sans-serif;
@@ -53,6 +53,10 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
   background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, var(--purple-glow), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, var(--orange-glow), transparent 60%);
+  background-attachment: fixed;
   color: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -98,13 +102,13 @@ input, textarea, select {
 }
 
 .section--dark {
-  background: var(--surface-1);
+  background: linear-gradient(180deg, rgba(17,17,24,0.85), rgba(17,17,24,0.95));
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
 .section--darker {
-  background: var(--surface-2);
+  background: linear-gradient(180deg, rgba(26,26,36,0.88), rgba(26,26,36,0.96));
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -503,13 +507,16 @@ input, textarea, select {
 .page-hero {
   margin-top: var(--nav-h);
   position: relative;
+  border-bottom: 1px solid var(--border);
 }
 .page-hero__img {
   width: 100%;
-  height: clamp(260px, 42vw, 520px);
-  object-fit: cover;
+  height: auto;
+  max-height: clamp(360px, 56vw, 680px);
+  object-fit: contain;
   object-position: center;
   display: block;
+  background: var(--bg);
 }
 .page-hero__rule {
   position: absolute;
@@ -518,24 +525,6 @@ input, textarea, select {
   background: linear-gradient(to bottom, transparent, var(--orange) 20%, var(--orange) 80%, transparent);
   z-index: 2;
 }
-.page-hero__title {
-  background: var(--bg);
-  padding: 3rem var(--pad-x) 3.5rem;
-  position: relative;
-  border-bottom: 1px solid var(--border);
-}
-.page-hero__title::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, var(--orange), transparent 50%);
-}
-.page-hero__title-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-.page-hero__eyebrow { margin-bottom: 1rem; }
 
 /* ============================================================
    10. CREDENTIAL CARDS
@@ -791,16 +780,15 @@ input, textarea, select {
 }
 .case-study__inner { max-width: var(--max-w); margin: 0 auto; }
 
-/* Hero screenshot — full width */
+/* Hero screenshot — full width, show complete image */
 .case-study__hero-img {
   width: 100%;
-  height: clamp(220px, 42vw, 560px);
-  object-fit: cover;
-  object-position: top;
+  height: auto;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   margin-bottom: 2.5rem;
   display: block;
+  background: var(--surface-1);
 }
 
 /* Header row */
@@ -860,21 +848,20 @@ input, textarea, select {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+  align-items: start;
 }
 .case-study__screenshot {
   width: 100%;
-  aspect-ratio: 9 / 16;
+  height: auto;
   object-fit: cover;
   object-position: top;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   display: block;
+  background: var(--surface-1);
   transition: transform 0.4s var(--ease);
 }
 .case-study__screenshot:hover { transform: scale(1.02); }
-.case-study__screenshot--wide {
-  aspect-ratio: 16 / 9;
-}
 .case-study__screenshots--2col {
   grid-template-columns: repeat(2, 1fr);
 }
