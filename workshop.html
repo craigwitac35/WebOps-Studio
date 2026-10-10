@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The WebOps Studio Workshop: 12 live, hand-coded demos you can touch, break, and read the source of. Forms, dashboards, galleries, and more, built with zero frameworks.">
+  <title>Workshop — WebOps Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/workshop.css">
+  <link rel="icon" href="images/webops-mark.png" type="image/png">
+</head>
+<body class="page-workshop">
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio home"><img src="images/webops-lockup.webp" alt="WebOps Studio" class="logo-lockup"><img src="images/webops-mark.webp" alt="" class="logo-mark"></a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="workshop.html" class="nav__link active">Workshop</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="contact.html" class="nav__cta">Let's Talk</a></li>
+      </ul>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- DRAWER -->
+  <div class="drawer-overlay" id="overlay"></div>
+  <nav class="drawer" id="drawer" aria-label="Mobile navigation">
+    <button class="drawer__close" id="drawerClose" aria-label="Close menu"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+    <div class="drawer__nav">
+      <a href="index.html" class="drawer__link"><span class="n">01</span>Home</a>
+      <a href="portfolio.html" class="drawer__link"><span class="n">02</span>Portfolio</a>
+      <a href="workshop.html" class="drawer__link"><span class="n">03</span>Workshop</a>
+      <a href="about.html" class="drawer__link"><span class="n">04</span>About</a>
+      <a href="services.html" class="drawer__link"><span class="n">05</span>Services</a>
+      <a href="contact.html" class="drawer__link"><span class="n">06</span>Let's Talk</a>
+    </div>
+    <div class="drawer__foot"><span class="mono">Direct line</span><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a></div>
+  </nav>
+
+  <!-- WORKSHOP HERO (demo: typewriter) -->
+  <header class="ws-hero demo" id="demo-type" data-css=".tw">
+    <div class="ws-hero__inner">
+      <span class="eyebrow">The Workshop</span>
+      <h1 class="ws-hero__title">
+        <span class="ws-hero__line">Don't take my word for it.</span>
+        <span class="tw" aria-hidden="true"><span class="tw__text">Touch the work.</span><span class="tw__caret"></span></span>
+        <span class="sr-only">Touch the work.</span>
+      </h1>
+      <p class="ws-hero__lede">Every demo below is live and hand-coded. Break them, resize them, then look at the code.</p>
+      <div class="ws-hero__meta">
+        <span><b>12</b> live demos</span>
+        <span><b>0</b> frameworks</span>
+        <span><b>100%</b> real source</span>
+      </div>
+      <div class="ws-hero__demo">
+        <p><span class="demo__k">Demo 12 · Typewriter</span> The headline above types itself.</p>
+        <p class="demo__biz"><span>Your site needs this</span> when your headline has three seconds to earn a fourth.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="ws">
+
+  <!-- FEATURED: PARTICLE W -->
+  <section class="wband demo" id="demo-w" data-css=".wband">
+    <div class="wband__copy">
+      <span class="demo__k">Featured · Demo 01</span>
+      <h2 class="wband__title">Your logo, built from<br>moving particles.</h2>
+      <p class="demo__desc">Every dot is its own particle, pulled back into the W by a spring. Drag across it or tap it and they scatter, then find their way home.</p>
+      <div class="demo__tags"><span>JavaScript</span><span>Canvas</span></div>
+    </div>
+    <div class="wband__stage">
+      <canvas class="wband__canvas" aria-label="Interactive WebOps W logo made of particles. Drag across it to scatter them." role="img"></canvas>
+      <span class="wband__readout" aria-hidden="true"></span>
+      <span class="wband__hint" aria-hidden="true">Drag across it</span>
+      <p class="demo__fallback">The particle demo couldn't start in this browser. The rest of the page still works.</p>
+    </div>
+    <div class="wband__foot">
+      <button type="button" class="wband__scatter btn btn--outline">Scatter it</button>
+      <p class="demo__biz"><span>Your site needs this</span> when your brand should be the thing people remember.</p>
+      <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+    </div>
+  </section>
+
+  <div class="ws-grid">
+
+    <!-- 02 BEFORE / AFTER -->
+    <article class="demo demo--wide" id="demo-ba" data-css=".ba">
+      <header class="demo__head">
+        <span class="demo__num">02</span>
+        <h2 class="demo__title">Before / After Slider</h2>
+        <div class="demo__tags"><span>JavaScript</span><span>CSS</span></div>
+      </header>
+      <p class="demo__desc">Drag across the frame. Same business, same content, ten years apart.</p>
+      <div class="demo__stage">
+        <div class="ba" style="--pos:50%">
+          <div class="ba__layer ba__before">
+            <div class="ba__mock ba__old" aria-hidden="true">
+              <div class="ba__old-top"><b>Northwoods Plumbing &amp; Heating</b><span>Serving YOU since 1987!</span></div>
+              <div class="ba__old-cols">
+                <ul class="ba__old-side"><li>Home</li><li>About Us</li><li>Services</li><li>Coupons</li><li>Links</li><li>Contact Us</li></ul>
+                <div class="ba__old-main">
+                  <p class="ba__old-h">~ Welcome to our Website!! ~</p>
+                  <p>We are a family owned business. Please browse our site and call us for all your plumbing needs.</p>
+                  <p class="ba__old-call">CALL US TODAY!!! 555-0142</p>
+                  <p class="ba__old-uc">&#9888; Online booking coming soon &#9888;</p>
+                  <p class="ba__old-count">You are visitor #004127</p>
+                </div>
+              </div>
+            </div>
+            <img src="images/workshop/before-after-a.webp" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ba__layer ba__after">
+            <div class="ba__mock ba__new" aria-hidden="true">
+              <div class="ba__new-top"><b>NORTHWOODS</b><span class="ba__new-links"><i>Services</i><i>Pricing</i><i>Reviews</i></span><span class="ba__new-call">Call 24/7</span></div>
+              <div class="ba__new-body">
+                <div class="ba__new-copy">
+                  <span class="ba__new-k">Plumbing &amp; Heating · Since 1987</span>
+                  <p class="ba__new-h">Burst pipe at 2 AM?<br><em>We pick up.</em></p>
+                  <p class="ba__new-p">Licensed techs, upfront pricing, and a real person on the phone.</p>
+                  <div class="ba__new-btns"><span>Book a visit</span><span>See pricing</span></div>
+                </div>
+                <div class="ba__new-card">
+                  <span class="ba__new-k">Next available</span>
+                  <b>Today, 2:00 PM</b>
+                  <div class="ba__new-slots"><i>2:00</i><i>3:30</i><i>5:00</i></div>
+                  <span class="ba__new-meta">Upfront quote before any work starts</span>
+                </div>
+              </div>
+            </div>
+            <img src="images/workshop/before-after-b.webp" alt="" loading="lazy" onerror="this.remove()">
+          </div>
+          <span class="ba__tag ba__tag--l" aria-hidden="true">Before</span>
+          <span class="ba__tag ba__tag--r" aria-hidden="true">After</span>
+          <span class="ba__handle" aria-hidden="true"><span></span></span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Compare before and after. Left shows more after, right shows more before.">
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when your work speaks louder than your pitch.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 03 LIVE SPEED METER -->
+    <article class="demo" id="demo-speed" data-css=".sm">
+      <header class="demo__head">
+        <span class="demo__num">03</span>
+        <h2 class="demo__title">Live Speed Meter</h2>
+        <div class="demo__tags"><span>JavaScript</span><span>Performance API</span></div>
+      </header>
+      <p class="demo__desc">How fast this page loaded on your device, measured just now. No made-up numbers.</p>
+      <div class="demo__stage">
+        <div class="sm">
+          <div class="sm__gauge">
+            <svg viewBox="0 0 200 120" aria-hidden="true">
+              <path class="sm__track" d="M20 105 A80 80 0 0 1 180 105" pathLength="100"/>
+              <path class="sm__fill" d="M20 105 A80 80 0 0 1 180 105" pathLength="100"/>
+            </svg>
+            <div class="sm__read"><span class="sm__val">–</span><span class="sm__lbl">Full page load</span></div>
+          </div>
+          <span class="sm__rate">Measuring…</span>
+          <dl class="sm__stats">
+            <div><dt>First byte</dt><dd data-k="ttfb">–</dd></div>
+            <div><dt>Page ready</dt><dd data-k="dom">–</dd></div>
+            <div><dt>Main content</dt><dd data-k="lcp">–</dd></div>
+            <div><dt>Page weight</dt><dd data-k="kb">–</dd></div>
+            <div><dt>Files loaded</dt><dd data-k="req">–</dd></div>
+            <div><dt>Connection</dt><dd data-k="net">–</dd></div>
+          </dl>
+          <button type="button" class="sm__again">Measure again</button>
+        </div>
+      </div>
+      <p class="demo__fallback">Your browser doesn't share load timings, so there's nothing honest to show here.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when a slow page is losing people before they see a thing.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 04 PRICE ESTIMATOR -->
+    <article class="demo" id="demo-est" data-css=".est">
+      <header class="demo__head">
+        <span class="demo__num">04</span>
+        <h2 class="demo__title">Instant Price Estimator</h2>
+        <div class="demo__tags"><span>JavaScript</span><span>Forms</span></div>
+      </header>
+      <p class="demo__desc">A lawn care company's monthly estimate that updates as you change it.</p>
+      <div class="demo__stage">
+        <form class="est" onsubmit="return false">
+          <div class="est__brand">Northline Lawn Co. <span>Example pricing</span></div>
+          <div class="est__row">
+            <span class="est__l"><label for="est-size">Yard size</label> <output class="est__size" for="est-size">6,000 sq ft</output></span>
+            <input id="est-size" type="range" name="size" min="1000" max="20000" step="500" value="6000">
+          </div>
+          <fieldset class="est__row">
+            <legend class="est__l">How often</legend>
+            <div class="est__seg">
+              <label><input type="radio" name="freq" value="4.33" checked><span>Weekly</span></label>
+              <label><input type="radio" name="freq" value="2.17"><span>Every 2 weeks</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="est__row">
+            <legend class="est__l">Add-ons</legend>
+            <div class="est__adds">
+              <label><input type="checkbox" name="edge" data-per-visit="8"><span>Edging &amp; trim</span><i>+$8 / visit</i></label>
+              <label><input type="checkbox" name="weed" data-monthly="25"><span>Weed control</span><i>+$25 / mo</i></label>
+              <label><input type="checkbox" name="fert" data-monthly="35"><span>Fertilizing</span><i>+$35 / mo</i></label>
+              <label><input type="checkbox" name="leaf" data-monthly="45"><span>Leaf cleanup</span><i>+$45 / mo</i></label>
+            </div>
+          </fieldset>
+          <div class="est__out" aria-live="polite">
+            <span class="est__k">Estimated monthly</span>
+            <span class="est__price">$0 – $0</span>
+            <span class="est__per">about <b class="est__visit">$0</b> per visit</span>
+          </div>
+        </form>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when customers want a ballpark before they'll pick up the phone.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 05 QUOTE TO DASHBOARD -->
+    <article class="demo demo--wide" id="demo-quote" data-css=".qd">
+      <header class="demo__head">
+        <span class="demo__num">05</span>
+        <h2 class="demo__title">Quote Form to Dashboard</h2>
+        <div class="demo__tags"><span>JavaScript</span><span>Supabase</span><span>Postgres</span></div>
+      </header>
+      <p class="demo__desc">Fill out the customer's form, then watch it land in the owner's dashboard. Fake details are fine.</p>
+      <div class="demo__stage">
+        <div class="qd">
+          <form class="qd__form" novalidate>
+            <div class="qd__brand">IronShield Roofing <span>Request a quote</span></div>
+            <div class="qd__field">
+              <label for="qd-name">Name</label>
+              <input id="qd-name" name="name" type="text" autocomplete="off" placeholder="Jane Smith" maxlength="60">
+              <p class="qd__err" id="qd-name-err"></p>
+            </div>
+            <div class="qd__field">
+              <label for="qd-email">Email</label>
+              <input id="qd-email" name="email" type="email" autocomplete="off" placeholder="jane@example.com" maxlength="120">
+              <p class="qd__err" id="qd-email-err"></p>
+            </div>
+            <div class="qd__field">
+              <label for="qd-phone">Phone <i>optional</i></label>
+              <input id="qd-phone" name="phone" type="tel" autocomplete="off" placeholder="(320) 555-0142" maxlength="14">
+              <p class="qd__err" id="qd-phone-err"></p>
+            </div>
+            <div class="qd__field">
+              <label for="qd-service">What do you need?</label>
+              <select id="qd-service" name="service">
+                <option value="">Choose one</option>
+                <option>Roof repair</option>
+                <option>Full replacement</option>
+                <option>Gutters</option>
+                <option>Storm inspection</option>
+              </select>
+              <p class="qd__err" id="qd-service-err"></p>
+            </div>
+            <div class="qd__field">
+              <label for="qd-details">Details <i class="qd__count">0 / 400</i></label>
+              <textarea id="qd-details" name="details" rows="2" maxlength="400" placeholder="Shingles came off in last night's storm."></textarea>
+              <p class="qd__err" id="qd-details-err"></p>
+            </div>
+            <button type="submit" class="qd__send">Send request</button>
+            <p class="qd__status" role="status" aria-live="polite"></p>
+          </form>
+          <div class="qd__dash">
+            <div class="qd__dash-top">
+              <span class="qd__dash-t">Owner dashboard</span>
+              <span class="qd__conn" data-mode="connecting">Connecting…</span>
+            </div>
+            <div class="qd__stats">
+              <div><b data-stat="total">0</b><span>Requests</span></div>
+              <div><b data-stat="new">0</b><span>New</span></div>
+              <div><b data-stat="won">0</b><span>Won</span></div>
+            </div>
+            <ul class="qd__rows" aria-live="polite"></ul>
+            <p class="qd__note"></p>
+          </div>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when a broken contact form is silently costing you customers.</p>
+        <p class="demo__proof">Same stack as the Courage To Claws quote form and admin dashboard.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 06 LIVE SEARCH -->
+    <article class="demo" id="demo-search" data-css=".ls">
+      <header class="demo__head">
+        <span class="demo__num">06</span>
+        <h2 class="demo__title">Live Search</h2>
+        <div class="demo__tags"><span>JavaScript</span></div>
+      </header>
+      <p class="demo__desc">A plumber's services, filtered as you type. Try "leak", "water", or "smell".</p>
+      <div class="demo__stage">
+        <div class="ls">
+          <div class="ls__box">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input class="ls__input" type="search" placeholder="What's going on?" aria-label="Search services" autocomplete="off">
+          </div>
+          <div class="ls__chips" role="group" aria-label="Filter by category"></div>
+          <p class="ls__count" aria-live="polite"></p>
+          <ul class="ls__list"></ul>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when visitors can't find what they came for, they leave.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 07 GALLERY + LIGHTBOX -->
+    <article class="demo" id="demo-gallery" data-css=".gl">
+      <header class="demo__head">
+        <span class="demo__num">07</span>
+        <h2 class="demo__title">Gallery + Lightbox</h2>
+        <div class="demo__tags"><span>JavaScript</span><span>CSS</span></div>
+      </header>
+      <p class="demo__desc">Tap any image for fullscreen. Arrow keys, swipe, or Esc to close.</p>
+      <div class="demo__stage">
+        <div class="gl">
+          <ul class="gl__grid">
+            <li><button type="button" class="gl__item" data-i="0"><img src="images/workshop/gallery-1.webp" alt="Gallery image 1" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"><span class="gl__ph">01</span></button></li>
+            <li><button type="button" class="gl__item" data-i="1"><img src="images/workshop/gallery-2.webp" alt="Gallery image 2" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"><span class="gl__ph">02</span></button></li>
+            <li><button type="button" class="gl__item" data-i="2"><img src="images/workshop/gallery-3.webp" alt="Gallery image 3" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"><span class="gl__ph">03</span></button></li>
+            <li><button type="button" class="gl__item" data-i="3"><img src="images/workshop/gallery-4.webp" alt="Gallery image 4" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"><span class="gl__ph">04</span></button></li>
+            <li><button type="button" class="gl__item" data-i="4"><img src="images/workshop/gallery-5.webp" alt="Gallery image 5" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"><span class="gl__ph">05</span></button></li>
+            <li><button type="button" class="gl__item" data-i="5"><img src="images/workshop/gallery-6.webp" alt="Gallery image 6" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()"><span class="gl__ph">06</span></button></li>
+          </ul>
+          <dialog class="gl__box" aria-label="Image viewer">
+            <figure class="gl__fig">
+              <img class="gl__big" src="images/workshop/gallery-1.webp" alt="" loading="lazy">
+              <span class="gl__big-ph">01</span>
+              <figcaption class="gl__cap"></figcaption>
+            </figure>
+            <button type="button" class="gl__nav gl__prev" aria-label="Previous image">&larr;</button>
+            <button type="button" class="gl__nav gl__next" aria-label="Next image">&rarr;</button>
+            <button type="button" class="gl__close" aria-label="Close viewer">&times;</button>
+          </dialog>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when your photos are the reason people call you.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 08 FLIP CARDS -->
+    <article class="demo" id="demo-flip" data-css=".flip">
+      <header class="demo__head">
+        <span class="demo__num">08</span>
+        <h2 class="demo__title">3D Flip Cards</h2>
+        <div class="demo__tags"><span>CSS</span><span>JavaScript</span></div>
+      </header>
+      <p class="demo__desc">Tap a card to turn it over. The image up front, the details on the back.</p>
+      <div class="demo__stage">
+        <div class="flip">
+          <button type="button" class="flip__card" aria-pressed="false">
+            <span class="flip__face flip__front"><img src="images/workshop/flip-1.webp" alt="" loading="lazy" onerror="this.remove()"><span class="flip__ph">01</span></span>
+            <span class="flip__face flip__back"><b>Product</b><span>Price, sizes, and a buy link on the back.</span></span>
+          </button>
+          <button type="button" class="flip__card" aria-pressed="false">
+            <span class="flip__face flip__front"><img src="images/workshop/flip-2.webp" alt="" loading="lazy" onerror="this.remove()"><span class="flip__ph">02</span></span>
+            <span class="flip__face flip__back"><b>Team member</b><span>The face up front, the person on the back.</span></span>
+          </button>
+          <button type="button" class="flip__card" aria-pressed="false">
+            <span class="flip__face flip__front"><img src="images/workshop/flip-3.webp" alt="" loading="lazy" onerror="this.remove()"><span class="flip__ph">03</span></span>
+            <span class="flip__face flip__back"><b>Service</b><span>What it costs and how long it takes.</span></span>
+          </button>
+          <button type="button" class="flip__card" aria-pressed="false">
+            <span class="flip__face flip__front"><img src="images/workshop/flip-4.webp" alt="" loading="lazy" onerror="this.remove()"><span class="flip__ph">04</span></span>
+            <span class="flip__face flip__back"><b>Past project</b><span>The story behind the shot.</span></span>
+          </button>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when you want visitors to touch your content, not scroll past it.</p>
+        <p class="demo__proof">Same technique as the Courage To Claws project gallery.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 09 RESPONSIVE PREVIEW -->
+    <article class="demo" id="demo-resp" data-css=".rp">
+      <header class="demo__head">
+        <span class="demo__num">09</span>
+        <h2 class="demo__title">Responsive Preview</h2>
+        <div class="demo__tags"><span>CSS</span><span>Container Queries</span></div>
+      </header>
+      <p class="demo__desc">Drag the orange handle. One layout, rebuilding itself for every screen size.</p>
+      <div class="demo__stage">
+        <div class="rp">
+          <div class="rp__bar">
+            <span class="rp__label"><b class="rp__px">900px</b> <span class="rp__bp">Desktop</span></span>
+            <div class="rp__presets" role="group" aria-label="Preset widths">
+              <button type="button" data-w="375">Phone</button>
+              <button type="button" data-w="680">Tablet</button>
+              <button type="button" data-w="900">Desktop</button>
+            </div>
+          </div>
+          <div class="rp__viewport">
+            <div class="rp__frame">
+              <div class="rp__site">
+                <div class="rp__nav"><b>Ember &amp; Oak</b><span class="rp__links"><i>Menu</i><i>Visit</i><i>Order</i></span><span class="rp__burger"><i></i><i></i><i></i></span></div>
+                <div class="rp__hero">
+                  <div class="rp__hero-copy"><p class="rp__h">Coffee &amp; Community.</p><p class="rp__p">Honest ingredients and the best espresso in the neighborhood.</p><span class="rp__btn">View Menu</span></div>
+                  <div class="rp__hero-img"></div>
+                </div>
+                <div class="rp__cards"><div><b>Espresso</b><span>Pulled to order</span></div><div><b>Pastries</b><span>Baked at 5 AM</span></div><div><b>Catering</b><span>Office orders</span></div></div>
+                <div class="rp__visit">
+                  <div class="rp__map"><i></i></div>
+                  <div class="rp__visit-copy"><p class="rp__h2">Come sit for a while.</p><p class="rp__p">412 Main St, Sauk Centre<br>Open daily from 6:30 AM</p><span class="rp__btn rp__btn--ghost">Get directions</span></div>
+                </div>
+                <div class="rp__foot"><b>Ember &amp; Oak</b><span>Instagram · Facebook · (320) 555-0110</span></div>
+              </div>
+            </div>
+            <span class="rp__handle" role="slider" tabindex="0" aria-label="Preview width" aria-valuemin="320" aria-valuemax="900" aria-valuenow="900"></span>
+          </div>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when half your customers are on their phones. (They are.)</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 10 OPEN NOW BADGE -->
+    <article class="demo" id="demo-open" data-css=".on">
+      <header class="demo__head">
+        <span class="demo__num">10</span>
+        <h2 class="demo__title">Open Now Badge</h2>
+        <div class="demo__tags"><span>JavaScript</span><span>Time Zones</span></div>
+      </header>
+      <p class="demo__desc">Checks the clock in the business's own time zone, wherever the visitor is.</p>
+      <div class="demo__stage">
+        <div class="on">
+          <div class="on__head">
+            <div><b class="on__name">Ember &amp; Oak Cafe</b><span class="on__where">Sauk Centre, MN · Central Time</span></div>
+            <span class="on__badge" data-state="closed"><i></i><span class="on__state">Checking…</span></span>
+          </div>
+          <p class="on__sub"></p>
+          <ul class="on__hours"></ul>
+          <div class="on__sim">
+            <p class="on__sim-l"><label for="on-range">Try another time:</label> <output class="on__when" for="on-range"></output></p>
+            <input id="on-range" class="on__range" type="range" min="0" max="335" step="1">
+            <button type="button" class="on__now" hidden>Back to live time</button>
+          </div>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when customers keep calling just to ask if you're open.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+    <!-- 11 MICRO-INTERACTIONS -->
+    <article class="demo" id="demo-micro" data-css=".mi">
+      <header class="demo__head">
+        <span class="demo__num">11</span>
+        <h2 class="demo__title">Micro-Interactions</h2>
+        <div class="demo__tags"><span>CSS</span><span>JavaScript</span></div>
+      </header>
+      <p class="demo__desc">Press, toggle, save, copy. The small details that make a site feel expensive.</p>
+      <div class="demo__stage">
+        <div class="mi">
+          <div class="mi__cell">
+            <button type="button" class="mi__press">Book now</button>
+            <span class="mi__l">Press</span>
+          </div>
+          <div class="mi__cell">
+            <button type="button" class="mi__switch" role="switch" aria-checked="false" aria-label="Email updates"><i></i></button>
+            <span class="mi__l">Toggle</span>
+          </div>
+          <div class="mi__cell">
+            <button type="button" class="mi__heart" aria-pressed="false" aria-label="Save">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.7 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z"/></svg>
+            </button>
+            <span class="mi__l">Save</span>
+          </div>
+          <div class="mi__cell">
+            <button type="button" class="mi__copy"><span class="mi__copy-t">Copy code</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg></button>
+            <span class="mi__l">Copy</span>
+          </div>
+        </div>
+      </div>
+      <p class="demo__fallback">This demo couldn't start in your browser. The rest of the page still works.</p>
+      <footer class="demo__foot">
+        <p class="demo__biz"><span>Your site needs this</span> when cheap-feeling buttons are embarrassing your brand.</p>
+        <button type="button" class="demo__code-btn" aria-expanded="false">View code</button>
+      </footer>
+    </article>
+
+  </div>
+  </main>
+
+  <!-- CTA (the only one on this page) -->
+  <section class="section">
+    <div class="section-inner cta">
+      <span class="eyebrow eyebrow--center reveal">Like what you touched?</span>
+      <h2 class="headline headline--lg cta__title mt-1 reveal d1">Need one of these<br><span class="muted">on your site?</span></h2>
+      <div class="cta__actions reveal d2">
+        <a href="contact.html" class="btn btn--primary">Let's Talk <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__logo"><img src="images/webops-lockup.webp" alt="WebOps Studio"></div>
+          <span class="footer__tag">Veteran-Built Front Ends</span>
+          <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
+        </div>
+        <div><span class="footer__col-l">Navigation</span><div class="footer__links"><a href="index.html">Home</a><a href="portfolio.html">Portfolio</a><a href="workshop.html">Workshop</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Let's Talk</a></div></div>
+        <div><span class="footer__col-l">Contact</span><div class="footer__links"><a href="mailto:craigbaumann2020@gmail.com">craigbaumann2020@gmail.com</a><a href="tel:3205226226">320-522-6226</a><a href="#" style="pointer-events:none">Minnesota, USA</a></div></div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">&copy; <span id="year"></span> <em>WebOps Studio</em> — All rights reserved.</span>
+        <span class="footer__copy">HTML · CSS · Vanilla JS · Zero Frameworks</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- NEWS TICKER: pure CSS, Workshop page only. Body has matching bottom padding so nothing hides under it. -->
+  <div class="ticker" aria-hidden="true"><div class="ticker__track"><span>Now booking new projects •</span><span>Hand-coded, no templates •</span><span>Security audits •</span><span>SEO •</span><span>Custom builds •</span><span>Minnesota based, working worldwide •</span><span>Now booking new projects •</span><span>Hand-coded, no templates •</span><span>Security audits •</span><span>SEO •</span><span>Custom builds •</span><span>Minnesota based, working worldwide •</span></div></div>
+
+  <script src="js/scripts.js"></script>
+  <script src="js/workshop-config.js"></script>
+  <script src="js/workshop.js"></script>
+</body>
+</html>
