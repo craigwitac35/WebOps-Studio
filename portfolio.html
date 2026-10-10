@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WebOps Studio portfolio — live client builds and demo projects. Mission Possible, Guardian 4 Heroes, IronShield Roofing, Ember & Oak Cafe, Vanguard Fitness, and LaunchDeck.">
+  <meta name="description" content="WebOps Studio portfolio — live client builds and demo projects. Mission Possible, Guardian 4 Heroes, Courage To Claws, Ember & Oak Cafe, Vanguard Fitness, IronShield Roofing, and LaunchDeck.">
   <title>Portfolio — WebOps Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
   <!-- NAV -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="WebOps Studio home"><img src="images/webops-mark.png" alt="WebOps Studio"></a>
+      <a href="index.html" class="nav__logo" aria-label="WebOps Studio home"><img src="images/webops-lockup.webp" alt="WebOps Studio" class="logo-lockup"><img src="images/webops-mark.webp" alt="" class="logo-mark"></a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="portfolio.html" class="nav__link active">Portfolio</a></li>
@@ -46,217 +46,340 @@
   <header class="page-hero">
     <h1 class="sr-only">Portfolio &amp; Case Studies</h1>
     <div class="page-hero__rule"></div>
-    <img src="images/portfolio-hero.jpg" alt="Selected Work — From Concept to Launch" class="page-hero__img">
+    <img src="images/portfolio-hero.webp" alt="Selected Work — From Concept to Launch" class="page-hero__img">
   </header>
 
-  <!-- ===================== LIVE CLIENT WORK ===================== -->
+  <main class="pf">
   <div class="pf-divider">
-    <span class="pf-divider__label">Live Client Work</span>
+    <span class="pf-divider__label">Live Work</span>
     <span class="pf-divider__line"></span>
   </div>
 
-  <!-- 01 · MISSION POSSIBLE -->
-  <article class="cs">
-    <div class="cs__head">
-      <div>
-        <span class="cs__index">01 — Live Site</span>
-        <h2 class="cs__title">Mission Possible<br>Hooves &amp; Paws</h2>
-        <div class="cs__tags">
-          <span class="cs__tag cs__tag--live">Live Site</span>
-          <span class="cs__tag">Multi-Page</span>
-          <span class="cs__tag">Nonprofit Event</span>
-          <span class="cs__tag">HTML · CSS · JS</span>
-          <span class="cs__tag">GitHub Pages</span>
+  <!-- 01 · MISSION POSSIBLE HOOVES &AMP; PAWS -->
+  <article class="pj" id="mission-possible">
+    <span class="pj__ghost" aria-hidden="true">01</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="Mission Possible Hooves &amp; Paws preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <span class="badge badge--live">Live</span>
+      </div>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">missionpossiblehoovesandpaws.com</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="Mission Possible Hooves &amp; Paws desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">Mission Possible Hooves &amp; Paws</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/mission-possible-desktop.webp" alt="Mission Possible Hooves &amp; Paws desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="Mission Possible Hooves &amp; Paws mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">Mission Possible Hooves &amp; Paws</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide"><img src="images/portfolio/mission-possible-mobile-1.webp" alt="Mission Possible Hooves &amp; Paws: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/mission-possible-mobile-2.webp" alt="Mission Possible Hooves &amp; Paws: Events page, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/mission-possible-mobile-3.webp" alt="Mission Possible Hooves &amp; Paws: Registration flow, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/mission-possible-mobile-4.webp" alt="Mission Possible Hooves &amp; Paws: Backend admin view, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
       </div>
-      <a href="https://www.missionpossiblehoovesandpaws.com" target="_blank" rel="noopener" class="btn btn--outline">Visit Live Site <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
     </div>
-
-    <img src="images/mission-home.jpg" alt="Mission Possible Hooves and Paws homepage" class="cs__hero reveal">
-
-    <p class="cs__desc reveal">A nonprofit event site connecting Guardian 4 Heroes and Heroes K9 Odyssey Academy — built to communicate mission, drive registrations, and handle event logistics. It's live now and gaining real traction.</p>
-
-    <div class="cs__pbr reveal">
-      <div><span class="cs__pbr-l">The Problem</span><p class="cs__pbr-t">A high-impact nonprofit event needed a digital home that conveyed urgency and purpose while staying simple enough for visitors to register fast.</p></div>
-      <div><span class="cs__pbr-l">The Build</span><p class="cs__pbr-t">A multi-page, hand-coded site with event info, schedule, registration, and a backend admin view — deployed clean on GitHub Pages with zero framework overhead.</p></div>
-      <div><span class="cs__pbr-l">The Result</span><p class="cs__pbr-t">A live site getting attention right now, with a digital presence that finally matches the weight of the mission behind it.</p></div>
-    </div>
-
-    <div class="cs__gallery reveal">
-      <figure class="shot"><img src="images/misson-events.jpg" alt="Events page" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">A.01</span><span class="shot__cap-t">Events page — schedule and details for the day's activities.</span></figcaption></figure>
-      <figure class="shot"><img src="images/misson-schedule.jpg" alt="Schedule page" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">A.02</span><span class="shot__cap-t">Registration flow — clean, mobile-first sign-up path.</span></figcaption></figure>
-      <figure class="shot"><img src="images/mission-backend.jpg" alt="Backend admin view" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">A.03</span><span class="shot__cap-t">Backend view — admin capability for managing the event.</span></figcaption></figure>
+    <div class="pj__body">
+      <span class="pj__index">01 / Live</span>
+      <h2 class="pj__title">Mission Possible<br>Hooves &amp; Paws</h2>
+      <div class="pj__tags"><span class="pj__tag">Nonprofit Event</span><span class="pj__tag">Registration</span><span class="pj__tag">Next.js</span><span class="pj__tag">Supabase</span><span class="pj__tag">Vercel</span></div>
+      <p class="pj__desc">A nonprofit event site connecting Guardian 4 Heroes and Heroes K9 Odyssey Academy — built to communicate mission, drive registrations, and handle event logistics. It&#x27;s live now and gaining real traction.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Registration built for people signing up from their phones.</p></li>
+          <li class="note"><span class="note__k">B</span><p>The cause hits before the logistics.</p></li>
+      </ul>
+        <a href="https://www.missionpossiblehoovesandpaws.com" target="_blank" rel="noopener" class="btn btn--primary">Visit Live Site <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
     </div>
   </article>
 
   <!-- 02 · GUARDIAN 4 HEROES -->
-  <article class="cs">
-    <div class="cs__head">
-      <div>
-        <span class="cs__index">02 — Live Site</span>
-        <h2 class="cs__title">Guardian 4 Heroes</h2>
-        <div class="cs__tags">
-          <span class="cs__tag cs__tag--live">Live Site</span>
-          <span class="cs__tag">Multi-Page</span>
-          <span class="cs__tag">Equine Therapy Nonprofit</span>
-          <span class="cs__tag">HTML · CSS · JS</span>
-          <span class="cs__tag">GitHub Pages</span>
+  <article class="pj" id="guardian-4-heroes">
+    <span class="pj__ghost" aria-hidden="true">02</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="Guardian 4 Heroes preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <span class="badge badge--live">Live</span>
+      </div>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">guardian4heroes.org</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="Guardian 4 Heroes desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">Guardian 4 Heroes</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/guardian-4-heroes-desktop.webp" alt="Guardian 4 Heroes desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="Guardian 4 Heroes mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">Guardian 4 Heroes</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide"><img src="images/portfolio/guardian-4-heroes-mobile-1.webp" alt="Guardian 4 Heroes: Landing cover, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/guardian-4-heroes-mobile-2.webp" alt="Guardian 4 Heroes: Mud Run event, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/guardian-4-heroes-mobile-3.webp" alt="Guardian 4 Heroes: Donation amounts, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/guardian-4-heroes-mobile-4.webp" alt="Guardian 4 Heroes: Schedule a session, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/guardian-4-heroes-mobile-5.webp" alt="Guardian 4 Heroes: Shop: Nelly Bell, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/guardian-4-heroes-mobile-6.webp" alt="Guardian 4 Heroes: Contact form, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 6</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
       </div>
-      <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn--outline">Visit Live Site <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
     </div>
-
-    <img src="images/guardian-1.jpg" alt="Guardian 4 Heroes homepage" class="cs__hero reveal">
-
-    <p class="cs__desc reveal">An equine therapy nonprofit serving U.S. veterans. They came in with a mission and a name — and no web presence. The result is the emotional credibility anchor of this whole portfolio.</p>
-
-    <div class="cs__pbr reveal">
-      <div><span class="cs__pbr-l">The Problem</span><p class="cs__pbr-t">No website at all. The organization needed something that conveyed the emotional weight of their work while staying trustworthy enough to attract donors and participants.</p></div>
-      <div><span class="cs__pbr-l">The Build</span><p class="cs__pbr-t">A photography-forward, fully custom site with clear program information and a donation pathway — responsive, fast, and built to reflect the dignity of the mission.</p></div>
-      <div><span class="cs__pbr-l">The Result</span><p class="cs__pbr-t">Consistent compliments and increased program inquiries since launch. It brought their mission to life.</p></div>
-    </div>
-
-    <div class="cs__gallery reveal">
-      <figure class="shot"><img src="images/guardian-2.jpg" alt="About section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">B.01</span><span class="shot__cap-t">About section — telling the organization's story.</span></figcaption></figure>
-      <figure class="shot"><img src="images/guardian-3.jpg" alt="Programs page" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">B.02</span><span class="shot__cap-t">Programs — outlining the therapy services offered.</span></figcaption></figure>
-      <figure class="shot"><img src="images/guardian-4.jpg" alt="Gallery section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">B.03</span><span class="shot__cap-t">Gallery — photography-forward storytelling.</span></figcaption></figure>
-    </div>
-
-    <div class="quote reveal mt-3">
-      <div class="quote__mark">"</div>
-      <p class="quote__text">Craig went above and beyond. He didn't just build us a website — he brought our mission to life. We get compliments on it constantly.</p>
-      <span class="quote__cite">Guardian 4 Heroes Team</span>
+    <div class="pj__body">
+      <span class="pj__index">02 / Live</span>
+      <h2 class="pj__title">Guardian 4 Heroes</h2>
+      <div class="pj__tags"><span class="pj__tag">Equine Therapy Nonprofit</span><span class="pj__tag">Multi-Page</span><span class="pj__tag">HTML · CSS · JS</span><span class="pj__tag">GitHub Pages</span></div>
+      <p class="pj__desc">An equine therapy nonprofit serving U.S. veterans. They came in with a mission and a name — and no web presence. The result is the emotional credibility anchor of this whole portfolio.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Hero section built on real emotion, not stock photos.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Two clear paths: veterans looking for help, supporters looking to give.</p></li>
+      </ul>
+        <blockquote class="pj__quote"><p>Craig went above and beyond. He didn&#x27;t just build us a website — he brought our mission to life. We get compliments on it constantly.</p><cite>Guardian 4 Heroes Team</cite></blockquote>
+        <a href="https://guardian4heroes.org" target="_blank" rel="noopener" class="btn btn--primary">Visit Live Site <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
     </div>
   </article>
 
-  <!-- ===================== DEMO BUILDS ===================== -->
+  <!-- 03 · COURAGE TO CLAWS -->
+  <article class="pj" id="courage-to-claws">
+    <span class="pj__ghost" aria-hidden="true">03</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="Courage To Claws preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <span class="badge badge--progress">In Progress</span>
+      </div>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">courage-to-claws.vercel.app</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="Courage To Claws desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">Courage To Claws</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/courage-to-claws-desktop.webp" alt="Courage To Claws desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot is-empty" tabindex="0" aria-label="Courage To Claws mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">Courage To Claws</span><span class="ph__note">Mobile screenshot coming</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pj__body">
+      <span class="pj__index">03 / In Progress</span>
+      <h2 class="pj__title">Courage To Claws</h2>
+      <div class="pj__tags"><span class="pj__tag">Contractor</span><span class="pj__tag">Quote Form</span><span class="pj__tag">Admin Dashboard</span></div>
+      <p class="pj__desc">A contractor site currently in development. Full write-up coming at launch.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Quote form wired to a real backend. Every submission reaches the contractor.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Private admin dashboard for managing projects and inquiries.</p></li>
+      </ul>
+    </div>
+  </article>
+
   <div class="pf-divider">
-    <span class="pf-divider__label">Demo Builds</span>
+    <span class="pf-divider__label">Demos &amp; Concepts</span>
     <span class="pf-divider__line"></span>
   </div>
 
-  <!-- 03 · EMBER & OAK -->
-  <article class="cs">
-    <div class="cs__head">
-      <div>
-        <span class="cs__index">03 — Demo</span>
-        <h2 class="cs__title">Ember &amp; Oak Cafe</h2>
-        <div class="cs__tags">
-          <span class="cs__tag cs__tag--demo">Demo</span>
-          <span class="cs__tag">Multi-Page</span>
-          <span class="cs__tag">Restaurant</span>
-          <span class="cs__tag">Mobile Menu Overlay</span>
-          <span class="cs__tag">HTML · CSS · JS</span>
+  <!-- 04 · EMBER &AMP; OAK CAFE -->
+  <article class="pj" id="ember-oak">
+    <span class="pj__ghost" aria-hidden="true">04</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="Ember &amp; Oak Cafe preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
         </div>
+        <span class="badge badge--demo">Demo</span>
       </div>
-      <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn--outline">View Demo <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
-    </div>
-
-    <img src="images/ember.demo.home.jpg" alt="Ember and Oak Cafe homepage" class="cs__hero reveal">
-
-    <p class="cs__desc reveal">A dark espresso-themed restaurant site — premium without being pretentious. Full-screen mobile menu overlay, multi-page structure, and a visual identity that feels like the neighborhood cafe it represents.</p>
-
-    <div class="cs__gallery reveal">
-      <figure class="shot"><img src="images/ember-demo-menu.jpg" alt="Menu page" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">C.01</span><span class="shot__cap-t">Menu page — full food and drink listing.</span></figcaption></figure>
-      <figure class="shot"><img src="images/ember.demo.about.jpg" alt="About page" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">C.02</span><span class="shot__cap-t">About page — the cafe's story and atmosphere.</span></figcaption></figure>
-      <figure class="shot"><img src="images/ember.demo.catering.jpg" alt="Catering page" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">C.03</span><span class="shot__cap-t">Catering — service details and inquiry path.</span></figcaption></figure>
-    </div>
-  </article>
-
-  <!-- 04 · VANGUARD FITNESS -->
-  <article class="cs">
-    <div class="cs__head">
-      <div>
-        <span class="cs__index">04 — Demo</span>
-        <h2 class="cs__title">Vanguard Fitness</h2>
-        <div class="cs__tags">
-          <span class="cs__tag cs__tag--demo">Demo</span>
-          <span class="cs__tag">Coach Funnel</span>
-          <span class="cs__tag">Lead Generation</span>
-          <span class="cs__tag">HTML · CSS</span>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">craigwitac35.github.io/EMBER-OAK-CAFE</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="Ember &amp; Oak Cafe desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">Ember &amp; Oak Cafe</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/ember-oak-desktop.webp" alt="Ember &amp; Oak Cafe desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="Ember &amp; Oak Cafe mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">Ember &amp; Oak Cafe</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide"><img src="images/portfolio/ember-oak-mobile-1.webp" alt="Ember &amp; Oak Cafe: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/ember-oak-mobile-2.webp" alt="Ember &amp; Oak Cafe: Menu page, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/ember-oak-mobile-3.webp" alt="Ember &amp; Oak Cafe: About page, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/ember-oak-mobile-4.webp" alt="Ember &amp; Oak Cafe: Catering page, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
       </div>
     </div>
-
-    <img src="images/vanguard-screenshot.jpg" alt="Vanguard Fitness homepage" class="cs__hero reveal">
-
-    <p class="cs__desc reveal">A fitness coach landing funnel built to convert — bold visual identity, program breakdown, social proof, and a strong call to action for a coach who takes their brand seriously.</p>
-
-    <div class="cs__gallery cs__gallery--2 reveal">
-      <figure class="shot"><img src="images/vanguard-screenshot2.jpg" alt="Program section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">D.01</span><span class="shot__cap-t">Program section — structured training breakdown.</span></figcaption></figure>
-      <figure class="shot"><img src="images/vanguard-screenshot3.jpg" alt="Call to action section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">D.02</span><span class="shot__cap-t">Conversion section — strong, focused call to action.</span></figcaption></figure>
+    <div class="pj__body">
+      <span class="pj__index">04 / Demo</span>
+      <h2 class="pj__title">Ember &amp; Oak Cafe</h2>
+      <div class="pj__tags"><span class="pj__tag">Restaurant</span><span class="pj__tag">Multi-Page</span><span class="pj__tag">Mobile Menu Overlay</span><span class="pj__tag">HTML · CSS · JS</span></div>
+      <p class="pj__desc">A dark espresso-themed restaurant site — premium without being pretentious. Full-screen mobile menu overlay, multi-page structure, and a visual identity that feels like the neighborhood cafe it represents.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Dark restaurant concept with a full-screen mobile menu.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Multi-page structure: menu, story, visit.</p></li>
+      </ul>
+        <a href="https://craigwitac35.github.io/EMBER-OAK-CAFE/" target="_blank" rel="noopener" class="btn btn--outline">View Demo <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
     </div>
   </article>
 
-  <!-- ===================== DEMO LANDING PAGES ===================== -->
-  <div class="pf-divider">
-    <span class="pf-divider__label">Demo Landing Pages</span>
-    <span class="pf-divider__line"></span>
-  </div>
-
-  <!-- 05 · IRONSHIELD -->
-  <article class="cs">
-    <div class="cs__head">
-      <div>
-        <span class="cs__index">05 — Landing Page</span>
-        <h2 class="cs__title">IronShield Roofing</h2>
-        <div class="cs__tags">
-          <span class="cs__tag cs__tag--demo">Demo</span>
-          <span class="cs__tag">Single Page</span>
-          <span class="cs__tag">Local Contractor</span>
-          <span class="cs__tag">Lead Generation</span>
+  <!-- 05 · VANGUARD FITNESS -->
+  <article class="pj" id="vanguard-fitness">
+    <span class="pj__ghost" aria-hidden="true">05</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="Vanguard Fitness preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
         </div>
+        <span class="badge badge--demo">Demo</span>
       </div>
-      <a href="landing-pages/ironshield-roofing/" target="_blank" rel="noopener" class="btn btn--outline">View Demo <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
-    </div>
-
-    <img src="images/roofing-screenshot2.jpg" alt="IronShield Roofing landing page" class="cs__hero reveal">
-
-    <p class="cs__desc reveal">A single-page lead generation site for a local roofing contractor. One goal: turn visitors into phone calls. Bold hero, clear services, trust signals, and a single prominent call to action.</p>
-
-    <div class="cs__gallery cs__gallery--2 reveal">
-      <figure class="shot"><img src="images/roofing-screenshot2.jpg" alt="Services section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">E.01</span><span class="shot__cap-t">Services — clear breakdown of offerings.</span></figcaption></figure>
-      <figure class="shot"><img src="images/roofing-screenshot3.jpg" alt="Contact section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">E.02</span><span class="shot__cap-t">Contact — single prominent conversion path.</span></figcaption></figure>
-    </div>
-  </article>
-
-  <!-- 06 · LAUNCHDECK -->
-  <article class="cs">
-    <div class="cs__head">
-      <div>
-        <span class="cs__index">06 — Landing Page</span>
-        <h2 class="cs__title">LaunchDeck</h2>
-        <div class="cs__tags">
-          <span class="cs__tag cs__tag--demo">Demo</span>
-          <span class="cs__tag">Single Page</span>
-          <span class="cs__tag">SaaS Waitlist</span>
-          <span class="cs__tag">Email Capture</span>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">web-ops-studio.com/landing-pages/fitness-coach-funnel</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="Vanguard Fitness desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">Vanguard Fitness</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/vanguard-fitness-desktop.webp" alt="Vanguard Fitness desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="Vanguard Fitness mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">Vanguard Fitness</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide"><img src="images/portfolio/vanguard-fitness-mobile-1.webp" alt="Vanguard Fitness: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/vanguard-fitness-mobile-2.webp" alt="Vanguard Fitness: Program section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/vanguard-fitness-mobile-3.webp" alt="Vanguard Fitness: Call to action, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
       </div>
     </div>
-
-    <img src="images/launch-deck-screenshot.jpg" alt="LaunchDeck SaaS waitlist page" class="cs__hero reveal">
-
-    <p class="cs__desc reveal">A pre-launch waitlist page for a SaaS product. Build anticipation, communicate the product's value, and capture early sign-ups before launch. Dark, futuristic, conversion-focused.</p>
-
-    <div class="cs__gallery cs__gallery--2 reveal">
-      <figure class="shot"><img src="images/launch-desk-screenshot2.jpg" alt="Features section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">F.01</span><span class="shot__cap-t">Features — product value at a glance.</span></figcaption></figure>
-      <figure class="shot"><img src="images/launch-desk-screenshot3.jpg" alt="Sign-up section" class="shot__img"><figcaption class="shot__cap"><span class="shot__cap-n">F.02</span><span class="shot__cap-t">Waitlist — early-access email capture.</span></figcaption></figure>
+    <div class="pj__body">
+      <span class="pj__index">05 / Demo</span>
+      <h2 class="pj__title">Vanguard Fitness</h2>
+      <div class="pj__tags"><span class="pj__tag">Coach Funnel</span><span class="pj__tag">Lead Generation</span><span class="pj__tag">HTML · CSS</span></div>
+      <p class="pj__desc">A fitness coach landing funnel built to convert — bold visual identity, program breakdown, social proof, and a strong call to action for a coach who takes their brand seriously.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Landing page concept: turn visitors into clients.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Sells the method, not just the workouts.</p></li>
+      </ul>
     </div>
   </article>
 
-  <!-- ===================== ROADMAP ===================== -->
-  <section class="section section--dark section--line">
-    <div class="section-inner">
-      <span class="eyebrow reveal">On the Horizon</span>
-      <h2 class="headline headline--lg mb-3 mt-1 reveal d1">What's Next</h2>
-      <div class="roadmap reveal d2">
-        <div class="roadmap__item"><span class="roadmap__phase">In Progress</span><h3 class="roadmap__t">More Live Clients</h3><p class="roadmap__d">Actively taking on new small business and nonprofit builds to grow the live-client roster.</p></div>
-        <div class="roadmap__item"><span class="roadmap__phase">Building</span><h3 class="roadmap__t">Digital Products</h3><p class="roadmap__d">Sellable templates and resources — premium, problem-solving, and built to the same standard.</p></div>
-        <div class="roadmap__item"><span class="roadmap__phase">Goal</span><h3 class="roadmap__t">Lighthouse 85+</h3><p class="roadmap__d">Continued performance, accessibility, and SEO optimization across every page.</p></div>
+  <!-- 06 · IRONSHIELD ROOFING -->
+  <article class="pj" id="ironshield-roofing">
+    <span class="pj__ghost" aria-hidden="true">06</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="IronShield Roofing preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <span class="badge badge--demo">Demo</span>
+      </div>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">web-ops-studio.com/landing-pages/ironshield-roofing</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="IronShield Roofing desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">IronShield Roofing</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/ironshield-roofing-desktop.webp" alt="IronShield Roofing desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="IronShield Roofing mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">IronShield Roofing</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide"><img src="images/portfolio/ironshield-roofing-mobile-1.webp" alt="IronShield Roofing: Services section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/ironshield-roofing-mobile-2.webp" alt="IronShield Roofing: Contact section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 2</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="pj__body">
+      <span class="pj__index">06 / Demo</span>
+      <h2 class="pj__title">IronShield Roofing</h2>
+      <div class="pj__tags"><span class="pj__tag">Local Contractor</span><span class="pj__tag">Single Page</span><span class="pj__tag">Lead Generation</span></div>
+      <p class="pj__desc">A single-page lead generation site for a local roofing contractor. One goal: turn visitors into phone calls. Bold hero, clear services, trust signals, and a single prominent call to action.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Lead-gen concept: every pixel serves the phone call.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Trust signals before the fold, click-to-call on mobile.</p></li>
+      </ul>
+        <a href="landing-pages/ironshield-roofing/" target="_blank" rel="noopener" class="btn btn--outline">View Demo <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+    </div>
+  </article>
+
+  <!-- 07 · LAUNCHDECK -->
+  <article class="pj" id="launchdeck">
+    <span class="pj__ghost" aria-hidden="true">07</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="LaunchDeck preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <span class="badge badge--demo">Demo</span>
+      </div>
+      <div class="device" data-view="desktop">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">web-ops-studio.com/landing-pages/saas-beta-waitlist</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="LaunchDeck desktop screenshot, scrollable">
+            <div class="ph"><span class="ph__name">LaunchDeck</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <img src="images/portfolio/launchdeck-desktop.webp" alt="LaunchDeck desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__notch" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="LaunchDeck mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">LaunchDeck</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide"><img src="images/portfolio/launchdeck-mobile-1.webp" alt="LaunchDeck: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/launchdeck-mobile-2.webp" alt="LaunchDeck: Features section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden><img src="images/portfolio/launchdeck-mobile-3.webp" alt="LaunchDeck: Waitlist sign-up, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="pj__body">
+      <span class="pj__index">07 / Demo</span>
+      <h2 class="pj__title">LaunchDeck</h2>
+      <div class="pj__tags"><span class="pj__tag">SaaS Waitlist</span><span class="pj__tag">Single Page</span><span class="pj__tag">Email Capture</span></div>
+      <p class="pj__desc">A pre-launch waitlist page for a SaaS product. Build anticipation, communicate the product&#x27;s value, and capture early sign-ups before launch. Dark, futuristic, conversion-focused.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Waitlist concept for a product that doesn&#x27;t exist yet.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Sells the vision with a dark, futuristic identity.</p></li>
+      </ul>
+    </div>
+  </article>
+  </main>
 
   <!-- CTA -->
   <section class="section">
@@ -274,7 +397,7 @@
     <div class="footer__inner">
       <div class="footer__top">
         <div>
-          <div class="footer__logo"><img src="images/webops-lockup.png" alt="WebOps Studio"></div>
+          <div class="footer__logo"><img src="images/webops-lockup.webp" alt="WebOps Studio"></div>
           <span class="footer__tag">Veteran-Built Front Ends</span>
           <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
         </div>

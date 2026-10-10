@@ -17,7 +17,7 @@
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo" aria-label="WebOps Studio home">
-        <img src="images/webops-mark.png" alt="WebOps Studio">
+        <img src="images/webops-lockup.webp" alt="WebOps Studio" class="logo-lockup"><img src="images/webops-mark.webp" alt="" class="logo-mark">
       </a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link active">Home</a></li>
@@ -49,15 +49,14 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero__media">
-      <div class="hero__rule"></div>
-      <img src="images/home-hero.jpg" alt="WebOps Studio — veteran-built, hand-coded, results-driven" class="hero__img">
+    <div class="hero__media" aria-hidden="true">
+      <img src="images/web-ops-hero.webp" alt="" class="hero__img" width="1672" height="941" fetchpriority="high" onerror="this.remove()">
     </div>
     <div class="hero__body">
       <div class="hero__body-inner">
         <span class="eyebrow hero__eyebrow">Minnesota · Veteran-Built · Est. 2026</span>
         <h1 class="headline headline--xl hero__title">
-          Hand-Coded<br>
+          <span class="solid">Hand-Coded</span><br>
           <span class="ghost">Websites That</span><br>
           <span class="accent">Actually Work.</span>
         </h1>
@@ -68,12 +67,6 @@
         <div class="hero__actions">
           <a href="portfolio.html" class="btn btn--primary">See the Work <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
           <a href="contact.html" class="btn btn--ghost">Start a Project</a>
-        </div>
-        <div class="hero__stats">
-          <div><span class="stat__n">6<em>+</em></span><span class="stat__l">Live Deployments</span></div>
-          <div><span class="stat__n">100<em>%</em></span><span class="stat__l">Hand-Coded</span></div>
-          <div><span class="stat__n">0</span><span class="stat__l">Frameworks Used</span></div>
-          <div><span class="stat__n">MN</span><span class="stat__l">Minnesota Based</span></div>
         </div>
       </div>
     </div>
@@ -140,7 +133,7 @@
     <div class="footer__inner">
       <div class="footer__top">
         <div>
-          <div class="footer__logo"><img src="images/webops-lockup.png" alt="WebOps Studio"></div>
+          <div class="footer__logo"><img src="images/webops-lockup.webp" alt="WebOps Studio"></div>
           <span class="footer__tag">Veteran-Built Front Ends</span>
           <p class="footer__desc">Custom, hand-coded websites for small businesses, nonprofits, and people who care about the details.</p>
         </div>

@@ -1,5 +1,5 @@
 /* ============================================================
-   WEBOPS STUDIO — scripts.js v6.0
+   WEBOPS STUDIO — scripts.js v6.1
    Vanilla JS · Zero Frameworks
    ============================================================ */
 (function () {
@@ -110,4 +110,69 @@
         });
     });
   }
+})();
+
+/* ============================================================
+   PORTFOLIO — desktop/mobile toggle + phone screen pager (v6.1)
+   Each block defaults to Desktop. If its desktop screenshot is
+   missing and it has mobile screens, it opens on Mobile instead,
+   until the visitor picks a view themselves.
+   ============================================================ */
+(function () {
+  'use strict';
+  var blocks = document.querySelectorAll('.pj');
+  if (!blocks.length) return;
+
+  function setup(pj) {
+    var device = pj.querySelector('.device');
+    var btns = pj.querySelectorAll('.view-toggle button');
+    var chosen = false;
+
+    function setView(v) {
+      device.setAttribute('data-view', v);
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-view') === v ? 'true' : 'false'); });
+    }
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () { chosen = true; setView(b.getAttribute('data-view')); });
+    });
+
+    var slides = pj.querySelectorAll('.phone__slide');
+    var desk = pj.querySelector('.browser__view');
+    function deskMissing() { return desk.classList.contains('is-empty') || !desk.querySelector('img'); }
+    function maybeMobile() { if (!chosen && slides.length && deskMissing()) setView('mobile'); }
+    desk.addEventListener('shotfail', maybeMobile);
+    var dimg = desk.querySelector('img');
+    maybeMobile();
+    if (dimg && dimg.loading === 'lazy') {
+      // Lazy images only load near the viewport; probe once so the default view is right from the start.
+      var probe = new Image();
+      probe.onerror = function () { desk.classList.add('is-empty'); maybeMobile(); };
+      probe.src = dimg.currentSrc || dimg.src;
+    }
+
+    /* Phone pager */
+    if (slides.length > 1) {
+      var screen = pj.querySelector('.phone__screen');
+      var countEl = pj.querySelector('.phone__count b');
+      var i = 0;
+      function go(step) {
+        slides[i].hidden = true;
+        i = (i + step + slides.length) % slides.length;
+        slides[i].hidden = false;
+        screen.scrollTop = 0;
+        if (countEl) countEl.textContent = i + 1;
+      }
+      pj.querySelectorAll('.phone__btn').forEach(function (b) {
+        b.addEventListener('click', function () { go(parseInt(b.getAttribute('data-step'), 10)); });
+      });
+      screen.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      });
+    }
+  }
+
+  blocks.forEach(function (pj) {
+    try { setup(pj); } catch (err) { /* one broken block never takes down the page */ }
+  });
 })();
