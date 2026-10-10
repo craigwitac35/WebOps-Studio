@@ -113,7 +113,7 @@
 })();
 
 /* ============================================================
-   PORTFOLIO — desktop/mobile toggle + phone screen pager (v6.1)
+   PORTFOLIO — desktop/mobile toggle + screenshot pagers (v6.4)
    Each block defaults to Desktop. If its desktop screenshot is
    missing and it has mobile screens, it opens on Mobile instead,
    until the visitor picks a view themselves.
@@ -150,26 +150,30 @@
       probe.src = dimg.currentSrc || dimg.src;
     }
 
-    /* Phone pager */
-    if (slides.length > 1) {
-      var screen = pj.querySelector('.phone__screen');
-      var countEl = pj.querySelector('.phone__count b');
+    /* Slide pagers: desktop browser and phone each page through their own screenshots */
+    function pager(view, nav) {
+      if (!view || !nav) return;
+      var list = view.querySelectorAll('.browser__slide, .phone__slide');
+      if (list.length < 2) return;
+      var countEl = nav.querySelector('.phone__count b');
       var i = 0;
       function go(step) {
-        slides[i].hidden = true;
-        i = (i + step + slides.length) % slides.length;
-        slides[i].hidden = false;
-        screen.scrollTop = 0;
+        list[i].hidden = true;
+        i = (i + step + list.length) % list.length;
+        list[i].hidden = false;
+        view.scrollTop = 0;
         if (countEl) countEl.textContent = i + 1;
       }
-      pj.querySelectorAll('.phone__btn').forEach(function (b) {
+      nav.querySelectorAll('.phone__btn').forEach(function (b) {
         b.addEventListener('click', function () { go(parseInt(b.getAttribute('data-step'), 10)); });
       });
-      screen.addEventListener('keydown', function (e) {
+      view.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
         if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
       });
     }
+    pager(desk, pj.querySelector('.desk > .phone__nav'));
+    pager(pj.querySelector('.phone__screen'), pj.querySelector('.phone > .phone__nav'));
   }
 
   blocks.forEach(function (pj) {

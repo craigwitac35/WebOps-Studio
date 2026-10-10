@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WebOps Studio portfolio — live client builds and demo projects. Mission Possible, Guardian 4 Heroes, Courage To Claws, Ember & Oak Cafe, Vanguard Fitness, IronShield Roofing, and LaunchDeck.">
+  <meta name="description" content="WebOps Studio portfolio — live client builds and demo projects. Mission Possible, Guardian 4 Heroes, Courage To Claws, ChoreFlow, Ember & Oak Cafe, Vanguard Fitness, IronShield Roofing, and LaunchDeck.">
   <title>Portfolio — WebOps Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/styles.css?v=6.4">
   <link rel="icon" href="images/webops-mark.png" type="image/png">
 </head>
 <body>
@@ -69,22 +69,29 @@
         <span class="badge badge--live">Live</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">missionpossiblehoovesandpaws.com</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="Mission Possible Hooves &amp; Paws desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="Mission Possible Hooves &amp; Paws desktop screenshots">
             <div class="ph"><span class="ph__name">Mission Possible Hooves &amp; Paws</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/mission-possible-desktop.webp" alt="Mission Possible Hooves &amp; Paws desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/mission-possible-desktop-1.webp" alt="Mission Possible Hooves &amp; Paws: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/mission-possible-desktop-2.webp" alt="Mission Possible Hooves &amp; Paws: The two partner organizations, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/mission-possible-desktop-3.webp" alt="Mission Possible Hooves &amp; Paws: Upcoming events, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/mission-possible-desktop-4.webp" alt="Mission Possible Hooves &amp; Paws: Contact and location, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/mission-possible-desktop-5.webp" alt="Mission Possible Hooves &amp; Paws: Admin dashboard, names redacted, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 5</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
             <div class="phone__screen shot" tabindex="0" aria-label="Mission Possible Hooves &amp; Paws mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">Mission Possible Hooves &amp; Paws</span><span class="ph__note">Mobile screenshot coming</span></div>
-              <div class="phone__slide" style="--fill:#e7d6c6"><img src="images/portfolio/mission-possible-mobile-1.webp" alt="Mission Possible Hooves &amp; Paws: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#fefdfb"><img src="images/portfolio/mission-possible-mobile-2.webp" alt="Mission Possible Hooves &amp; Paws: Events page, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#0b1325"><img src="images/portfolio/mission-possible-mobile-3.webp" alt="Mission Possible Hooves &amp; Paws: Registration flow, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#fefdfb"><img src="images/portfolio/mission-possible-mobile-4.webp" alt="Mission Possible Hooves &amp; Paws: Backend admin view, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" style="--fill:#e7d6c6;--fill2:#e7d6c6"><img src="images/portfolio/mission-possible-mobile-1.webp" alt="Mission Possible Hooves &amp; Paws: Homepage, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#fefdfb;--fill2:#fefdfb"><img src="images/portfolio/mission-possible-mobile-2.webp" alt="Mission Possible Hooves &amp; Paws: Events page, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#0b1325;--fill2:#080b15"><img src="images/portfolio/mission-possible-mobile-3.webp" alt="Mission Possible Hooves &amp; Paws: Registration flow, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#fefdfb;--fill2:#fefdfb"><img src="images/portfolio/mission-possible-mobile-4.webp" alt="Mission Possible Hooves &amp; Paws: Backend admin view, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
             <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
@@ -116,24 +123,31 @@
         <span class="badge badge--live">Live</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">guardian4heroes.org</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="Guardian 4 Heroes desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="Guardian 4 Heroes desktop screenshots">
             <div class="ph"><span class="ph__name">Guardian 4 Heroes</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/guardian-4-heroes-desktop.webp" alt="Guardian 4 Heroes desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/guardian-4-heroes-desktop-1.webp" alt="Guardian 4 Heroes: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/guardian-4-heroes-desktop-2.webp" alt="Guardian 4 Heroes: Mission Possible event feature, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/guardian-4-heroes-desktop-3.webp" alt="Guardian 4 Heroes: Shop, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/guardian-4-heroes-desktop-4.webp" alt="Guardian 4 Heroes: About: meet the horses, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/guardian-4-heroes-desktop-5.webp" alt="Guardian 4 Heroes: Donation page, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 5</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
             <div class="phone__screen shot" tabindex="0" aria-label="Guardian 4 Heroes mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">Guardian 4 Heroes</span><span class="ph__note">Mobile screenshot coming</span></div>
-              <div class="phone__slide" style="--fill:#321b03"><img src="images/portfolio/guardian-4-heroes-mobile-1.webp" alt="Guardian 4 Heroes: Landing cover, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#212736"><img src="images/portfolio/guardian-4-heroes-mobile-2.webp" alt="Guardian 4 Heroes: Mud Run event, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#e9dfc9"><img src="images/portfolio/guardian-4-heroes-mobile-3.webp" alt="Guardian 4 Heroes: Donation amounts, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#f4eddf"><img src="images/portfolio/guardian-4-heroes-mobile-4.webp" alt="Guardian 4 Heroes: Schedule a session, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#f4eddf"><img src="images/portfolio/guardian-4-heroes-mobile-5.webp" alt="Guardian 4 Heroes: Shop: Nelly Bell, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#faf4e9"><img src="images/portfolio/guardian-4-heroes-mobile-6.webp" alt="Guardian 4 Heroes: Contact form, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" style="--fill:#321b03;--fill2:#160e09"><img src="images/portfolio/guardian-4-heroes-mobile-1.webp" alt="Guardian 4 Heroes: Landing cover, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#212736;--fill2:#10121b"><img src="images/portfolio/guardian-4-heroes-mobile-2.webp" alt="Guardian 4 Heroes: Mud Run event, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#e9dfc9;--fill2:#e9dfc9"><img src="images/portfolio/guardian-4-heroes-mobile-3.webp" alt="Guardian 4 Heroes: Donation amounts, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#f4eddf;--fill2:#f4eddf"><img src="images/portfolio/guardian-4-heroes-mobile-4.webp" alt="Guardian 4 Heroes: Schedule a session, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#f4eddf;--fill2:#f4eddf"><img src="images/portfolio/guardian-4-heroes-mobile-5.webp" alt="Guardian 4 Heroes: Shop: Nelly Bell, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#faf4e9;--fill2:#faf4e9"><img src="images/portfolio/guardian-4-heroes-mobile-6.webp" alt="Guardian 4 Heroes: Contact form, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
             <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 6</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
@@ -166,20 +180,29 @@
         <span class="badge badge--progress">In Progress</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">courage-to-claws.vercel.app</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="Courage To Claws desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="Courage To Claws desktop screenshots">
             <div class="ph"><span class="ph__name">Courage To Claws</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/courage-to-claws-desktop.webp" alt="Courage To Claws desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/courage-to-claws-desktop-1.webp" alt="Courage To Claws: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/courage-to-claws-desktop-2.webp" alt="Courage To Claws: About: what we stand for, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/courage-to-claws-desktop-3.webp" alt="Courage To Claws: Multi-step quote request form, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
-            <div class="phone__screen shot is-empty" tabindex="0" aria-label="Courage To Claws mobile screenshots, scrollable">
+            <div class="phone__screen shot" tabindex="0" aria-label="Courage To Claws mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">Courage To Claws</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide phone__slide--short" style="--fill:#3e2c1c;--fill2:#1a1412"><img src="images/portfolio/courage-to-claws-mobile-1.webp" alt="Courage To Claws: Homepage, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#44413c;--fill2:#1c1b1d"><img src="images/portfolio/courage-to-claws-mobile-2.webp" alt="Courage To Claws: What we stand for, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#fefefd;--fill2:#fefefd"><img src="images/portfolio/courage-to-claws-mobile-3.webp" alt="Courage To Claws: Quote request form, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
       </div>
     </div>
@@ -195,14 +218,64 @@
     </div>
   </article>
 
+  <!-- 04 · CHOREFLOW -->
+  <article class="pj" id="choreflow">
+    <span class="pj__ghost" aria-hidden="true">04</span>
+    <div class="pj__media">
+      <div class="pj__head">
+        <div class="view-toggle" role="group" aria-label="ChoreFlow preview size">
+          <button type="button" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-view="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <span class="badge badge--private">Private Tool</span>
+      </div>
+      <div class="device" data-view="desktop">
+        <div class="desk">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">choreflow · private build</span></div>
+          <div class="browser__view shot" tabindex="0" aria-label="ChoreFlow desktop screenshots">
+            <div class="ph"><span class="ph__name">ChoreFlow</span><span class="ph__note">Desktop screenshot coming</span></div>
+            <div class="browser__slide"><img src="images/portfolio/choreflow-desktop-1.webp" alt="ChoreFlow: House chores, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/choreflow-desktop-2.webp" alt="ChoreFlow: Residents, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/choreflow-desktop-3.webp" alt="ChoreFlow: Settings and assignment rules, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+          </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
+        </div>
+        <div class="phone">
+          <div class="phone__body">
+            <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
+            <div class="phone__screen shot" tabindex="0" aria-label="ChoreFlow mobile screenshots, scrollable">
+              <div class="ph"><span class="ph__name">ChoreFlow</span><span class="ph__note">Mobile screenshot coming</span></div>
+              <div class="phone__slide phone__slide--short" style="--fill:#ede5dd;--fill2:#ede5dd"><img src="images/portfolio/choreflow-mobile-1.webp" alt="ChoreFlow: Weekly chore board, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#41151b;--fill2:#1b0c11"><img src="images/portfolio/choreflow-mobile-2.webp" alt="ChoreFlow: Residents, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#3e1318;--fill2:#1a0b10"><img src="images/portfolio/choreflow-mobile-3.webp" alt="ChoreFlow: House chores, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            </div>
+          </div>
+            <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="pj__body">
+      <span class="pj__index">04 / Private Tool</span>
+      <h2 class="pj__title">ChoreFlow</h2>
+      <div class="pj__tags"><span class="pj__tag">Web App</span><span class="pj__tag">React · TypeScript</span><span class="pj__tag">Vite</span><span class="pj__tag">Runs in the Browser</span></div>
+      <p class="pj__desc">A chore assignment app built for a shared house of 14 residents. One button generates a fair weekly schedule, balancing chore difficulty and avoiding repeats, then tracks completion through the week. In use now and kept private.</p>
+      <ul class="notes" aria-label="Build notes">
+          <li class="note"><span class="note__k">A</span><p>Assignment engine balances difficulty, blocks repeat chores, and locks fixed roles in place.</p></li>
+          <li class="note"><span class="note__k">B</span><p>Runs entirely in the browser: no accounts, no server, one-click export for backups.</p></li>
+      </ul>
+    </div>
+  </article>
+
   <div class="pf-divider">
     <span class="pf-divider__label">Demos &amp; Concepts</span>
     <span class="pf-divider__line"></span>
   </div>
 
-  <!-- 04 · EMBER &AMP; OAK CAFE -->
+  <!-- 05 · EMBER &AMP; OAK CAFE -->
   <article class="pj" id="ember-oak">
-    <span class="pj__ghost" aria-hidden="true">04</span>
+    <span class="pj__ghost" aria-hidden="true">05</span>
     <div class="pj__media">
       <div class="pj__head">
         <div class="view-toggle" role="group" aria-label="Ember &amp; Oak Cafe preview size">
@@ -212,22 +285,28 @@
         <span class="badge badge--demo">Demo</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">craigwitac35.github.io/EMBER-OAK-CAFE</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="Ember &amp; Oak Cafe desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="Ember &amp; Oak Cafe desktop screenshots">
             <div class="ph"><span class="ph__name">Ember &amp; Oak Cafe</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/ember-oak-desktop.webp" alt="Ember &amp; Oak Cafe desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/ember-oak-desktop-1.webp" alt="Ember &amp; Oak Cafe: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/ember-oak-desktop-2.webp" alt="Ember &amp; Oak Cafe: Regular favorites, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/ember-oak-desktop-3.webp" alt="Ember &amp; Oak Cafe: Menu, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/ember-oak-desktop-4.webp" alt="Ember &amp; Oak Cafe: Catering packages, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
             <div class="phone__screen shot" tabindex="0" aria-label="Ember &amp; Oak Cafe mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">Ember &amp; Oak Cafe</span><span class="ph__note">Mobile screenshot coming</span></div>
-              <div class="phone__slide" style="--fill:#fcfaf8"><img src="images/portfolio/ember-oak-mobile-1.webp" alt="Ember &amp; Oak Cafe: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#ebe9e7"><img src="images/portfolio/ember-oak-mobile-2.webp" alt="Ember &amp; Oak Cafe: Menu, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#fcfaf8"><img src="images/portfolio/ember-oak-mobile-3.webp" alt="Ember &amp; Oak Cafe: Visit page with map, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#fcfaf8"><img src="images/portfolio/ember-oak-mobile-4.webp" alt="Ember &amp; Oak Cafe: Location, hours, and a review, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" style="--fill:#3f2519;--fill2:#1b1211"><img src="images/portfolio/ember-oak-mobile-1.webp" alt="Ember &amp; Oak Cafe: Homepage, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" hidden style="--fill:#ebe9e7;--fill2:#ebe9e7"><img src="images/portfolio/ember-oak-mobile-2.webp" alt="Ember &amp; Oak Cafe: Menu, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#fcfaf8;--fill2:#fcfaf8"><img src="images/portfolio/ember-oak-mobile-3.webp" alt="Ember &amp; Oak Cafe: Visit page with map, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#fcfaf8;--fill2:#fcfaf8"><img src="images/portfolio/ember-oak-mobile-4.webp" alt="Ember &amp; Oak Cafe: Location, hours, and a review, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
             <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
@@ -235,7 +314,7 @@
       </div>
     </div>
     <div class="pj__body">
-      <span class="pj__index">04 / Demo</span>
+      <span class="pj__index">05 / Demo</span>
       <h2 class="pj__title">Ember &amp; Oak Cafe</h2>
       <div class="pj__tags"><span class="pj__tag">Restaurant</span><span class="pj__tag">Multi-Page</span><span class="pj__tag">Mobile Menu Overlay</span><span class="pj__tag">HTML · CSS · JS</span></div>
       <p class="pj__desc">A dark espresso-themed restaurant site — premium without being pretentious. Full-screen mobile menu overlay, multi-page structure, and a visual identity that feels like the neighborhood cafe it represents.</p>
@@ -247,9 +326,9 @@
     </div>
   </article>
 
-  <!-- 05 · VANGUARD FITNESS -->
+  <!-- 06 · VANGUARD FITNESS -->
   <article class="pj" id="vanguard-fitness">
-    <span class="pj__ghost" aria-hidden="true">05</span>
+    <span class="pj__ghost" aria-hidden="true">06</span>
     <div class="pj__media">
       <div class="pj__head">
         <div class="view-toggle" role="group" aria-label="Vanguard Fitness preview size">
@@ -259,21 +338,27 @@
         <span class="badge badge--demo">Demo</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">web-ops-studio.com/landing-pages/fitness-coach-funnel</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="Vanguard Fitness desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="Vanguard Fitness desktop screenshots">
             <div class="ph"><span class="ph__name">Vanguard Fitness</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/vanguard-fitness-desktop.webp" alt="Vanguard Fitness desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/vanguard-fitness-desktop-1.webp" alt="Vanguard Fitness: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/vanguard-fitness-desktop-2.webp" alt="Vanguard Fitness: Programs, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/vanguard-fitness-desktop-3.webp" alt="Vanguard Fitness: Client results, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/vanguard-fitness-desktop-4.webp" alt="Vanguard Fitness: Coaching application, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
             <div class="phone__screen shot" tabindex="0" aria-label="Vanguard Fitness mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">Vanguard Fitness</span><span class="ph__note">Mobile screenshot coming</span></div>
-              <div class="phone__slide" style="--fill:#1e2a30"><img src="images/portfolio/vanguard-fitness-mobile-1.webp" alt="Vanguard Fitness: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#4a4a4a"><img src="images/portfolio/vanguard-fitness-mobile-2.webp" alt="Vanguard Fitness: Program section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#000000"><img src="images/portfolio/vanguard-fitness-mobile-3.webp" alt="Vanguard Fitness: Call to action, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" style="--fill:#1e2a30;--fill2:#0f1319"><img src="images/portfolio/vanguard-fitness-mobile-1.webp" alt="Vanguard Fitness: Homepage, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#4a4a4a;--fill2:#1e1e22"><img src="images/portfolio/vanguard-fitness-mobile-2.webp" alt="Vanguard Fitness: Program section, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#000000;--fill2:#050508"><img src="images/portfolio/vanguard-fitness-mobile-3.webp" alt="Vanguard Fitness: Call to action, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
             <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
@@ -281,7 +366,7 @@
       </div>
     </div>
     <div class="pj__body">
-      <span class="pj__index">05 / Demo</span>
+      <span class="pj__index">06 / Demo</span>
       <h2 class="pj__title">Vanguard Fitness</h2>
       <div class="pj__tags"><span class="pj__tag">Coach Funnel</span><span class="pj__tag">Lead Generation</span><span class="pj__tag">HTML · CSS</span></div>
       <p class="pj__desc">A fitness coach landing funnel built to convert — bold visual identity, program breakdown, social proof, and a strong call to action for a coach who takes their brand seriously.</p>
@@ -292,9 +377,9 @@
     </div>
   </article>
 
-  <!-- 06 · IRONSHIELD ROOFING -->
+  <!-- 07 · IRONSHIELD ROOFING -->
   <article class="pj" id="ironshield-roofing">
-    <span class="pj__ghost" aria-hidden="true">06</span>
+    <span class="pj__ghost" aria-hidden="true">07</span>
     <div class="pj__media">
       <div class="pj__head">
         <div class="view-toggle" role="group" aria-label="IronShield Roofing preview size">
@@ -304,20 +389,26 @@
         <span class="badge badge--demo">Demo</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">web-ops-studio.com/landing-pages/ironshield-roofing</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="IronShield Roofing desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="IronShield Roofing desktop screenshots">
             <div class="ph"><span class="ph__name">IronShield Roofing</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/ironshield-roofing-desktop.webp" alt="IronShield Roofing desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/ironshield-roofing-desktop-1.webp" alt="IronShield Roofing: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/ironshield-roofing-desktop-2.webp" alt="IronShield Roofing: Inspection to insurance process, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/ironshield-roofing-desktop-3.webp" alt="IronShield Roofing: What you get, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/ironshield-roofing-desktop-4.webp" alt="IronShield Roofing: Free inspection request, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
             <div class="phone__screen shot" tabindex="0" aria-label="IronShield Roofing mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">IronShield Roofing</span><span class="ph__note">Mobile screenshot coming</span></div>
-              <div class="phone__slide" style="--fill:#0a1526"><img src="images/portfolio/ironshield-roofing-mobile-1.webp" alt="IronShield Roofing: Services section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#0f1828"><img src="images/portfolio/ironshield-roofing-mobile-2.webp" alt="IronShield Roofing: Contact section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" style="--fill:#0a1526;--fill2:#080c15"><img src="images/portfolio/ironshield-roofing-mobile-1.webp" alt="IronShield Roofing: Services section, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#0f1828;--fill2:#0a0d16"><img src="images/portfolio/ironshield-roofing-mobile-2.webp" alt="IronShield Roofing: Contact section, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
             <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 2</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
@@ -325,7 +416,7 @@
       </div>
     </div>
     <div class="pj__body">
-      <span class="pj__index">06 / Demo</span>
+      <span class="pj__index">07 / Demo</span>
       <h2 class="pj__title">IronShield Roofing</h2>
       <div class="pj__tags"><span class="pj__tag">Local Contractor</span><span class="pj__tag">Single Page</span><span class="pj__tag">Lead Generation</span></div>
       <p class="pj__desc">A single-page lead generation site for a local roofing contractor. One goal: turn visitors into phone calls. Bold hero, clear services, trust signals, and a single prominent call to action.</p>
@@ -337,9 +428,9 @@
     </div>
   </article>
 
-  <!-- 07 · LAUNCHDECK -->
+  <!-- 08 · LAUNCHDECK -->
   <article class="pj" id="launchdeck">
-    <span class="pj__ghost" aria-hidden="true">07</span>
+    <span class="pj__ghost" aria-hidden="true">08</span>
     <div class="pj__media">
       <div class="pj__head">
         <div class="view-toggle" role="group" aria-label="LaunchDeck preview size">
@@ -349,21 +440,27 @@
         <span class="badge badge--demo">Demo</span>
       </div>
       <div class="device" data-view="desktop">
+        <div class="desk">
         <div class="browser">
           <div class="browser__bar" aria-hidden="true"><span class="browser__dots"><i></i><i></i><i></i></span><span class="browser__url">web-ops-studio.com/landing-pages/saas-beta-waitlist</span></div>
-          <div class="browser__view shot" tabindex="0" aria-label="LaunchDeck desktop screenshot, scrollable">
+          <div class="browser__view shot" tabindex="0" aria-label="LaunchDeck desktop screenshots">
             <div class="ph"><span class="ph__name">LaunchDeck</span><span class="ph__note">Desktop screenshot coming</span></div>
-            <img src="images/portfolio/launchdeck-desktop.webp" alt="LaunchDeck desktop homepage" width="1600" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()">
+            <div class="browser__slide"><img src="images/portfolio/launchdeck-desktop-1.webp" alt="LaunchDeck: Homepage hero, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/launchdeck-desktop-2.webp" alt="LaunchDeck: Features, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/launchdeck-desktop-3.webp" alt="LaunchDeck: Three steps to launch, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+            <div class="browser__slide" hidden><img src="images/portfolio/launchdeck-desktop-4.webp" alt="LaunchDeck: Waitlist sign-up, desktop view" width="1600" height="772" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
           </div>
+        </div>
+        <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 4</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
         </div>
         <div class="phone">
           <div class="phone__body">
             <span class="phone__cam" aria-hidden="true"></span><span class="phone__bar" aria-hidden="true"></span>
             <div class="phone__screen shot" tabindex="0" aria-label="LaunchDeck mobile screenshots, scrollable">
               <div class="ph"><span class="ph__name">LaunchDeck</span><span class="ph__note">Mobile screenshot coming</span></div>
-              <div class="phone__slide" style="--fill:#110d25"><img src="images/portfolio/launchdeck-mobile-1.webp" alt="LaunchDeck: Homepage, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#333640"><img src="images/portfolio/launchdeck-mobile-2.webp" alt="LaunchDeck: Features section, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
-              <div class="phone__slide" hidden style="--fill:#262b36"><img src="images/portfolio/launchdeck-mobile-3.webp" alt="LaunchDeck: Waitlist sign-up, mobile view" width="720" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide phone__slide--short" style="--fill:#110d25;--fill2:#0a0915"><img src="images/portfolio/launchdeck-mobile-1.webp" alt="LaunchDeck: Homepage, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#333640;--fill2:#16171e"><img src="images/portfolio/launchdeck-mobile-2.webp" alt="LaunchDeck: Features section, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
+              <div class="phone__slide" hidden style="--fill:#262b36;--fill2:#12141b"><img src="images/portfolio/launchdeck-mobile-3.webp" alt="LaunchDeck: Waitlist sign-up, mobile view" width="720" loading="lazy" onerror="if(!this.dataset.retry){this.dataset.retry=1;var u=this.src;this.src=u+(u.indexOf('?')<0?'?':'&')+'retry=1';return}this.parentNode.classList.add('is-empty');this.parentNode.dispatchEvent(new Event('shotfail',{bubbles:true}));this.remove()"></div>
             </div>
           </div>
             <div class="phone__nav"><button type="button" class="phone__btn" data-step="-1" aria-label="Previous screen">&larr;</button><span class="phone__count" aria-live="polite"><b>1</b> / 3</span><button type="button" class="phone__btn" data-step="1" aria-label="Next screen">&rarr;</button></div>
@@ -371,7 +468,7 @@
       </div>
     </div>
     <div class="pj__body">
-      <span class="pj__index">07 / Demo</span>
+      <span class="pj__index">08 / Demo</span>
       <h2 class="pj__title">LaunchDeck</h2>
       <div class="pj__tags"><span class="pj__tag">SaaS Waitlist</span><span class="pj__tag">Single Page</span><span class="pj__tag">Email Capture</span></div>
       <p class="pj__desc">A pre-launch waitlist page for a SaaS product. Build anticipation, communicate the product&#x27;s value, and capture early sign-ups before launch. Dark, futuristic, conversion-focused.</p>
@@ -413,6 +510,6 @@
     </div>
   </footer>
 
-  <script src="js/scripts.js"></script>
+  <script src="js/scripts.js?v=6.4"></script>
 </body>
 </html>

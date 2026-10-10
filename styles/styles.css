@@ -1,5 +1,5 @@
 /* ============================================================
-   WEBOPS STUDIO — styles.css v6.2
+   WEBOPS STUDIO — styles.css v6.4
    Veteran-Built Front Ends · No Shortcuts. Only Solutions.
    Stack: HTML5 / CSS3 / Vanilla JS — Zero Frameworks
    ============================================================ */
@@ -510,11 +510,14 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
 .badge--live { background: var(--orange); color: var(--bg); font-weight: 500; }
 .badge--demo { color: var(--steel); border: 1px solid var(--border-strong); }
 .badge--progress { color: var(--orange-lt); border: 1px dashed rgba(232,98,10,.55); }
+.badge--private { color: var(--white-dim); border: 1px solid var(--border-strong); background: var(--surface-2); }
 
 /* Device stage: one of two frames shows at a time */
 .device { position: relative; }
 .device[data-view="desktop"] .phone,
-.device[data-view="mobile"] .browser { display: none; }
+.device[data-view="mobile"] .desk { display: none; }
+.desk { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+.desk .browser { width: 100%; }
 .browser, .phone { animation: devIn .35s var(--ease); }
 @keyframes devIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
@@ -530,7 +533,8 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
   background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.3rem 0.7rem;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.browser__view { aspect-ratio: 16 / 10; }
+.browser__view { aspect-ratio: 1600 / 772; }
+.browser__slide[hidden] { display: none; }
 
 /* Scrollable screenshot viewport (desktop and phone) with placeholder underneath */
 .shot { position: relative; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; background: var(--surface-1); scrollbar-width: thin; scrollbar-color: var(--surface-3) transparent; }
@@ -571,10 +575,12 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
 }
 /* Gesture bar on the bottom bezel */
 .phone__bar { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); width: 64px; height: 3px; border-radius: 3px; background: rgba(244,240,232,.18); }
-.phone__screen { aspect-ratio: 9 / 18; border-radius: 22px; }
+.phone__screen { aspect-ratio: 9 / 17; border-radius: 22px; }
 /* Each slide fills the screen; short screenshots extend with their own bottom-edge color */
 .phone__slide { min-height: 100%; background: var(--fill, #000); }
-.phone__slide img { -webkit-mask-image: linear-gradient(#000 calc(100% - 36px), transparent); mask-image: linear-gradient(#000 calc(100% - 36px), transparent); }
+/* Short screenshots: soft fade into the sampled edge color, which (for dark shots) eases toward the page background */
+.phone__slide--short { background: linear-gradient(var(--fill, #000) 70%, var(--fill2, var(--fill, #000))); }
+.phone__slide--short img { -webkit-mask-image: linear-gradient(#000 calc(100% - 36px), transparent); mask-image: linear-gradient(#000 calc(100% - 36px), transparent); }
 .phone__slide[hidden] { display: none; }
 .phone__nav { display: flex; align-items: center; gap: 1rem; }
 .phone__btn { width: 38px; height: 38px; border: 1px solid var(--border-mid); border-radius: 50%; color: var(--white-dim); font-size: 1rem; transition: border-color .2s, color .2s; }
@@ -613,7 +619,6 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
 }
 @media (max-width: 560px) {
   .pj__head { flex-wrap: wrap; }
-  .browser__view { aspect-ratio: 4 / 3; }
 }
 
 /* ============================================================
