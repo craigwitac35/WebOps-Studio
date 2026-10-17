@@ -1,5 +1,5 @@
 /* ============================================================
-   WEBOPS STUDIO — styles.css v6.4
+   WEBOPS STUDIO — styles.css v6.5
    Veteran-Built Front Ends · No Shortcuts. Only Solutions.
    Stack: HTML5 / CSS3 / Vanilla JS — Zero Frameworks
    ============================================================ */
@@ -699,10 +699,54 @@ input, textarea, select { font: inherit; color: inherit; background: none; borde
 }
 
 /* ============================================================
+   21b. INTRO — radar sweep (home page only, once per session)
+   Shown only while <html> has .intro-on (set by the inline
+   script in index.html). .intro-hold pauses the hero entrance
+   until the radar hands off. See js/intro.js.
+   ============================================================ */
+.intro { display: none; }
+.intro-on .intro {
+  display: block;
+  position: fixed; inset: 0; z-index: 1000;
+  background: var(--bg);
+  transition: opacity .45s ease;
+  cursor: pointer;
+}
+.intro::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 55% at 50% 48%, rgba(232,98,10,0.12), transparent 70%);
+}
+.intro.is-out { opacity: 0; pointer-events: none; }
+.intro__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.intro__hud {
+  position: absolute; pointer-events: none;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  left: max(16px, env(safe-area-inset-left, 0px));
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: .12em; line-height: 1.7; text-transform: uppercase;
+  color: var(--orange-lt);
+}
+.intro__hud span { display: block; }
+.intro__con { color: var(--white-faint); }
+.intro__skip {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: max(28px, calc(env(safe-area-inset-bottom, 0px) + 20px));
+  font-family: var(--font-body); font-size: 13px; font-weight: 500;
+  color: var(--white-dim); background: rgba(244,240,232,0.06);
+  border: 1px solid var(--border-strong); border-radius: 999px;
+  padding: 11px 20px; min-height: 44px; cursor: pointer;
+}
+.intro__skip:hover { color: var(--white); border-color: var(--orange); }
+.intro__skip:focus-visible { outline: 2px solid var(--orange-lt); outline-offset: 2px; }
+/* hold the hero entrance while the radar runs */
+.intro-hold [class*="hero__"] { animation-play-state: paused; }
+
+/* ============================================================
    22. REDUCED MOTION
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
   [class*="hero__"] { opacity: 1 !important; animation: none !important; }
+  .intro { display: none !important; }
 }

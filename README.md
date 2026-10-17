@@ -31,7 +31,8 @@ WebOps-Studio/
 ├── styles/
 │   └── styles.css        # Main stylesheet
 ├── js/
-│   └── scripts.js        # Main JavaScript file
+│   ├── scripts.js        # Main JavaScript file
+│   └── intro.js          # Home page radar intro (once per session)
 └── images/               # Images, favicon, assets
 ```
 
